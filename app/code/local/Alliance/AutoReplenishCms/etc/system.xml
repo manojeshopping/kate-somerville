@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <katesomerville translate="label">
+            <label>Kate Somerville</label>
+            <sort_order>0</sort_order>
+        </katesomerville>
+    </tabs>
+    <sections>
+        <alliance_autoreplenishcms translate="label" >
+		    <!--Temporary Label name --> 
+            <label>Auto Replenishment CMS Page Setting</label>
+            <tab>katesomerville</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>0</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <autoreplenishcms_section translate="label">
+                    <label>Auto Replenishment Products</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <product_one translate="label">
+                            <label>Product 1 SKU</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </product_one>
+                        <product_two translate="label">
+                            <label>Product 2 SKU</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </product_two>
+                        <product_three translate="label">
+                            <label>Product 3 SKU</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </product_three>						
+                    </fields>
+                </autoreplenishcms_section>
+            </groups>
+        </alliance_autoreplenishcms>
+    </sections>
+</config>

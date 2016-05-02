@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<Alliance_TOA>
+			<version>1.0.0</version>
+		</Alliance_TOA>
+	</modules>
+	
+	<global>
+		<models>
+			<toa>
+				<class>Alliance_TOA_Model</class>
+			</toa>
+		</models>
+		<helpers>
+			<toa>
+				<class>Alliance_TOA_Helper</class>
+			</toa>
+		</helpers>
+		<blocks>
+			<toa>
+				<class>Alliance_TOA_Block</class>
+			</toa>
+		</blocks>
+	</global>
+	
+	<frontend>
+		<layout>
+			<updates>
+				<toa>
+					<file>alliance_toa.xml</file>
+				</toa>
+			</updates>
+		</layout>
+		
+		<events>
+		<checkout_cart_save_after>
+			<observers>
+				<toa_add_gift_item>
+					<type>singleton</type>
+					<class>toa/observer</class>
+					<method>addGiftProduct</method>
+				</toa_add_gift_item>
+			</observers>
+		</checkout_cart_save_after>
+		<sales_quote_remove_item>
+			<observers>
+				<toa_remove_item>
+					<type>singleton</type>
+					<class>toa/observer</class>
+					<method>removeGiftProduct</method>
+				</toa_remove_item>
+			</observers>
+		</sales_quote_remove_item>
+		<sales_quote_collect_totals_after>
+			<observers>
+				<toa_collect_totals_after>
+					<type>singleton</type>
+					<class>toa/observer</class>
+					<method>addGiftProduct</method>
+				</toa_collect_totals_after>
+			</observers>
+		</sales_quote_collect_totals_after>
+		</events>
+	</frontend>
+</config>

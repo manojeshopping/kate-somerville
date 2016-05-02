@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Tealium_Tags>
+          <version>0.3.0</version>
+        </Tealium_Tags>
+    </modules>
+    <global>
+    <helpers>
+      <tealium_tags>
+        <class>Tealium_Tags_Helper</class>
+      </tealium_tags>
+    </helpers>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <tealium_tags>
+                    <file>tealium_tags.xml</file>
+                </tealium_tags>
+            </updates>
+        </layout>
+    </frontend>
+</config> 

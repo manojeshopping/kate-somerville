@@ -1,0 +1,28 @@
+<?php
+
+$helper = Mage::helper('tealium_tags');
+$store = Mage::app()->getStore();
+
+if (!$helper->isEnabled($store)) {
+    return; // not enabled, no javascript inserted
+}
+
+$terms = array();
+
+if( sizeof($this->getTerms()) > 0 ) {
+    foreach ($this->getTerms() as $_term) {
+        $terms[] = $_term->getName();
+    }
+} else {
+    $terms[] = "no-terms";
+}
+
+
+$tealium = $helper->getTealiumObject($store, $this);
+$tealium->pageType("Search");
+$tealium->updateUdo("page_type", "popular search terms");
+$tealium->updateUdo("page_name", $this->getLayout()->getBlock('head')->getTitle());
+$tealium->updateUdo("search_keyword", implode('","', $terms));
+echo $tealium->render("udo");
+echo $helper->getDiagnosticTag($store);
+?>

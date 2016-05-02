@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+  <config>
+     <modules>
+        <Alliance_ReviewsFeed>
+          <version>1.0.0</version>
+        </Alliance_ReviewsFeed>
+     </modules>
+     <frontend>
+       <routers>
+          <reviewsfeed>
+              <use>standard</use>
+              <args>
+                 <module>Alliance_ReviewsFeed</module>
+                 <frontName>reviewsdqll</frontName>
+              </args>
+           </reviewsfeed>
+       </routers>
+    </frontend>
+</config>

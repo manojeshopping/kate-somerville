@@ -1,0 +1,56 @@
+<?php
+/**
+ * aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This software is designed to work with Magento enterprise edition and
+ * its use on an edition other than specified is prohibited. aheadWorks does not
+ * provide extension support in case of incorrect edition use.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Colorswatches
+ * @version    1.0.3
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ */
+
+class AW_Colorswatches_Model_Swatchattribute extends Mage_Core_Model_Abstract
+{
+    protected $_swatchattribute = null;
+
+    public function _construct()
+    {
+        parent::_construct();
+        $this->_init('awcolorswatches/swatchattribute', 'swatchattribute_id');
+    }
+
+    public function getSwatchattribute()
+    {
+        if (!$this->_swatchattribute) {
+            $attribute = Mage::registry('entity_attribute');
+            if ( /*$attribute->getData('is_configurable') && $attribute->getData('is_visible') && */
+                $attribute->getData('frontend_input') == 'select'
+            ) {
+                $this->_swatchattribute = $this->getCollection()->addFieldToFilter(
+                    'attribute_code', array('eq' => $attribute->getData('attribute_code'))
+                )->getFirstItem();
+            }
+        }
+        return $this->_swatchattribute;
+    }
+
+    public function getSwatchAttributeByAttribute($attribute)
+    {
+        return $this->load($attribute->getAttributeCode(), 'attribute_code');
+    }
+}

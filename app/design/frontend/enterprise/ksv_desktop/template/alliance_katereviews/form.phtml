@@ -1,0 +1,171 @@
+<?php if ($this->isLoggedIn()) { ?>
+    <div id="katereviews-main-form">
+        <div class="page-title"><h1>Write Your Review</h1></div>
+        <p>Review for <?php echo $this->getProductName() ?></p>
+
+        <div class="katereviews-left">
+            <div class="review-image"><img src="<?php echo $this->getProductImageUrl(); ?>"></div>
+
+            <div class="review-tips">
+                <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('review_tips')->toHtml(); ?>
+            </div>
+
+            <?php // echo Mage::getUrl('katereviews/guidelines'); ?>
+
+        </div>
+
+        <form id="kateReviewForm" action="<?php echo Mage::getUrl('katereviews/write/preview'); ?>" method="POST">
+            <input style="display: none;" autofocus>
+            <input type="hidden" name="review-product-id" value="<?php echo $this->getProductId() ?>">
+            <input type="hidden" name="review-customer-id" value="<?php echo $this->getCustomerId() ?>">
+
+            <label for="review-stars">* How do you rate this product?</label>
+            <select id="review-stars" name="review-stars" class="required-entry">
+                <option value=""><?php echo $this->__('Please Select') ?></option>
+                <option value="5" <?php if (@$this->postData['review-stars'] == 5) echo 'selected="selected"'; ?>>5 stars</option>
+                <option value="4" <?php if (@$this->postData['review-stars'] == 4) echo 'selected="selected"'; ?>>4 stars</option>
+                <option value="3" <?php if (@$this->postData['review-stars'] == 3) echo 'selected="selected"'; ?>>3 stars</option>
+                <option value="2" <?php if (@$this->postData['review-stars'] == 2) echo 'selected="selected"'; ?>>2 stars</option>
+                <option value="1" <?php if (@$this->postData['review-stars'] == 1) echo 'selected="selected"'; ?>>1 stars</option>
+            </select>
+
+            <label for="review-recommended">* Would you recommend this item to a friend?</label>
+            <select id="review-recommended" name="review-recommended" class="required-entry">
+                <option value=""><?php echo $this->__('Please Select') ?></option>
+                <option value="Yes" <?php if (@$this->postData['review-recommended'] == 'Yes') echo 'selected="selected"'; ?>>Yes</option>
+                <option value="No" <?php if (@$this->postData['review-recommended'] == 'No') echo 'selected="selected"'; ?>>No</option>
+            </select>
+
+            <label for="review-headline">Review Headline</label>
+            <input type="text" id="review-headline" name="review-headline"
+                   value="<?php echo htmlentities(@$this->postData['review-headline'], ENT_QUOTES, 'UTF-8'); ?>">
+
+            <label for="review-comments">Write your review here</label>
+            <textarea id="review-comments" name="review-comments"><?php echo htmlspecialchars(@@$this->postData['review-comments'], ENT_QUOTES); ?></textarea>
+
+            <br/><br/><br/>
+
+            <h1>Tell Us About Yourself</h1>
+
+            <label for="review-purchase-location">Where did you buy this item?</label>
+            <select id="review-purchase-location" name="review-purchase-location">
+                <option value=""><?php echo $this->__('Please Select') ?></option>
+                <option
+                    value="Katesomerville.com" <?php if (@$this->postData['review-purchase-location'] == "Katesomerville.com") echo 'selected="selected"'; ?>>
+                    Katesomerville.com
+                </option>
+                <option
+                    value="Skin Health Experts Clinic" <?php if (@$this->postData['review-purchase-location'] == "Skin Health Experts Clinic") echo 'selected="selected"'; ?>>
+                    Skin Health Experts Clinic
+                </option>
+                <option value="Bergdorf Goodman" <?php if (@$this->postData['review-purchase-location'] == "Bergdorf Goodman") echo 'selected="selected"'; ?>>
+                    Bergdorf Goodman
+                </option>
+                <option value="Neiman Marcus" <?php if (@$this->postData['review-purchase-location'] == "Neiman Marcus") echo 'selected="selected"'; ?>>Neiman
+                    Marcus
+                </option>
+                <option value="Nordstrom" <?php if (@$this->postData['review-purchase-location'] == "Nordstrom") echo 'selected="selected"'; ?>>Nordstrom
+                </option>
+                <option value="Sephora" <?php if (@$this->postData['review-purchase-location'] == "Sephora") echo 'selected="selected"'; ?>>Sephora</option>
+                <option value="QVC" <?php if (@$this->postData['review-purchase-location'] == "QVC") echo 'selected="selected"'; ?>>QVC</option>
+                <option value="Other" <?php if (@$this->postData['review-purchase-location'] == "Other") echo 'selected="selected"'; ?>>Other</option>
+            </select>
+
+            <label for="review-skin-concern">What best describes your skin concern?</label>
+            <select id="review-skin-concern" name="review-skin-concern">
+                <option value=""><?php echo $this->__('Please Select') ?></option>
+                <option value="Acne" <?php if (@$this->postData['review-skin-concern'] == "Acne") echo 'selected="selected"'; ?>>Acne</option>
+                <option value="Anti-Aging" <?php if (@$this->postData['review-skin-concern'] == "Anti-Aging") echo 'selected="selected"'; ?>>Anti-Aging</option>
+                <option value="Anti-Aging &amp; Acne" <?php if (@$this->postData['review-skin-concern'] == "Anti-Aging & Acne") echo 'selected="selected"'; ?>>
+                    Anti-Aging &amp; Acne
+                </option>
+                <option value="Sensitive" <?php if (@$this->postData['review-skin-concern'] == "Sensitive") echo 'selected="selected"'; ?>>Sensitive</option>
+                <option value="Discoloration" <?php if (@$this->postData['review-skin-concern'] == "Discoloration") echo 'selected="selected"'; ?>>
+                    Discoloration
+                </option>
+                <option value="Dry" <?php if (@$this->postData['review-skin-concern'] == "Dry") echo 'selected="selected"'; ?>>Dry</option>
+                <option value="Oily" <?php if (@$this->postData['review-skin-concern'] == "Oily") echo 'selected="selected"'; ?>>Oily</option>
+            </select>
+
+            <label for="review-age-range">Age Range</label>
+            <select id="review-age-range" name="review-age-range">
+                <option value=""><?php echo $this->__('Please Select') ?></option>
+                <option value="18 - 24" <?php if (@$this->postData['review-age-range'] == "18 - 24") echo 'selected="selected"'; ?>>18 - 24</option>
+                <option value="25 - 34" <?php if (@$this->postData['review-age-range'] == "25 - 34") echo 'selected="selected"'; ?>>25 - 34</option>
+                <option value="35 - 44" <?php if (@$this->postData['review-age-range'] == "35 - 44") echo 'selected="selected"'; ?>>35 - 44</option>
+                <option value="45 - 54" <?php if (@$this->postData['review-age-range'] == "45 - 54") echo 'selected="selected"'; ?>>45 - 54</option>
+                <option value="over 54" <?php if (@$this->postData['review-age-range'] == "over 54") echo 'selected="selected"'; ?>>over 54</option>
+            </select>
+
+            <label for="review-long-owned">How long have you owned this product?</label>
+            <select id="review-long-owned" name="review-long-owned">
+                <option value=""><?php echo $this->__('Please Select') ?></option>
+                <option value="Less than 1 week" <?php if (@$this->postData['review-long-owned'] == "Less than 1 week") echo 'selected="selected"'; ?>>Less than
+                    1 week
+                </option>
+                <option value="1 - 4 weeks" <?php if (@$this->postData['review-long-owned'] == "1 - 4 weeks") echo 'selected="selected"'; ?>>1 - 4 weeks</option>
+                <option value="1 - 3 months" <?php if (@$this->postData['review-long-owned'] == "1 - 3 months") echo 'selected="selected"'; ?>>1 - 3 months
+                </option>
+                <option value="3 - 6 months" <?php if (@$this->postData['review-long-owned'] == "3 - 6 months") echo 'selected="selected"'; ?>>3 - 6 months
+                </option>
+                <option value="6 - 12 months" <?php if (@$this->postData['review-long-owned'] == "6 - 12 months") echo 'selected="selected"'; ?>>6 - 12 months
+                </option>
+                <option value="over 1 year" <?php if (@$this->postData['review-long-owned'] == "over 1 year") echo 'selected="selected"'; ?>>over 1 year</option>
+            </select>
+
+            <label for="review-how-often">How often do you use this product?</label>
+            <select id="review-how-often" name="review-how-often">
+                <option value=""><?php echo $this->__('Please Select') ?></option>
+                <option value="Daily" <?php if (@$this->postData['review-how-often'] == "Daily") echo 'selected="selected"'; ?>>Daily</option>
+                <option value="Once a week" <?php if (@$this->postData['review-how-often'] == "Once a week") echo 'selected="selected"'; ?>>Once a week</option>
+                <option value="A few times a month" <?php if (@$this->postData['review-how-often'] == "A few times a month") echo 'selected="selected"'; ?>>A few
+                    times a month
+                </option>
+                <option value="Once a month" <?php if (@$this->postData['review-how-often'] == "Once a month") echo 'selected="selected"'; ?>>Once a month
+                </option>
+                <option value="A few times a year" <?php if (@$this->postData['review-how-often'] == "A few times a year") echo 'selected="selected"'; ?>>A few
+                    times a year
+                </option>
+                <option value="Once a year" <?php if (@$this->postData['review-how-often'] == "Once a year") echo 'selected="selected"'; ?>>Once a year</option>
+                <option value="Never" <?php if (@$this->postData['review-how-often'] == "Never") echo 'selected="selected"'; ?>>Never</option>
+            </select>
+
+            <label for="review-rewards-member">Are you an Ultimate Kate Rewards member?</label>
+            <select id="review-rewards-member" name="review-rewards-member">
+                <option value=""><?php echo $this->__('Please Select') ?></option>
+                <option value="Yes" <?php if (@$this->postData['review-rewards-member'] == "Yes") echo 'selected="selected"'; ?>>Yes</option>
+                <option value="No" <?php if (@$this->postData['review-rewards-member'] == "No") echo 'selected="selected"'; ?>>No</option>
+            </select>
+
+            <label for="review-city-state">Enter your city and state</label>
+            <input type="text" id="review-city-state" name="review-city-state" value="<?php echo @$this->postData['review-city-state']; ?>">
+
+            <?php if (Mage::helper('alliance_katereviews')->getConfigEnableCustomerNotification()) { ?>
+                <label for="review-notify">Would you like to be notified by email when your review is posted?</label>
+                <select id="review-notify" name="review-notify">
+                    <option value=""><?php echo $this->__('Please Select') ?></option>
+                    <option value="Yes" <?php if (@$this->postData['review-notify'] == "Yes") echo 'selected="selected"'; ?>>Yes</option>
+                    <option value="No" <?php if (@$this->postData['review-notify'] == "No") echo 'selected="selected"'; ?>>No</option>
+                </select>
+            <?php } ?>
+
+            <br/><br/>
+            <button type="submit" value="Preview" title="Preview" class="button btn-preview"><span><span>Preview</span></span></button>
+
+        </form>
+
+        <script type="text/javascript">
+            //<![CDATA[
+            var kateReviewForm = new VarienForm('kateReviewForm', true);
+            //]]>
+        </script>
+    </div>
+<?php } else { ?>
+    <div id="katereviews-must-login">
+        <div class="page-title"><h1>Must Be Logged In</h1></div>
+        <?php echo Mage::helper('alliance_katereviews')->__('Only registered users can write reviews. Please, '); ?>
+        <a href="<?php echo Mage::helper('customer')->getLoginUrl(); ?>"><?php echo Mage::helper('alliance_katereviews')->__('log in'); ?></a>
+        <?php echo Mage::helper('alliance_katereviews')->__('or '); ?>
+        <a href="<?php echo Mage::helper('customer')->getRegisterUrl(); ?>"><?php echo Mage::helper('alliance_katereviews')->__('register'); ?></a>.
+    </div>
+<?php } ?>

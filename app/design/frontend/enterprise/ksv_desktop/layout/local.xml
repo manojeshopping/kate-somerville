@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+ 
+    <!-- ############# GLOBAL LAYOUT UPDATES ############# -->
+ 
+    <default>
+     
+        <!-- Remove unwanted blocks entirely -->
+        <remove name="right.poll"/>
+        <remove name="right.permanent.callout"/>
+        <remove name="paypal.partner.right.logo"/>
+        <remove name="tags_popular"/>
+        <remove name="catalog.compare.sidebar"/> 
+        <remove name="sale.reorder.sidebar" />
+        
+        <reference name="right">
+	        <remove name="right.reports.product.viewed" />
+			<action method="unsetChild"><name>wishlist</name></action>
+        </reference>
+ 
+        <!-- Default Head -->        
+        <reference name="head">		
+			
+            <!-- Add custom stylesheets -->
+            <action method="addCss">
+				<stylesheet>css/styles.css</stylesheet>
+				<sort_order>20</sort_order>
+			</action>
+            <action method="addCss">
+                <stylesheet>css/global.css</stylesheet>
+                <sort_order>30</sort_order>
+            </action>
+            <action method="addCss">
+                <stylesheet>css/category-grid.css</stylesheet>
+                <sort_order>40</sort_order>
+            </action>  
+            <action method="addCss">
+                <stylesheet>css/product-detail.css</stylesheet>
+                <sort_order>50</sort_order>
+            </action>
+            <action method="addCss">
+                <stylesheet>css/product-reviews.css</stylesheet>
+                <sort_order>60</sort_order>
+            </action>
+            <action method="addCss">
+                <stylesheet>css/q-and-a.css</stylesheet>
+                <sort_order>70</sort_order>
+            </action>
+            <action method="addCss">
+                <stylesheet>css/shopping-cart.css</stylesheet>
+                <sort_order>80</sort_order>
+            </action>           
+            <action method="addCss">
+                <stylesheet>css/one-step-checkout.css</stylesheet>
+                <sort_order>90</sort_order>
+            </action>  
+            <action method="addCss">
+                <stylesheet>css/home.css</stylesheet>
+                <sort_order>100</sort_order>
+            </action> 
+            <action method="addCss">
+                <stylesheet>css/cms-pages.css</stylesheet>
+                <sort_order>110</sort_order>
+            </action>
+            <action method="addCss">
+                <stylesheet>css/account-pages.css</stylesheet>
+                <sort_order>120</sort_order>
+            </action>
+            <action method="addCss">
+                <stylesheet>css/search-results.css</stylesheet>
+                <sort_order>130</sort_order>
+            </action>
+            <!-- action method="addCss">
+                <stylesheet>css/product-quick-view.css</stylesheet>
+                <sort_order>140</sort_order>
+            </action-->  
+            <action method="addCss">
+                <stylesheet>css/quiz.css</stylesheet>
+                <sort_order>150</sort_order>
+            </action>          
+            <action method="addCss">
+                <stylesheet>css/skin-library.css</stylesheet>
+                <sort_order>160</sort_order>
+            </action>           
+            <action method="addCss">
+                <stylesheet>css/ukr.css</stylesheet>
+                <sort_order>170</sort_order>
+            </action>  
+            <action method="addCss">
+                <stylesheet>css/region-picker.css</stylesheet>
+                <sort_order>180</sort_order>
+            </action>  
+            <action method="addCss">
+                <stylesheet>css/gift-of-choice.css</stylesheet>
+                <sort_order>190</sort_order>
+            </action>          
+            <action method="addCss">
+                <stylesheet>css/store-locator.css</stylesheet>
+                <sort_order>200</sort_order>
+            </action>          
+            <action method="addCss">
+                <stylesheet>css/email-popup.css</stylesheet>
+                <sort_order>210</sort_order>
+            </action>
+            <action method="addCss">
+                <stylesheet>css/sweepstakes_responsive.css</stylesheet>
+                <sort_order>220</sort_order>
+            </action>                         
+            <!-- For fancy select dropdowns -->
+            <action method="addCss">
+                <stylesheet>css/select2.css</stylesheet>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/select2.js</name>	
+                <params/>
+            </action>                                
+             
+            <!-- Add custom javascript -->
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/custom.js</name>
+                <params/>
+            </action>
+            
+            <!-- Share this -->
+            <block type="core/text" name="share_this">
+            <action method="setText">
+                <text>
+                	<![CDATA[
+                		<script type="text/javascript" src="//w.sharethis.com/button/buttons.js"></script>
+                		<script type="text/javascript">stLight.options({publisher: "55af799e-a9a1-4840-83ba-af5834162c98", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+					]]>
+                </text>
+            </action>
+			</block>                       
+        </reference>
+         
+        <!-- Default Header -->
+        <reference name="top.links">
+            <action method="addLink" translate="label title"><label>Ultimate Kate Rewards</label>
+			<url>/rewards-program</url> 
+<title>Ultimate Kate Rewards</title><prepare/><urlParams/><position>1</position></action>
+        </reference>
+		
+        <reference name="header">
+        
+        </reference>
+         
+        <!-- Default Footer -->
+         
+        <reference name="footer">
+        	<remove name="footer_links"/>
+        	<remove name="store_switcher"/>
+        </reference>
+         
+        <!-- Default Root -->       
+         
+        <reference name="root">
+        </reference>
+         
+        <!-- Default Left Column -->
+     
+        <!-- 
+	    <reference name="left">
+			<block type="cms/block" name="left.permanent.callout">
+				<action method="setBlockId"><block_id>col-left-banner</block_id></action>
+			</block>
+		</reference> 
+		-->
+     
+        <!-- Default Right Column -->
+     
+        <reference name="right">
+        </reference>
+         
+        <!-- When Customer is Logged out -->
+        <customer_logged_out>
+            <reference name="top.links">
+                <action method="removeLinkByUrl"><url helper="customer/getLoginUrl"/></action>
+            </reference>
+        </customer_logged_out>
+         
+        <!-- When Customer is Logged in -->
+        <customer_logged_in>
+            <reference name="top.links">
+                <action method="removeLinkByUrl"><url helper="customer/getLogoutUrl"/></action>
+            </reference>
+        </customer_logged_in>
+         
+    </default>    
+     
+    <!-- ############# MODULE-SPECIFIC LAYOUT UPDATES ############# -->
+	 
+	
+	<!-- ############# This section depends on the modules Ajaxcart and OneStepCheckout to work. ############# -->
+    <checkout_cart_index>
+		<reference name="head">
+			<action method="addItem"><type>skin_js</type><name>onestepcheckout/js/window.js</name></action>
+            <action method="addItem"><type>skin_js</type><name>onestepcheckout/js/onestepcheckout-cart.js</name></action>
+            <action method="addCss"><stylesheet>onestepcheckout/onestepcheckout.css</stylesheet><sort_order>0</sort_order></action>
+		</reference>
+        <reference name="before_body_end">
+            <block type="core/template" template="alliance_ajaxcart/login_popup.phtml" name="login-popup" />
+        </reference>
+    </checkout_cart_index>
+	<!-- ############# This section depends on the modules Ajaxcart and OneStepCheckout to work. ############# -->
+</layout>

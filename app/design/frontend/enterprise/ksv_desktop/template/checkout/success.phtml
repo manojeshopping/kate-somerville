@@ -1,0 +1,129 @@
+<?php
+/**
+ * Magento Enterprise Edition
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magento Enterprise Edition License
+ * that is bundled with this package in the file LICENSE_EE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magentocommerce.com/license/enterprise-edition
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://www.magentocommerce.com/license/enterprise-edition
+ */
+?>
+<div class="page-title">
+    <h1><?php echo $this->__('Your order has been received.') ?></h1>
+</div>
+<div class="confirmation-page-container">
+<div class="successful-left">
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<h2 class="sub-title"><?php echo $this->__('Thank you for your purchase!') ?></h2>
+
+<?php if ($this->getOrderId()):?>
+<?php if ($this->getCanViewOrder()) :?>
+    <p><?php echo $this->__('Your order # is: %s.', sprintf('<a href="%s">%s</a>', $this->escapeHtml($this->getViewOrderUrl()), $this->escapeHtml($this->getOrderId()))) ?></p>
+<?php  else :?>
+    <p><?php echo $this->__('Your order # is: %s.', $this->escapeHtml($this->getOrderId())) ?></p>
+<?php endif;?>
+    <p><?php echo $this->__('You will receive an order confirmation email with details of your order and a link to track its progress.') ?></p>
+<?php if ($this->getCanViewOrder() && $this->getCanPrintOrder()) :?>
+    <p>
+        <?php echo $this->__('Click <a href="%s" onclick="this.target=\'_blank\'">here to print</a> a copy of your order confirmation.', $this->getPrintUrl()) ?>
+        <?php echo $this->getChildHtml() ?>
+    </p>
+<?php endif;?>
+<?php endif;?>
+
+<?php if ($this->getAgreementRefId()): ?>
+    <p><?php echo $this->__('Your billing agreement # is: %s.', sprintf('<a href="%s">%s</a>', $this->escapeHtml($this->getAgreementUrl()), $this->escapeHtml($this->getAgreementRefId())))?></p>
+<?php endif;?>
+
+<?php if ($profiles = $this->getRecurringProfiles()):?>
+<p><?php echo $this->__('Your recurring payment profiles:'); ?></p>
+<ul class="disc">
+<?php foreach($profiles as $profile):?>
+<?php $profileIdHtml = ($this->getCanViewProfiles() ? sprintf('<a href="%s">%s</a>', $this->escapeHtml($this->getProfileUrl($profile)), $this->escapeHtml($this->getObjectData($profile, 'reference_id'))) : $this->escapeHtml($this->getObjectData($profile, 'reference_id')));?>
+    <li><?php echo $this->__('Payment profile # %s: "%s".', $profileIdHtml, $this->escapeHtml($this->getObjectData($profile, 'schedule_description')))?></li>
+<?php endforeach;?>
+</ul>
+<?php endif;?>
+
+<div class="buttons-set">
+    <button type="button" class="button" title="<?php echo $this->__('Continue Shopping') ?>" onclick="window.location='<?php echo $this->getUrl() ?>'"><span><span><?php echo $this->__('Continue Shopping') ?></span></span></button>
+</div>
+</div>
+</div>
+<?php echo $this->getLayout()->createBlock('alliance_fivehundredfriends/checkout_postPurchase')->toHtml();?>
+
+	<?php //Ordergroove Container  Module conf_msg non-cart ?>
+		<div class="og-offer" data-og-module="conf_msg"></div>
+	<?php //Ordergroove Container  Module conf_msg non-cart ?>
+
+			<?php /*  $order = Mage::getModel('sales/order')->loadByIncrementId($this->getOrderId());
+			foreach ($order->getAllItems() as $item):  ?>
+				<div class="og-offer" data-og-module="conf" data-og-product="<?php echo $item->getId(); ?>"></div>	 
+			<?php endforeach; */ ?>
+
+<?php //Ordergroove  Script Tags ?>
+<script type="text/javascript">
+	og_settings = {
+		page_type: "4",
+		/*default_frequency: {
+			<?php 
+				$order = Mage::getModel('sales/order')->loadByIncrementId($this->getOrderId());
+					foreach ($order->getAllItems() as $item) { ?> 
+                        "<?php echo $item->getId(); ?>" : "2_3",
+			<?php }  ?>
+		},
+		cart: {
+			products: [
+				<?php 
+					$order = Mage::getModel('sales/order')->loadByIncrementId($this->getOrderId());
+						foreach ($order->getAllItems() as $item) { 
+				?>
+					{
+						id:        "<?php echo $item->getId(); ?>",
+						quantity:   <?php echo $item->getQtyOrdered();  ?>,
+						unit_price: <?php echo $item->getProduct()->getPrice(); ?>,
+						total_price: <?php echo $item->getQtyOrdered() * $item->getProduct()->getPrice();  ?>,
+					}
+						<?php } ?>
+			]
+			
+			subtotal:       <?php echo $order->getSubtotal();  ?>,
+			shipping_total: <?php echo $order->getShippingAmount(); ?>,
+			tax_total:      <?php echo $order->getTaxAmount(); ?>,
+			order_total:    <?php echo $order->getGrandTotal(); ?>,
+			
+		}*/
+	}
+</script>
+
+<!-- Ordergroove products. -->
+<?php 
+$order = Mage::getModel('sales/order')->loadByIncrementId($this->getOrderId());
+foreach ($order->getAllItems() as $item) {
+	if($item->getProductType() == 'configurable') continue;
+?>
+<div data-og-module="conf" data-og-product="<?php echo $item->getProductId();?>"></div>
+<?php }?>
+
+<?php 
+$storeCode = Mage::app()->getStore()->getCode();
+if( $storeCode  != 'uk_store'  && $storeCode  != 'ca_store'  ): ?>
+<?php //Ordergroove  main.js ?>
+<script type="text/javascript" src="<?php echo Mage::helper('ordergroove/config')->getPageTaggingUrl(); ?><?php echo Mage::helper('ordergroove/config')->getMerchantId(); ?>/main.js"></script>
+<?php endif; ?>	

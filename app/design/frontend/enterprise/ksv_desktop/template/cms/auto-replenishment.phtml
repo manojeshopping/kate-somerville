@@ -1,0 +1,216 @@
+<?php 
+$storeCode = Mage::app()->getStore()->getCode();
+if( $storeCode  != 'uk_store'  && $storeCode  != 'ca_store'  ): ?>
+<?php 
+	$Sku1 = Mage::getStoreConfig('alliance_autoreplenishcms/autoreplenishcms_section/product_one'); 
+	$Sku2 = Mage::getStoreConfig('alliance_autoreplenishcms/autoreplenishcms_section/product_two'); 
+	$Sku3 = Mage::getStoreConfig('alliance_autoreplenishcms/autoreplenishcms_section/product_three'); 
+	$id1 = Mage::getModel('catalog/product')->getIdBySku(trim($Sku1));
+	$id2 = Mage::getModel('catalog/product')->getIdBySku(trim($Sku2));
+	$id3 = Mage::getModel('catalog/product')->getIdBySku(trim($Sku3));
+	$_product1 = Mage::getModel('catalog/product')->load($id1);
+	$_product2 = Mage::getModel('catalog/product')->load($id2);
+	$_product3 = Mage::getModel('catalog/product')->load($id3);
+?>
+<div class="top">
+	<img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN)."frontend/enterprise/ksv_desktop/images/auto-replenishment/product-image.png"; ?>" label="product">
+	<a class="button" href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB); ?>">SHOP NOW ></a>
+	<a class="link" href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB)."auto-delivery-faq/"; ?>">Learn more, read FAQs here.</a>
+</div>
+<div class="middle">
+	<div class="col subscrible">
+		<div class="head">subscribe</div>
+		<div>
+			<p>Ship your favorite Kate Somerville</p>
+			<p>products automatically at a</p>
+			<p><strong>frequency of you choice!</strong></p>
+		</div>
+	</div>
+	<div class="col points">
+		<div style="font-size:26px;" class="head">Earn Double Points</div>
+		<div>
+			<p>Rewards members receive</p>
+			<p><strong>double points</strong> on all future</p> 
+			<p>subscription orders.</p>
+		</div>		
+	</div>
+	<div class="col rewards">
+		<div class="head">Start saving</div>
+		<div>
+			<p><strong>Save 10%</strong> plus receive a free</p>
+			<p>deluxe sample on all future</p>
+			<p>subscription orders.</p>
+		</div>		
+	</div>
+
+	<div class="page-title category-title">
+		<h1>Auto-Delivery Favorites</h1>
+	</div>
+	<?php if($id1): ?>
+	<div class="col2">							
+		<a href="<?php echo $_product1->getProductUrl() ?>" title="<?php echo $this->stripTags($_product1->getName(), null, true) ?>"><img src="<?php echo $this->helper('catalog/image')->init($_product1, 'small_image')->resize(300); ?>" width="300" height="300" alt="<?php echo $this->stripTags($this->getImageLabel($_product1, 'small_image'), null, true) ?>"/></a>
+		<div class="product-name-box">
+			<div class="product-name"><a href="<?php echo $_product1->getProductUrl() ?>" title="<?php echo $this->stripTags($_product1->getName(), null, true) ?>"><?php echo $_product1->getData('title'); ?><span><?php echo $_product1->getData('sub_title'); ?></span></a></div>
+			<div class="product-price">
+				<?php
+				if ($_product1->getTypeId() == 'configurable' || $_product1->getTypeId() == 'subscription_configurable'): ?>
+					<?php
+					$var_price = '';
+					$k = 0;
+					$associatedProducts = Mage::getModel('catalog/product_type_configurable')->getUsedProducts(null, $_product1);
+					foreach ($associatedProducts as $pro) {
+						$status = $pro->getStatus();
+						$stock = $pro->getIsInStock();
+						if (($status == 1) && ($stock == 1)) {
+							$var_price[] = $pro->getPrice();
+							$k++;
+						}
+					}
+					sort($var_price);
+					$lower_price = reset($var_price);
+					$higher_price = end($var_price);
+					?>
+					<?php if ($k > 1): ?>
+						<div class="price-box">
+					<span class="regular-price">
+						<span class="price">
+							<?php if ($lower_price !== $higher_price) : ?>
+								<?php echo str_replace(".00","",Mage::helper('core')->currency($lower_price)) . " - " . str_replace(".00","",Mage::helper('core')->currency($higher_price)); ?>
+							<?php else : ?>
+								<?php echo Mage::helper('core')->currency($lower_price); ?>
+							<?php endif ?>
+						</span>                
+					</span>
+						</div>
+					<?php endif; ?>
+
+					<?php if ($k == 0 || $k == 1): ?>
+						<?php  echo $this->getPriceHtml($_product1, true) ?>
+					<?php endif; ?>
+
+				<?php else: ?>
+					<?php  echo $this->getPriceHtml($_product1, true) ?>
+				<?php endif; ?>
+			</div>
+		</div>
+	</div>	
+	<?php endif; ?>
+	<?php if($id2): ?>
+	<div class="col2">							
+		<a href="<?php echo $_product2->getProductUrl() ?>" title="<?php echo $this->stripTags($_product2->getName(), null, true) ?>"><img src="<?php echo $this->helper('catalog/image')->init($_product2, 'small_image')->resize(300); ?>" width="300" height="300" alt="<?php echo $this->stripTags($this->getImageLabel($_product2, 'small_image'), null, true) ?>"/></a>
+		<div class="product-name-box">
+			<div class="product-name"><a href="<?php echo $_product2->getProductUrl() ?>" title="<?php echo $this->stripTags($_product2->getName(), null, true) ?>"><?php echo $_product2->getData('title'); ?><span><?php echo $_product2->getData('sub_title'); ?></span></a></div>
+			<div class="product-price">
+				<?php
+				if ($_product2->getTypeId() == 'configurable' || $_product2->getTypeId() == 'subscription_configurable'): ?>
+					<?php
+					$var_price = '';
+					$k = 0;
+					$associatedProducts = Mage::getModel('catalog/product_type_configurable')->getUsedProducts(null, $_product2);
+					foreach ($associatedProducts as $pro) {
+						$status = $pro->getStatus();
+						$stock = $pro->getIsInStock();
+						if (($status == 1) && ($stock == 1)) {
+							$var_price[] = $pro->getPrice();
+							$k++;
+						}
+					}
+					sort($var_price);
+					$lower_price = reset($var_price);
+					$higher_price = end($var_price);
+					?>
+					<?php if ($k > 1): ?>
+						<div class="price-box">
+					<span class="regular-price">
+						<span class="price">
+							<?php if ($lower_price !== $higher_price) : ?>
+								<?php echo str_replace(".00","",Mage::helper('core')->currency($lower_price)) . " - " . str_replace(".00","",Mage::helper('core')->currency($higher_price)); ?>
+							<?php else : ?>
+								<?php echo Mage::helper('core')->currency($lower_price); ?>
+							<?php endif ?>
+						</span>                
+					</span>
+						</div>
+					<?php endif; ?>
+
+					<?php if ($k == 0 || $k == 1): ?>
+						<?php  echo $this->getPriceHtml($_product2, true) ?>
+					<?php endif; ?>
+
+				<?php else: ?>
+					<?php  echo $this->getPriceHtml($_product2, true) ?>
+				<?php endif; ?>
+			</div>
+		</div>
+	</div>
+	<?php endif; ?>
+	<?php if($id3): ?>	
+	<div class="col2">							
+		<a href="<?php echo $_product3->getProductUrl() ?>" title="<?php echo $this->stripTags($_product3->getName(), null, true) ?>"><img src="<?php echo $this->helper('catalog/image')->init($_product3, 'small_image')->resize(300); ?>" width="300" height="300" alt="<?php echo $this->stripTags($this->getImageLabel($_product3, 'small_image'), null, true) ?>"/></a>
+		<div class="product-name-box">
+			<div class="product-name"><a href="<?php echo $_product3->getProductUrl() ?>" title="<?php echo $this->stripTags($_product3->getName(), null, true) ?>"><?php echo $_product3->getData('title'); ?><span><?php echo $_product3->getData('sub_title'); ?></span></a></div>
+			<div class="product-price">
+				<?php
+				if ($_product3->getTypeId() == 'configurable' || $_product3->getTypeId() == 'subscription_configurable'): ?>
+					<?php
+					$var_price = '';
+					$k = 0;
+					$associatedProducts = Mage::getModel('catalog/product_type_configurable')->getUsedProducts(null, $_product3);
+					foreach ($associatedProducts as $pro) {
+						$status = $pro->getStatus();
+						$stock = $pro->getIsInStock();
+						if (($status == 1) && ($stock == 1)) {
+							$var_price[] = $pro->getPrice();
+							$k++;
+						}
+					}
+					sort($var_price);
+					$lower_price = reset($var_price);
+					$higher_price = end($var_price);
+					?>
+					<?php if ($k > 1): ?>
+						<div class="price-box">
+					<span class="regular-price">
+						<span class="price">
+							<?php if ($lower_price !== $higher_price) : ?>
+								<?php echo str_replace(".00","",Mage::helper('core')->currency($lower_price)) . " - " . str_replace(".00","",Mage::helper('core')->currency($higher_price)); ?>
+							<?php else : ?>
+								<?php echo Mage::helper('core')->currency($lower_price); ?>
+							<?php endif ?>
+						</span>                
+					</span>
+						</div>
+					<?php endif; ?>
+
+					<?php if ($k == 0 || $k == 1): ?>
+						<?php  echo $this->getPriceHtml($_product3, true) ?>
+					<?php endif; ?>
+
+				<?php else: ?>
+					<?php  echo $this->getPriceHtml($_product3, true) ?>
+				<?php endif; ?>
+			</div>
+		</div>
+	</div>	
+	<?php endif; ?>	
+	<div style="width:100%; float:left; text-align:center;"><a class="button" href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB); ?>">SHOP NOW ></a></div>
+</div>
+
+<div><?php /*echo Mage::getStoreConfig('alliance_autoreplenishcms/autoreplenishcms_section/product_one'); */ ?></div>
+<script type="text/javascript">
+//<![CDATA[
+	jQuery(document).ready(function () {
+		jQuery('span.price').each( function () {
+			var price_with_decimals = jQuery(this).text();
+			var price_without_decimals = price_with_decimals.replace(".00","");
+			jQuery(this).text(price_without_decimals);
+		});
+	});
+//]]>	
+</script>
+<?php else: ?>
+<div class="page-title">
+    <h1>Auto Replenishment</h1>
+</div>
+At this time, the Auto-Replenishment service is only available for shipping within the United States.
+<?php endif; ?>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Alliance_RegionRoute>
+            <version>1.0.2</version>
+        </Alliance_RegionRoute>
+    </modules>
+
+    <global>
+        <helpers>
+            <alliance_regionroute>
+                <class>Alliance_RegionRoute_Helper</class>
+            </alliance_regionroute>
+        </helpers>
+
+        <blocks>
+            <alliance_regionroute>
+                <class>Alliance_RegionRoute_Block</class>
+            </alliance_regionroute>
+        </blocks>
+
+        <models>
+            <alliance_regionroute>
+                <class>Alliance_RegionRoute_Model</class>
+            </alliance_regionroute>
+        </models>
+    </global>
+
+    <frontend>
+        <layout>
+            <updates>
+                <alliance_regionroute>
+                    <file>alliance_regionroute.xml</file>
+                </alliance_regionroute>
+            </updates>
+        </layout>
+        <!--routers>
+            <region>
+                <use>standard</use>
+                <args>
+                    <module>Alliance_RegionRoute</module>
+                    <frontName>region</frontName>
+                </args>
+            </region>
+        </routers-->
+        <events>
+            <!--controller_action_predispatch_cms_index_index>
+                <observers>
+                    <alliance_regionroute>
+                        <type>singleton</type>
+                        <class>Alliance_RegionRoute_Model_Observer</class>
+                        <method>regionRedirect</method>
+                    </alliance_regionroute>
+                </observers>
+            </controller_action_predispatch_cms_index_index-->
+        </events>
+    </frontend>
+</config>

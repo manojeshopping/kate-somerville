@@ -1,0 +1,77 @@
+/* home page */
+
+.cms-index-index .home-sidebar {
+	width: 324px;
+	float: right;
+}
+.cms-index-index .home-sidebar img{
+	width: 324px;
+	height:154px;
+}
+
+.cms-index-index .home-slideshow {
+	position: relative;
+	width: 691px;
+	height: 470px;
+	float: left;
+	z-index: 2;
+}
+
+.cms-index-index .cycle-slideshow {
+	width: 691px;
+	height: 470px;
+	overflow: hidden;
+}
+
+.cms-index-index .slideshow-pager {
+	position: absolute;
+	width: 11px;
+	left: -20px;
+	z-index: 5;
+	bottom: 3px;
+}
+
+.cms-index-index .slideshow-pager span {
+	display: block;
+	text-decoration: none;
+	margin: 3px 0 0;
+	overflow: visible;
+	width: auto;
+	padding: 0;
+	color: #fff;
+	border: 1px solid #c9cbcd;
+	cursor: pointer;
+	text-align: center;
+	vertical-align: middle;
+	width: 9px;
+	height: 9px;
+	background: #c9cbcd;
+	text-indent: -9999em;
+}
+
+.cms-index-index .cycle-pager-active {
+	background: #fff !important; 
+}
+
+.cms-index-index #top_banner {
+	margin: 0 0 4px 0;
+}
+
+.cms-index-index #middle_banner {
+	margin: 0 0 4px 0;
+}
+
+.cms-index-index #top_banner p,
+.cms-index-index #middle_banner p,
+.cms-index-index #bottom_banner p {
+	margin: 0;
+	padding: 0;
+}
+
+.mobile-switcher {
+	background: url(../images/header-panel-seperator.gif) no-repeat scroll right 5px;
+	float:left; 
+	padding-right:7px; 
+	margin-right:12px;
+	line-height:23px;
+}

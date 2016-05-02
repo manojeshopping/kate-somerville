@@ -1,0 +1,33 @@
+<?php
+/**
+ * @see Pixafy_Ordergroove_Block_Adminhtml_Log_Edit
+ */
+ ?>
+	<div class="content-header">
+		<?php echo $this->getHeaderHtml() ?>
+		<p class="form-buttons"><?php echo $this->getButtonsHtml('header') ?></p>
+	</div>
+	<div>
+		<table class="data-table" style="width:1200px">
+			<tr>
+				<td><b><?php echo $this->__("Date") ?>: </b></td>
+				<td><pre><?php echo $this->getLogEntry()->getLogDate("F d, Y h:i:s A") ?></pre></td>
+			</tr>
+			<tr>
+				<td><b><?php echo $this->__("Website") ?>: </b></td>
+				<td><pre><?php echo $this->getWebsiteFromId($this->getLogEntry()->getWebsiteId()) ?></pre></td>
+			</tr>
+			<tr>
+				<td><b><?php echo $this->__("Activity") ?>: </b></td>
+				<td><pre><?php echo $this->getLogEntry()->getActivity() ?></td>
+			</tr>
+			<tr>
+				<td><b><?php echo $this->__("Type") ?>: </b></td>
+				<td><pre><?php echo $this->getLogEntry()->getType() ?></pre></td>
+			</tr>
+			<tr>
+				<td><b><?php echo $this->__("Message") ?>: </b></td>
+				<td><pre><?php echo $this->getLogEntry()->getMessage() ?></pre></td>
+			</tr>
+		</table>
+	</div>

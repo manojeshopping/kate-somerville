@@ -1,0 +1,32 @@
+<?php if ($this->shouldDisplay()) { ?>
+<style>
+    .fivehundredfriends-enroll-now-enabled {
+        padding: 15px 30px;
+        margin: 30px;
+        font-size: 15px;
+        font-weight: bold;
+        cursor: pointer;
+        display: inline-block;
+    }
+    .fivehundredfriends-enroll-now-disabled {
+        padding: 15px 30px;
+        margin: 30px;
+        font-size: 15px;
+        font-weight: bold;
+        cursor: default;
+        display: inline-block;
+        color: slategray;
+    }
+</style>
+<a href="<?php echo Mage::getUrl('katerewards/enroll/now') ?>">
+    <button id="fivehundredfriends-enroll-now" class="fivehundredfriends-enroll-now-enabled">Enroll Now</button>
+</a>
+<script type="text/javascript">
+
+    jQuery('#fivehundredfriends-enroll-now').click(function() {
+        jQuery('#fivehundredfriends-enroll-now').attr('disabled', true);
+        jQuery('#fivehundredfriends-enroll-now').toggleClass('fivehundredfriends-enroll-now-enabled fivehundredfriends-enroll-now-disabled');
+    });
+
+</script>
+<?php } ?>

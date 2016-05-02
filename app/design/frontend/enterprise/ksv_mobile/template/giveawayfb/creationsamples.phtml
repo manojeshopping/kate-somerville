@@ -1,0 +1,37 @@
+<div class="giveawayfb-container">
+	<h1>Select a Sample Kit</h1>
+	
+	<?php
+	$samplekit = $this->getModuleData('samplekit');
+	
+	$productslist = Mage::helper('giveawayfb')->getProductList();
+	foreach($productslist as $_productId => $_product) {
+		$images = $_product['galleryImages'];
+	?>
+	<form id="frmCreationSamples<?php echo $_productId;?>" method="post" action="<?php echo $this->getCreationSamplesAction();?>">
+	<fieldset>
+	<input type="hidden" id="creation-samplekit<?php echo $_productId;?>" name="samplekit" value="<?php echo $_productId;?>"/>
+	
+		<div class="creation-sample">
+			<div class="creation-sample-title"><h2><?php echo $_product['title'];?></h2></div>
+			<div class="creation-sample-images">
+				<?php
+				$i = 0;
+				foreach ($images as $_image) {
+				?>
+				<div class="creation-sample-image" title="<?php echo $_product['popups'][$i++]?>">
+					<img src="<?php echo $_image->getUrl();?>" width="80" alt="<?php echo $_image->getLabel();?>"/>
+					<p><?php echo str_replace("<br/>", " ", $_image->getLabel());?></p>
+				</div>
+				<?php }?>
+			</div>
+			<div class="creation-sample-container">
+				<button id="sample-submit<?php echo $_productId;?>" class="giveawayfb-button">Select</button>
+			</div>
+		</div>
+	</fieldset>
+	</form>
+	<?php
+	}
+	?>
+</div>

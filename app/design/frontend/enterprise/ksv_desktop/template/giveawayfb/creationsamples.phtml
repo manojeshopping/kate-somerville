@@ -1,0 +1,49 @@
+
+<script type="text/javascript" src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS);?>jquery/jquery-ui-1.10.4.custom.min.js"></script>
+<img src="http://tapjoy.go2cloud.org/SLho" width="1" height="1" />
+<div class="giveawayfb-container">
+	<h1>Select a Sample Kit</h1>
+	
+	<form id="frmCreationSamples" method="post" action="<?php echo $this->getCreationSamplesAction();?>">
+	<fieldset>
+	
+	<?php
+	$samplekit = $this->getModuleData('samplekit');
+	
+	$productslist = Mage::helper('giveawayfb')->getProductList();
+	foreach($productslist as $_productId => $_product) {
+		$images = $_product['galleryImages'];
+	?>
+	<div class="creation-sample">
+		<div class="creation-sample-title">
+			<input type="radio" id="creation-samplekit<?php echo $_productId;?>" name="samplekit" value="<?php echo $_productId;?>"/>
+			<h2><label for="creation-samplekit<?php echo $_productId;?>"><?php echo $_product['title'];?></label></h2>
+		</div>
+		<div class="creation-sample-images">
+			<?php
+			$i = 0;
+			foreach ($images as $_image) {
+			?>
+			<div class="creation-sample-image" title="<?php echo $_product['popups'][$i++]?>">
+				<img src="<?php echo $_image->getUrl();?>" width="180" height="190" alt="<?php echo $_image->getLabel();?>"/>
+				<p><?php echo $_image->getLabel();?></p>
+			</div>
+			<?php }?>
+		</div>
+	</div>
+	<?php 
+	}
+	?>
+	
+	<div class="creation-sample-container">
+		<button id="sample-submit" class="giveawayfb-button">Submit</button>
+	</div>
+	</fieldset>
+	</form>
+</div>
+
+<script type="text/javascript">
+//< ![CDATA[
+var frmVerification = new VarienForm('frmCreationSamples', true);
+//]]>
+</script>

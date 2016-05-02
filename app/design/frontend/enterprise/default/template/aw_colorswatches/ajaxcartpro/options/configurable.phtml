@@ -1,0 +1,100 @@
+<?php
+/**
+ * aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This software is designed to work with Magento enterprise edition and
+ * its use on an edition other than specified is prohibited. aheadWorks does not
+ * provide extension support in case of incorrect edition use.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Colorswatches
+ * @version    1.0.3
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ */
+?><?php
+$_product    = $this->getProduct();
+$_attributes = Mage::helper('core')->decorateArray($this->getAllowAttributes());
+$swatchHelper = Mage::helper('awcolorswatches');
+$rand = rand(10000,100000);
+?>
+<?php if ($_product->isSaleable() && count($_attributes)):?>
+    <dl>
+        <?php foreach($_attributes as $_attribute): ?>
+            <?php
+            $option = null;
+            if(Mage::registry('aw_last_option')) {
+                $option = Mage::registry('aw_last_option');
+                Mage::unregister('aw_last_option');
+            }
+            Mage::register('aw_last_option',$_attribute->getLabel());
+            $attribute = $_attribute->getProductAttribute();
+            $swatchEnabled = $swatchHelper->isSwatchEnabled($attribute);
+            ?>
+            <dt><label class="required"><em>*</em><?php echo $_attribute->getLabel() ?></label></dt>
+            <dd<?php if ($_attribute->decoratedIsLast){?> class="last"<?php }?>>
+
+                <?php if($swatchEnabled): ?>
+                    <?php $sizes = AW_Colorswatches_Helper_Data::getThumbnailSize();?>
+                    <div class="swatch_container" id="swatch-attribute<?php echo $_attribute->getAttributeId() ?>">
+                        <div class="advise_swatch" style="display: none;line-height: <?php echo $sizes['height']+10?>px"><?php echo $this->__('Please select %s',$option)?></div>
+                        <?php
+
+                        foreach($attribute->getSource()->getAllOptions() as $option):?>
+                            <?php if(!$option['value']) {
+                                continue;
+                            }
+                            $swatch = Mage::getModel('awcolorswatches/swatch')->load($option['value'],'option_id');
+                            ?>
+                            <div class="swatch-option" style="display:none;height: <?php echo $sizes['height'];?>px;width: <?php echo $sizes['width'];?>px" id="option-<?php echo $option['value']?>">
+                                <?php $imageId="attribute".$attribute->getAttributeId()."_".$option['value'];?>
+                                <?php $thumbnailSrc = $swatch->getThumbnail();
+                                $fullImageSrc = $swatch->getFullImageUrl();
+                                if(!$thumbnailSrc){
+                                    $thumbnailSrc =  Mage::getDesign()->getSkinUrl('images/catalog/product/placeholder/thumbnail.jpg');
+                                    $fullImageSrc = Mage::getDesign()->getSkinUrl('images/catalog/product/placeholder/image.jpg');
+                                }
+                                ?>
+                                <img class="swatch-img" alt="<?php echo $option['label']?>" title="<?php echo $option['label']?>" id="<?php echo $imageId;?>" height="<?php echo $sizes['height'];?>" width="<?php echo $sizes['width'];?>"
+                                     src="<?php echo $thumbnailSrc;?>" onclick="colswatchOptions<?php echo $rand?>.optionSelected(this)" <?php /*if($swatchHelper->displayPopup($attribute)):?>onmouseover="colswatchOptions<?php echo $rand?>.mouseHover(this)" onmouseout="colswatchOptions<?php echo $rand?>.mouseOut(this)" <?php endif; */?>/>
+                                <!--<div id="full_image_<?php echo $imageId;?>" class="hidden"  style="left: <?php echo $sizes['width']/1.5;?>px; top:  <?php echo $sizes['height']/2;?>px" >
+                                    <img src="<?php echo $fullImageSrc;?>" style="max-height: 700px;max-width: 700px"/>
+                                </div> -->
+                            </div>
+                        <?php endforeach;?>
+                        <div class="clear"></div>
+                    </div>
+                <?php endif;?>
+                <select  name="super_attribute[<?php echo $_attribute->getAttributeId() ?>]" id="attribute<?php echo $_attribute->getAttributeId() ?>" class="required-entry super-attribute-select-acp <?php if($swatchEnabled): echo 'hidden-select'; endif;?>">
+                    <option><?php echo $this->__('Choose an Option...') ?></option>
+                </select>
+            </dd>
+        <?php endforeach; ?>
+    </dl>
+    <script type="text/javascript">
+        spConfigAcp = new Product.ACPconfigurable(<?php echo $this->getJsonConfig() ?>);
+        swatchRand = <?php echo $rand?>;
+        swatchTimeout = [];
+        <?php $product = Mage::registry('product');?>
+        resetColorswatchOptions<?php echo $rand?> = function(select) {
+            colswatchOptions<?php echo $rand?>.lastClick = null;
+            colswatchOptions<?php echo $rand?>.resetSelection(select);
+        };
+        colorSwatch<?php echo $rand?> = new awColorswatchReg(false,<?php echo $product->getId()?>, '<?php echo Mage::helper('awcolorswatches')->getControllerUrl() ?>',spConfigAcp);
+        colswatchOptions<?php echo $rand?> = new awColorswatchOptions(spConfigAcp);
+        colswatchOptions<?php echo $rand?>.resetSelection();
+
+    </script>
+
+<?php endif;?>

@@ -1,0 +1,40 @@
+﻿<config>
+  <api>
+    <resources>
+      <!--<Helloworld translate="title" module="Communicator">
+        <model>Nchannel_Communicator/Helloworld_Api</model>
+        <methods>
+          <hello translate="title" module="Communicator">
+            <method>hello</method>
+          </hello>
+        </methods>
+        <faults module="Communicator">
+          <data_invalid>
+            <code>100</code>
+            <message>Invalid data</message>
+          </data_invalid>
+        </faults>
+      </Helloworld>-->
+      <Communicator_Productutility translate="title" module="Communicator">
+        <model>Nchannel_Communicator/Productutility_Api</model>
+        <methods>
+          <addAttributes translate="title" module="Communicator">
+            <method>addAttributes</method>
+          </addAttributes>
+          <attachProductToConfigurable translate="title" moduel="Communicator">
+            <method>attachProductToConfigurable</method>
+          </attachProductToConfigurable>
+        </methods>
+      </Communicator_Productutility>
+    </resources>
+    <resources_alias>
+      <Productutility>Communicator_Productutility</Productutility>
+    </resources_alias>
+    <v2>
+      <resources_function_prefix>
+        <Productutility>Productutility</Productutility>
+        <Communicator>Communicator</Communicator>
+      </resources_function_prefix>
+    </v2>
+  </api>
+</config>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<Alliance_Sweepstakes>
+			<version>1.0.0</version>
+		</Alliance_Sweepstakes>
+	</modules>
+	<frontend>
+		<layout>
+			<updates>
+				<alliance_sweepstakes>
+					<file>alliance_sweepstakes.xml</file>
+				</alliance_sweepstakes>
+			</updates>
+		</layout>
+		<routers>
+			<alliance_sweepstakes>
+				<use>standard</use>
+				<args>
+					<module>Alliance_Sweepstakes</module>
+					<frontName>tenyearsweepstakes</frontName>
+				</args>
+			</alliance_sweepstakes>
+		</routers>
+	</frontend>
+	<global>
+        <rewrite>
+            <alliance_sweepstakes_confirm>
+                <from><![CDATA[#^/tenyearconfirm/#]]></from>
+                <to>/tenyearsweepstakes/index/confirm/</to>
+                <complete>1</complete>
+            </alliance_sweepstakes_confirm>
+        </rewrite>
+        <page>
+			<layouts>
+				<Sweepstakes_Landing translate="label">
+					<label>Sweepstakes - Landing</label>
+					<template>page/sweepstakes_landing.phtml</template>
+					<layout_handle>Sweepstakes_Landing</layout_handle>
+				</Sweepstakes_Landing>
+				<Sweepstakes_Thank_You translate="label">
+					<label>Sweepstakes - Thank You</label>
+					<template>page/sweepstakes_thank_you.phtml</template>
+					<layout_handle>Sweepstakes_Thank_You</layout_handle>
+				</Sweepstakes_Thank_You>
+			</layouts>
+		</page>
+	</global>
+</config>

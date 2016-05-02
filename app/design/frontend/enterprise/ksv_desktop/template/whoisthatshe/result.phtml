@@ -1,0 +1,53 @@
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1425777014367339',
+          xfbml      : true,
+          version    : 'v2.0'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
+	
+<div class="header"><img src="<?php echo $this->getSkinUrl('images/katesurvey/header_ks.png'); ?>"/></div>
+
+<div class="header-bottom-line"></div>
+
+<div class="youresult"><img src="<?php echo $this->getSkinUrl('images/katesurvey/youresult.png'); ?>"/></div>
+
+<div class="kate_share">
+	<div class="share-button" onclick="post_feed('<?php echo $_POST['howtech']; ?>')" >share now</div>
+	<p>Post your result to Facebook and share your Modern Beauty Style!</p>
+	<p>Please be sure to tag your comment with <span>#WhoIsThatSHE</span> before posting.</p> 
+	<p>Continue to use hashtag <span>#WhoIsThatSHE</span> socially on Instagram, Twitter, etc.</p>
+	<p>and compete virtually for <b>bonus prizes!</b></p>
+</div>
+
+<div class="result-content">
+	
+	<?php if($_POST['howtech']=='result1') { ?>
+		<div class="result-col result-one selected-one"><img src="<?php echo $this->getSkinUrl('images/katesurvey/result01.png'); ?>"/></div>
+		<div class="result-col result-two"><img src="<?php echo $this->getSkinUrl('images/katesurvey/result02.png'); ?>"/></div>
+		<div class="result-col result-three"><img src="<?php echo $this->getSkinUrl('images/katesurvey/result03.png'); ?>"/></div>
+	<?php }elseif($_POST['howtech']=='result2'){ ?>
+		<div class="result-col result-one"><img src="<?php echo $this->getSkinUrl('images/katesurvey/result01.png'); ?>"/></div>
+		<div class="result-col result-two selected-one"><img src="<?php echo $this->getSkinUrl('images/katesurvey/result02.png'); ?>"/></div>
+		<div class="result-col result-three"><img src="<?php echo $this->getSkinUrl('images/katesurvey/result03.png'); ?>"/></div>	
+	<?php }elseif($_POST['howtech']=='result3'){ ?>
+		<div class="result-col result-one"><img src="<?php echo $this->getSkinUrl('images/katesurvey/result01.png'); ?>"/></div>
+		<div class="result-col result-two"><img src="<?php echo $this->getSkinUrl('images/katesurvey/result02.png'); ?>"/></div>
+		<div class="result-col result-three selected-one"><img src="<?php echo $this->getSkinUrl('images/katesurvey/result03.png'); ?>"/></div>	
+	<?php }else{ ?>
+		<h class="result-head1">You haven't answer all the questions. So we can't provide your result. Sorry about that.<h>
+		<h class="result-head1">Please go back to <a href="<?php echo $this->getStoreUrl()."/katesurvey/";?>">WhoIsThatSHE</a> and make sure you answer all the questions this  time.<h>
+	<?php } ?>
+
+</div>
+

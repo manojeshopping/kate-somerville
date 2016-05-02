@@ -1,0 +1,139 @@
+<?php
+/**
+ * aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This software is designed to work with Magento enterprise edition and
+ * its use on an edition other than specified is prohibited. aheadWorks does not
+ * provide extension support in case of incorrect edition use.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Colorswatches
+ * @version    1.0.3
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ */
+?><?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+
+<?php
+$_product    = $this->getProduct();
+$_attributes = Mage::helper('core')->decorateArray($this->getAllowAttributes());
+$swatchHelper = Mage::helper('awcolorswatches');
+?>
+<?php if ($_product->isSaleable() && count($_attributes)):?>
+    <dl>
+    <?php foreach($_attributes as $_attribute): ?>
+        <?php
+        $option = null;
+        if(Mage::registry('aw_last_option')) {
+            $option = Mage::registry('aw_last_option');
+            Mage::unregister('aw_last_option');
+        }
+        Mage::register('aw_last_option',$_attribute->getLabel());
+        $attribute = $_attribute->getProductAttribute();
+        $swatchEnabled = $swatchHelper->isSwatchEnabled($attribute);
+        ?>
+        <dt><label class="required"><em>*</em><?php echo $_attribute->getLabel() ?><span class="required"></span></label></dt>
+        <dd<?php if ($_attribute->decoratedIsLast){?> class="last"<?php }?>>
+
+           <?php if($swatchEnabled): ?>
+               <?php $sizes = AW_Colorswatches_Helper_Data::getThumbnailSize();?>
+                <div class="swatch_container" id="swatch-attribute<?php echo $_attribute->getAttributeId() ?>">
+                    <div class="advise_swatch" style="display: none;line-height: <?php echo $sizes['height']+10;?>px"><?php echo $this->__('Please select %s',$option)?></div>
+                    <?php
+
+                    foreach($attribute->getSource()->getAllOptions() as $option):?>
+                        <?php if(!$option['value']) {
+                            continue;
+                        }
+                        $swatch = Mage::getModel('awcolorswatches/swatch')->load($option['value'],'option_id');
+                        ?>
+                        <div class="swatch-option" style="display:none;height: <?php echo $sizes['height'];?>px; width: <?php echo $sizes['width'];?>px" id="option-<?php echo $option['value']?>">
+                            <?php $imageId="attribute".$attribute->getAttributeId()."_".$option['value'];?>
+                            <?php $thumbnailSrc = $swatch->getThumbnail();
+                                  $fullImageSrc = $swatch->getFullImageUrl();
+                                if(!$thumbnailSrc){
+                                   $thumbnailSrc =  Mage::getDesign()->getSkinUrl('images/catalog/product/placeholder/thumbnail.jpg');
+                                   $fullImageSrc = Mage::getDesign()->getSkinUrl('images/catalog/product/placeholder/image.jpg');
+                                }
+                            ?>
+                            <img class="swatch-img" alt="<?php echo $option['label']?>" title="<?php echo $option['label']?>" id="<?php echo $imageId;?>" height="<?php echo $sizes['height'];?>" width="<?php echo $sizes['width'];?>"
+                                 src="<?php echo $thumbnailSrc;?>" onclick="colswatchOptions.optionSelected(this)" <?php if($swatchHelper->displayPopup($attribute)):?>onmouseover="colswatchOptions.mouseHover(this)" onmouseout="colswatchOptions.mouseOut(this)" <?php endif;?> ontouchstart="touched = true"/>
+                            <div id="full_image_<?php echo $imageId;?>" class="hidden" style="bottom: <?php echo $sizes['height']+10;?>px;" >
+                                <img src="<?php echo $fullImageSrc;?>" style="max-height: 700px;max-width: 700px"/>
+                            <div class="popup-link" style="left: <?php echo $sizes['width']/2-10;?>px"></div>
+                            </div>
+                        </div>
+                        <?php endforeach;?>
+                    <div class="clear"></div>
+                </div>
+            <?php endif;?>
+            <select name="super_attribute[<?php echo $_attribute->getAttributeId() ?>]" id="attribute<?php echo $_attribute->getAttributeId() ?>" class="required-entry super-attribute-select <?php if($swatchEnabled): echo 'hidden-select'; endif;?>">
+                <option><?php echo $this->__('Choose an Option...') ?></option>
+            </select>
+        </dd>
+    <?php endforeach; ?>
+    </dl>
+    <script type="text/javascript">
+        touched = false;
+       var spConfig = new Product.Config(<?php echo $this->getJsonConfig() ?>);
+       <?php if(Mage::helper('awcolorswatches')->isEnabled()):?>
+        swatchTimeout = [];
+        <?php $product = Mage::registry('product');?>
+        Event.observe(document, "dom:loaded", function () {
+            colorSwatch = new awColorswatchReg(true,<?php echo $product->getId()?>, '<?php echo Mage::helper('awcolorswatches')->getControllerUrl() ?>',spConfig);
+            colswatchOptions = new awColorswatchOptions(spConfig);
+            colswatchOptions.resetSelection();
+            spConfig.settings.each(function(select){
+                if(select.value) {
+                    try {
+                        $(select.id+'_'+select.value).addClassName('selected');
+                    } catch (e) {}
+                }
+            });
+        });
+        function resetColorswatchOptions(select)
+        {
+            colswatchOptions.lastClick = null;
+            colswatchOptions.resetSelection(select);
+        }
+        <?php endif;?>
+    </script>
+
+
+<?php endif;?>

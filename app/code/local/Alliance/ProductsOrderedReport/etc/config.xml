@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Alliance_ProductsOrderedReport>
+            <version>0.1.0</version>
+        </Alliance_ProductsOrderedReport>
+    </modules>
+    <global>
+        <blocks>
+            <adminhtml>
+                <rewrite>
+					<report_product_sold_grid>Alliance_ProductsOrderedReport_Block_Adminhtml_Grid</report_product_sold_grid>
+				</rewrite>
+			</adminhtml>
+        </blocks>
+		
+		<blocks>
+			<productsorderedreport>
+				<class>Alliance_ProductsOrderedReport_Block</class>
+			</productsorderedreport>
+		</blocks>
+		
+		<models>
+			<reports_resource>
+				<rewrite>
+					<product_sold_collection>Alliance_ProductsOrderedReport_Model_Resource_Product_Sold_Collection</product_sold_collection>
+				</rewrite>
+			</reports_resource>
+		</models>
+    </global>
+</config>
+
+
+

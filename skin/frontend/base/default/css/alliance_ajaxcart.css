@@ -1,0 +1,128 @@
+/* Top Shopping Cart */
+.top-cart { float:right; /* width:360px; */ position:relative; padding-left:7px; }
+.top-cart .block-title { white-space:nowrap; /* _width:242px; min-width:242px; */ cursor:pointer; background:#fff url('../images/alliance_ajaxcart/bkg_topcart.gif') 0 3px no-repeat; color:#1e75b4; font-weight:bold; font-size:11px; text-transform:uppercase; padding:0 0 0 18px; line-height:18px; height:18px; }
+.top-cart .block-title strong { display:block; padding-right:10px; background:url('../images/alliance_ajaxcart/bkg_header-panel.gif') 100% -71px no-repeat; font-size:11px; color:#1e75b4; font-weight:bold; text-decoration:none; }
+.top-cart .block-title.expanded { background-position:0 3px !important; }
+.top-cart .block-title.expanded strong { background-position:100% -126px !important; color:#d33911; }
+/* .top-cart .no-items { cursor:default; }
+.top-cart .no-items h3 { background:none; } */
+.top-cart .block-content { position:absolute; right:0; top:20px; width:267px; background:#fdfdfd; }
+.top-cart .inner-wrapper { border:1px solid #c1c1c1; }
+
+.top-cart .block-content ol {padding-bottom: 7px; background: #fff;}
+
+.top-cart .block-content .block-subtitle { font-size:10px; color:#d12c01; font-weight:bold; text-transform:uppercase; background:url('../images/alliance_ajaxcart/bkg_header-panel.gif') repeat-x 0 -8px; line-height:12px; padding:3px 10px 4px; }
+.top-cart .block-content .block-subtitle .close-btn { float:right; width:13px; height:0; padding-top:12px; text-align:left; overflow:hidden; cursor:pointer; background:url('../images/alliance_ajaxcart/bkg_close.gif') no-repeat 0 0; position:relative; z-index:1; }
+.top-cart .cart-empty .close-btn { float:right; width:13px; height:0; padding-top:12px; text-align:left; overflow:hidden; cursor:pointer; background:url('../images/alliance_ajaxcart/bkg_close.gif') no-repeat 0 0; position:relative; z-index:1; }
+.top-cart .cart-empty { padding:10px 10px 10px 20px; }
+.top-cart .block-content ol { padding-bottom:7px; }
+.top-cart .block-content .item { padding:8px 5px 8px 11px; }
+.top-cart .block-content .item .product-name { font-size:11px; line-height:14px; }
+.top-cart .block-content .item .product-name a { font-size:11px; text-decoration:none; color:#444; }
+.top-cart .block-content table { margin:5px 0 0 0; }
+.top-cart .block-content table th { padding:1px 8px; color:#8f8f8f; text-align:right; }
+.top-cart .block-content table td { text-align:left; padding:1px 0; }
+.top-cart .block-content .subtotal { background:#fff url('../images/alliance_ajaxcart/bkg_dots.gif') repeat-x 0 0; padding:2px 5px; text-align:center; }
+
+.top-cart .actions { background:#e3e3e3 url('../images/alliance_ajaxcart/bkg_dots.gif') repeat-x 0 -1px; text-align:center; padding:5px 11px; text-align:right; }
+.top-cart .actions a { float:left; line-height:23px; }
+.top-cart .actions button { float:none; }
+.top-cart .actions button.button span,
+.top-cart .actions button.button span span { background-image:url('../images/alliance_ajaxcart/bkg_btn-onbg.gif'); background-repeat:no-repeat; }
+.top-cart .paypal-logo a { float:right; }
+.top-cart .paypal-logo .paypal-or { clear:both; display:block; margin: 5px 33px 5px 0px; }
+
+#mini-cart .product-image img{width: 50px; height: auto;}
+
+
+.mini-products-list li.item { padding:5px 0; border-bottom:1px solid #cfcfcf; }
+.mini-products-list li:last-child { border:none; }
+.mini-products-list .product-image { float:left; width:50px; margin-right:-50px; }
+.mini-products-list .product-details { margin-left:65px; }
+.mini-products-list .product-details .product-name { font-size:11px; }
+.mini-products-list .product-details .price-box { margin:5px 0; }
+.mini-products-list .product-details h4 {}
+.mini-products-list .product-details .btn-remove { font-size:11px; }
+
+/* Show only the last 3 added items. */
+#mini-cart .item:nth-child(n+4){display: none;}
+
+
+/* Cart Page */
+.checkout-cart-index .data-table tr.maxsaleqty-exceeded{background: #dddddd !important;}
+
+
+/* Buttons */
+a.button.suspended span, button.button.suspended span span{color: #cccccc;}
+a.btn-edit.suspended, a.btn-remove.suspended, .cart-table a.suspended{color: #cccccc;}
+/* Buttons */
+
+
+/* Free Samples */
+.free-samples{float: left; width: 250px; margin: 20px; border: 1px solid #cccccc;}
+.free-samples .free-samples-title{border-bottom: 1px solid #d9d9d9; background: #ededed; line-height: 2em; font-weight: bold; text-align: center;}
+.free-samples .free-sample-product{margin-bottom: 10px; padding: 15px; border-bottom: 1px dashed #cecece; text-align: center;}
+.free-samples .free-sample-product-button{margin-top: 10px;}
+/* Free Samples */
+
+
+/* Wishlist */
+.wishlist{float: left; width: 250px; margin: 20px; border: 1px solid #cccccc;}
+.wishlist .wishlist-title{border-bottom: 1px solid #d9d9d9; background: #ededed; line-height: 2em; font-weight: bold; text-align: center;}
+.wishlist .wishlist-product{margin-bottom: 10px; padding: 15px; border-bottom: 1px dashed #cecece; text-align: center;}
+.wishlist .wishlist-product-button{margin-top: 10px;}
+/* Wishlist */
+
+
+.toa_message.loading{
+	min-height: 36px;
+	background: url('../images/alliance_ajaxcart/ajax-loader.gif') no-repeat center center;
+}
+
+
+
+/*** Dialog ***/
+/* DONT CHANGE */
+* html .fixed { position:absolute }
+.fixed { position:fixed }
+
+/* DIALOG CORE */
+#dialog-overlay { top:0;left:0;width:100%;height:100%;z-index:900 }
+#dialog-container { overflow:hidden;z-index:901;text-align:left }
+
+/* DIALOG TOP */
+#dialog-top{background:#999;border:1px solid #fff;padding:5px;font-weight:bold}
+#dialog-title{color:#333}
+#dialog-close{color:#fff;padding-left:5px}
+#dialog-close:hover{color:#ccc}
+
+/* DIALOG BOTTOM */
+#dialog-bottom{background:#eee;border-top:1px solid #ccc;color:#666;padding:5px;text-align:center;font-size:12px}
+#dialog-bottom .next,
+#dialog-bottom .prev{color:#ccc;font-weight:bold;color:#333}
+#dialog-bottom .next:hover,
+#dialog-bottom .prev:hover{color:#f90}
+#dialog-bottom .next{padding-left:10px}
+#dialog-bottom .prev{padding-right:10px}
+#dialog-bottom .curr{}
+
+/* DIALOG MISC */
+#dialog-loading{color:#ccc;font-weight:bold;text-align:center;padding:20px}
+
+/* DIALOG PREDEFINED */
+#dialog-container .alert,
+#dialog-container .confirm { text-align:center;color:#999 }
+#dialog-container .alert input,
+#dialog-container .confirm input { font-weight:bold;width:75px }
+
+/* DIALOG PERSONAL */
+#dialog-container .myFirstDialog { color:orange;font-size:20px }
+/*** Dialog ***/
+
+
+/*** Wishlist ***/
+.block-wishlist.loading{
+	min-height: 100px;
+	background: url('../images/alliance_ajaxcart/ajax-loader.gif') no-repeat center center;
+}
+/*** Wishlist ***/

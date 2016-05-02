@@ -1,0 +1,199 @@
+/* login page */
+.account-login .messages { display: block; height: 36px; line-height: 38px; }
+.account-login .messages li { display: block; }
+.account-login .messages li.success-msg { padding: 10px 0; }
+.account-login .messages li span { display: block; font-size: 14px; padding: 0 3px; display: block; line-height: 22px; height: auto; color: #6db5da; margin: 0; }
+.account-login .messages li span strong { color: #6db5da; text-transform: uppercase; }
+.account-login #login-form { display: block; margin: 0 16px; padding: 15px 0; }
+.account-login #login-form .fieldset { display: block; margin: 10px 0; }
+.account-login #login-form h2 { font-size: 17px; text-transform: uppercase; line-height: 20px; color: #6db5da; padding: 10px 0; }
+.account-login #login-form p { font-size: 14px; line-height: 18px; color: #6A747C; font-family: "GillSansMT", Arial, Helvetica, sans-serif; margin: 0 0 15px 0; }
+.account-login #login-form p.required { color: #6db5da; margin: 10px 0 5px 0; }
+.account-login #login-form .form-list > li { padding: 0; }
+.account-login #login-form .form-list > li input.ui-input-text { -webkit-border-radius: 0; -moz-border-radius: 0; -ms-border-radius: 0; -o-border-radius: 0; border-radius: 0; }
+.account-login #login-form .new-users .buttons-set { margin: 10px 0 20px 0; }
+.account-login #login-form .new-users button { width: 100%; margin: 0; outline: 0; border: 0; background: #c8c8c8; }
+.account-login #login-form .registered-users button { width: 100%; margin: 0; outline: 0; border: 0; display: block; float: left; line-height: 41px; }
+.account-login #login-form .registered-users a { display: block; float: left; margin: 5px 0 0 0; font-size: 14px; color: #6db5da; }
+.account-login #login-form .buttons-set { display: block; margin: 10px 0; float: left; width: 100%; position: relative; }
+.account-login #login-form .registered-users input { width:100%; }
+
+/* register page */
+.customer-account-forgotpassword #form-validate, .customer-account-create #form-validate { margin: 0 16px; padding: 10px 0; }
+.customer-account-forgotpassword #form-validate fieldset, .customer-account-create #form-validate fieldset { margin: 0 0 15px 0; }
+.customer-account-forgotpassword #form-validate h2, .customer-account-create #form-validate h2 { font-size: 17px; text-transform: uppercase; line-height: 20px; color: #6db5da; padding: 10px 0; }
+.customer-account-forgotpassword #form-validate p, .customer-account-create #form-validate p { font-size: 14px; line-height: 18px; color: #6A747C; font-family: "GillSansMT", Arial, Helvetica, sans-serif; margin: 0 0 15px 0; }
+.customer-account-forgotpassword #form-validate p.required, .customer-account-create #form-validate p.required { color: #6db5da; margin: 0; }
+.customer-account-forgotpassword #form-validate .buttons-set, .customer-account-create #form-validate .buttons-set { float: left; display: block; width: 100%; padding: 10px 0; }
+.customer-account-forgotpassword #form-validate .buttons-set button, .customer-account-create #form-validate .buttons-set button { width: 100%; margin: 0; outline: 0; border: 0; width: 47%; display: block; float: right; line-height: 41px; }
+.customer-account-forgotpassword #form-validate .buttons-set a, .customer-account-create #form-validate .buttons-set a { width: 47%; display: block; float: left; background-color: #c8c8c8; margin: 0; }
+.customer-account-create #form-validate .input-text { width:100%; }
+
+/* my account */
+#main .dashboard .messages { margin: 0; }
+#main .dashboard .messages ul li span { margin: 0; }
+.dashboard { display: block; }
+.dashboard .messages { padding: 10px 0; border-bottom: 1px solid #d0d0d0; }
+.dashboard .messages ul li { display: block; }
+.dashboard .messages ul li span { font-size: 14px; line-height: 18px; color: #6db5da; display: block; margin: 0 16px; }
+.dashboard h2 { font-size: 17px; text-transform: uppercase; line-height: 20px; color: #6A747C; }
+.dashboard p { font-size: 14px; line-height: 18px; color: #6A747C; font-family: "GillSansMT", Arial, Helvetica, sans-serif; margin: 0 0 10px 0; }
+.dashboard .welcome-msg h2 { color: #6db5da; margin: 14px 0 8px; }
+.dashboard #box-account { display: block; margin: 20px 0; border-top: 1px solid #d1d1d1; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content { border-top: 1px solid #d1d1d1; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set { display: block; padding: 12px 0; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set h3 { color: #6db5da; margin: 10px 0; text-transform: uppercase; padding: 0 2px; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box { display: block; margin-bottom: 14px; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box:last-child { margin-bottom: 6px; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-title { display: block; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-title h4 { font-size: 17px; color: #58595b; float: left; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-title span.separator { float: left; margin: 0 13px; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-title a { float: left; color: #6db5da; height: 24px; line-height: 25px; font-size: 14px; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content { display: block; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content ul { display: block; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content ul li { display: block; font-size: 14px; line-height: 18px; color: #6A747C; font-family: "GillSansMT", Arial, Helvetica, sans-serif; margin: 0 0 2px 0; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content ul#card-list { padding: 0; margin: 5px 0 15px 6px; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content ul#card-list li { padding: 12px 0; border-bottom: 1px solid #d0d0d0; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content ul#card-list li:last-child { border: 0; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content ul#card-list ul.info li { display: block; padding: 0 0 8px 0; margin: 0; border: 0; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content ul#card-list ul.info li strong { font-weight: normal; color: #58595b; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content ul#card-list ul.info li.card-type { float: left; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content ul#card-list ul.info li.delete { float: right; margin: 0 14px 0 0; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content ul#card-list ul.info li.delete a { color: #6db5da; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content ul#card-list ul.info li.card-num { clear: both; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content address p { line-height: 20px; font-style: normal; margin: 0; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content ol { display: block; margin: 0; padding: 0 0 10px 0; list-style: none; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content ol li { display: block; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content ol li.additional { margin-bottom: 15px; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content ol li p { margin: 0; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content ol li p a { color: #6db5da; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .fieldset { display: block; padding: 0 9px 0 5px; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .fieldset .form-list li { margin: 0; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .fieldset label.ui-input-text { font-size: 14px; line-height: 18px; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .fieldset label.ui-input-text em { margin-right: 4px; font-style: normal; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .fieldset input.ui-input-text { border: 1px solid #aeaeae; font-size: 15px; line-height: 18px; padding: 2px 8px; color: #58595b; font-family: "GillSansMT-Light", sans-serif; margin: 5px 0 0 0; -webkit-border-radius: 0; -moz-border-radius: 0; -ms-border-radius: 0; -o-border-radius: 0; border-radius: 0; -webkit-appearance: none; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .fieldset input.ui-input-text#giftcard_code { margin: 2px 0; text-transform: uppercase; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .fieldset li.checkboxes { margin: 0; padding: 10px 0; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .fieldset li.checkboxes fieldset { margin: 0; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .fieldset li.checkboxes fieldset.skin-concerns .ui-controlgroup-label { margin: 0 0 10px 0; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .fieldset li.checkboxes fieldset.skin-concerns fieldset { float: left; width: 50%; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .fieldset li.checkboxes fieldset.skin-concerns fieldset .ui-controlgroup-label { margin: 0 0 5px 0; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .fieldset li.checkboxes fieldset legend { font-size: 14px; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .fieldset li.checkboxes .ui-checkbox { float: left; display: block; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .fieldset li.checkboxes .ui-checkbox .ui-btn { margin: 0; background: #fff; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .fieldset li.checkboxes .ui-checkbox .ui-btn .ui-btn-inner { padding: 0 0 0 20px; font-size: 14px; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .fieldset li.checkboxes .ui-checkbox .ui-btn .ui-btn-inner .ui-icon { left: 0; width: 13px; height: 13px; background: url("../images/transparent/checkbox.gif") no-repeat left top; margin-top: -7px; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .fieldset li.checkboxes .ui-checkbox .ui-btn.ui-checkbox-on .ui-icon { background: url("../images/transparent/checkbox_on.gif") no-repeat left top; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .fieldset .skin-care .ui-checkbox { margin: 0 0 5px 0; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .buttons-set a.small { float: right; padding: 0 45px; margin: 0 5px 0 0; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .buttons-set a.small.check-gc-status { padding: 0; float: none; display: block; margin: 0 9px 0 5px; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .buttons-set button.small { float: right; padding: 0 45px; margin: 0 5px 0 0; outline: 0; border: 0; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .gift-card-info, .dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .error-msg { padding: 10px 0 0 0; margin: 0 10px 10px 5px; border-bottom: 1px solid #d0d0d0; color: #6db5da; text-transform: uppercase; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .gift-card-info p, .dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .error-msg p { color: #6db5da; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .gift-card-info strong, .dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .error-msg strong { font-weight: normal; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .error-msg { padding: 10px 0 10px 0; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content p { margin: 5px; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content p.empty { color: #6A747C; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set.box-reviews, .dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set.box-recent, .dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set.box-subscriptions { padding-bottom: 40px; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set.box-card { padding-bottom: 10px; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set.box-card p { margin-bottom: 10px; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box-table { border-top: 1px solid #d0d0d0; text-align: left; width: 100%; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box-table th { height: 28px; font-size: 14px; color: #58595b; vertical-align: center; padding: 0; border-bottom: 1px solid #d0d0d0; text-transform: uppercase; font-weight: normal; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box-table td { font-size: 14px; color: #6A747C; line-height: 18px; padding: 4px 0; border-bottom: 1px solid #d0d0d0; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box-table td.date { width: 35%; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box-table td.name { width: 40%; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box-table td.view { width: 25%; text-align: right; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box-table td.view a { margin: 0 8px 0 0; color: #6db5da; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box-table td.product { width: 45%; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box-table td.product span { padding: 0 10px 0 0; float: left; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box-table td.subscription { width: 40%; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box-table td.subscription-view { width: 15%; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box-table td.subscription-view a { color: #6db5da; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box-table td.order { width: 100%; padding: 12px 0; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box-table td.order ul { display: block; padding: 0 0 10px 0; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box-table td.order ul:last-child { padding: 0; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box-table td.order ul li { width: 50%; float: left; padding: 0 0 0 4%; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box-table td.order ul li:first-child { text-align: right; font-size: 14px; text-transform: uppercase; color: #4f5052; width: 44%; padding: 0 2% 0 0; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box-table td .rating-box { float: left; margin: 2px 0; width: 65px; height: 12px; line-height: 0; font-size: 0; text-indent: -9999em; overflow: hidden; background: url(../images/transparent/rating_off.png) 0 0 repeat-x; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box-table td .rating-box .rating { float: left; height: 12px; background: url(../images/transparent/rating_on.png) 0 0 repeat-x; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box-table.box-table-orders td { width: 30%; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box-table.box-table-orders td.order-view { width: 10%; text-align: right; }
+.dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box-table.box-table-orders td.order-view a { color: #6db5da; margin: 0; }
+.dashboard .ui-collapsible-set .ui-collapsible h3 a .ui-btn-inner .ui-btn-text { font-size:14px !important; }
+.dashboard #box-account .ui-collapsible .info-box h3 a { display:inline; }
+.dashboard #box-account .ui-collapsible .sub-title { font-size:12px !important; }
+.dashboard #box-account .ui-collapsible .box-title { font-size:13px !important; color:#6A747C; }
+.dashboard #box-account .ui-collapsible .box-title a { color:#6db5da; }
+.dashboard #box-account .ui-collapsible .col-1 { margin:10px; }
+.dashboard #box-account .ui-collapsible .col-2 { margin:0 10px 10px 10px; }
+.dashboard #box-account .ui-collapsible .recent-orders .table-caption { font-size:14px !important; }
+.dashboard #box-account .ui-collapsible .recent-orders table { width:100%; }
+.dashboard #box-account .ui-collapsible .recent-orders table thead { text-align:left; vertical-align:top; width:100%; font-size:12px; }
+.dashboard #box-account .ui-collapsible .recent-orders table tbody { text-align:left; vertical-align:top; width:100%; font-size:12px; }
+
+.my-account .fieldset { margin:18px; } 
+.my-account .fieldset .form-list .ui-btn-inner .ui-btn-text { display:none; }
+.my-account .fieldset .form-list .ui-checkbox .ui-btn-inner .ui-btn-text { line-height:30px; display:block; width:210px; float:left;  }
+.my-account .fieldset .form-list .ui-checkbox .ui-btn-inner .ui-icon { display:none; }
+.my-account .fieldset .form-list .ui-checkbox input { margin:0; line-height:30px; height:30px; }
+.my-account .legend { margin-bottom:10px; }
+
+.my-account table { width:100%; } 
+.my-account #box-account .recent-orders table tbody tr td { padding-right:5%; }
+.my-account #box-account .recent-orders table thead tr th { padding-right:5%; }
+
+.my-account #box-account .recent-orders table tbody tr td.last a { margin-left:5px; } 
+.my-account #box-account .recent-orders table thead tr th { font-weight:bold !important; }
+
+.my-account #box-account .recent-orders table tbody tr td.last .separator { display:none; }
+.my-account #box-account .recent-orders table tbody tr td.last a:last-child { display:none; }
+
+.my-account .addresses-list li p { color:#6a747c; }
+.my-account .addresses-list { margin:16px; }
+.my-account .addresses-list .sub-title { font-size:18px; }
+.my-account .addresses-list .info-box { margin-bottom:10px; }
+.my-account .addresses-list .info-box .box-title { font-size:11px; }
+.my-account .fieldset .form-list .fields .field .input-box .ui-btn-inner { display:none; }
+.my-account .fieldset .form-list .fields .field .input-box select { width:100%; }
+
+.dashboard .my-wishlist #wishlist-table { margin:0 auto; width:100%; }
+.dashboard .discount h2 { margin-bottom:5px; }
+.dashboard .discount .discount-form input { width:98%; margin-bottom:10px; margin-top:5px; }
+.dashboard .discount .buttons-set .button { margin:0; }
+
+.my-account .order-page .page-title { text-align:center; }
+.my-account .order-page h1 { font-size:14px !important; margin-bottom:5px; }
+.my-account .order-page h2, .my-account .order-items h2 { font-size:14px !important; line-height:14px; text-transform:none; margin-bottom:3px; }
+
+.my-account .order-page .order-info dt { display:none; }
+.my-account .order-page .order-info dd { margin:0; text-align:center; }
+.my-account .order-page p { color:#6a747c; font-size:14px; }
+.my-account .order-page p strong { font-weight:normal; }
+.my-account .order-page .order-date { margin:6px; }
+.my-account .order-page .col2-set { margin:6px; }
+.my-account .order-page .col2-set .col-1 { margin-bottom:5px; border:1px solid #c8c8c8; padding:6px; }
+.my-account .order-page .col2-set .col-2 { margin-bottom:5px; border:1px solid #c8c8c8; padding:6px; }
+.my-account .order-items { margin:6px 6px 10px 6px; padding:6px; border:1px solid #c8c8c8; }
+.my-account .order-items .data-table tbody tr td { width:13%; }
+.my-account .order-items .data-table tbody tr td h3 { font-size:12px; text-transform:none; }
+.my-account .order-items .data-table { font-size:10px; }
+
+.my-account .buttons-set { margin:0 16px 15px 16px; }
+.my-account .buttons-set div { margin:0; }
+.my-account .buttons-set button { width:100%; margin:0; }
+.my-account .buttons-set a { color:white; }
+
+.my-account .fieldset .form-list .ui-checkbox input.checkbox { float:right; }
+.my-account colorgroup { display:none; }
+
+.my-account .control strong { display:none; }
+
+.my-account .pager .amount { margin:10px; }
+.my-account .pager .limiter { border-top:1px solid #c8c8c8; border-bottom:1px solid #c8c8c8; height:35px; line-height: 32px; clear:both; width: 100%; margin: 0; }
+.my-account .pager .limiter .container { width:200px; margin:0 auto; }
+
+.dashboard .welcome-msg { margin:0 16px; }
+.dashboard #box-account .box { margin:0 16px; }
+.dashboard #box-account .box:nth-child(6) { margin:0; }
+.dashboard #box-account .box:nth-child(6) h3 a span.ui-btn-inner { margin-left:16px; }
+.dashboard #box-account .box:nth-child(6) h3 a span.ui-icon { margin-right:16px; }

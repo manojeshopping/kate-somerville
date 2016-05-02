@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Alliance_ReviewsFeed>
+              <active>true</active>
+              <codePool>local</codePool>
+    </Alliance_ReviewsFeed>
+  </modules>
+</config>

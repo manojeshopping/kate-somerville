@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+    
+        <reference name="content">
+            <block type="kissmetrics_analytics/js" name="km_amalitics" after="-" />
+        </reference>
+    
+    </default>
+    <region_index_index>
+	    <remove name="km_amalitics"/>
+        <reference name="content">
+            <block type="kissmetrics_analytics/js" name="km_amalitics.content" after="-" />
+        </reference>
+    </region_index_index>
+    
+    <catalog_product_view>
+	    <remove name="km_amalitics"/>
+        <reference name="content">
+            <block type="kissmetrics_analytics/js" name="km_amalitics.product" after="product.info" />
+        </reference>
+    </catalog_product_view>
+    
+</layout> 

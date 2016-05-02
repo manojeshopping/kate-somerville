@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <alliance_fivehundredfriends translate="title" module="alliance_fivehundredfriends">
+                                        <title>500 Friends Configuration</title>
+                                    </alliance_fivehundredfriends>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+	
+	<menu>
+		<sales>
+			<children>
+				<redeem_dashboard translate="title" module="alliance_fivehundredfriends">
+					<disabled>1</disabled>
+				</redeem_dashboard>
+				<alliance_fivehundredfriends translate="title" module="alliance_fivehundredfriends">
+					<title>UKR Points Redeemed</title>
+					<action>adminhtml/redemption/redeempoints</action>
+					<sort_order>12</sort_order>
+				</alliance_fivehundredfriends>
+			</children>
+		</sales>
+	</menu>
+</config>

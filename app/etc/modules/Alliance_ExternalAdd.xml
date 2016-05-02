@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Alliance_ExternalAdd>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Alliance_ExternalAdd>
+    </modules>
+</config>

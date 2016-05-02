@@ -1,0 +1,75 @@
+<?php
+$currentPoints = $this->getCurrentPoints();
+$firstReward = $this->getFirstReward();
+?>
+<div class="qualify">
+<h2>Current Points <span> <?php echo number_format($currentPoints); ?></span></h2>
+<div class="content">
+<?php if((int)$currentPoints > (int)$firstReward['points']) {?>
+<p id="congrats-paragraph">Congrats! You're eligible for a reward.<br />Redeem now or save for later.</p>
+<?php } else {?>
+<p>You do not yet qualify for a reward.</p>
+<?php }?>
+<ul id="reward-list">
+<?php
+$rewards = $this->getRewards();
+foreach($this->getRewards() as $_reward) {
+?>
+	<?php if($this->checkReward($_reward)) {?>
+	<li class="reward-type-<?php echo $_reward['configuration']['type'];?>">
+		<img src="<?php echo $this->getSkinUrl('images/ukr-shopping-cart/' . preg_replace("/[\s_]/", "_", $_reward['name']) . '.jpg'); ?>" label="<?php echo $_reward['name']; ?>" width="150"/>
+		<button type="button" title="Add To Cart" class="rewards-add" data-id="<?php echo $_reward['id'];?>"><img src="<?php echo $this->getSkinUrl('images/ukr-shopping-cart/redeem.png') ?>" label="redeem"/></button>
+	</li>
+	<?php }?>
+<?php }?>
+</ul>
+
+<?php if($appliedRewards = $this->getAppliedRewards()) {?>
+<hr />
+<ul>
+<?php foreach($appliedRewards as $_reward) {?>
+	<li>
+		<img src="<?php echo $this->getSkinUrl('images/ukr-shopping-cart/' . preg_replace("/[\s_]/", "_", $rewards[$_reward->getRewardId()]['name']) . '.jpg'); ?>" label="<?php echo $_reward['name']; ?>" width="150"/>
+		<span class="redeem-ed"><img src="<?php echo $this->getSkinUrl('images/ukr-shopping-cart/redeem-ed.png') ?>" label="redeem-ed"/></span>
+	</li>
+<?php }?>
+</ul>
+<?php }?>
+
+<?php if($this->getUsedPoints() > 0) {?>
+<p class="cancel">
+	<a title="Remove Ultimate Kate Rewards" class="rewards-remove" onclick="location.href='<?php echo Mage::getUrl('katerewards/redemption/removeall');?>';">x <span>Cancel all and return points</span></a>
+</p>
+<?php }?>
+</div>
+</div>
+<script type="text/javascript">
+$$('button.rewards-add').invoke('observe', 'click', function(e) {
+	e.stop();
+	
+	if(! this.up('li').hasClassName('disabled')) {
+		this.up('ul').select('li').invoke('addClassName', 'disabled');
+		location.href = "<?php echo Mage::getUrl('katerewards/redemption/redeem/');?>" + 'id/' + this.readAttribute('data-id');
+	}
+});
+
+<?php
+// Check if we need to active Reward tab.
+if(Mage::getSingleton('core/session')->getLoadRewardTab()) {
+?>
+Event.observe(window, 'load', function() {
+	setTimeout(function() {
+		collateralTabs.activeTab = $('reward-tab');
+		collateralTabs.select();
+	}, 500);
+});
+<?php
+}
+Mage::getSingleton('core/session')->unsLoadRewardTab();
+?>
+
+if($('reward-list').select('li').length == 0) {
+	$('congrats-paragraph').remove();
+	$('reward-list').remove();
+}
+</script>

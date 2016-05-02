@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<checkout_cart_index>
+		<reference name="checkout.cart">
+			<block type="ordergroove/pagetag_cart" template="ordergroove/pagetag/cart.phtml" output="toHtml" name="ordergroove.pagetag.cart"></block>
+		</reference>
+	</checkout_cart_index>
+	
+	<catalog_product_view>
+		<reference name="product.info">
+			<block type="ordergroove/pagetag_product" template="ordergroove/pagetag/product.phtml" output="toHtml" name="ordergroove.pagetag.product"></block>
+		</reference>
+	</catalog_product_view>
+	
+	<checkout_onepage_index>
+		<reference name="checkout.onepage">
+			<block type="ordergroove/pagetag_checkout_review" template="ordergroove/pagetag/checkout/review.phtml" output="toHtml" name="ordergroove.pagetag.review"></block>
+		</reference>
+	</checkout_onepage_index>
+	
+	<checkout_onepage_success>
+		<reference name="checkout.onepage">
+			<block type="ordergroove/pagetag_checkout_success" template="ordergroove/pagetag/checkout/success.phtml" output="toHtml" name="ordergroove.pagetag.success"></block>
+		</reference>
+	</checkout_onepage_success>
+	
+	<customer_account>
+		<reference name="customer_account_navigation">
+			<action method="addLink" translate="label" module="ordergroove"><name>og_subscriptions</name><path>recurring/subscriptions/view</path><label>My Subscriptions</label></action>
+		</reference>
+	</customer_account>
+	
+	<recurring_subscriptions_view translate="label">
+		<label>Customer My Account My Subscriptions</label>
+		<update handle="customer_account"/>
+		<reference name="my.account.wrapper">
+			<block type="ordergroove/pagetag_subscriptions" name="customer_subscriptions" />
+		</reference>
+	</recurring_subscriptions_view>
+</layout>

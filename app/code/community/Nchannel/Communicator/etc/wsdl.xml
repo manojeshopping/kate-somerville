@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:typens="urn:{{var wsdl.name}}" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/"
+    name="{{var wsdl.name}}" targetNamespace="urn:{{var wsdl.name}}">
+
+  <types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:Magento">
+      <import namespace="http://schemas.xmlsoap.org/soap/encoding/" schemaLocation="http://schemas.xmlsoap.org/soap/encoding/" />
+    </schema>
+  </types>
+
+  <message name="CommunicatorHelloRequest">
+    <part name="sessionId" type="xsd:string" />
+    <part name="msg" type="xsd:string" />
+  </message>
+  <message name="CommunicatorHelloResponse">
+    <part name="result" type="xsd:string" />
+  </message>
+  <message name="ProductutilityAddAttributesRequest">
+    <part name="sessionId" type="xsd:string" />
+    <part name="sku" type="xsd:string" />
+    <part name="configAttrCodes" type="typens:ArrayOfString" />
+  </message>
+  <message name="ProductutilityAddAttributesResponse">
+    <part name="result" type="xsd:string" />
+  </message>
+  <message name="ProductutilityAttachProductToConfigurableRequest">
+    <part name="sessionId" type="xsd:string" />
+    <part name="childSku" type="xsd:string" />
+    <part name="configurableProductID" type="xsd:int" />
+  </message>
+  <message name="ProductutilityAttachProductToConfigurableResponse">
+    <part name="result" type="xsd:string" />
+  </message>
+
+
+  <portType name="{{var wsdl.handler}}PortType">
+    <operation name="CommunicatorHello">
+      <documentation>Link Simple Products to a Configurable Product </documentation>
+      <input message="typens:CommunicatorHelloRequest" />
+      <output message="typens:CommunicatorHelloResponse" />
+    </operation>
+    <operation name="ProductutilityAddAttributes">
+      <documentation>Sets up configurable attributes. </documentation>
+      <input message="typens:ProductutilityAddAttributesRequest" />
+      <output message="typens:ProductutilityAddAttributesResponse" />
+    </operation>
+    <operation name="ProductutilityAttachProductToConfigurable">
+      <documentation>Sets up configurable attributes. </documentation>
+      <input message="typens:ProductutilityAttachProductToConfigurableRequest" />
+      <output message="typens:ProductutilityAttachProductToConfigurableResponse" />
+    </operation>
+  </portType>
+
+  <binding name="{{var wsdl.handler}}Binding" type="typens:{{var wsdl.handler}}PortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="CommunicatorHello">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <input>
+        <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="ProductutilityAddAttributes">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <input>
+        <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="ProductutilityAttachProductToConfigurable">
+      <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+      <input>
+        <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+  </binding>
+
+  <service name="{{var wsdl.name}}Service">
+    <port name="{{var wsdl.handler}}Port" binding="typens:{{var wsdl.handler}}Binding">
+      <soap:address location="{{var wsdl.url}}" />
+    </port>
+  </service>
+
+</definitions>

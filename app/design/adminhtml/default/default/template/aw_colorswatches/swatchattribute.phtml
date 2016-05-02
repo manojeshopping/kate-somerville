@@ -1,0 +1,158 @@
+<?php
+/**
+ * aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This software is designed to work with Magento enterprise edition and
+ * its use on an edition other than specified is prohibited. aheadWorks does not
+ * provide extension support in case of incorrect edition use.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Colorswatches
+ * @version    1.0.3
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ */
+?><table class="data" cellspacing="0" id="swatches_table">
+    <thead>
+        <th width="200">
+            <span class="nobr"><?php echo $this->__('Label Name');?></span>
+        </th>
+        <th width="200">
+            <span class="nobr"><?php echo $this->__('Swatcher Preview');?></span>
+        </th>
+        <th>
+            <span class="nobr"><?php echo $this->__('Image Upload');?></span>
+        </th>
+    </thead>
+    <tbody>
+        <?php $optionList = $this->getAttribute()->getSource()->getAllOptions(false); ?>
+        <?php if (count($optionList) == 0): ?>
+            <!-- TODO: empty row -->
+        <?php else: ?>
+            <?php echo $this->helper('adminhtml/js')->includeScript('lib/flex.js') ?>
+            <?php echo $this->helper('adminhtml/js')->includeScript('mage/adminhtml/flexuploader.js') ?>
+            <?php echo $this->helper('adminhtml/js')->includeScript('lib/FABridge.js') ?>
+
+            <script type="text/javascript">
+                var maxUploadFileSizeInBytes = <?php echo $this->getDataMaxSizeInBytes() ?>;
+                var maxUploadFileSize = '<?php echo $this->getDataMaxSize() ?>';
+                var uploaderList = [];
+            </script>
+
+            <?php $sizes = AW_Colorswatches_Helper_Data::getThumbnailSize(); ?>
+
+            <?php foreach ($optionList as $option) : ?>
+                <tr>
+                    <td>
+                        <?php echo $option['label']; ?>
+                    </td>
+
+                    <td>
+                        <div style="margin-bottom: 20px;">
+                            <div id="aw-pcs-image-preview-<?php echo $option['value'] ?>" >
+                                <?php $swatchModel = $this->getSwatchByOptionId($option['value']); ?>
+                                <?php $thumbnail = $swatchModel->getThumbnail(); ?>
+                                <?php if ($thumbnail):?>
+                                    <img height="<?php echo $sizes['height'] ?>" width="<?php echo $sizes['width'] ?>" src="<?php echo $thumbnail?>"/>
+                                <?php else:?>
+                                    <div style="text-align:center;border:1px solid grey;height:<?php echo $sizes['height'] ?>px;width:<?php echo $sizes['width'] ?>px;" ><?php echo $this->__('No Image');?></div>
+                                <?php endif;?>
+                            </div>
+                            <input type="checkbox" id="aw-pcs-delete-<?php echo $option['value'] ?>" <?php if(!$thumbnail): ?>disabled<?php endif?> name="aw[swatch][<?php echo $option['value'] ?>][delete_image]" value="<?php echo $option['value'] ?>"><label for="aw-pcs-delete-<?php echo $option['value'] ?>" style="padding-left: 5px;"><?php echo $this->__('Delete this image') ?></label>
+                            <input type="hidden" name="aw[swatch][<?php echo $option['value'] ?>][option]" value="<?php echo $option['value']; ?>" />
+                            <input type="hidden" name="aw[swatch][<?php echo $option['value'] ?>][file]" value="<?php echo $swatchModel->getImage(); ?>" />
+                        </div>
+                    </td>
+
+                    <td>
+                        <?php $htmlId = "awPCS" . $option['value']; ?>
+
+                        <div class="no-display" id="<?php echo $htmlId ?>-template">
+                            <div id="{{id}}" class="file-row file-row-narrow">
+                            <span class="file-info">
+                                <span class="file-info-name">{{name}}</span>
+                                <span class="file-info-size">({{size}})</span>
+                            </span>
+                                <div class="progress-text"></div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+
+                        <div id="<?php echo $htmlId ?>" class="uploader">
+                            <div id="<?php echo $htmlId ?>-old" class="file-row-info"></div>
+                            <div id="<?php echo $htmlId ?>-new" class="file-row-info"></div>
+                            <div class="buttons">
+                                <div id="<?php echo $htmlId; ?>-install-flash" style="display:none">
+                                    <?php echo Mage::helper('media')->__('This content requires last version of Adobe Flash Player. <a href="%s">Get Flash</a>', 'http://www.adobe.com/go/getflash/') ?>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="no-display" id="<?php echo $htmlId ?>-template-progress">
+                                {{percent}}% {{uploaded}} / {{total}}
+                            </div>
+                        </div>
+
+                        <script type="text/javascript">
+                            var aw_pcs_option_<?php echo $option['value'] ?> = new Flex.Uploader('<?php echo $htmlId ?>', '<?php echo $this->getSkinUrl('media/uploaderSingle.swf') ?>', <?php echo $this->getConfigJson($htmlId) ?>);
+                            aw_pcs_option_<?php echo $option['value'] ?>.onFilesComplete = function(completedFiles) {
+                                completedFiles.each(
+                                    function (file) {
+                                        try {
+                                            eval('var result = ' + file.response);
+                                        } catch(e) {
+                                            return;
+                                        }
+
+                                        var imageInputContainer = aw_pcs_option_<?php echo $option['value'] ?>.container.up('tr').down('td').next();
+                                        imageInputContainer.select('input[name="aw[swatch][<?php echo $option['value'] ?>][file]"]').first().setValue(result['file_name']);
+                                        imageInputContainer.select('input[name="aw[swatch][<?php echo $option['value'] ?>][delete_image]"]').first().enable();
+
+                                        var imageContainer = $('aw-pcs-image-preview-<?php echo $option['value'] ?>');
+                                        var image = new Element('img');
+                                        var imageUrl = '<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'aw_colorswatches' . DS; ?>' + result['file_name'];
+                                        image.setAttribute('src', imageUrl);
+                                        image.setAttribute('height', '<?php echo $sizes['height'] ?>');
+                                        image.setAttribute('width', '<?php echo $sizes['width'] ?>');
+                                        imageContainer.update(image);
+
+                                        aw_pcs_option_<?php echo $option['value'] ?>.removeFile(file.id);
+                                    }
+                                );
+                                MediabrowserInstance.handleUploadComplete();
+                            };
+                            uploaderList.push(aw_pcs_option_<?php echo $option['value'] ?>);
+                            // hide flash buttons
+                            if ($('<?php echo $htmlId ?>-flash') != undefined) {
+                                $('<?php echo $htmlId ?>-flash').setStyle({float:'left'});
+                            }
+                        </script>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </tbody>
+</table>
+<?php if (count($optionList) > 0): ?>
+    <?php echo $this->getUploadAllButtonHtml(); ?>
+    <script type="text/javascript">
+        Event.observe($('aw-pcs-upload-all'), 'click', function (e) {
+            uploaderList.each(
+                function (item) {
+                    item.upload();
+                }
+            );
+            Event.stop(e);
+        });
+    </script>
+<?php endif; ?>

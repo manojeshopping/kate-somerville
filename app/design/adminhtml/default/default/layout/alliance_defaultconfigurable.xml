@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<layout>
+    <alliance_defaultconfigurable_handle>
+        <reference name="head">
+            <action method="addJs">
+                <js>alliance_defaultconfigurable/adminhtml/configurable.js</js>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="adminhtml/template" template="alliance_defaultconfigurable/configurable.phtml" name="configurable_default" as="configurable_default"/>
+        </reference>
+    </alliance_defaultconfigurable_handle>
+    <adminhtml_catalog_product_edit>
+        <update handle="alliance_defaultconfigurable_handle" />
+    </adminhtml_catalog_product_edit>
+    <adminhtml_catalog_product_new>
+        <update handle="alliance_defaultconfigurable_handle" />
+    </adminhtml_catalog_product_new>
+</layout>

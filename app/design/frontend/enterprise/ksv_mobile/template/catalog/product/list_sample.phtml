@@ -1,0 +1,372 @@
+<?php
+/**
+ * Magento Enterprise Edition
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magento Enterprise Edition License
+ * that is bundled with this package in the file LICENSE_EE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magentocommerce.com/license/enterprise-edition
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     enterprise_default
+ * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://www.magentocommerce.com/license/enterprise-edition
+ */
+?>
+<?php
+/**
+ * Product list template
+ *
+ * @see Mage_Catalog_Block_Product_List
+ */
+?>
+<?php
+$x_categoryid = 280;   // Free cleanser
+$_productCollection = new Mage_Catalog_Model_Category();
+$_productCollection->load($x_categoryid);
+$_productCollection = $_productCollection->getProductCollection();
+$_productCollection->addAttributeToSelect('*');
+
+$couponCode = Mage::getSingleton("checkout/cart")->getQuote()->getCouponCode();
+$oCoupon = Mage::getModel('salesrule/coupon')->load($couponCode, 'code');
+$oRule = Mage::getModel('salesrule/rule')->load($oCoupon->getRuleId());
+$z_val_coupon = $oRule->getData();
+?>
+
+
+<?php if (!$_productCollection->count()): ?>
+    <p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
+<?php else: ?>
+
+<?php
+//promo choose free gift
+
+$session = Mage::getSingleton('checkout/cart')->getQuote();
+$cart = Mage::getSingleton('checkout/cart');
+$free_products = array();
+$free_skus = array();
+
+$subtotal = $session->getSubtotal();
+$threshold = Mage::getStoreConfig('gp/alliance/freestuff_amount');
+$product1_sku = Mage::getStoreConfig('gp/alliance/freestuff_sku1');
+if (isset($product1_sku)) {
+  $product1 = Mage::getModel('catalog/product')->loadByAttribute('sku', $product1_sku);
+  $free_products[] = $product1;
+  $free_skus[] = $product1_sku;
+}
+$product2_sku = Mage::getStoreConfig('gp/alliance/freestuff_sku2');
+if (isset($product2_sku)) {
+  $product2 = Mage::getModel('catalog/product')->loadByAttribute('sku', $product2_sku);
+  $free_products[] = $product2;
+  $free_skus[] = $product2_sku;
+}
+$product3_sku = Mage::getStoreConfig('gp/alliance/freestuff_sku3');
+if (isset($product3_sku)) {
+  $product3 = Mage::getModel('catalog/product')->loadByAttribute('sku', $product3_sku);
+  $free_products[] = $product3;
+  $free_skus[] = $product3_sku;
+}
+
+foreach ($session->getAllItems() as $item) {
+  $sku = $item->getSku();
+  if (in_array($sku, $free_skus)) {
+    $cart->removeItem($item->getId())->save();
+  }
+}
+
+if ($subtotal >= $threshold) {
+
+  $enabled = Mage::getStoreConfig('gp/alliance/freestuff_enabled');
+  if ($enabled == 1) {
+?>
+
+    <h2 >Choose your free Cleanser</h2>
+            
+    <div class="category-products ultimate-kate-rewards-products free-cleanser">
+
+
+    <?php $total_free = count($free_products) ; //echo $total_free ?>
+        <?php $columncount = 2; ?>
+    <?php $i = 0;?>
+
+    <?php
+        $count = 0;
+        foreach($free_products as $freebie) {
+          $count++;;
+    ?>
+
+
+
+    <?php if ($i++ % $columncount == 0) : ?>
+        <ul class="products-grid">
+    <?php endif ?>
+
+    <li class="<?php if ($count == 1) echo 'item first'; else { echo ($count == count($free_products) ? 'item last' : 'item'); } ?>">
+
+       <div class="product-image">
+          <img src="<?php echo $this->helper('catalog/image')->init($freebie, 'small_image')->resize(120); ?>" width="120" height="120"
+            alt="<?php echo $this->stripTags($this->getImageLabel($freebie, 'small_image'), null, true) ?>" />
+       </div>
+
+
+
+        <div class="product-info">
+
+        <label>
+          <input data-iconpos="left" type="radio" class="checkbox sample-checkbox-send sample-checkbox" id="sample-checkbox<?php echo $freebie->getId() ?>" onclick="countSamples(<?php echo $freebie->getId() ?>)" name="radio1" value="<?php echo $freebie->getId() ?>" />
+        <?php echo $freebie->getTitle(); ?>
+
+        </label>
+
+        <?php if ($freebie->getSubTitle()): ?> 
+          <h5 id="sub-title<?= $freebie->getEntityId() ?>"><?php echo $freebie->getSubTitle(); ?></h5>  
+        <?php endif; ?>
+
+        </div> 
+
+
+
+
+    </li>
+
+            <?php //echo $i;?>
+            <?php if ($i % $columncount == 0 || $i == $total_free): ?>
+                </ul>
+            <?php endif ?>     
+
+    <?php
+       }
+
+    ?>
+</div>
+
+
+<?php
+
+  } else {
+  }
+}
+
+?>
+
+
+<?php  if(  $z_val_coupon['name'] == 'Ultimate Kate Rewards Free Cleanser' ){  ?>
+    
+    <div class="buttons-set">
+        <a href="#" title="<?php echo $this->__('Add Ultimate Kate Reward') ?>" class="button btn-proceed-checkout btn-checkout" onclick="addSamples()"><?php echo $this->__('Add Ultimate Kate Reward >') ?></a>
+    </div>    
+
+    <?php //echo $this->getToolbarHtml() ?>
+
+    <?php echo $this->getAdditionalHtml() ?>
+    <div class="category-products ultimate-kate-rewards-products">
+
+        <?php // Grid Mode ?>
+
+        <?php $_collectionSize = $_productCollection->count() ?>
+        <?php $_columnCount = 2; ?>
+        <?php $i = 0;
+
+        foreach ($_productCollection as $_product): ?>
+			<?php if ($_product->getIsSalable()): ?>
+            <?php if ($i++ % $_columnCount == 0): ?>
+                <ul class="products-grid">
+                <?php endif ?>
+                <li class="item<?php if (($i - 1) % $_columnCount == 0): ?> first<?php elseif ($i % $_columnCount == 0): ?> last<?php endif; ?>">
+					
+					<div class="product-image">
+                        <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(120); ?>" width="120" height="120" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+					</div>
+
+                    <div class="product-info">
+
+                        <label>
+                             <input data-iconpos="left" type="radio" class="checkbox sample-checkbox-send sample-checkbox-free-cleanser" id="sample-checkbox<?php echo $_product->getId() ?>" onclick="countFreeCleanser(<?php echo $_product->getId() ?>)" name="radio1" value="<?php echo $_product->getId() ?>" />                            
+                            <?php echo $_product->getTitle(); ?>
+                        </label>
+
+                        <?php if ($_product->getSubTitle()): ?> 
+                            <h5 id="sub-title<?= $_product->getEntityId() ?>"><?php echo $_product->getSubTitle(); ?></h5> 	
+                        <?php endif; ?>
+                    </div>
+
+                </li>
+            <?php if ($i % $_columnCount == 0 || $i == $_collectionSize): ?>
+                </ul>
+            <?php endif ?>
+			<?php if($i == 3 ) break;  ?>
+			<?php endif; ?>
+        <?php endforeach ?>
+
+    </div>
+	
+
+<?php  }else{ ?>
+
+
+    <div class="ultimate-kate">
+        <div class="image"><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA); ?>wysiwyg/ukr.jpg" alt="kate-rewards" /></div>
+        <p>Enter your Ultimate Kate Rewards code to receive special offers</p>
+        <div class="buttons-set"  >
+            <a class="button one-half grey" href="http://<?php echo $_SERVER["SERVER_NAME"]; ?>/checkout/cart/" >Return</a>
+            <a class="button one-half" href="http://<?php echo $_SERVER["SERVER_NAME"]; ?>/rewards-program-mobile/">Sign Up</a>
+        </div>    
+    </div>
+	
+
+<?php  } ?>
+
+
+<?php endif; ?>
+
+
+<!--<div class="freesample-checkout-button-topdiv buttons-set">
+    <a href="#" title="<?php echo $this->__('Add 3 Free Samples') ?>" class="button btn-proceed-checkout btn-checkout" onclick="addSamples()"><?php echo $this->__('Add 3 Free Samples') ?></a>
+</div>-->
+
+
+<?php
+$_productCollection = $this->getLoadedProductCollection();
+$_helper = $this->helper('catalog/output');
+?>
+<?php if (!$_productCollection->count()): ?>
+    <p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
+<?php else: ?>
+
+
+    <?php //echo $this->getToolbarHtml() ?>
+    <?php echo $this->getAdditionalHtml() ?>
+    <div class="category-products free-samples-products">
+
+        <?php // Grid Mode ?>
+
+        <?php $_collectionSize = $_productCollection->count() ?>
+        <?php $_columnCount = 2; ?>
+        <?php $i = 0;
+        foreach ($_productCollection as $_product): ?>
+			<?php if ($_product->getIsSalable()): ?>
+            <?php if ($i++ % $_columnCount == 0): ?>
+                <ul class="products-grid">
+                <?php endif ?>
+                <li class="item<?php if (($i - 1) % $_columnCount == 0): ?> first<?php elseif ($i % $_columnCount == 0): ?> last<?php endif; ?>">
+					
+					<div class="product-image">
+                        <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(120); ?>" width="120" height="120" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+                    </div>
+
+                    <div class="product-info">
+
+                        <label>
+                            <input data-iconpos="left" type="checkbox" class="checkbox sample-checkbox-send sample-checkbox" id="sample-checkbox<?php echo $_product->getId() ?>" onclick="countSamples(<?php echo $_product->getId() ?>)" name="sample_products[<?php echo $_product->getId() ?>]" value="<?php echo $_product->getId() ?>" />
+                            <?php echo $_helper->productAttribute($_product, $_product->getTitle(), 'name') ?>
+
+                        </label>
+
+                        <?php if ($_product->getSubTitle()): ?> 
+                            <h5 id="sub-title<?= $_product->getEntityId() ?>"><?php echo $_product->getSubTitle(); ?></h5> 	
+                        <?php endif; ?>
+    						
+                    </div> 
+
+                </li>
+            <?php if ($i % $_columnCount == 0 || $i == $_collectionSize): ?>
+                </ul>
+            <?php endif ?>
+			<?php if($i == 12 ) break;  ?>
+			<?php endif; ?>
+        <?php endforeach ?>
+
+    </div>
+
+	<input type="hidden" name="return_url" id="return_url" value="<?php echo Mage::helper('gp')->getFreeSampleActionUrl(); ?>" />
+	
+    <div class="buttons-set">
+        <a href="/checkout/cart" title="<?php echo $this->__('Return') ?>" class="grey one-half button back">Return</a>
+        <a href="#" title="<?php echo $this->__('Add Samples') ?>" class="one-half button btn-proceed-checkout btn-checkout" onclick="addSamples()"><?php echo $this->__('Add Samples') ?></a>
+    </div>
+   
+
+<?php endif; ?>
+
+
+<script language="javascript">
+	function addSamples()
+	{
+        var checkboxes = $$('.sample-checkbox-send');
+        var pids = '';
+		var k 	 = 0 ;
+        for(var i=0;i<checkboxes.length;i++){
+			if(checkboxes[i].checked==true)
+			{
+				if(pids=='')
+					pids	=	checkboxes[i].value;
+				else
+					pids	=	pids+","+checkboxes[i].value;
+				k++;		
+			}
+		}
+        var radios = document.getElementsByName('radio1');
+
+        for (var i = 0, length = radios.length; i < length; i++) {
+          if (radios[i].checked) {
+            pids        =       pids+","+radios[i].value;
+          }
+	}
+
+		document.location.href	=	$('return_url').value+'?products='+pids+'&return_url=free-samples-mobile';
+	}
+
+
+	function countSamples(productid)
+	{
+        var checkboxes = $$('.sample-checkbox');
+		var k 	 = 0 ;
+        for(var i=0;i<checkboxes.length;i++){
+			if(checkboxes[i].checked==true)
+			{
+				k++;		
+			}
+		}
+		if(k > 3){
+			alert('Please select only 3 samples');
+			document.getElementById('sample-checkbox'+productid).checked	=	false;
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+
+	function countFreeCleanser(productid)
+	{
+        var checkboxes = $$('.sample-checkbox-free-cleanser');
+		var k 	 = 0 ;
+        for(var i=0;i<checkboxes.length;i++){
+			if(checkboxes[i].checked==true)
+			{
+				k++;		
+			}
+		}
+		if(k > 1){
+			alert('Please select only 1 Free Cleanser');
+			document.getElementById('sample-checkbox'+productid).checked	=	false;
+			return false;
+		} else {
+
+			return true;
+		}
+	}
+
+</script>
+

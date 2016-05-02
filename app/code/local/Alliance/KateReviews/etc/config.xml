@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+
+    <modules>
+        <Alliance_KateReviews>
+            <version>1.2.5</version>
+        </Alliance_KateReviews>
+    </modules>
+
+    <global>
+
+        <models>
+            <alliance_katereviews>
+                <class>Alliance_KateReviews_Model</class>
+                <resourceModel>alliance_katereviews_resource</resourceModel>
+            </alliance_katereviews>
+            <alliance_katereviews_resource>
+                <class>Alliance_KateReviews_Model_Resource</class>
+                <entities>
+                    <review>
+                        <table>alliance_katereviews_reviews</table>
+                    </review>
+                    <contributor>
+                        <table>alliance_katereviews_contributors</table>
+                    </contributor>
+                    <topcontributor>
+                        <table>alliance_katereviews_top_contributors</table>
+                    </topcontributor>
+                    <helpful>
+                        <table>alliance_katereviews_helpful</table>
+                    </helpful>
+                </entities>
+            </alliance_katereviews_resource>
+        </models>
+
+        <resources>
+            <alliance_katereviews_setup>
+                <setup>
+                    <module>Alliance_KateReviews</module>
+                </setup>
+            </alliance_katereviews_setup>
+        </resources>
+
+        <helpers>
+            <alliance_katereviews>
+                <class>Alliance_KateReviews_Helper</class>
+            </alliance_katereviews>
+        </helpers>
+
+        <blocks>
+            <alliance_katereviews>
+                <class>Alliance_KateReviews_Block</class>
+            </alliance_katereviews>
+        </blocks>
+
+    </global>
+
+    <frontend>
+        <layout>
+            <updates>
+                <alliance_katereviews>
+                    <file>alliance_katereviews.xml</file>
+                </alliance_katereviews>
+            </updates>
+        </layout>
+        <routers>
+            <katereviews>
+                <use>standard</use>
+                <args>
+                    <module>Alliance_KateReviews</module>
+                    <frontName>katereviews</frontName>
+                </args>
+            </katereviews>
+        </routers>
+    </frontend>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <alliance_katereviews>
+                    <file>alliance/katereviews.xml</file>
+                </alliance_katereviews>
+            </updates>
+        </layout>
+    </adminhtml>
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Alliance_KateReviews before="Mage_Adminhtml">Alliance_KateReviews_Adminhtml</Alliance_KateReviews>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+
+    <default>
+        <alliance_katereviews>
+            <customer_notification_settings>
+                <enable_customer_notification>1</enable_customer_notification>
+            </customer_notification_settings>
+        </alliance_katereviews>
+    </default>
+
+</config>

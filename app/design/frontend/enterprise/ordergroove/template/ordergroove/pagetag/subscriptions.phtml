@@ -1,0 +1,36 @@
+<?php
+/**
+ * @see Pixafy_Ordergroove_Block_Pagetag_Subscriptions
+ */
+?>
+<?php $merchantId = Mage::helper('ordergroove/config')->getMerchantId(); ?>
+<div class="page-title">
+	<h1><?php echo $this->__("My Subscriptions") ?></h1>
+</div>
+<div id="og-msi-container"></div>
+<script type="text/javascript">
+	<?php
+	if($this->isGuestMode()){
+		?>
+		var og_settings = {
+			"user":
+				{
+					"og_user_id": "<?php echo $this->_getCustomer()->getId() ?>",
+					"og_user_hash": "<?php echo ($this->_getCustomer()->getHashedOgId()) ?>"
+				}
+		};
+		<?php
+	}
+	else{
+		?>
+		var og_settings = {
+			"user": {
+				"merchant_user_id": "<?php echo $this->_getCustomer()->getId() ?>",
+				"merchant_user_hash": "<?php echo Mage::helper('ordergroove/rc4')->encrypt($this->_getCustomer()->getId()) ?>"
+			}
+		};
+		<?php
+	}
+	?>
+</script>
+<script type="text/javascript" src="<?php echo Mage::helper('ordergroove/config')->getPageTaggingUrl() ?><?php echo $merchantId ?>/5/msi.js"></script>

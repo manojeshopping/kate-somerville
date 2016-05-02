@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Alliance_Shipping>
+            <version>1.0.1</version>
+        </Alliance_Shipping>
+    </modules>
+    <global>
+        <helpers>
+            <alliance_shipping>
+                <class>Alliance_Shipping_Helper</class>
+            </alliance_shipping>
+        </helpers>
+        <models>
+            <alliance_shipping>
+                <class>Alliance_Shipping_Model</class>
+            </alliance_shipping>
+        </models>
+    </global>
+    <default>
+        <carriers>
+            <alliance_shipping>
+                <active>0</active>
+                <model>alliance_shipping/carrier</model>
+            </alliance_shipping>
+        </carriers>
+    </default>
+</config>

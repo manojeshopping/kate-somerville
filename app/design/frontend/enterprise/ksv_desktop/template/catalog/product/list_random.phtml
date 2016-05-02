@@ -1,0 +1,123 @@
+<?php
+/**
+ * Magento Enterprise Edition
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magento Enterprise Edition License
+ * that is bundled with this package in the file LICENSE_EE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magentocommerce.com/license/enterprise-edition
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     enterprise_default
+ * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://www.magentocommerce.com/license/enterprise-edition
+ */
+?>
+<?php
+/**
+ * Product list template
+ *
+ * @see Mage_Catalog_Block_Product_List
+ */
+?>
+
+<?php
+if($this->getCategoryId())
+	$cat = Mage::getModel('catalog/category')->load($this->getCategoryId());
+	
+$_productCollection = $this->getLoadedProductCollection();
+$_helper = $this->helper('catalog/output');
+?>
+<?php if (!$_productCollection->count()): ?>
+    <p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
+<?php else: ?>
+	<span class="featured_items">Featured Skin Products:</span>
+    
+    <?php echo $this->getAdditionalHtml() ?>
+    <div class="category-products">
+     
+
+            <?php // Grid Mode ?>
+
+            <?php $_collectionSize = $_productCollection->count() ?>
+            <?php $_columnCount = 4; ?>
+            <?php $i = 0;
+            foreach ($_productCollection as $_product): ?>
+                <?php if ($i++ % $_columnCount == 0): ?>
+                    <ul class="products-grid">
+                    <?php endif ?>
+                    <li class="item<?php if (($i - 1) % $_columnCount == 0): ?> first<?php elseif ($i % $_columnCount == 0): ?> last<?php endif; ?>">
+					<div class="product-bottom">
+                        <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image" id="<?= $_product->getEntityId() ?>"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(135); ?>" width="135" height="135" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></a>
+						<form action="<?php echo $this->getAddToCartUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+		<div class="no-display">
+            <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+        </div>
+                        <div class="custom-head" >
+							<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getTitle(), null, true) ?>">  
+                            <h2 class="product-name" id="product-link<?= $_product->getEntityId() ?>">
+                                <?php echo $_helper->productAttribute($_product, $_product->getTitle(), 'name') ?>
+                                <?php 
+								if ($_product->getAttributeText('product_icon')): ?> 
+                                    <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . "icons/small/" . $_product->getAttributeText('product_icon'); ?>" width="17" height="17" />
+                                <?php endif;  ?>    
+                            </h2>
+                            <?php if ($_product->getSubTitle()): ?> 
+                                <h5 id="sub-title<?= $_product->getEntityId() ?>"><?php echo $_product->getSubTitle(); ?></h5> 	
+                            <?php endif; ?>
+							</a>
+                        </div>  	
+					<?php
+                        if ($_product->getAttributeText('title_color')):
+                            $txtcolor = explode("-", $_product->getAttributeText('title_color'));
+							if(count($txtcolor)>1){
+							$color = trim($txtcolor[1]);
+                            ?>	<Style>
+                                #product-link<?= $_product->getEntityId() ?> { color:#<?= $color ?> !important; }
+                                #sub-title<?= $_product->getEntityId() ?> { color:#<?= $color ?> !important; }						
+                            </style>
+							<?php } ?>
+                        <?php endif; ?>
+                        <div class="actions">
+                            <div class="list-right">     
+                                <?php if ($_product->isSaleable()): ?>
+                                    <a href="<?php echo $_product->getProductUrl() ?>"><button type="button" title="<?php echo $this->__('Shop Now') ?>" class="button btn-cart" <?php ?>onclick="this.form.submit();"<?php ?>><span><span><?php echo $this->__('Shop Now') ?></span></span></button></a>
+                                <?php else: ?>
+                                    <?php if ($_product->getIsSalable()): ?>
+                                        <p class="availability in-stock"><span><?php echo $this->__('In stock') ?></span></p>
+                                    <?php else: ?>
+                                        <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                                    <?php endif; ?>
+                                    <?php endif; ?>
+                                <ul class="add-to-links">
+                                    <?php if ($this->helper('wishlist')->isAllow()) : ?>
+                                        <li><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist" rel="nofollow"><?php echo $this->__('+ Add to Wishlist') ?></a></li>
+            <?php endif; ?>
+
+                                </ul>
+                            </div>
+                        </div>
+						&nbsp;</div>
+						</form>
+					
+						
+                    </li>
+                <?php if ($i % $_columnCount == 0 || $i == $_collectionSize): ?>
+                    </ul>
+                <?php endif ?>
+				<?php if($_collectionSize>3 && $i == 3 ) { echo "</ul>"; break; } ?>
+            <?php endforeach ?>
+            <script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>
+    </div>
+<?php endif; ?>

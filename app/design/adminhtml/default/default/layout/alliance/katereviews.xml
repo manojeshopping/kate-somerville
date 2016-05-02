@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <adminhtml_katereviews_index>
+        <reference name="content">
+            <block type="alliance_katereviews/adminhtml_review" name="alliance_katereviews_review" />
+        </reference>
+    </adminhtml_katereviews_index>
+    <adminhtml_katereviews_pending>
+        <reference name="content">
+            <block type="alliance_katereviews/adminhtml_pending" name="alliance_katereviews_pending" />
+        </reference>
+    </adminhtml_katereviews_pending>
+    <adminhtml_katereviews_report>
+        <reference name="content">
+            <block type="alliance_katereviews/adminhtml_report" name="alliance_katereviews_report" />
+        </reference>
+    </adminhtml_katereviews_report>
+</layout>

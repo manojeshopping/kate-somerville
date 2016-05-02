@@ -1,0 +1,44 @@
+<div class="contact-us footer-block">
+	<h2><span>Contact Us</span></h2>
+	
+	<div class="footer-block-content">
+
+<?php     
+/* PST */
+date_default_timezone_set('America/Los_Angeles');
+$x_date = date('Hi', time());
+$current_date = date("Y-m-d");
+
+function isWeekend($date) {
+    return (date('N', strtotime($date)) >= 6);
+}
+?>
+
+<?php if( $x_date >= '900' && $x_date <= '1730' && !isWeekend($current_date) ){ ?>		
+		<ul class="buttons">
+			<li class="one-half"><a class="button" href="mailto:customercare@katesomerville.com">Email Us</a></li>
+			<li class="one-half"><a class="button" href="tel:+18009845283">1-800-984-KATE</a></li>
+		</ul>			
+<?php }else{ ?>
+		<ul class="buttons">
+			<li class="full"><a class="button" href="mailto:customercare@katesomerville.com">Email Us</a></li>
+		</ul>			
+<?php } ?>
+		
+		<p class="assistance">Phone assistance is available Mon - Fri from 9:00 am - 5:30 pm PST</p>
+	</div>
+</div>
+
+<div class="socialize footer-block">
+	<h2><span>Socialize</span></h2>
+
+	<div class="footer-block-content">
+		<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer_social_mobile')->toHtml(); ?>
+	</div>	
+</div>
+
+<div style="text-align:center;">
+     <ul><li> <a  style="text-decoration:none; color:#FFF;font-size:14px;" href="?___store=default">Desktop version</a> </li></ul></div>
+<div class="footer-links">
+		<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer_links_mobile')->toHtml(); ?>   
+</div>

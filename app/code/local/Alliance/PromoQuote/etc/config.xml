@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Alliance_PromoQuote>
+            <version>0.1.0</version> <!-- define version for sql upgrade -->
+        </Alliance_PromoQuote>
+    </modules>
+    <adminhtml>
+        <layout>
+             <!-- layout upgrade configuration -->
+            <updates>
+                <alliance_promoquote>
+                    <file>alliance_promoquote.xml</file>
+                </alliance_promoquote>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>

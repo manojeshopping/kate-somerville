@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.1.0">
+    <offers_index_index>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+        <reference name="head">
+            <action method="addItem"><type>skin_js</type><file>js/alliance_offers.js</file></action>
+            <action method="addItem"><type>skin_css</type><file>css/alliance_offers.css</file></action>
+        </reference>
+        <reference name="content">
+            <block type="offers/offers" name="offers" template="alliance_offers/offers.phtml">
+                <block type="checkout/onepage_link" name="checkout_button" template="checkout/onepage/link.phtml"/>
+            </block>
+        </reference>
+    </offers_index_index>
+</layout>

@@ -1,0 +1,168 @@
+/* Account Pages */
+
+/* Left Sidebar/Menu */
+.sidebar .block {
+	padding: 0;
+	border: none;
+	background: none;
+	font-size: 12px;
+	list-style-position: inside;
+}
+
+.sidebar .block-account .block-title {
+	font-weight: normal;
+	padding: 6px 12px 4px 12px;
+	display: block;
+	color: #ffffff;
+	background: #75b8db;
+	font-size: 15px;
+	line-height: 15px;
+	margin: 0 0 6px 0;
+	text-transform: uppercase;
+	border: none;
+}
+
+.sidebar .block-account .block-title strong {
+	font-size: 15px;
+	line-height: 15px;
+	color: #ffffff;
+}
+
+.sidebar .block-content li a, 
+.sidebar .block-content li a span,
+.sidebar .block-content li.current, 
+.sidebar .block-content li strong {
+	background: none;
+	color:#6A747C;
+	text-transform: none;
+	text-decoration: none;
+	font-size: 14px;
+	line-height: 18px;
+	font-weight: normal;
+	padding: 0;
+	border: none;
+}
+
+.sidebar .block-content li strong {
+	color: #61A8D4;
+}
+
+.sidebar .block-content li,
+.sidebar .block-content li.current {
+	padding: 4px 0 4px 12px;
+}
+
+.sidebar .block-account li a:hover {
+	color:#6A747C;
+	background: none;
+}
+
+
+/* Internal Pages */
+.my-account label,
+.customer-account-login label,
+.customer-account-forgotpassword label,
+.customer-account-create label {
+	padding-top: 8px;
+}
+
+.my-account .addresses-list .box-content {
+	font-size: 13px;
+}
+
+.my-account .order-info dt {
+	padding: 0;
+}
+
+.my-account #my-orders-table td {
+	font-size: 12px !important;
+}
+
+.add-to-cart-alt input {
+	text-align: center;
+}
+
+#wishlist-table h3 a {
+	font-size: 18px;
+	text-decoration: none;
+	color: #6A747C; 
+}
+
+#wishlist-table textarea {
+	margin-bottom: 20px;
+}
+
+#wishlist-table .btn-remove2 {
+	margin-top: 4px;
+}
+
+/* Ordergroove Style */
+#wishlist-table  td{
+	border-bottom: 0px solid #d9d9d9 !important;
+}
+
+#wishlist-table   td.og-wishlist{
+	border-bottom: 1px solid #d9d9d9 !important;
+}
+/*END ordergroove */
+
+.my-rewards .info-box {
+	border: none;
+	background: none;
+}
+
+.info-box {
+	border: none;
+	background: none;
+}
+
+.info-box .box-title {
+	font-size: 14px;
+	color: #5E6A72; 
+	padding: 0;	
+	margin: 0 !important;
+}
+
+.info-box .box-content {
+	color: #6A747C; 
+}
+
+.my-rewards dl dt {
+	font-weight: normal;
+	font-size: inherit;
+}
+
+.my-rewards .info-box .box-content {
+	padding: 0;
+	font-size: 14px;
+}
+
+.enterprise-giftcardaccount-customer-index .form-list label,
+.enterprise-giftcardaccount-customer-index .form-list .input-box, 
+.enterprise-giftcardaccount-customer-index .buttons-set a.button,
+.enterprise-giftcardaccount-customer-index .buttons-set button.button {
+	float: none;
+	text-align: left;
+	font-size: 14px;
+	margin-left: 0;
+}
+
+.enterprise-giftcardaccount-customer-index .form-list li {
+	padding-left: 0;
+}
+
+.enterprise-giftcardaccount-customer-index .gift-card-info {
+	padding: 0;
+	border: none;
+	background: none;
+}
+
+.form-list p.age-18 {
+	padding: 0 0 0 250px;
+	width:380px;
+	color:#999;
+}
+.customer-account-create .dob-year {
+	display:none;
+}
+

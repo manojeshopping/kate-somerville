@@ -1,0 +1,30 @@
+<div class="giveawayfb-container">
+	<?php
+	$report = $this->getSkuReport();
+	foreach($report as $_row) {
+		echo "SKU #".$_row->getSamplekit().": ".$_row->getTotal()." Sets on order.<br/>";
+	}
+	
+	echo "<br/>Total orders in queue: ".$this->getTotalQueueOrders().".";
+	?>
+	<br/><br/>
+	<table border="1">
+		<tr>
+			<th style="padding: 5px;"><strong>Date</strong></th>
+			<th style="padding: 5px;"><strong>Total Registered</strong></th>
+			<th style="padding: 5px;"><strong>Confirmed</strong></th>
+			<th style="padding: 5px;"><strong>Orders</strong></th>
+		</tr>
+		<?php
+		$reportArray = $this->getReport();
+		foreach($reportArray as $day => $values) {
+		?>
+		<tr>
+			<td style="padding: 5px;"><?php echo date('m/d/Y', strtotime($day));?></td>
+			<td style="padding: 5px;text-align: right;"><?php echo $values['register'];?></td>
+			<td style="padding: 5px;text-align: right;"><?php echo $values['confirmed'];?></td>
+			<td style="padding: 5px;text-align: right;"><?php echo $values['order'];?></td>
+		</tr>
+		<?php }?>
+	</table>
+</div>

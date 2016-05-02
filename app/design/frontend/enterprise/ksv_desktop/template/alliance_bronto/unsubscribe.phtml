@@ -1,0 +1,17 @@
+<form action="<?php echo Mage::getBaseUrl().'bronto/index/thankyou/'; ?>" method="POST" id="bronto-unsubscribe-form">
+        <input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey(); ?>" />
+		<div style="text-align:left;padding-top:2%;">
+            <div style="text-align:left">To unsubscribe please enter your email address below:</div><br>
+			<div><input class="input-text required-entry validate-email" id="email" name="email" type="text" placeholder="Enter your email" style="width:50%;height:29px;" />
+			</div>
+			<br>
+			<div><button type="submit" title="<?php echo $this->__('Unsubscribe') ?>" class="button"><span><span><?php echo $this->__('Unsubscribe') ?></span></span>
+			</button>
+			</div>
+        </div>
+</form>
+<script type="text/javascript">
+    //< ![CDATA[
+        var customForm = new VarienForm('bronto-unsubscribe-form');
+    //]]>
+</script>

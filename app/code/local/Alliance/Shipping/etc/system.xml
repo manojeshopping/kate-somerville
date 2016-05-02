@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <sections>
+        <carriers>
+            <groups>
+                <alliance_shipping translate="label">
+                    <label>Alliance Custom Shipping</label>
+                    <sort_order>-12777</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Enables or disables all Alliance Shipping methods</comment>
+                        </active>
+                        <title translate="label">
+                            <label>Carrier Name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Customers will see this during checkout</comment>
+                        </title>
+                        <allowed_methods translate="label">
+                            <label>Allowed Methods</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>alliance_shipping/carrier_source_methods</source_model>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <can_be_empty>1</can_be_empty>
+                            <comment>Only highlighted methods will be enabled</comment>
+                        </allowed_methods>
+                        <discount_minimum>
+                            <label>Minimum Order Total for Discount</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>When an order total reaches or exceeds this number, methods will use their discount price</comment>
+                        </discount_minimum>
+                        <method_1_name>
+                            <label>Method 1 Name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Customers will see this during checkout</comment>
+                        </method_1_name>
+                        <method_1_price>
+                            <label>Method 1 Price</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Basic price</comment>
+                        </method_1_price>
+                        <method_1_discount_price>
+                            <label>Method 1 Discount Price</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Price when minimum order total for discount is met</comment>
+                        </method_1_discount_price>
+                        <method_2_name>
+                            <label>Method 2 Name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Customers will see this during checkout</comment>
+                        </method_2_name>
+                        <method_2_price>
+                            <label>Method 2 Price</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Basic price</comment>
+                        </method_2_price>
+                        <method_2_discount_price>
+                            <label>Method 2 Discount Price</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Price when minimum order total for discount is met</comment>
+                        </method_2_discount_price>
+                        <method_3_name>
+                            <label>Method 3 Name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Customers will see this during checkout</comment>
+                        </method_3_name>
+                        <method_3_price>
+                            <label>Method 3 Price</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Basic price</comment>
+                        </method_3_price>
+                        <method_3_discount_price>
+                            <label>Method 3 Discount Price</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Price when minimum order total for discount is met</comment>
+                        </method_3_discount_price>
+                        <method_4_name>
+                            <label>Method 4 Name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>130</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Customers will see this during checkout</comment>
+                        </method_4_name>
+                        <method_4_price>
+                            <label>Method 4 Price</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>140</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Basic price</comment>
+                        </method_4_price>
+                        <method_4_discount_price>
+                            <label>Method 4 Discount Price</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>150</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Price when minimum order total for discount is met</comment>
+                        </method_4_discount_price>
+                        <method_5_name>
+                            <label>Method 5 Name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>160</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Customers will see this during checkout</comment>
+                        </method_5_name>
+                        <method_5_price>
+                            <label>Method 5 Price</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>170</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Basic price</comment>
+                        </method_5_price>
+                        <method_5_discount_price>
+                            <label>Method 5 Discount Price</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>180</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Price when minimum order total for discount is met</comment>
+                        </method_5_discount_price>
+                        <method_6_name>
+                            <label>Method 6 Name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>190</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Customers will see this during checkout</comment>
+                        </method_6_name>
+                        <method_6_price>
+                            <label>Method 6 Price</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Basic price</comment>
+                        </method_6_price>
+                        <method_6_discount_price>
+                            <label>Method 6 Discount Price</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>210</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Price when minimum order total for discount is met</comment>
+                        </method_6_discount_price>
+                        <method_7_name>
+                            <label>Method 7 Name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>220</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Customers will see this during checkout</comment>
+                        </method_7_name>
+                        <method_7_price>
+                            <label>Method 7 Price</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>230</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Basic price</comment>
+                        </method_7_price>
+                        <method_7_discount_price>
+                            <label>Method 7 Discount Price</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>240</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Price when minimum order total for discount is met</comment>
+                        </method_7_discount_price>
+                        <method_8_name>
+                            <label>Method 8 Name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>250</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Customers will see this during checkout</comment>
+                        </method_8_name>
+                        <method_8_price>
+                            <label>Method 8 Price</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>260</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Basic price</comment>
+                        </method_8_price>
+                        <method_8_discount_price>
+                            <label>Method 8 Discount Price</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>270</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Price when minimum order total for discount is met</comment>
+                        </method_8_discount_price>
+                        <method_9_name>
+                            <label>Method 9 Name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>280</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Customers will see this during checkout</comment>
+                        </method_9_name>
+                        <method_9_price>
+                            <label>Method 9 Price</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>290</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Basic price</comment>
+                        </method_9_price>
+                        <method_9_discount_price>
+                            <label>Method 9 Discount Price</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>300</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Price when minimum order total for discount is met</comment>
+                        </method_9_discount_price>
+                        <method_10_name>
+                            <label>Method 10 Name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>310</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Customers will see this during checkout</comment>
+                        </method_10_name>
+                        <method_10_price>
+                            <label>Method 10 Price</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>320</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Basic price</comment>
+                        </method_10_price>
+                        <method_10_discount_price>
+                            <label>Method 10 Discount Price</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>330</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Price when minimum order total for discount is met</comment>
+                        </method_10_discount_price>
+                        <method_11_name>
+                            <label>Method 11 Name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>340</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Customers will see this during checkout</comment>
+                        </method_11_name>
+                        <method_11_price>
+                            <label>Method 11 Price</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>350</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Basic price</comment>
+                        </method_11_price>
+                        <method_11_discount_price>
+                            <label>Method 11 Discount Price</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>360</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Price when minimum order total for discount is met</comment>
+                        </method_11_discount_price>
+                        <method_12_name>
+                            <label>Method 12 Name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>370</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Customers will see this during checkout</comment>
+                        </method_12_name>
+                        <method_12_price>
+                            <label>Method 12 Price</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>380</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Basic price</comment>
+                        </method_12_price>
+                        <method_12_discount_price>
+                            <label>Method 12 Discount Price</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>390</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Price when minimum order total for discount is met</comment>
+                        </method_12_discount_price>
+                        <method_13_name>
+                            <label>Method 13 Name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>400</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Customers will see this during checkout</comment>
+                        </method_13_name>
+                        <method_13_price>
+                            <label>Method 13 Price</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>410</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Basic price</comment>
+                        </method_13_price>
+                        <method_13_discount_price>
+                            <label>Method 13 Discount Price</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>420</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Price when minimum order total for discount is met</comment>
+                        </method_13_discount_price>
+                        <method_14_name>
+                            <label>Method 14 Name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>430</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Customers will see this during checkout</comment>
+                        </method_14_name>
+                        <method_14_price>
+                            <label>Method 14 Price</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>440</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Basic price</comment>
+                        </method_14_price>
+                        <method_14_discount_price>
+                            <label>Method 14 Discount Price</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>450</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Price when minimum order total for discount is met</comment>
+                        </method_14_discount_price>
+                        <method_15_name>
+                            <label>Method 15 Name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>460</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Customers will see this during checkout</comment>
+                        </method_15_name>
+                        <method_15_price>
+                            <label>Method 15 Price</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>470</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Basic price</comment>
+                        </method_15_price>
+                        <method_15_discount_price>
+                            <label>Method 15 Discount Price</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>480</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Price when minimum order total for discount is met</comment>
+                        </method_15_discount_price>
+                    </fields>
+                </alliance_shipping>
+            </groups>
+        </carriers>
+    </sections>
+</config>

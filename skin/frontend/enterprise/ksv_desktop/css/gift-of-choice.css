@@ -1,0 +1,72 @@
+/* gift of choice */
+
+.giftofchoice .gift-of-choice-hdr {
+	text-align: center;
+	font-family: 'GilsansLightFCNormal', Arial, Helvetica, sans-serif;
+	color: #75b8db;
+	font-size: 30px;
+	line-height: 40px;
+	font-weight: bolder;
+	border-bottom: #ccc solid thin;
+	padding: 15px 0 30px 0;
+}
+
+.giftofchoice .gift-of-choice-hdr p {
+	padding-bottom: 0;
+}	
+
+.giftofchoice  .giftofchoice-product {
+	position: relative;
+	float: left;
+	width: 27.2%;
+	padding: 30px 3%;
+	border-right: #ccc solid thin;
+	border-bottom: #ccc solid thin;
+	text-align: center;
+	min-height: 340px;
+}
+
+.giftofchoice  .giftofchoice-product:nth-child(3n) {
+	border-right: none;
+}
+
+.giftofchoice h1 {
+	padding-top: 20px;
+}
+
+.giftofchoice h1,
+.giftofchoice h2 {
+	color: #75b8db;
+	font-size: 17px;
+	font-weight: normal;
+	text-decoration: none;
+	line-height: 30px !important;
+}
+
+.giftofchoice .skin-concern {
+	padding: 10px 0 20px 0;
+}
+
+.giftofchoice .skin-concern .option {
+	display: inline;
+	
+}
+
+.giftofchoice .skin-concern .option:after {
+	content:'\002C';
+	padding-right: 3px;
+}
+
+.giftofchoice .skin-concern .option:last-child:after {
+	display: none;
+}
+
+.giftofchoice .giftofchoice-checkout {
+	padding: 30px 0;
+	text-align: right;
+}
+
+.giftofchoice .giftofchoice-product input[type="radio"] {
+	position: absolute;
+	bottom: 40px;
+}

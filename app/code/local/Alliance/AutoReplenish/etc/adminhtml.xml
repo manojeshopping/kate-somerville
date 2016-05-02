@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<config>
+<menu>
+	<sales>
+	<children>
+		<autoreplenish translate="title">
+			<title>Auto Replenish</title>
+			<action>adminhtml/autoreplenish</action>
+			<sort_order>15</sort_order>                        
+		</autoreplenish>
+	</children>
+	</sales>
+</menu>
+</config>

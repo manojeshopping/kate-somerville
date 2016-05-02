@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+    <katereviews_write_index>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="alliance_katereviews/form" name="katereviews_form"
+                   template="alliance_katereviews/form.phtml" />
+        </reference>
+    </katereviews_write_index>
+
+    <katereviews_write_preview>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="alliance_katereviews/preview" name="katereviews_preview"
+                   template="alliance_katereviews/preview.phtml" />
+        </reference>
+    </katereviews_write_preview>
+
+    <katereviews_submit_success>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="alliance_katereviews/success" name="katereviews_success"
+                   template="alliance_katereviews/success.phtml" />
+        </reference>
+    </katereviews_submit_success>
+
+    <katereviews_guidelines_index>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="core/template" name="katereviews_guidelines" template="alliance_katereviews/guidelines.phtml" />
+        </reference>
+    </katereviews_guidelines_index>
+
+    <catalog_product_view>
+        <reference name="product.info">
+            <block type="alliance_katereviews/product_reviews" name="katereviews_display" as="katereviews_display" template="alliance_katereviews/product/reviews.phtml" />
+        </reference>
+        <reference name="product.info">
+            <block type="alliance_katereviews/product_badge" name="katereviews_badge" as="katereviews_badge" template="alliance_katereviews/product/badge.phtml" />
+        </reference>
+    </catalog_product_view>
+
+    <customer_account>
+        <reference name="customer_account_navigation">
+            <action method="addLink" translate="label" module="alliance_katereviews"><name>alliance_katereviews</name><path>katereviews/customer</path><label>My Product Reviews</label></action>
+        </reference>
+    </customer_account>
+
+    <katereviews_customer_index translate="label">
+        <label>Customer My Account Product Reviews</label>
+        <update handle="customer_account"/>
+        <reference name="my.account.wrapper">
+            <block type="alliance_katereviews/customer_list" name="katereviews_customer_list" template="alliance_katereviews/customer/list.phtml"/>
+        </reference>
+    </katereviews_customer_index>
+
+    <katereviews_view_index>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="alliance_katereviews/view_list" name="katereviews_view_list" template="alliance_katereviews/view/list.phtml"/>
+        </reference>
+    </katereviews_view_index>
+
+<!--
+    <review_customer_view translate="label">
+        <label>Customer My Account Review Details</label>
+        <update handle="customer_account"/>
+        <reference name="my.account.wrapper">
+            <block type="review/customer_view" name="customers_review"/>
+        </reference>
+    </review_customer_view>
+-->
+</layout>

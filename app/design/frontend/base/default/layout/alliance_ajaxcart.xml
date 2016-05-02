@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<default>
+		<reference name="head">
+			<action method="addItem" ifconfig="alliance_ajaxcart/ajaxcart_config/enabled"><type>skin_js</type><file>js/alliance_ajaxcart/dialog.js</file></action>
+			<action method="addItem" ifconfig="alliance_ajaxcart/ajaxcart_config/enabled"><type>skin_js</type><file>js/alliance_ajaxcart/ajaxcart.js</file></action>
+			<action method="addItem" ifconfig="alliance_ajaxcart/ajaxcart_config/enabled"><type>skin_css</type><file>css/alliance_ajaxcart.css</file></action>
+		</reference>
+		<reference name="cart_sidebar">
+			<action method="setTemplate" ifconfig="alliance_ajaxcart/ajaxcart_config/enabled"><template>alliance_ajaxcart/cartheader.phtml</template></action> 
+			<action method="addItemRender" ifconfig="alliance_ajaxcart/ajaxcart_config/enabled"><type>simple</type><block>checkout/cart_item_renderer</block><template>alliance_ajaxcart/cartitem.phtml</template></action>
+			<action method="addItemRender" ifconfig="alliance_ajaxcart/ajaxcart_config/enabled"><type>giftcard</type><block>checkout/cart_item_renderer</block><template>alliance_ajaxcart/cartitem.phtml</template></action>
+			<action method="addItemRender" ifconfig="alliance_ajaxcart/ajaxcart_config/enabled"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>alliance_ajaxcart/cartitem.phtml</template></action>
+			<action method="addItemRender" ifconfig="alliance_ajaxcart/ajaxcart_config/enabled"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>alliance_ajaxcart/cartitem.phtml</template></action>
+		</reference>
+		<reference name="right">
+			<remove name="wishlist_sidebar" ifconfig="alliance_ajaxcart/ajaxcart_config/enabled"/>
+			<block ifconfig="alliance_ajaxcart/ajaxcart_config/enabled" type="wishlist/customer_sidebar" name="wishlist.sidebar.ajaxcart" as="wishlist" after="cart_sidebar" template="alliance_ajaxcart/wishlist_sidebar.phtml" />
+		</reference>
+	</default>
+	
+	<catalog_category_default>
+		<reference name="head">
+			<action method="addItem" ifconfig="alliance_ajaxcart/ajaxcart_config/enabled"><type>skin_js</type><file>js/alliance_ajaxcart/list.js</file></action>
+		</reference>
+	</catalog_category_default>
+	
+	<catalog_product_view>
+		<reference name="head">
+			<action method="addItem" ifconfig="alliance_ajaxcart/ajaxcart_config/enabled"><type>skin_js</type><file>js/alliance_ajaxcart/view.js</file></action>
+		</reference>
+	</catalog_product_view>
+	
+	<checkout_cart_index>
+		<reference name="head">
+			<action method="addItem" ifconfig="alliance_ajaxcart/ajaxcart_config/enabled"><type>skin_js</type><file>js/alliance_ajaxcart/cart.js</file></action>
+		</reference>
+		<reference name="content">
+			<block type="core/template" name="cart.sidebar.right" template="alliance_ajaxcart/cart-sidebar-right.phtml" ifconfig="alliance_ajaxcart/ajaxcart_config/enabled">
+				<block type="ajaxcart/freeSamples" name="freesamples" template="alliance_ajaxcart/freesamples.phtml"/>
+				<block type="ajaxcart/wishlist" name="ajaxcart.wishlist" template="alliance_ajaxcart/wishlist.phtml"/>
+			</block>
+		</reference>
+	</checkout_cart_index>
+	
+	<wishlist_index_index>
+		<reference name="head">
+			<action method="addItem" ifconfig="alliance_ajaxcart/ajaxcart_config/enabled"><type>skin_js</type><file>js/alliance_ajaxcart/wishlist.js</file></action>
+		</reference>
+	</wishlist_index_index>
+
+	<ajaxcart_index_checkoutbuttons>
+		<block type="checkout/cart" name="root" output="toHtml" template="alliance_ajaxcart/checkout_buttons.phtml">
+			<block type="core/text_list" name="checkout.cart.top_methods" as="top_methods" translate="label">
+				<label>Payment Methods Before Checkout Button</label>
+				<block type="checkout/onepage_link" name="checkout.cart.methods.onepage" template="checkout/onepage/link.phtml"/>
+			</block>
+			
+			<block type="core/text_list" name="checkout.cart.methods" as="methods" translate="label">
+				<label>Payment Methods After Checkout Button</label>
+				<block type="checkout/onepage_link" name="checkout.cart.methods.onepage" template="checkout/onepage/link.phtml"/>
+				<block type="checkout/multishipping_link" name="checkout.cart.methods.multishipping" template="checkout/multishipping/link.phtml"/>
+			</block>
+		</block>
+	</ajaxcart_index_checkoutbuttons>
+</layout>

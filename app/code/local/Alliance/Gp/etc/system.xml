@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<!--
+    Document   : system.xml
+    Created on : May 26, 2011, 8:03 PM
+    * @author     Alliance Dev Team <>
+    Description:
+        Purpose of the document follows.
+-->
+<config>    
+    <sections>
+
+        <gp>
+
+            <label>GP Configuration </label>
+            <tab>sales</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>306</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>			
+            <groups>
+               <expglobal translate="label comment">
+                    <comment><![CDATA[<br />
+						<div class="box">
+							<p>Instructions: All folders are created and have 777 permission.</p>
+						</div>
+						]]>
+                    </comment>
+                    <label>GP Integration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>5</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+					
+                    <fields>
+                        <expglobal_hostname translate="label">
+                            <label>FTP Host name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </expglobal_hostname>
+					
+                        <expglobal_ftpusername translate="label">
+                            <label>FTP Username</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </expglobal_ftpusername>
+
+                        <expglobal_ftppassword translate="label">
+                            <label>FTP Password</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </expglobal_ftppassword>
+
+                        <expglobal_orderlocal translate="label">
+                            <label>Order file local path</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>140</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </expglobal_orderlocal>
+					
+                        <expglobal_orderremote translate="label">
+                            <label>Order file remote path</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>160</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </expglobal_orderremote>
+					
+                        <expglobal_giftproductid translate="label">
+                            <label>Gift Product ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>180</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </expglobal_giftproductid>
+					
+                        <expglobal_limitperexport translate="label">
+                            <label>Order limit per export</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </expglobal_limitperexport>
+						
+						<expglobal_startexportdate translate="label">
+                            <label>Start Export Date</label>
+                            <frontend_type>text</frontend_type>
+							<frontend_model>gp/adminhtml_system_config_date</frontend_model>
+                            <sort_order>210</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </expglobal_startexportdate>
+                    </fields>
+                </expglobal>
+            </groups>
+        </gp>
+    </sections>
+</config>

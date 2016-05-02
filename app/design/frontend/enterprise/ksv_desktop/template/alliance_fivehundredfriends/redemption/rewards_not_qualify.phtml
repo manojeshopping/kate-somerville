@@ -1,0 +1,21 @@
+<div class="not-qualify">
+<h2>Current Points <span><?php echo $this->getCurrentPoints();?></span></h2>
+<p>You do not yet qualify for a reward. <br/>Keep shopping to earn:</p>
+<img src="<?php echo $this->getSkinUrl('images/ukr-shopping-cart/300points.png') ?>" label="300points"/>
+</div>
+<?php
+// Check if we need to active Reward tab.
+if(Mage::getSingleton('core/session')->getLoadRewardTab()) {
+?>
+<script type="text/javascript">
+Event.observe(window, 'load', function() {
+	setTimeout(function() {
+		collateralTabs.activeTab = $('reward-tab');
+		collateralTabs.select();
+	}, 500);
+});
+</script>
+<?php
+	Mage::getSingleton('core/session')->unsLoadRewardTab();
+}
+?>

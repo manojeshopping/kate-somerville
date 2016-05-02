@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+    <subscriptions_customer_subscriptions>
+	 	<label>My Subscriptions</label>
+	    <reference name="head">
+	        <action method="setTitle"><title>My Subscriptions</title></action>
+	    </reference>
+	 
+		<update handle="customer_account"/>
+			<reference name="my.account.wrapper">	
+				<block type="alliance_subscriptions/customer_subscriptions" template="alliance_subscriptions/customer/subscriptions.phtml" name="subscriptions_customer_subscriptions"/>
+			</reference>
+	</subscriptions_customer_subscriptions>
+	
+	<checkout_cart_index>
+		<reference name="footer">
+			<block type="alliance_subscriptions/cart" name="alliance_subscriptions.cart" template="alliance_subscriptions/checkout/cart/og_settings.phtml"/>
+		</reference>
+	</checkout_cart_index>
+</layout>

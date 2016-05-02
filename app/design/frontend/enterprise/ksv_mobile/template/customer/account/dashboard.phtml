@@ -1,0 +1,120 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php 
+if(isset($_REQUEST['section'])) $x_section = $_REQUEST['section'];
+else $x_section = "";
+?>
+
+<div class="dashboard">
+
+    <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+
+    <?php echo $this->getChildHtml('hello') ?>
+
+    <div id="box-account" class="box-collapsible" data-role="collapsible-set" data-iconpos="right" >
+
+        <div data-role="collapsible" class="box" <?php if( $x_section == 1 ){  echo "id='collapseMe'"; } ?>   >
+                <h3><?php echo $this->__('Account Information') ?></h3>
+                <?php echo $this->getChildHtml('info') ?>
+        </div>
+
+        <div data-role="collapsible" class="box" <?php if( $x_section == 2 ){  echo "id='collapseMe'"; } ?>>
+                <h3><?php echo $this->__('Address Book') ?></h3>
+                <?php echo $this->getChildHtml('address') ?>
+        </div>
+
+        <div data-role="collapsible" class="box" <?php if( $x_section == 3 ){  echo "id='collapseMe'"; } ?>>
+                <h3><?php echo $this->__('My Orders') ?></h3>
+                <?php if($this->getChildHtml('top')):
+				    echo $this->getChildHtml('top');
+				else: ?>
+					<div class='box-set'>
+                        <div class="box">
+                            <div class="box-content">
+                                <p class="empty"><?php echo $this->__('You have placed no orders.'); ?></p>
+                            </div>
+                        </div>
+                    </div>
+				<?php endif;?>
+        </div>
+
+        <div data-role="collapsible" class="box" <?php if( $x_section == 4 ){  echo "id='collapseMe'"; } ?>>
+                <h3><?php echo $this->__('My Product Reviews') ?></h3>
+				<?php if($this->getChildHtml('reviews')):
+				    echo $this->getChildHtml('reviews');
+				else: ?>
+					<div class='box-set'>
+                        <div class="box">
+                            <div class="box-content">
+                                <p class="empty"><?php echo $this->__('You have no product reviews.'); ?></p>
+                            </div>
+                        </div>
+                    </div>
+				<?php endif;?>
+        </div>
+
+        <div data-role="collapsible" class="box" <?php if( $x_section == 5 ){  echo "id='collapseMe'"; } ?>>
+                <h3><?php echo $this->__('My Wishlist') ?></h3>
+				<?php if($this->getChildHtml('wishitems')):
+				    echo $this->getChildHtml('wishitems');
+				else: ?>
+					<div class='box-set'>
+                        <div class="box">
+                            <div class="box-content">
+                                <p class="empty"><?php echo $this->__('See All the viewws please click'); ?></p>
+								<p><a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB)."wishlist";?>">All views</a></p>
+                            </div>
+                        </div>
+                    </div>
+				<?php endif;?>
+        </div>
+		<?php if(! Mage::helper('alliance_fivehundredfriends/data')->getCustomerRestriction()): ?> 
+			<div data-role="collapsible" class="box" <?php if( $x_section == 6 ){  echo "id='collapseMe'"; } ?>>
+                <h3><?php echo $this->__('My Rewards') ?></h3>
+				<?php if($this->getChildHtml('rewards500')):
+				    echo $this->getChildHtml('rewards500');
+				else: ?>
+					<div class='box-set'>
+                        <div class="box">
+                            <div class="box-content">
+                                <p class="empty"><?php echo $this->__('There is no rewards.'); ?></p>
+                            </div>
+                        </div>
+                    </div>
+				<?php endif;?>
+			</div>
+		<?php endif; ?>	
+    </div>
+	
+	<?php //echo $this->getChildHtml('rewards500'); ?>
+</div>
+
+
+
+
+
+

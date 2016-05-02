@@ -1,0 +1,52 @@
+<?php
+$Identifier = 'customer-care';
+
+$parentNode = Mage::getModel('enterprise_cms/hierarchy_node')
+    ->getCollection()
+    ->addFieldToFilter('identifier', $Identifier)
+    ->getFirstItem();
+
+$children = Mage::getModel('enterprise_cms/hierarchy_node')
+    ->getCollection()
+    ->addFieldToFilter('parent_node_id', $parentNode->getId());
+
+$children->getSelect()->order('sort_order');
+$html = '';
+
+
+
+if ($children->getSize()) {
+	
+    $html .= "<ul class='cms-menu'>";
+	$html .= "<li class='parent'><a href='" . Mage::getBaseUrl() . $parentNode->getRequestUrl() . "'><span>Customer Care</span></a>";
+	$html .= "<ul>";
+    foreach ($children as $child) {
+		$page_title = Mage::getModel('cms/page')->load( $child->getPageId() )->getTitle();
+		if(empty($page_title)) $page_title = $child->getLabel();
+		
+		$x_current_url = str_replace("/" , "", $_SERVER['REQUEST_URI']);
+		$x_comp_url = str_replace("/" , "", $child->getRequestUrl());
+		
+		$html .= "<li>";
+		if($x_current_url != $x_comp_url){
+			$html .= "<a href='". Mage::getBaseUrl() . $child->getRequestUrl() . "'>";
+			$html .= "<span> " .$page_title. " </span>";
+			$html .= "</a>";
+		}else{
+			$html .= "<strong> " .$page_title. " </strong>";
+		}
+		
+		$html .= "</li>";
+		
+    }
+	$html .= '</ul>';
+	$html .= '</li>';
+    $html .= '</ul>';
+}
+?>
+
+<script type="text/javascript">
+//<![CDATA[
+jQuery(".col-left").prepend("<?php echo $html; ?>");
+//]]>
+</script>

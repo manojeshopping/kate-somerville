@@ -1,0 +1,64 @@
+<div style="display:inline-block;" class="footer-region-selector">
+	<div class="mobile-switcher"><a href="?___store=m_kate">Mobile Version</a></div>
+	<select id="region-picker">
+		<option>Change Region</option>
+		<?php
+		$helper = Mage::helper('alliance_regionroute');
+		$currentDomain = $helper->getCurrentDomain();
+		
+		$usDomain = $helper->getDomain();
+		$ukDomain = $helper->getDomain('uk');
+		$caDomain = $helper->getDomain('ca');
+		$hkDomain = $helper->getDomain('hk');
+		?>
+		<option value="<?php echo $usDomain; ?>"<?php if($usDomain == $currentDomain) echo ' selected="selected"'?>>United States</option>
+		<option value="<?php echo $ukDomain; ?>"<?php if($ukDomain == $currentDomain) echo ' selected="selected"'?>>United Kingdom</option>
+		<option value="<?php echo $caDomain; ?>"<?php if($caDomain == $currentDomain) echo ' selected="selected"'?>>Canada</option>
+		<option value="<?php echo $hkDomain; ?>"<?php if($hkDomain == $currentDomain) echo ' selected="selected"'?>>Hong Kong</option>
+	</select>
+</div>
+
+<script src="/js/jquery-cookie/jquery.cookie.js"></script>
+
+<script type="text/javascript">
+	//<![CDATA[
+	var redirectDomainsJson = <?php echo $this->getRedirectDomainsJson(); ?>;
+	var regionRouteDomain = '<?php echo $helper->getDomain(); ?>';
+	jQuery(document).ready(function () {
+
+		// move footer to bottom
+		jQuery('.footer-region-selector').each(function () {
+			jQuery(this).insertAfter('.bottom-panel address');
+		});
+		
+		
+		<?php
+		// This code was moved to custom.js (skin/frontend/enterprise/ksv_desktop/js/custom.js).
+		/*
+		jQuery('.footer-region-selector select').on("change", function(e) {
+			
+			var region_picker = jQuery('#region-picker');
+			var selected_region = jQuery(':selected', region_picker);
+			if (jQuery.inArray(selected_region.val(), <?php echo $this->getRedirectDomainsJson(); ?>) == -1) {
+				// nothing
+			}
+			else {
+				jQuery.removeCookie('katesomerville_region_route', { path: '/' });
+				if (selected_region.val() != 'www.katesomerville.co.kr' && selected_region.val().substring(0, 3) != 'hk.') {
+					if (jQuery.cookie('katesomerville_region_route', selected_region.val(), { path: '/', expires: 5, domain: '.<?php echo $helper->getDomain(); ?>' })) {
+						window.location.replace('//' + jQuery.cookie('katesomerville_region_route'));
+					}
+					else {
+						window.location.replace('//' + selected_region.val());
+					}
+				}
+				else {
+					window.location.replace('//' + selected_region.val());
+				}
+			}
+		});
+		*/
+		?>
+	});
+	//]]>
+</script>

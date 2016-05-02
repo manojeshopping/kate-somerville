@@ -1,0 +1,74 @@
+<div class="productfilter-header">
+	<div class="productfilter-title"><p>Find products by</p></div>
+</div>
+<div id="productfilter-filters" class="productfilter-filters">
+	<?php
+	$filtrableAttributes = $this->getFiltrableAttributes();
+	$benefits = array();
+	foreach($filtrableAttributes as $_attribute) {
+		// Exception for the benefists.
+		if(strpos($_attribute['code'], 'benefits_') !== false) {
+			$benefits[] = $_attribute;
+			continue;
+		}
+	?>
+	<?php
+		// Print benefits.
+		if(! empty($benefits)) {
+	?>
+		<div class="productfilter-attribute productfilter-benefits">
+			<div class="productfilter-attribute-title"><?php echo $this->__('Benefits')?><em></em></div>
+			<div class="productfilter-attribute-options">
+			<?php foreach($benefits as $_benefit) {?>
+			<div class="productfilter-attribute-suboptions">
+				<div class="productfilter-attribute-subtitle"><?php echo $_benefit['title']?><am></am></div>
+				<ul>
+					<?php foreach($_benefit['options'] as $_option) {?>
+					<li data-option="<?php echo $_option['value']?>"><em><span></span></em><div class="productfilter-attribute-options-sub"><?php echo $_option['label']?></div></li>
+					<?php }?>
+				</ul>
+			</div>
+			<?php }?>
+			</div>
+		</div>
+	<?php
+			$benefits = array();
+		}
+	?>
+	<div class="productfilter-attribute">
+		<div class="productfilter-attribute-title"><?php echo $_attribute['title']?><em></em></div>
+		<div class="productfilter-attribute-options">
+			<ul>
+				<?php foreach($_attribute['options'] as $_option) {?>
+				<li data-option="<?php echo $_option['value']?>"><em><span></span></em><?php echo $_option['label']?></li>
+				<?php }?>
+			</ul>
+		</div>
+	</div>
+	<?php }?>
+	<?php
+		// Print benefits, this print is used when the benefits is on the end of order.
+		if(! empty($benefits)) {
+	?>
+		<div class="productfilter-attribute productfilter-benefits">
+			<div class="productfilter-attribute-title"><?php echo $this->__('Benefits')?><em></em></div>
+			<div class="productfilter-attribute-options">
+			<?php foreach($benefits as $_benefit) {?>
+			<div class="productfilter-attribute-suboptions">
+				<div class="productfilter-attribute-subtitle"><?php echo $_benefit['title']?><am></am></div>
+				<ul>
+					<?php foreach($_benefit['options'] as $_option) {?>
+					<li data-option="<?php echo $_option['value']?>"><em><span></span></em><?php echo $_option['label']?></li>
+					<?php }?>
+				</ul>
+			</div>
+			<?php }?>
+			</div>
+		</div>
+	<?php
+			$benefits = array();
+		}
+	?>
+		<div id="productfilter-clear" class="productfilter-clear" style="display: none;"><span>Clear All Filters</span></div>
+	</div>
+</div>

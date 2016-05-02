@@ -1,0 +1,87 @@
+/* ============== Survey Page ============================================== */
+.header img { width:100%; height:auto;  }
+.youtube_video  { position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden; }
+.youtube_video iframe { position: absolute; top: 0; eft: 0; width: 100%; height: 90%; }
+.takethequiz { border-bottom:2px solid #dbdbdb; height:60px; text-align:center; margin-top:-70px}
+.takethequiz img { position:relative; bottom:-40px; }
+.head-question { margin-top:30px; text-align:center; font-size:30px; line-height:40px; }
+.head-question span { color:#75b8db; }
+
+.col { width:100%; position:relative; float:left; margin:50px 0 10px 0; }
+.col .sub-head { width:100%; float:left; margin-bottom:20px; }
+.col .sub-head img { float:left; margin-right:20px; }
+.col .sub-head p { font-size:25px; line-height:35px; color:#75b8db; font-family:'JustRealizeRegular'; }
+.col .sub-head p span { font-size:15px; line-height:15px; position:relative; top:-10px; }
+
+
+.col .sub-content { width:100%; float:left; }
+.col .sub-content .sub-col { width:31%; margin-right:2%; float:left; border:2px solid #dbdbdb; }
+.col .sub-content .sub-col-6 { width:10%; margin:0 2px 3px 0; float:left; border:4px solid #dbdbdb; opacity:0.5; }
+.col .sub-content .sub-col:last-child { margin-right:0;}
+.col .sub-content .sub-col img { width:100%; margin-bottom:10px; cursor:pointer; }
+.col .sub-content .sub-col-6 img { width:100%; cursor:pointer; }
+.col .sub-content .sub-col-6:last-child { display:none; }
+.ks-selected { border:2px solid #75b8db !important; opacity:1.0 !important; }
+.ks-selected-6 { border:4px solid #75b8db !important; opacity:1.0 !important; }
+
+.col .sub-content .sub-col > input[type=radio] { display:none; } 
+.submit-button { margin:50px 0 100px 0; text-align:center; width: 100%; position: relative; float: left; cursor:pointer; z-index:100; }
+.submit-button button {border:0 !important;} 
+.submit-button button img { width:120%; margin-left:-10%; cursor:pointer; }
+
+.butterfly01 { position:absolute; right:-70px; top:190px; }
+.butterfly02 { position:absolute; left:-100px; top:210px; }
+.butterfly03 { position:absolute; right:-55px; top:30px; }
+.butterfly04 { position:absolute; left:-80px; top:140px; }
+.butterfly05 { position:absolute; right:-90px; top:285px; }
+.butterfly06 { position:relative; left:-155px; top:-5px; height:0; }
+.butterfly07 { position:relative; left:140px; top:-65px; height:0; }
+
+
+/* ======================================================================= */
+
+
+/* ===============Result page=============================================== */
+
+.kate_share p { padding-bottom:0; }
+
+.header-bottom-line { margin: 60px 0 30px 0; height:5px; border:3px solid #dbdbdb; border-left:0; border-right:0; }
+
+.youresult { width:100%; text-align:center; height:10px; }
+.youresult img { top:-100px; position:relative; }
+.result-content { width:100%; float:left; position:relative; margin-bottom:20px; }
+.result-content .result-col { width:33%; float:left;  opacity:0.5; }
+.result-content .result-col img { width:100%; height:auto;  }
+
+.result-content .result-one img { position:relative; }
+.result-content .result-two img { position:relative; }
+.result-content .result-three img { position:relative; }
+
+.result-content .selected-one { opacity:1.0 !important; }
+
+.result-head1 { float:left; text-align:center; width:100%; font-size:24px; line-height:40px;  }
+
+.kate_share { text-align:center; width:100%; float:left; height:250px; border:2px solid #dbdbdb; outline:2px solid #dbdbdb; outline-offset:-8px; margin-bottom:10px; margin-top:20px; }
+.kate_share .share-button {  z-index:1000; cursor:pointer; background-color:#75b8db; width:160px; text-transform:uppercase; font-size:24px; line-height:40px; margin:30px auto; color:white; } 
+.kate_share p { font-size:18px; line-height:25px; }
+.kate_share p span { color:#75b8db; }
+
+/* ======================================================================= */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

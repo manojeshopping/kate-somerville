@@ -1,0 +1,59 @@
+<script>
+
+    jQuery(document).ready(function () {
+
+        jQuery('html,body').animate({
+                scrollTop: jQuery("body").offset().top},
+            'slow');
+
+    });
+</script>
+
+<div class="katerewards-enroll-notlogged">
+    <div class="wrap">
+        <table class="table_wrap">
+            <tr>
+                <td style="bordr-bottom:none !important;">
+                    <table class="program_overview">
+                        <tr>
+                            <td style="padding: 10px 0 10px 10px;" class="bg-img">
+                                <h2 class="main_header"><a href="#"><img
+                                            src='https://d3aa0ztdn3oibi.cloudfront.net/merchant/1296e203d86fcfd9c76ce70d86c6b9c9.png'/></a></h2>
+
+                                <h3 class="katerewards-thank-you-heading">Thank you for being an Ultimate Kate Rewards member!</h3>
+
+                                <div class="program_text">Kate's promise to you is simple:<br>
+                                    <span class="renew-skin">Renew Skin, </span><span class="restore-health">Restore Health, </span><span
+                                        class="deliver-result">Deliver Results.</span><br><br>
+                                    In addition to achieving a healthy, glowing complexion, Kate believes you should be rewarded too. Redeem your Ultimate Kate
+                                    Rewards points for products and exclusive VIP-only benefits!
+                                </div>
+                                <div class="button-area">
+
+                                    <a id="enrollnow" class="enroll-now" href="<?php echo Mage::getUrl('rewards-program/customer/rewards'); ?>">My Rewards</a>
+
+
+                                </div>
+                                <div class="faq-area">
+                                    <a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB) . "rewards-program-faq"; ?>" target="_parent"
+                                       class="faq">FAQ</a>  / 
+                                    <a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB) . "rewards-program-terms-and-conditions"; ?>"
+                                       target="_parent" class="terms-condition">Program Terms & Conditions</a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<?php if (Mage::getSingleton('customer/session')->isLoggedIn()) { ?>
+    <img
+        src="https://loyalty.500friends.com/api/refer.gif?uuid=<?php
+        echo urlencode(Mage::helper('alliance_fivehundredfriends')->getUserId()); ?>&email=<?php
+        echo urlencode(Mage::getSingleton('customer/session')->getCustomer()->getEmail()); ?>&event_type=<?php
+        echo urlencode('Refer_member'); ?>"
+        style="position: absolute; left: -10px; visibility: hidden;" />
+<?php } ?>

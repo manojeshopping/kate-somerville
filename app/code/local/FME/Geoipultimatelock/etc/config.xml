@@ -1,0 +1,231 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+* @category   FME
+* @package    FME_Geoipultimatelock
+* @author     FME Extensions <support@fmeextensions.com>
+* @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+*/
+-->
+<config>
+    <modules>
+        <FME_Geoipultimatelock>
+            <version>0.1.0</version>
+        </FME_Geoipultimatelock>
+    </modules>
+    <frontend>
+        <events>
+            <controller_action_layout_generate_blocks_after>
+                <observers>
+                    <fme_geoipcheck>
+                        <type>singleton</type>
+                        <class>FME_Geoipultimatelock_Model_Observer</class>
+                        <method>geoCheck</method>
+                    </fme_geoipcheck>
+                </observers>
+            </controller_action_layout_generate_blocks_after>
+            <catalog_product_load_before>
+				<observers>
+                    <fme_geoip_load_product>
+                        <type>singleton</type>
+                        <class>FME_Geoipultimatelock_Model_Observer</class>
+                        <method>beforeProductLoad</method>
+                    </fme_geoip_load_product>
+                </observers>
+            </catalog_product_load_before>
+        </events>
+        <routers>
+            <geoipultimatelock>
+                <use>standard</use>
+                <args>
+                    <module>FME_Geoipultimatelock</module>
+                    <frontName>geoipultimatelock</frontName>
+                </args>
+            </geoipultimatelock>
+        </routers>
+        <layout>
+            <updates>
+                <geoipultimatelock>
+                    <file>geoipultimatelock.xml</file>
+                </geoipultimatelock>
+            </updates>
+        </layout>
+        
+    </frontend>
+    <admin>
+        <routers>
+            <adminhtml>
+				<args>
+					<modules>
+						<geoipultimatelock before="Mage_Adminhtml">FME_Geoipultimatelock_Adminhtml</geoipultimatelock>
+					</modules>
+				</args>
+			</adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <menu>
+            <geoipultimatelock module="geoipultimatelock">
+                <title>Geoip Ultimate Lock</title>
+                <sort_order>71</sort_order>               
+                <children>
+                    <items module="geoipultimatelock">
+                        <title>Manage ACL</title>
+                        <sort_order>0</sort_order>
+                        <action>adminhtml/geoipultimatelock_geoipultimatelock</action>
+                    </items>
+                    <items_import module="geoipultimatelock">
+                        <title>Import Geo Tables</title>
+                        <sort_order>1</sort_order>
+                        <action>adminhtml/geoipultimatelock_geoipultimatelock/importTables</action>
+                    </items_import>
+                    <items_oip module="geoipultimatelock">
+                        <title>Online User's IP</title>
+                        <sort_order>2</sort_order>
+                        <action>adminhtml/geoipultimatelock_geoipultimatelock/onlineIp</action>
+                    </items_oip>
+                    <items_bip module="geoipultimatelock">
+                        <title>Blocked IPs</title>
+                        <sort_order>3</sort_order>
+                        <action>adminhtml/geoipultimatelock_ipblocked</action>
+                    </items_bip>
+                    <items_config module="geoipultimatelock">
+                        <title>Configurations</title>
+                        <sort_order>4</sort_order>
+                        <action>adminhtml/system_config/edit/section/geoipultimatelock/</action>
+                    </items_config>
+                </children>
+            </geoipultimatelock>
+        </menu>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <geoipultimatelock module="geoipultimatelock">
+                                            <title>Geoip Ultimate Lock</title>
+                                        </geoipultimatelock>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                        <geoipultimatelock module="geoipultimatelock">
+                            <title>Geoip Ultimate Lock</title>
+                            <sort_order>71</sort_order>               
+                            <children>
+                                <items module="geoipultimatelock">
+                                    <title>Manage ACL</title>
+                                    <sort_order>0</sort_order>
+                                </items>
+                                <items_import module="geoipultimatelock">
+                                    <title>Import Geo Tables</title>
+                                    <sort_order>1</sort_order>
+                                </items_import>
+                                <items_oip module="geoipultimatelock">
+                                    <title>Online User's IP</title>
+                                    <sort_order>2</sort_order>
+                                </items_oip>
+                                <items_bip module="geoipultimatelock">
+                                    <title>Blocked IPs</title>
+                                    <sort_order>3</sort_order>
+                                </items_bip>
+                                <items_config module="geoipultimatelock">
+                                    <title>Configurations</title>
+                                    <sort_order>4</sort_order>
+                                </items_config>
+                            </children>
+                        </geoipultimatelock>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <layout>
+            <updates>
+                <geoipultimatelock>
+                    <file>geoipultimatelock.xml</file>
+                </geoipultimatelock>
+            </updates>
+        </layout>
+        <events>
+            <admin_system_config_changed_section_geoipultimatelock>
+                <observers>
+                    <cmscontents>
+                        <type>singleton</type>
+                        <class>FME_Geoipultimatelock_Model_Observer</class>
+                        <method>saveFmeContents</method>
+                    </cmscontents>
+                </observers>
+            </admin_system_config_changed_section_geoipultimatelock>
+        </events>
+    </adminhtml>   
+    <global>
+		
+        <models>
+            <geoipultimatelock>
+                <class>FME_Geoipultimatelock_Model</class>
+                <resourceModel>geoipultimatelock_mysql4</resourceModel>
+            </geoipultimatelock>
+            <geoipultimatelock_mysql4>
+                <class>FME_Geoipultimatelock_Model_Mysql4</class>
+                <entities>
+                    <geoipultimatelock>
+                        <table>geoipultimatelock</table>
+                    </geoipultimatelock>
+                    <geoipblockedips>
+                        <table>geoipblockedips</table>
+                    </geoipblockedips>
+                </entities>
+            </geoipultimatelock_mysql4>
+        </models>
+        <resources>
+            <geoipultimatelock_setup>
+                <setup>
+                    <module>FME_Geoipultimatelock</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </geoipultimatelock_setup>
+            <geoipultimatelock_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </geoipultimatelock_write>
+            <geoipultimatelock_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </geoipultimatelock_read>
+        </resources>
+        <blocks>
+			<catalog>
+				<rewrite>
+					<product_list_related>FME_Geoipultimatelock_Block_Product_Related</product_list_related>
+				</rewrite>
+			</catalog>
+            <geoipultimatelock>
+                <class>FME_Geoipultimatelock_Block</class>
+            </geoipultimatelock>
+        </blocks>
+        <helpers>
+            <geoipultimatelock>
+                <class>FME_Geoipultimatelock_Helper</class>
+            </geoipultimatelock>
+        </helpers>
+        <events>
+            <catalog_block_product_list_collection>
+                <observers>
+                    <fme_geoip_filter_collection>
+                        <type>singleton</type>
+                        <class>FME_Geoipultimatelock_Model_Observer</class>
+                        <method>filterByGeoip</method>
+                    </fme_geoip_filter_collection>
+                </observers>
+            </catalog_block_product_list_collection>
+            
+        </events>
+    </global>
+</config>

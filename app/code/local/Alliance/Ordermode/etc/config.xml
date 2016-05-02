@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Alliance_Ordermode>
+            <version>0.1.0</version> <!-- define version for sql upgrade -->
+        </Alliance_Ordermode>
+    </modules>
+    <global>
+        <models>
+            <alliance_ordermode>
+                <class>Alliance_Ordermode_Model</class>
+            </alliance_ordermode>
+        </models>
+		
+		<blocks>
+			<alliance_ordermode>
+				<class>Alliance_Ordermode_Block</class>
+			</alliance_ordermode>
+		</blocks>
+        
+		<events>
+            <!-- Add observer configuration -->
+         <!--   <sales_order_resource_init_virtual_grid_columns>
+                <observers>
+                    <alliance_ordermode>
+                        <model>alliance_ordermode/observer</model>
+                        <method>addColumnToResource</method>
+                    </alliance_ordermode>
+                </observers>
+            </sales_order_resource_init_virtual_grid_columns>-->
+			
+			<checkout_submit_all_after>
+				<observers>
+					<alliance_ordermode2>
+						<type>singleton</type>
+						<class>alliance_ordermode/observer</class>
+						<method>setOrderModeValues</method>
+					</alliance_ordermode2>
+				</observers>
+			</checkout_submit_all_after>
+        </events>
+        <resources>
+            <!-- initialize sql upgrade setup -->
+            <alliance_ordermode_setup>
+                <setup>
+                    <module>Alliance_Ordermode</module>
+                    <class>Mage_Sales_Model_Mysql4_Setup</class>
+                </setup>
+            </alliance_ordermode_setup>
+        </resources>
+    </global>
+    <adminhtml>
+        <layout>
+             <!-- layout upgrade configuration -->
+            <updates>
+                <alliance_ordermode>
+                    <file>alliance_ordermode.xml</file>
+                </alliance_ordermode>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>

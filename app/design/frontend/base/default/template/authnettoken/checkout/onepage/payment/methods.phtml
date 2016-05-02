@@ -1,0 +1,117 @@
+<?php
+/**
+ * Magento Enterprise Edition
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magento Enterprise Edition License
+ * that is bundled with this package in the file LICENSE_EE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magentocommerce.com/license/enterprise-edition
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://www.magentocommerce.com/license/enterprise-edition
+ */
+?>
+<?php
+/**
+ * One page checkout payment methods
+ *
+ * @see Mage_Checkout_Block_Onepage_Payment_Methods
+ */
+?>
+<dl class="sp-methods" id="checkout-payment-method-load">
+<?php
+    $methods = $this->getMethods();
+    // Always display form in multi-method mode for CIM Saved CC
+    $oneMethod = false;
+?>
+<?php
+    foreach ($methods as $_method):
+        $_code = $_method->getCode();
+?>
+    <?php if($_code == SFC_AuthnetToken_Model_Cim::METHOD_CODE): ?>
+	<?php 
+		// FetchCIM saved payment profiles
+		$savedProfiles = $this->getSavedProfiles();
+	?>
+	<?php foreach ($savedProfiles as $profile): ?>
+    <dt>
+    	<?php 
+    		$curMethodName = 'Use my Saved Credit Card (' . $profile->getCustomerCardnumber() . ')';
+    		$curLast4 = substr($profile->getCustomerCardnumber(), -4);
+    		$curPaymentProfileId = $profile->getCimPaymentProfileId();
+    		$curNewCode = $_code . '_cc4_' . $curLast4;
+    	?>
+        <input 
+        	id="p_method_<?php echo $curNewCode ?>" 
+        	value="<?php echo $curNewCode ?>" 
+        	type="radio" name="payment[method]" 
+        	title="<?php echo $this->htmlEscape($curMethodName) ?>" 
+        	onclick="payment.switchMethod('<?php echo $curNewCode ?>')" 
+        	<?php if($this->getSavedCcLast4()==$curLast4): ?> checked="checked"<?php endif; ?> 
+        	class="radio" />
+        <label for="p_method_<?php echo $curNewCode ?>">
+        	<?php echo $this->escapeHtml($curMethodName) ?>
+        </label>
+	</dt>
+	<dd>
+        <?php if($this->hasVerification()): ?>
+        <ul class="form-list" id="payment_form_<?php echo $curNewCode ?>" style="display:none;">
+            <input type="hidden" id="<?php echo $curNewCode ?>_payment_profile_id" name="payment[<?php echo $curNewCode ?>_payment_profile_id]" value="<?php echo $curPaymentProfileId ?>" />
+            <li id="<?php echo $curNewCode ?>_cc_type_cvv_div">
+                <label for="<?php echo $curNewCode ?>_cc_cid" class="required"><em>*</em><?php echo $this->__('Card Verification Number') ?></label>
+                <div class="input-box">
+                    <div class="v-fix">
+                        <input type="text" title="<?php echo $this->__('Card Verification Number') ?>" class="input-text cvv required-entry validate-cc-cvn" id="<?php echo $curNewCode ?>_cc_cid" name="payment[<?php echo $curNewCode ?>_cc_cid]" value="" />
+                    </div>
+                    <a href="#" class="cvv-what-is-this"><?php echo $this->__('What is this?') ?></a>
+                </div>
+            </li>
+        </ul>
+        <?php else: ?>
+        <div id="payment_form_<?php echo $curNewCode ?>">
+            <input type="hidden" id="<?php echo $curNewCode ?>_payment_profile_id" name="payment[<?php echo $curNewCode ?>_payment_profile_id]" value="<?php echo $curPaymentProfileId ?>" />
+        </div>    
+        <?php endif; ?>
+	</dd>
+	<?php endforeach; ?>
+    <?php endif; ?>
+	
+    <dt>
+    <?php if(!$oneMethod): ?>
+        <input id="p_method_<?php echo $_code ?>" value="<?php echo $_code ?>" type="radio" name="payment[method]" title="<?php echo $this->htmlEscape($_method->getTitle()) ?>" onclick="payment.switchMethod('<?php echo $_code ?>')"<?php if($this->getSelectedMethodCode()==$_code): ?> checked="checked"<?php endif; ?> class="radio" />
+    <?php else: ?>
+        <span class="no-display"><input id="p_method_<?php echo $_code ?>" value="<?php echo $_code ?>" type="radio" name="payment[method]" checked="checked" class="radio" /></span>
+        <?php $oneMethod = $_code; ?>
+    <?php endif; ?>
+        <label for="p_method_<?php echo $_code ?>"><?php echo $this->escapeHtml($this->getMethodTitle($_method)) ?> <?php echo $this->getMethodLabelAfterHtml($_method) ?></label>
+    </dt>
+    <?php if ($html = $this->getPaymentMethodFormHtml($_method)): ?>
+    <dd>
+        <?php echo $html; ?>
+    </dd>
+    <?php endif; ?>
+<?php endforeach; ?>
+</dl>
+<?php echo $this->getChildChildHtml('additional'); ?>
+<script type="text/javascript">
+//<![CDATA[
+<?php echo $this->getChildChildHtml('scripts'); ?>
+payment.init();
+<?php if (is_string($oneMethod)): ?>
+    payment.switchMethod('<?php echo $oneMethod ?>');
+<?php endif; ?>
+//]]>
+</script>

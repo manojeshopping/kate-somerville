@@ -1,0 +1,9 @@
+<?php
+
+if ($this->customer_status == 'Not Logged In') {
+    echo $this->getChildHtml('katerewards_enrollment_notloggedin');
+} elseif ($this->customer_status == 'Not Enrolled') {
+    echo $this->getChildHtml('katerewards_enrollment_notenrolled');
+} else {
+    echo $this->getChildHtml('katerewards_enrollment_thanks');
+}

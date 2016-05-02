@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * StoreFront Authorize.Net CIM Tokenized Payment Extension
+ *
+ * This source file is subject to commercial source code license of StoreFront Consulting, Inc.
+ *
+ * @category	SFC
+ * @package    	SFC_AuthnetToken
+ * @author      Garth Brantley
+ * @website 	http://www.storefrontconsulting.com/
+ * @copyright 	Copyright (C) 2009-2013 StoreFront Consulting, Inc. All Rights Reserved.
+ * @license     http://www.storefrontconsulting.com/media/downloads/ExtensionLicense.pdf StoreFront Consulting Commercial License
+ *
+ */
+-->
+<layout version="0.1.0">
+	<!-- CIM Payment Profile grid-->
+	<authnettoken_index_index>
+		<label>Payment Profiles</label>
+		<update handle="customer_account" />
+            <reference name="customer_account_navigation">
+                <action method="setActive"><path>creditcards/</path></action>
+            </reference>
+		<reference name="my.account.wrapper">
+			<block type="authnettoken/payment_profile_grid" name="payment_profile_index" template="authnettoken/payment/profile/grid.phtml" />
+        </reference>
+	</authnettoken_index_index>
+
+	<!-- CIM Payment Profile customer dashboard link -->
+	<customer_account>
+		<reference name="customer_account_navigation">
+			<action method="addLink" translate="label" module="authnettoken"><name>creditcards</name><path>creditcards/</path><label>My Credit Cards</label></action>
+		</reference>
+	</customer_account>
+	
+  <!-- Edit CIM Payment Profile -->
+  <authnettoken_index_edit>
+		<label>Edit Payment Profile</label>
+        <update handle="customer_account" />
+            <reference name="customer_account_navigation">
+                <action method="setActive"><path>creditcards/</path></action>
+            </reference>
+        <reference name="my.account.wrapper">
+            <block type="authnettoken/payment_profile_edit" name="payment_profile_edit" template="authnettoken/payment/profile/edit.phtml" />
+        </reference>
+  </authnettoken_index_edit>
+  
+    <!-- New CIM Payment Profile -->
+  <authnettoken_index_new>
+		<label>New Payment Profile</label>
+        <update handle="customer_account" />
+        <reference name="my.account.wrapper">
+            <block type="authnettoken/payment_profile_edit" name="payment_profile_edit" template="authnettoken/payment/profile/edit.phtml" />
+        </reference>
+  </authnettoken_index_new>
+	
+
+</layout>
+
+

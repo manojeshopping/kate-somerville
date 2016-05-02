@@ -1,0 +1,44 @@
+<div class="content-header">
+    <table cellspacing="0" class="grid-header">
+        <tr>
+            <td><h3><?=$this->__('Report Details')?></h3></td>
+            <td class="a-right">
+            <button onclick="history.back();" class="button" title="<?php echo $this->__('Back') ?>" type="button">
+            <span>
+              <span><?php echo $this->__('Back') ?></span>
+            </span>
+            </button>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="grid">
+
+    <table cellspacing="0" class="data">
+        <?php $report = Mage::registry('kiosk_report'); ?>
+        <?php $supplement = Mage::registry('kiosk_supplement'); ?>
+        <tr>
+            <td>Name</td>
+            <td><?php echo $report->getUsername(); ?></td>
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td><?php echo $report->getAge(); ?></td>
+        </tr>
+        <?php foreach($supplement as $key => $entry): ?>
+        <tr>
+            <td><?php echo $entry['question_text']; ?></td>
+            <td>
+            <?php foreach ($entry['answer_text'] as $answer) { ?>
+            <?php echo $answer . " | "; ?>
+            <?php } ?>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </table> 
+    
+</div>
+<script type="text/javascript">
+
+</script>
+

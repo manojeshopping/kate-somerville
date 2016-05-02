@@ -1,0 +1,74 @@
+<config>
+  <modules>
+    <Nchannel_Communicator>
+      <version>0.1.0</version>
+    </Nchannel_Communicator>
+  </modules>
+  <admin>
+    <routers>
+      <adminhtml>
+				<args>
+					<modules>
+						<Communicator before="Mage_Adminhtml">Nchannel_Communicator_Adminhtml</Communicator>
+					</modules>
+				</args>
+			</adminhtml>
+    </routers>
+  </admin>
+  <global>
+    <models>
+      <Nchannel_Communicator>
+        <class>Nchannel_Communicator_Model</class>
+      </Nchannel_Communicator>
+    </models>
+    <events>
+      <sales_order_place_after>
+        <observers>
+          <Nchannel_Communicator>
+            <class>Nchannel_Communicator/observer</class>
+            <method>sendToAPI</method>
+            <type>singleton</type>
+          </Nchannel_Communicator>
+        </observers>
+      </sales_order_place_after>
+      <sales_order_save_commit_after>
+        <observers>
+          <Nchannel_Communicator>
+            <class>Nchannel_Communicator/observer</class>
+            <method>orderSaved</method>
+            <type>singleton</type>
+          </Nchannel_Communicator>
+        </observers>
+      </sales_order_save_commit_after>
+    </events>
+    <helpers>
+      <Communicator>
+        <class>Nchannel_Communicator_Helper</class>
+      </Communicator>
+    </helpers>
+    <template>
+      <email>
+        <FailedOrder>
+          <label>Send New Order Failure to Support</label>
+          <file>FailedOrder.html</file>
+          <type>html</type>
+        </FailedOrder>
+      </email>
+    </template>
+  </global>
+  <default>
+    <Communicator>
+      <Credentials>
+        <ENABLED>0</ENABLED>
+      </Credentials>
+      <Support>
+        <SENDEMAIL>1</SENDEMAIL>
+        <EMAILTO>help@nchannel.com</EMAILTO>
+        <EMAILSENDER>help@nchannel.com</EMAILSENDER>
+        <SUBJECT>Magento to nChannel API Issue **IMPORTANT** {{var store.getFrontendName()}}: New Order # {{var order.increment_id}}</SUBJECT>
+        <EMAILTEMPLATE>FailedOrder</EMAILTEMPLATE>
+      </Support>
+      
+    </Communicator>
+  </default>
+</config>

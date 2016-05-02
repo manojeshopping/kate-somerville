@@ -1,0 +1,11 @@
+<?php
+$helper = Mage::helper('tealium_tags');
+$store = Mage::app()->getStore();
+//$tealium = new $helper($store);
+
+if (!$helper->isEnabled($store)) {
+    return; // not enabled, no javascript inserted
+}
+$tealium = $helper->getTealiumObject($store, $this);
+echo $tealium->render("tag");
+?>

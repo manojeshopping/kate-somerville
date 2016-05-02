@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<default>
+		<reference name="root">
+			<action method="setTemplate"><template>page/1column.phtml</template></action>
+		</reference>
+		<reference name="head">
+			<action method="addItem"><type>skin_css</type><file>css/giveawayfb.css</file></action>
+            <block type="core/text" name="google.js"><action method="setText"><text><![CDATA[<script type="text/javascript" src="//maps.google.com/maps/api/js?sensor=false"></script>]]></text></action></block>            
+		</reference>
+	</default>
+	
+	<giveawayfb_index_index>
+		<reference name="head"> 
+			<action method="addItem"><type>skin_css</type><file>css/jquery.op.like2unlock.min.css</file></action>
+			<action method="addItem"><type>skin_js</type><file>js/giveawayfb/jquery.op.like2unlock.min.js</file></action>
+			<action method="addItem"><type>skin_js</type><file>js/giveawayfb/giveawayfb.js</file></action>	
+		</reference>
+		<reference name="content">
+			<block type="giveawayfb/giveawayfb" name="giveawayfb" template="giveawayfb/giveawayfb.phtml" />
+		</reference>
+	</giveawayfb_index_index>
+	
+	<giveawayfb_index_affiliate>
+		<reference name="content">
+			<block type="giveawayfb/giveawayfb" name="giveawayfb" template="giveawayfb/affiliate.phtml" />
+		</reference>
+	</giveawayfb_index_affiliate>
+	
+	<giveawayfb_customer_sorry>
+		<reference name="content">
+			<block type="giveawayfb/giveawayfb" name="giveawayfb" template="giveawayfb/sorry.phtml" />
+		</reference>
+	</giveawayfb_customer_sorry>
+	
+	<giveawayfb_customer_creation>
+		<reference name="head">
+			<action method="addItem"><type>skin_js</type><file>js/giveawayfb/creation.js</file></action>
+		</reference>
+		<reference name="content">
+			<block type="giveawayfb/giveawayfb" name="giveawayfb" template="giveawayfb/creation.phtml" />
+		</reference>
+	</giveawayfb_customer_creation>
+	
+	<giveawayfb_customer_creationsamples>
+		<reference name="head">
+			<action method="addItem"><type>skin_js</type><file>js/giveawayfb/creationsamples.js</file></action>
+		</reference>
+		<reference name="content">
+			<block type="giveawayfb/giveawayfb" name="giveawayfb" template="giveawayfb/creationsamples.phtml" />
+		</reference>
+	</giveawayfb_customer_creationsamples>
+	
+	<giveawayfb_customer_creationaddress>
+		<reference name="content">
+			<block type="giveawayfb/giveawayfb_creationaddress" name="giveawayfb" template="giveawayfb/creationaddress.phtml" />
+		</reference>
+	</giveawayfb_customer_creationaddress>
+	
+	<giveawayfb_customer_success>
+		<reference name="head">
+			<action method="addItem"><type>skin_js</type><file>js/giveawayfb/success.js</file></action>
+		</reference>
+		<reference name="content">
+			<block type="giveawayfb/giveawayfb" name="giveawayfb" template="giveawayfb/success.phtml" />
+		</reference>
+	</giveawayfb_customer_success>
+	
+	<giveawayfb_customer_resend>
+		<reference name="content">
+			<block type="giveawayfb/giveawayfb" name="giveawayfb" template="giveawayfb/resend.phtml" />
+		</reference>
+	</giveawayfb_customer_resend>
+	
+	<giveawayfb_customer_resendsuccess>
+		<reference name="content">
+			<block type="giveawayfb/giveawayfb" name="giveawayfb" template="giveawayfb/resendsuccess.phtml" />
+		</reference>
+	</giveawayfb_customer_resendsuccess>
+	
+	<giveawayfb_customer_emailverifaction>
+		<reference name="content">
+			<block type="giveawayfb/giveawayfb" name="giveawayfb" template="giveawayfb/emailverifaction.phtml" />
+		</reference>
+	</giveawayfb_customer_emailverifaction>
+	
+	<giveawayfb_sku_index>
+		<reference name="content">
+			<block type="giveawayfb/skuReport" name="skuReport" template="giveawayfb/sku.phtml" />
+		</reference>
+	</giveawayfb_sku_index>
+</layout>

@@ -1,0 +1,73 @@
+<?php
+$cart = Mage::getModel('checkout/cart')->getQuote();
+$z_product = array();
+$i = 0;
+foreach ($cart->getAllItems() as $item){
+	$_product = $item->getProduct();
+	$product = Mage::getModel('catalog/product')->load($_product->getId()); 
+						
+		if($product->getTypeId() == 'configurable'){
+			$childProducts = Mage::getModel('catalog/product_type_configurable')->getUsedProducts(null,$product);   
+
+			foreach($childProducts as $child) {
+				if($_product->getId() == $child->getId() ){
+					$z_product[$i]["product_id"] = $child->getId();
+					$z_product[$i]["og_default_frequency"] = $child->getAttributeText('og_default_frequency');
+					$i++;
+				}
+			}						
+		}else{
+					$z_product[$i]["product_id"] =  $product->getId();
+					$z_product[$i]["og_default_frequency"] = $product->getAttributeText('og_default_frequency');
+					$i++;
+		}
+}
+?>
+<script type="text/javascript">
+	og_settings = {
+		page_type: "2",
+		default_frequency: {
+			<?php 
+				$z_prod = array();
+				foreach ($z_product as  $_product):
+						$z_prod[] = "'".$_product["product_id"]."'" .": " . "'" . $_product["og_default_frequency"] ."'";
+				endforeach; 
+				echo implode(', ', $z_prod); 
+			?>		
+		},
+		cart: {
+			products: [
+					<?php
+					$j = 0;
+					$total = $this->helper('checkout/cart')->getSummaryCount(); 
+						foreach ($cart->getAllItems() as $item): 
+							if ($item->getProductType() != 'configurable'):	
+					?>
+					
+					{
+						id:        "<?php echo $item->getProductId(); ?>",
+						quantity:   <?php echo $item->getQty();  ?>,
+						unit_price: <?php echo $item->getProduct()->getPrice(); ?>,
+						total_price: <?php echo $item->getQty() * $item->getProduct()->getPrice();  ?>
+					
+					<?php 
+							$j++;
+							if($total > $j) echo " }, "; else echo " } ";
+						endif;
+					endforeach; 
+					?>
+			
+			],
+			subtotal:  <?php echo $cart->getSubtotal();  ?>,
+			shipping_total: <?php echo $cart->getShippingAddress()->getShippingAmount(); ?>,
+			tax_total: <?php echo $cart->getShippingAddress()->getTaxAmount(); ?>, 
+			order_total: <?php echo $cart->collectTotals()->getGrandTotal(); ?>
+			
+		}
+	}
+</script>
+<?php 
+$storeCode = Mage::app()->getStore()->getCode();
+if( $storeCode  != 'uk_store'  && $storeCode  != 'ca_store'  ): ?>
+<script type="text/javascript" src="<?php echo Mage::helper('ordergroove/config')->getPageTaggingUrl(); ?><?php echo Mage::helper('ordergroove/config')->getMerchantId(); ?>/main.js"></script>
+<?php endif; ?>

@@ -1,0 +1,64 @@
+<?php
+$productLimit = 5;
+
+if($this->getSummaryCount() > 0 && $this->wishlistEnabled()) {
+	$productCollection = $this->getProductCollection($productLimit);
+	$productCount = $productCollection->count();
+?>
+<div class="wishlist">
+	<div class="wishlist-title">Wishlist (<?php echo $productCount;?>)</div>
+	<div id="wishlist-products">
+	<?php
+	if($productCount > 0) {
+		$count = 0;
+		foreach($productCollection as $_product) {
+			$count++;
+			if($count == $productLimit) break;
+			$product = $_product->getProduct();
+			$options = $this->getOptions($_product);
+			
+			$productName = $this->htmlEscape($_product->getName());
+			$productSubTitle = $this->htmlEscape($product->getC2cSubTitle());
+			$productSize = $this->getProductSize($_product);
+			$price = $this->getProductPrice($product);
+			$img = $this->getProductImage($_product, 75, 75);
+			$productInCart = $this->checkProductInCart($_product->getId());
+		?>
+		<div class="wishlist-product" data-id="<?php echo $_product->getId();?>" data-productid="<?php echo $_product->getProductId();?>" data-price="<?php echo $price;?>" data-qty="<?php echo (int)$_product->getQty();?>" data-isnoteditable="<?php echo $this->isNotEditable($_product);?>">
+			<?php if(! empty($img)) {?><div class="wishlist-product-image"><img src="<?php echo $img;?>" alt="<?php echo $productName;?>" width="75" /></div><?php }?>
+			<div class="wishlist-product-title"><a href="<?php echo $_product->getProductUrl();?>"><?php echo $productName;?></a></div>
+			<div class="wishlist-product-subtitle"><?php echo $productSubTitle;?></div>
+			<div class="wishlist-product-size">
+				<?php
+				echo $productSize;
+				
+				// Print options.
+				if(! empty($options)) {
+				?>
+				<dl class="wishlist-product-options item-options">
+					<?php foreach ($options as $attributeId => $_option) : ?>
+						<dt class="wishlist-options-data" data-id="<?php echo $attributeId?>" data-label="<?php echo $_option['label'];?>" data-value="<?php echo $_option['value'];?>" data-text="<?php echo $_option['text'];?>"><?php echo $_option['label']?></dt>
+						<dd><?php echo $_option['text'];?></dd>
+					<?php endforeach; ?>
+				</dl>
+				<?php
+				}
+				?>
+			</div>
+			<div class="wishlist-product-price"><?php echo $this->getPriceFormated($price);?></div>
+			<div class="wishlist-product-button">
+				<button type="button" title="Add To Cart" class="button btn-wishlist-cart"<?php if($productInCart) echo ' style="display: none;"';?>><span><span>Add To Cart</span></span></button>
+				<button type="button" title="Remove From Cart" class="button btn-wishlist-remove"<?php if(! $productInCart) echo ' style="display: none;"';?>><span><span>Remove From Cart</span></span></button>
+			</div>
+		</div>
+		<?php
+		}
+	} else {
+	?>
+	<p>No items in withlist.</p>
+	<?php }?>
+	</div>
+	
+	<p><a href="<?php echo $this->getWishlistUrl();?>">Go To Wishlist</a></p>
+</div>
+<?php }?>

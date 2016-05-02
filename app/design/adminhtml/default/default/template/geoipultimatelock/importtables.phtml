@@ -1,0 +1,43 @@
+<div class="content-header">
+    <table cellspacing="0">
+        <tr>
+            <td><h3 class="icon-head head-tax-rate-importExport">
+                    <?php echo Mage::helper('geoipultimatelock')->__('Update GeoIP Database') ?>
+                </h3>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="importnote">
+    <div class="importnotehead">
+        Important Notes
+    </div>
+    <div class="importnotebody">
+        This Modules uses MaxMind Country IP Database For GeoIP Information. MaxMind is very relaible and updates 
+        its database every month. You can download the latest database from <strong><a href="http://geolite.maxmind.com/download/geoip/database/" target="_BLANK">here</a></strong> or copy the below URL into your browser<br/>
+        http://geolite.maxmind.com/download/geoip/database/ <br/><br/>
+        Download the file GeoIPCountryCSV.zip (file size: 2.1M approx) and extract it to the /media/geoipultimatelock folder inside magento. 
+        <br/><br/>
+        Make sure that the file is named as GeoIPCountryWhois.csv and 777 rights are given to the media folder.
+        <br/>
+        <b>Note:</b> Importing will erase the previous record and new record will be imported. 
+    </div>
+</div>
+<div class="entry-edit">
+    <div class="box-left">
+        <form id="updateform" action="<?php echo $this->getFormAction() ?>" method="post" enctype="multipart/form-data">
+            <?php echo $this->getBlockHtml('formkey') ?>
+            <div class="entry-edit-head">
+                <h4 class="icon-head head-edit-form fieldset-legend"><?php echo Mage::helper('geoipultimatelock')->__('Update GeoIP Database') ?></h4>
+            </div>
+            <fieldset>
+                <legend><?php echo Mage::helper('geoipultimatelock')->__('Update GeoIP Database') ?></legend>
+                <?php echo $this->getButtonHtml('Import Database', "this.form.submit()") ?>
+            </fieldset>
+        </form>
+        <script type="text/javascript">
+            var importForm = new varienForm('import_form');
+        </script>
+    </div>
+    <div class="clear"></div>
+</div>

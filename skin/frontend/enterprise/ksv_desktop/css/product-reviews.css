@@ -1,0 +1,192 @@
+/* star ratings */
+.rating-box {
+	float: left;
+	margin: 4px 20px 0 0;
+	width: 65px;
+	height: 13px;
+	font-size: 0;
+	line-height: 0;
+	background: url(../images/bkg_rating.gif) 0 100% repeat-x;
+	overflow: hidden;
+}
+
+.rating {
+	float: left;
+	height: 13px;
+	background: url(../images/bkg_rating.gif) 0 0 repeat-x;
+}
+
+
+/* Reviews on PDP */
+#katereviews-main-display h2 {
+	font-size: 24px;
+}
+
+#katereviews-main-display .subtitle {
+	font-size: 18px;
+	font-style: italic;
+	color: #6a747c;
+	padding: 0 0 10px 0;
+}
+
+#katereviews-main-display .write-your-own {
+	float: right;
+}
+
+#katereviews-main-display .button {
+	display: inline-block;
+	margin-top: 0;
+}
+
+#katereviews-main-display .points {
+	float:left;
+	margin-right: 10px;
+}
+
+#katereviews-main-display .points img {
+	height:34px;
+}
+
+#katereviews-main-display .single-review {
+	clear: both;
+	background: url(../images/line-shadow.png) no-repeat center top;
+	padding: 40px 0;
+}
+
+#katereviews-main-display .single-review .left-review {
+	float: left;
+	padding: 28px 20px 20px 20px;
+	width: 350px;
+}
+
+#katereviews-main-display .single-review .left-review label {
+	clear: both;
+	float: left;
+	width: 150px;
+	padding: 5px 20px 5px 0;
+	font-size: 13px;
+	line-height: 16px;
+}
+
+#katereviews-main-display .single-review .left-review .label-content {
+	float: left;
+	width: 140px;
+	padding: 5px 0;
+	font-size: 13px;
+	color: #75b8db;
+}
+
+#katereviews-main-display .single-review .right-review {
+	float: left;
+	width: 585px;
+	margin-bottom: 20px;
+}
+
+#katereviews-main-display .single-review .right-review .review-date {
+	float:right;
+}
+
+#katereviews-main-display .single-review .right-review .rating-box {
+	float: none;
+	margin-bottom: 20px;
+}
+
+#katereviews-main-display .single-review .txt-review {
+	padding: 0 0 30px 0;
+}
+
+#katereviews-main-display .single-review .helpful-review {
+	padding: 0;
+}
+
+
+/* Write your review page */
+#katereviews-main-form .review-image {
+	padding: 30px 0;
+}
+
+#katereviews-main-form .katereviews-left,
+#katereviews-preview-form .katereviews-left {
+	float: left;
+	width: 370px;
+}
+
+#katereviews-main-form #kateReviewForm,
+#katereviews-preview-form .katereviews-right {
+	float: right;
+	width: 550px;
+	padding-top: 10px;
+}
+
+#katereviews-main-form #kateReviewForm label {
+	display: block;
+	margin: 16px 0 2px 0;
+}
+
+#katereviews-main-form #kateReviewForm input[type='text'] {
+	height: 33px;
+	line-height: 33px;
+	width: 350px;
+}
+
+#katereviews-main-form #kateReviewForm select {
+	width: 200px;
+}
+
+
+#katereviews-main-form #kateReviewForm textarea {
+	width: 350px;
+	height: 200px;
+}
+
+.review-tips{}
+.review-tips h2{ font-size:18px;}
+.review-tips ul{ list-style:disc; padding-left:20px;} 
+.review-tips ul li{ padding:5px 0;}
+.review-tips .text { padding: 10px 0;}
+
+.review-detail .optional-product li .iconpreview-empty{ margin-top:31px; display:block;}
+.review-detail .optional-product li .iconpreview-empty .actions-empty{background:none;}
+.review-detail .optional-product li .iconpreview-empty .icon-preview-empty{height:90px; width:90px; border:1px solid #d5d5d5;}
+
+
+/* guideline popup */
+.review-guideline-tooltip-container { position: relative; z-index: 100; display: inline; }
+.review-guideline-tooltip-container span{ color:#75b8db;}
+.review-guideline-tooltip-container span:hover{ text-decoration:underline;}
+.review-guideline-tooltip-container .review-guideline-tooltip { display:none; float:left; text-align:left;  background: url(../images/tooltip-arow-down.png) no-repeat bottom center; position:absolute; bottom:100%; left:-160px; font-size:14px; width:410px; z-index:100; padding-right:6px; padding-bottom:6px;}
+.review-guideline-tooltip-container:hover > .review-guideline-tooltip { display:block;}
+.review-guideline-tooltip-container .review-guideline-tooltip .inner-tooltip{ background:#5EB0E5; color:#ffffff; padding:10px;}
+.review-guideline-tooltip-container strong { font-weight: normal; }
+.review-guideline-tooltip-container ul { list-style: square !important; list-style-position: outside; padding:0 10px 0 20px;}
+.review-guideline-tooltip-container ul li { padding-bottom:5px; margin-bottom:0px !important;}
+.success-review-guideline { position:static;}
+.success-review-description{ font-size:14px;}
+.review-guideline-tooltip-container h2{ color:#fff; font-size:18px; margin:0 0 10px;}
+.success-review-description .description{ position:relative; }
+.success-review-guideline .review-guideline-tooltip{ top:20px; left:0; width:1024px;}
+
+
+/* My Account Pages */
+.review-info {
+	border-bottom: 1px solid #d5d5d5;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+}
+
+.review-info h2 {
+	clear: both;
+	padding: 6px 0;
+}
+
+
+/* View All Reviews page */
+#katereviews-main-display .back-link {
+	padding-top: 5px;
+}
+
+#katereviews-main-display .pager {
+	border-top: 1px solid #d5d5d5;
+	background: none;
+	padding-top: 8px;
+}

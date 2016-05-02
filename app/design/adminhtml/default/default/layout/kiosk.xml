@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <adminhtml_kiosk_question_index>
+        <reference name="content">
+            <block type="kiosk/adminhtml_question" name="question" />
+        </reference>
+    </adminhtml_kiosk_question_index>
+    <adminhtml_kiosk_question_edit>
+      <reference name="content">
+            
+            <block type="kiosk/adminhtml_question_edit" name="question" template="kiosk/edit_question.phtml" />
+        </reference>
+    </adminhtml_kiosk_question_edit>
+    <adminhtml_kiosk_report_index>
+      <reference name="content">
+       <block type="kiosk/adminhtml_report"  />
+      </reference>
+    </adminhtml_kiosk_report_index>
+    <adminhtml_kiosk_report_details>
+      <reference name="content">
+       <block type="kiosk/adminhtml_report_details" template="kiosk/details_report.phtml" />
+      </reference>
+    </adminhtml_kiosk_report_details>
+    <!--
+    <adminhtml_customer_edit>
+     <reference name="customer_edit_tabs">
+        <action method="addTab">
+          <name>kiosk_tab</name>
+          <block>kiosk/adminhtml_customer_edit_tab_action</block>
+        </action>
+     </reference>
+  </adminhtml_customer_edit>
+  -->
+</layout>

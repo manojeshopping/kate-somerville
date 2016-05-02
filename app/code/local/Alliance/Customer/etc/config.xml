@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Alliance_Customer>
+            <version>1.0.1</version>
+        </Alliance_Customer>
+    </modules>
+    <global>
+
+        <helpers>
+            <alliance_customer>
+                <class>Alliance_Customer_Helper</class>
+            </alliance_customer>
+        </helpers>
+
+        <models>
+
+            <alliance_customer>
+                <class>Alliance_Customer_Model</class>
+                <resourceModel>alliance_customer_resource</resourceModel>
+            </alliance_customer>
+
+            <alliance_customer_resource>
+                <class>Alliance_Customer_Model_Resource</class>
+            </alliance_customer_resource>
+
+        </models>
+
+        <blocks>
+
+            <alliance_customer>
+                <class>Alliance_Customer_Block</class>
+            </alliance_customer>
+
+            <adminhtml>
+                <rewrite>
+                    <customer_grid>Alliance_Customer_Block_Adminhtml_Grid</customer_grid>
+                </rewrite>
+            </adminhtml>
+
+        </blocks>
+
+        <resources>
+
+            <alliance_customer_setup>
+                <setup>
+                    <module>Alliance_Customer</module>
+                    <class>Mage_Customer_Model_Resource_Setup</class>
+                </setup>
+            </alliance_customer_setup>
+
+        </resources>
+    </global>
+
+    <frontend>
+        <layout>
+            <updates>
+                <alliance_customer>
+                    <file>alliance/customer.xml</file>
+                </alliance_customer>
+            </updates>
+        </layout>
+    </frontend>
+</config>

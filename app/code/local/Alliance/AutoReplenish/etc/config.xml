@@ -1,0 +1,72 @@
+<?xml version="1.0" ?>
+<config>
+    <modules>
+        <Alliance_AutoReplenish>
+            <version>0.1.0</version>
+        </Alliance_AutoReplenish>
+    </modules>
+	<admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Alliance_AutoReplenish before="Mage_Adminhtml">Alliance_AutoReplenish_Adminhtml</Alliance_AutoReplenish>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+<!--	 <admin>
+        <routers>
+            <adminhtml>
+				<args>
+					<modules>
+						<autoreplenish before="Mage_Adminhtml">Alliance_AutoReplenish_Adminhtml</autoreplenish>
+					</modules>
+				</args>
+			</adminhtml>
+        </routers>
+    </admin> -->
+	<global>
+		 <models>
+            <autoreplenish>
+                <class>Alliance_AutoReplenish_Model</class>
+                <resourceModel>autoreplenish_resource</resourceModel>
+            </autoreplenish>
+            <autoreplenish_resource>
+                <class>Alliance_AutoReplenish_Model_Resource</class>
+                <entities>
+                    <autoreplenish>
+                        <table>alliance_autoreplenish</table>
+                    </autoreplenish>
+                </entities>
+            </autoreplenish_resource>
+        </models>
+		<resources>
+            <autoreplenish_setup>
+                <setup>
+                    <module>Alliance_AutoReplenish</module>
+                </setup>
+            </autoreplenish_setup>
+        </resources>
+		<blocks>
+            <autoreplenish>
+                <class>Alliance_AutoReplenish_Block</class>
+            </autoreplenish>
+        </blocks>	
+		<helpers>
+            <autoreplenish>
+                <class>Alliance_AutoReplenish_Helper</class>
+            </autoreplenish>
+        </helpers>
+    </global>
+	<adminhtml>
+        <layout>
+            <updates>
+                <autoreplenish>
+                    <file>alliance_autoreplenish.xml</file>
+                </autoreplenish>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>

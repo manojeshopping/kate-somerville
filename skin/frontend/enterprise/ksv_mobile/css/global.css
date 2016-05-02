@@ -1,0 +1,171 @@
+#main { position: relative; padding: 0; overflow: hidden; /* Breadcrumbs */ }
+#main .page-title { display: block; padding: 8px 0; }
+#main .page-title h1 { color: #58595b; font-size: 18px; line-height: 20px; text-transform: uppercase; text-align: center; display: block; }
+#main .form-list label { font-size: 14px; line-height: 18px; padding: 0 0 0 2px; }
+#main .form-list label em { margin-right: 4px; font-style: normal; }
+#main .form-list .input-box { margin: 0 0 15px 0; }
+#main .form-list .input-box input.ui-input-text { width:90%; border: 1px solid #aeaeae; font-size: 15px; line-height: 18px; padding: 2px 8px; color: #58595b; font-family: "GillSansMT-Light", sans-serif; margin: 5px 0 0 0; -webkit-border-radius: 0; -moz-border-radius: 0; -ms-border-radius: 0; -o-border-radius: 0; border-radius: 0; -webkit-appearance: none; }
+.ui-loader { display: none; z-index: 9999999; position: fixed; top: 50%; left: 50%; border: 0; }
+#main .ui-collapsible-set .ui-collapsible { display: block; height: auto; }
+#main .ui-collapsible-set .ui-collapsible[data-allow-collapse="false"] .ui-icon { display: none; }
+#main .ui-collapsible-set .ui-collapsible h3 { font-size: 18px; }
+#main .ui-collapsible-set .ui-collapsible h3 a { padding: 0; display: block; outline: none; position: relative; }
+#main .ui-collapsible-set .ui-collapsible h3 a .ui-btn-inner { padding: 0 7px 0 5px; }
+#main .ui-collapsible-set .ui-collapsible h3 a .ui-btn-inner .ui-btn-text { font-weight: normal; height: 46px; line-height: 47px; font-size: 18px; text-transform: uppercase; color: #6A747C; outline: none; }
+#main .ui-collapsible-set .ui-collapsible h3 a .ui-btn-inner .ui-btn-text a { color: #6A747C; outline: none; }
+#main .ui-collapsible-set .ui-collapsible h3 a .ui-btn-inner .ui-icon { right: 7px; margin-top: -11px; width: 25px; height: 24px; }
+#main .ui-collapsible-set .ui-collapsible h3 a .ui-btn-inner .ui-icon.ui-icon-minus { background: url("../images/transparent/accordion_minus.png") no-repeat left top; }
+#main .ui-collapsible-set .ui-collapsible h3 a .ui-btn-inner .ui-icon.ui-icon-plus { background: url("../images/transparent/accordion_plus.png") no-repeat left top; }
+#main .ui-collapsible-set .ui-collapsible .ui-collapsible-content { padding: 0; }
+#main .ui-collapsible-set .ui-collapsible .sub-menu { display: block; margin: 0; padding: 0; list-style: none; border-top: 1px solid #d0d0d0; }
+#main .ui-collapsible-set .ui-collapsible .sub-menu li a { padding: 0 7px 0 25px; }
+#main .ui-collapsible-heading { font-size: 16px; display: block; margin: 0 -15px; padding: 0; position: relative; }
+#main .ui-collapsible-inset .ui-collapsible-heading { margin: 0; }
+#main .ui-collapsible-heading .ui-btn { text-align: left; margin: 0; border-left-width: 0; border-right-width: 0; }
+#main .ui-li { height:50px; }
+#main .ui-collapsible-heading-status { display:none; }
+.validation-advice { margin: 0; color: #6db5da; text-align: left; }
+
+
+/* header */
+header { width:100%; height:auto; z-index:100; margin:0; background-color:white; position:relative; }
+header hgroup { background-color: #6db5da; }
+header hgroup h1.logo { height: 45px; line-height: 45px; text-align: center; background: #fff; }
+header hgroup h1.logo a { display: inline-block; padding: 11px 0; }
+header hgroup h1.logo a img { display: block; }
+.logo_bg { width:100%; padding:0 !important; background: url('../images/logo.png') no-repeat left; } 
+.logo_img {margin: 0 auto; }
+header nav { display: block; background: #6db5da;}
+header nav ul.links { margin: 0; padding: 0; height: auto; display: block; text-align: center; }
+header nav ul.links li { height: 40px; margin: 0 3px; display: inline-block; }
+header nav ul.links li:first-child { margin-left: 0; }
+header nav ul.links li:last-child { margin-right: 0; display:none; }
+
+header nav ul.links li:nth-child(5) { background: url("../images/bag-icon-1.png") no-repeat 3px 4px; background-size:80%; text-align:center; width:30px; }
+header nav ul.links li:nth-child(5) a { font-size:11px; color:white; background-color:#6db5da; padding:0 3px; }
+
+header nav ul.links li a { font-size: 13px; text-transform: uppercase; color: #fff; line-height: 40px; }
+header nav ul.links li a:hover { color: #6A747C; }
+header nav .block-login { display: none; background: white; border-top: 1px solid #d1d1d1; }
+header nav .block-login .block-title { display: none; }
+header nav .block-login form { display: block; }
+header nav .block-login .block-content { padding: 10px; }
+header nav .block-login .block-content label { display: none; }
+header nav .block-login .block-content input { width: 105px; outline: none; border: 0; padding: 0; margin: 0; float: left; font-size: 14px; color: #58595b; padding: 4px 5px; -webkit-border-radius: 0; -moz-border-radius: 0; -ms-border-radius: 0; -o-border-radius: 0; border-radius: 0; font-style: italic; border: 1px solid #d0d0d0; -webkit-appearance: none; }
+header nav .block-login .block-content input#mini-login { margin: 0 5px 0 0; }
+header nav .block-login .block-content .actions { float: left; display: block; }
+header nav .block-login .block-content .actions .ui-btn { float: left; width: 80px; margin: 0 0 0 5px; }
+header nav .block-login .block-content .actions .ui-btn .ui-btn-inner { padding: 0; height: 29px; line-height: 30px; background-color: #6db5da; color: white; font-size: 13px; text-transform: uppercase; }
+header #searchHolder { display: none; background: white; overflow: hidden; }
+header #searchHolder form#search_mini_form { display: block; border-bottom: 1px solid #d0d0d0; padding: 10px; }
+header #searchHolder form#search_mini_form .form-search { display: block; }
+header #searchHolder form#search_mini_form .search_autocomplete { display: none; }
+header #searchHolder form#search_mini_form input { line-height:14px; height:14px; width: 130px; outline: none; border: 0; padding: 0; margin: 0; float: left; font-size: 14px; color: #58595b; padding: 4px 5px; -webkit-border-radius: 0; -moz-border-radius: 0; -ms-border-radius: 0; -o-border-radius: 0; border-radius: 0; font-style: italic; border: 1px solid #d0d0d0; -webkit-appearance: none; }
+header #searchHolder form#search_mini_form button { width: 80px; margin: 0 0 0 10px; padding: 3px 0 4px 0; height: auto; background-color: #6db5da; border: 0; outline: none; }
+header #searchHolder form#search_mini_form button span { color: white; font-size: 13px; text-transform: uppercase; }
+header #loginHolder { display: none; background: white; overflow: hidden; }
+header #loginHolder form { display: block; border-bottom: 1px solid #d0d0d0; padding: 10px; }
+header #loginHolder form .block-content { display: block; }
+header #loginHolder form label { display: none; }
+header #loginHolder form input { height:14px; width: 80px; outline: none; border: 0; padding: 0; margin: 0; font-size: 14px; color: #58595b; padding: 4px 5px; -webkit-border-radius: 0; -moz-border-radius: 0; -ms-border-radius: 0; -o-border-radius: 0; border-radius: 0; font-style: italic; border: 1px solid #d0d0d0; float: left; -webkit-appearance: none; }
+header #loginHolder form input#mini-login { height:24px; margin: 0 5px 0 0; padding:0 0 0 5px !important;}
+header #loginHolder form input#mini-password { height:24px; margin: 0 5px 0 0; padding:0 0 0 5px !important;}
+header #loginHolder form button { width: 80px; margin: 0 0 0 5px; padding: 3px 0 5px 0; height: auto; background-color: #6db5da; border: 0; outline: none; }
+header #loginHolder form button span { color: white; font-size: 13px; text-transform: uppercase; }
+
+/* override default mini-cart behavior */
+.top-cart .block-content {
+	top: 0 !important;
+}
+
+/* Footer */
+.clearfix:before, header nav .block-login .block-content:before, header #loginHolder form .block-content:before, #main .messages:before, #main .form-list li.control:before, .product-view .product-essential .product-reviews-price:before, .product-view .product-essential .add-to-box .quantity-replenish:before, .product-view .product-essential .add-to-box .points:before, .product-view #product-collateral .nav:before, .product-view #product-collateral .list-wrap #collateral-reviews .reviews-top:before, .product-view #product-collateral .list-wrap #collateral-reviews .reviews-list-container ul li .review-head:before, #popupDialog .ui-content .popup-top:before, .cart .total:before, .cart .cart-buttons:before, .cart .update-button:before, .cart #shopping-cart fieldset ul#shopping-cart-list li table td.info .quantity-container:before, .cart #shopping-cart fieldset ul#shopping-cart-list li table td.info .controls:before, .cart .cart-collaterals .cart-collateral .ui-collapsible-content .buttons-set:before, .free-samples-steps:before, .free-samples-steps .buttons-set:before, .free-samples-steps .category-products:before, .free-samples-steps .category-products ul.products-grid li .product-info:before, .dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-title:before, .dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content ul#card-list ul.info:before, .dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .fieldset li.checkboxes:before, .dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .fieldset li.checkboxes fieldset.skin-concerns:before, .dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .buttons-set:before, .dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box-table td.order ul:before, .account-login #login-form:before, .customer-account-forgotpassword #form-validate:before, .customer-account-create #form-validate:before, .customer-address-form #form-validate .buttons-set:before, .product-review .ratings:before, .product-review .product-details .review .review-head:before, .sales-order-view .box .box-title:before, .my-account #wishlist-table li:before, .my-account #wishlist-table li .info .title:before, .my-account #wishlist-table li .info .links-set:before, .my-account #wishlist-view-form .buttons-set:before, #addcc .form-list li#authorizenet_cc_type_exp_div .input-box:before, #addcc .buttons-set:before, #checkoutSteps li.section #co-payment-form ul.form-list li.control ul.form-list #authorizenet_cc_type_exp_div .input-box:before, #checkoutSteps li.section #co-payment-form ul.form-list li.control ul.form-list #authorizenet_cc_type_cvv_div .input-box:before, #checkoutSteps li.section .buttons-set:before, #checkoutSteps li.section .buttons-set .links-set:before, #customer-reviews fieldset .form-list:before, .review-preview fieldset .form-list:before, #customer-reviews fieldset .form-list .review-box:before, .review-preview fieldset .form-list .review-box:before, #customer-reviews .preview-content .review-head:before, .review-preview .preview-content .review-head:before, #customer-reviews .buttons-set:before, .review-preview .buttons-set:before, .review-success .buttons-set:before, footer .footer-block:before, .clearfix:after, header nav .block-login .block-content:after, header #loginHolder form .block-content:after, #main .messages:after, #main .form-list li.control:after, .product-view .product-essential .product-reviews-price:after, .product-view .product-essential .add-to-box .quantity-replenish:after, .product-view .product-essential .add-to-box .points:after, .product-view #product-collateral .nav:after, .product-view #product-collateral .list-wrap #collateral-reviews .reviews-top:after, .product-view #product-collateral .list-wrap #collateral-reviews .reviews-list-container ul li .review-head:after, #popupDialog .ui-content .popup-top:after, .cart .total:after, .cart .cart-buttons:after, .cart .update-button:after, .cart #shopping-cart fieldset ul#shopping-cart-list li table td.info .quantity-container:after, .cart #shopping-cart fieldset ul#shopping-cart-list li table td.info .controls:after, .cart .cart-collaterals .cart-collateral .ui-collapsible-content .buttons-set:after, .free-samples-steps:after, .free-samples-steps .buttons-set:after, .free-samples-steps .category-products:after, .free-samples-steps .category-products ul.products-grid li .product-info:after, .dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-title:after, .dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content ul#card-list ul.info:after, .dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .fieldset li.checkboxes:after, .dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .fieldset li.checkboxes fieldset.skin-concerns:after, .dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .buttons-set:after, .dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box-table td.order ul:after, .account-login #login-form:after, .customer-account-forgotpassword #form-validate:after, .customer-account-create #form-validate:after, .customer-address-form #form-validate .buttons-set:after, .product-review .ratings:after, .product-review .product-details .review .review-head:after, .sales-order-view .box .box-title:after, .my-account #wishlist-table li:after, .my-account #wishlist-table li .info .title:after, .my-account #wishlist-table li .info .links-set:after, .my-account #wishlist-view-form .buttons-set:after, #addcc .form-list li#authorizenet_cc_type_exp_div .input-box:after, #addcc .buttons-set:after, #checkoutSteps li.section #co-payment-form ul.form-list li.control ul.form-list #authorizenet_cc_type_exp_div .input-box:after, #checkoutSteps li.section #co-payment-form ul.form-list li.control ul.form-list #authorizenet_cc_type_cvv_div .input-box:after, #checkoutSteps li.section .buttons-set:after, #checkoutSteps li.section .buttons-set .links-set:after, #customer-reviews fieldset .form-list:after, .review-preview fieldset .form-list:after, #customer-reviews fieldset .form-list .review-box:after, .review-preview fieldset .form-list .review-box:after, #customer-reviews .preview-content .review-head:after, .review-preview .preview-content .review-head:after, #customer-reviews .buttons-set:after, .review-preview .buttons-set:after, .review-success .buttons-set:after, footer .footer-block:after { content: ""; display: table; }
+.clearfix:after, header nav .block-login .block-content:after, header #loginHolder form .block-content:after, #main .messages:after, #main .form-list li.control:after, .product-view .product-essential .product-reviews-price:after, .product-view .product-essential .add-to-box .quantity-replenish:after, .product-view .product-essential .add-to-box .points:after, .product-view #product-collateral .nav:after, .product-view #product-collateral .list-wrap #collateral-reviews .reviews-top:after, .product-view #product-collateral .list-wrap #collateral-reviews .reviews-list-container ul li .review-head:after, #popupDialog .ui-content .popup-top:after, .cart .total:after, .cart .cart-buttons:after, .cart .update-button:after, .cart #shopping-cart fieldset ul#shopping-cart-list li table td.info .quantity-container:after, .cart #shopping-cart fieldset ul#shopping-cart-list li table td.info .controls:after, .cart .cart-collaterals .cart-collateral .ui-collapsible-content .buttons-set:after, .free-samples-steps:after, .free-samples-steps .buttons-set:after, .free-samples-steps .category-products:after, .free-samples-steps .category-products ul.products-grid li .product-info:after, .dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-title:after, .dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content ul#card-list ul.info:after, .dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .fieldset li.checkboxes:after, .dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .fieldset li.checkboxes fieldset.skin-concerns:after, .dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box .box-content .buttons-set:after, .dashboard #box-account .ui-collapsible .ui-collapsible-content .box-set .box-table td.order ul:after, .account-login #login-form:after, .customer-account-forgotpassword #form-validate:after, .customer-account-create #form-validate:after, .customer-address-form #form-validate .buttons-set:after, .product-review .ratings:after, .product-review .product-details .review .review-head:after, .sales-order-view .box .box-title:after, .my-account #wishlist-table li:after, .my-account #wishlist-table li .info .title:after, .my-account #wishlist-table li .info .links-set:after, .my-account #wishlist-view-form .buttons-set:after, #addcc .form-list li#authorizenet_cc_type_exp_div .input-box:after, #addcc .buttons-set:after, #checkoutSteps li.section #co-payment-form ul.form-list li.control ul.form-list #authorizenet_cc_type_exp_div .input-box:after, #checkoutSteps li.section #co-payment-form ul.form-list li.control ul.form-list #authorizenet_cc_type_cvv_div .input-box:after, #checkoutSteps li.section .buttons-set:after, #checkoutSteps li.section .buttons-set .links-set:after, #customer-reviews fieldset .form-list:after, .review-preview fieldset .form-list:after, #customer-reviews fieldset .form-list .review-box:after, .review-preview fieldset .form-list .review-box:after, #customer-reviews .preview-content .review-head:after, .review-preview .preview-content .review-head:after, #customer-reviews .buttons-set:after, .review-preview .buttons-set:after, .review-success .buttons-set:after, footer .footer-block:after { clear: both; }
+footer { background: #808184; clear: both; width: 100%; display: block; position: relative; padding: 0 0 74px 0; }
+footer .footer-block { display: block; }
+footer .footer-block .footer-block-content { display: block; padding: 0 16px; }
+footer .footer-block .buttons { margin: 0 0 10px; padding: 0; display: block; list-style: none; text-align: center; float: left; display: block; width: 100%; position: relative; }
+footer .footer-block .buttons li { display: block; float: left; }
+footer .footer-block .buttons li.full { width: 100%; }
+footer .footer-block .buttons li.one-half { width: 47%; }
+footer .footer-block .buttons li.one-half:last-child { float: right; }
+footer .footer-block .buttons li a.button { display: block; margin: 0; width: 100%; font-size:17px; }
+footer .footer-block p { padding: 0; margin: 0 0 10px 0; }
+footer .socialize h2 { margin: 18px 0 12px 0; }
+footer .socialize ul { margin: 0 0 20px 0; padding: 0; list-style: none; display: block; text-align: center; }
+footer .socialize ul li { display: inline-block; margin-right: -5px; padding: 0 4px; }
+footer .socialize ul li a { display: inline-block; width: 38px; height: 36px; line-height:0; font-size:0; color:transparent; }
+footer .socialize ul li.pinterest a { background: url("../images/icons/pinterest.png") no-repeat left top; }
+footer .socialize ul li.facebook a { background: url("../images/icons/facebook.png") no-repeat left top; }
+footer .socialize ul li.twitter a { background: url("../images/icons/twitter.png") no-repeat left top; }
+footer .socialize ul li.youtube a { background: url("../images/icons/youtube.png") no-repeat left top; }
+footer .footer-links { display: none; }
+footer .footer-links ul { display: block; list-style: none; margin: 0; padding: 0; text-align: center; }
+footer .footer-links ul li { display: inline-block; margin: 0 16px; }
+footer .footer-links ul li a { font-family: "GillSansStd", sans-serif; font-size: 18px; color: white; line-height: 20px; display: block; }
+footer .footer-block h2 { font-family: "GillSansStd", sans-serif; background: url("../images/transparent/title_bg.png") repeat-x left 10px; font-size: 18px; line-height: 20px; height: 20px; color: white; text-transform: uppercase; text-align: center; font-weight: normal; margin: 18px 0 16px 0; }
+footer .footer-block h2 span { display: inline-block; padding: 0 10px; background-color: #808184; margin-top: 3px; height: 20px; line-height: 20px; }
+
+/* main */
+.border, header nav, #main .breadcrumbs-container, #main .page-title, #main .links li, #main .ui-collapsible-set .ui-collapsible, .category-products .toolbar, .product-view .product-essential .product-reviews-price, .cart .messages, .cart #shopping-cart fieldset ul#shopping-cart-list li, .account-login .messages { border-bottom: 1px solid #d1d1d1; }
+#main .breadcrumbs-container { width: auto; display: block; padding: 0 15px 0 10px; }
+#main .breadcrumbs { padding: 0; position: relative; height: 35px; width: 100%; overflow: hidden; }
+#main .breadcrumbs ul { margin: 0; padding: 0; list-style: none; text-align: left; height: 100%; }
+#main .breadcrumbs ul li { float: left; width: auto; padding: 0 15px 0 8px; background: url("../images/transparent/breadcrumb_separator.png") no-repeat right 13px; margin: 0; }
+#main .breadcrumbs ul li a, #main .breadcrumbs ul li strong { font-family: "GillSansMT-Light", sans-serif; display: block; font-size: 14px; color: #6db5da; height: 35px; line-height: 37px; text-transform: uppercase; padding: 0 1px; font-weight: normal; float: left; width: 100%; }
+#main .breadcrumbs ul li:first-child { padding: 0 15px 0 0; }
+#main .breadcrumbs ul li:last-child { padding: 0 8px 0 8px; background: none; }
+#main .links { background: url("../images/transparent/list_bg.png") repeat-x left top; display: block; margin: 0; padding: 0 18px; list-style: none; width: auto; position: relative; }
+#main .links#skincare-links { padding: 4px 18px 16px 18px; }
+#main .links li { display: block; height: auto; }
+#main .links li:last-child { border: none; }
+#main .links li a { height: 50px; line-height: 51px; font-size: 18px; text-transform: uppercase; color: #6A747C; padding: 0 0 0 5px; display: block; outline: none; position: relative; }
+
+#main .entry-content { display: block; margin: 0 15px; }
+#main .entry-content .special-offers-list { display: block; }
+#main .entry-content .special-offers-list li { display: block; border-bottom: 1px solid #d0d0d0; padding: 24px 0; }
+#main .entry-content .special-offers-list li:last-child { border: 0; }
+#main .entry-content .special-offers-list li h2 { font-size: 18px; line-height: 20px; color: #6db5da; text-align: center; display: block; margin: 0 0 15px 0; text-transform: uppercase; }
+#main .entry-content .special-offers-list li .entry-image { margin: 0; }
+#main .entry-content .entry-image { text-align: center; margin: 15px 0 5px 0; }
+#main .entry-content .entry-image img { display: inline-block; max-width: 100%; }
+#main .entry-content p { color: #6A747C; font-family: "GillSansMT", Arial, Helvetica, sans-serif; margin: 0 0 12px 0; }
+#main .entry-content h3 { font-size: 14px; line-height: 18px; color: #6db5da; text-transform: uppercase; padding: 2px 0 8px 0; display: block; clear: both; }
+#main .entry-content .buttons { margin: 0 0 20px; padding: 0; display: block; list-style: none; text-align: center; float: left; display: block; width: 100%; position: relative; }
+#main .entry-content .buttons li { display: block; float: left; }
+#main .entry-content .buttons li.full { width: 100%; }
+#main .entry-content .buttons li.one-half { width: 47%; }
+#main .entry-content .buttons li.one-half:last-child { float: right; }
+#main .entry-content .buttons li.one-half:last-child a { background-color: #c8c8c8; }
+#main .entry-content .buttons li a.button { display: block; margin: 0; width: 100%; }
+#main .entry-content .vedio-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-bottom:20px; }
+#main .entry-content iframe { margin-bottom: 20px; position:absolute; width:100%; height:100%; top:0; left:0;  }
+
+#main .ui-collapsible-set .ui-collapsible { display: block; height: auto; }
+#main .ui-collapsible-set .ui-collapsible[data-allow-collapse="false"] .ui-icon { display: none; }
+#main .ui-collapsible-set .ui-collapsible h3 { font-size: 18px; }
+#main .ui-collapsible-set .ui-collapsible h3 a { padding: 0; display: block; outline: none; position: relative; }
+#main .ui-collapsible-set .ui-collapsible h3 a .ui-btn-inner { padding: 0 7px 0 5px; }
+#main .ui-collapsible-set .ui-collapsible h3 a .ui-btn-inner .ui-btn-text { font-weight: normal; height: 46px; line-height: 47px; font-size: 18px; text-transform: uppercase; color: #6A747C; outline: none; }
+#main .ui-collapsible-set .ui-collapsible h3 a .ui-btn-inner .ui-btn-text a { color: #6A747C; outline: none; }
+#main .ui-collapsible-set .ui-collapsible h3 a .ui-btn-inner .ui-icon { position:absolute; top:50%; right: 7px; margin-top: -11px; width: 25px; height: 24px; }
+#main .ui-collapsible-set .ui-collapsible h3 a .ui-btn-inner .ui-icon.ui-icon-minus { background: url("../images/transparent/accordion_minus.png") no-repeat left top; }
+#main .ui-collapsible-set .ui-collapsible h3 a .ui-btn-inner .ui-icon.ui-icon-plus { background: url("../images/transparent/accordion_plus.png") no-repeat left top; }
+#main .ui-collapsible-set .ui-collapsible .ui-collapsible-content { padding: 0; }
+#main .ui-collapsible-set .ui-collapsible .sub-menu { display: block; margin: 0; padding: 0; list-style: none; border-top: 1px solid #d0d0d0; }
+#main .ui-collapsible-set .ui-collapsible .sub-menu li a { padding: 0 7px 0 25px; }
+#main .ui-collapsible-heading { font-size: 16px; display: block; margin: 0 -15px; padding: 0; position: relative; }
+#main .ui-collapsible-inset .ui-collapsible-heading { margin: 0; }
+#main .ui-collapsible-heading .ui-btn { text-align: left; margin: 0; border-left-width: 0; border-right-width: 0; }
+
+/* pager */
+.pager p { color:#6a747c; text-align:center; }
+.pager ol.pages-num { margin-top:0px; }
+.pager ol.pages-num li { display:inline; }
+.pager .pages { text-align:center; }
+.pager .limiter { height:35px; line-height:30px; clear:both; margin:0 16px 0 16px; }
+.pager .limiter .ui-select { float:left; height:30px; margin-right:10px; }
+.pager .limiter label { float:left; }
+.pager .limiter .ui-btn-inner { display:none; }
+.pager .pages a { margin-bottom:10px; margin-top:10px; background-color:#c8c8c8; }
+.pager select { padding:5px 40px 5px 10px; margin-left:10px; margin }

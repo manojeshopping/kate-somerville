@@ -1,0 +1,33 @@
+<?php
+
+$helper = Mage::helper('tealium_tags');
+$store = Mage::app()->getStore();
+
+if (!$helper->isEnabled($store)) {
+    return; // not enabled, no javascript inserted
+}
+
+$ids = array();
+$skus = array();
+$names = array();
+
+foreach($this->getItems() as $item) {
+    $ids[] = $item->getProductId();
+    $skus[] = $item->getSku();
+    $names[] = $item->getName();
+}
+
+$udo = array(
+        page_type => "product compare",
+        product_id => implode('","', $ids),
+        product_sku => implode('","', $skus),
+        product_name => implode('","', $names)
+);
+
+		
+$tealium = $helper->getTealiumObject($store, $this);
+$tealium->pageType("Home");
+$tealium->updateUdo($udo);
+echo $tealium->render("udo");
+echo $helper->getDiagnosticTag($store);
+?>

@@ -1,0 +1,64 @@
+<div class="country-picker"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('country-picker-bkgd')->toHtml(); ?></div>
+
+<div class="region-logo"><img src="<?php echo $this->getSkinUrl('images/ksv-large.png'); ?>" width="235" alt="Kate Somerville"/></div>
+
+<?php $helper = Mage::helper('alliance_regionroute'); ?>
+
+<div class="region-selector">
+	<select id="region-picker">
+		<option selected>Select Country</option>
+		<option value="<?php echo $helper->getDomain(); ?>">United States</option>
+		<option value="<?php echo $helper->getDomain('uk'); ?>">United Kingdom</option>
+		<option value="<?php echo $helper->getDomain('ca'); ?>">Canada</option>
+		<option value="<?php echo $helper->getDomain('hk'); ?>">Hong Kong</option>
+		<option value="<?php echo $helper->getDomain('kr'); ?>">South Korea</option>
+	</select>
+	<br>
+	<button style="width: 227px; background-color: #75b8db; margin-top: 10px; color: #fff;
+	font: 14px/1.35 'GillSansMTLight', Arial, Helvetica, sans-serif; line-height: 36px;
+	border: none; cursor: pointer;" id="region-entry-button">Enter Site
+	</button>
+</div>
+
+<script src="/js/jquery-cookie/jquery.cookie.js"></script>
+<script type="text/javascript">
+	//<![CDATA[
+	jQuery(document).ready(function () {
+
+		// transform cms block image to background image
+		jQuery('.country-picker img').each(function (i, elem) {
+			var img = jQuery(elem);
+			jQuery('.region-index-index').css({
+				background: "url(" + img.attr("src") + ") no-repeat center center fixed"
+			});
+			jQuery('.country-picker').remove();
+		});
+
+		jQuery('.region-selector-error').hide();
+		<?php if ($this->default_country) { ?>
+		jQuery('#region-picker').val("<?php echo $this->default_country; ?>");
+		<?php } ?>
+		jQuery('#region-entry-button').click(function () {
+			var region_picker = jQuery('#region-picker');
+			var selected_region = jQuery(':selected', region_picker);
+			if (jQuery.inArray(selected_region.val(), <?php echo $this->getRedirectDomainsJson(); ?>) == -1) {
+				jQuery('.region-selector-error').show().delay(2500).fadeOut();
+			}
+			else {
+				jQuery.removeCookie('katesomerville_region_route', { path: '/' });
+				if (selected_region.val() != 'www.katesomerville.co.kr' && selected_region.val().substring(0, 3) != 'hk.') {
+					if (jQuery.cookie('katesomerville_region_route', selected_region.val(), { path: '/', expires: 3650, domain: '.<?php echo $helper->getDomain(); ?>' })) {
+						window.location.replace('//' + jQuery.cookie('katesomerville_region_route'));
+					}
+					else {
+						window.location.replace('//' + selected_region.val());
+					}
+				}
+				else {
+					window.location.replace('//' + selected_region.val());
+				}
+			}
+		});
+	});
+	//]]>
+</script>

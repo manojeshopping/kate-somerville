@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Test og/api.php</title>
+<style>
+table, th, td {border: 1px solid black;border-collapse:collapse;}
+th,td {padding:5px;}
+</style>
+</head>
+<body>
+<h2>Test order Submission to og/api.php</h2>
+
+<form method="post" action="og/api.php">
+<table>
+<tr>
+    <td valign="top">Order XML</td>
+    <td><textarea name="xml" rows="80" cols="80">
+<order>
+<head>
+<orderOgId>4572696</orderOgId>
+<orderOgDate>2015-06-04</orderOgDate>
+<orderSourcePartnerId>77</orderSourcePartnerId>
+<orderSourcePartnerName>KateSomerville</orderSourcePartnerName>
+<orderItemsCount>1</orderItemsCount>
+<orderSubtotalValue>20.00</orderSubtotalValue>
+<orderSalesTax>0.00</orderSalesTax>
+<orderDiscount>0.00</orderDiscount>
+<orderShipping>0.00</orderShipping>
+<orderTotalValue>20.00</orderTotalValue>
+<orderCurrency>USD</orderCurrency>
+<orderPaymentDataLocation>OG</orderPaymentDataLocation>
+<orderPaymentMethod>CC</orderPaymentMethod>
+<orderCcType>Visa</orderCcType>
+<orderCcOwner>q6BuPXuI5pWB</orderCcOwner>
+<orderCcNumber>****</orderCcNumber>
+<orderCcExpire>y+cua2vsrA==</orderCcExpire>
+</head>
+<customer>
+<customerOgId>693859</customerOgId>
+<customerPartnerId>43661</customerPartnerId>
+<customerName>Prod User</customerName>
+<customerFirstName>Prod</customerFirstName>
+<customerLastName>User</customerLastName>
+<customerEmail>prod.user@ordergroove.com</customerEmail>
+<customerBillingFirstName>Prod</customerBillingFirstName>
+<customerBillingLastName>User</customerBillingLastName>
+<customerBillingAddress>75 Broad Street </customerBillingAddress>
+<customerBillingAddress1>75 Broad Street</customerBillingAddress1>
+<customerBillingAddress2></customerBillingAddress2>
+<customerBillingCity>New York</customerBillingCity>
+<customerBillingState>NY</customerBillingState>
+<customerBillingZip>10004</customerBillingZip>
+<customerBillingPhone></customerBillingPhone>
+<customerBillingFax></customerBillingFax>
+<customerBillingCompany></customerBillingCompany>
+<customerBillingCountry>US</customerBillingCountry>
+<customerShippingFirstName>Prod</customerShippingFirstName>
+<customerShippingLastName>User</customerShippingLastName>
+<customerShippingAddress>75 Broad Street 23rd Floor</customerShippingAddress>
+<customerShippingAddress1>75 Broad Street</customerShippingAddress1>
+<customerShippingAddress2>23rd Floor</customerShippingAddress2>
+<customerShippingCity>New York</customerShippingCity>
+<customerShippingState>NY</customerShippingState>
+<customerShippingZip>10004</customerShippingZip>
+<customerShippingPhone></customerShippingPhone>
+<customerShippingFax></customerShippingFax>
+<customerShippingCompany></customerShippingCompany>
+<customerShippingCountry>US</customerShippingCountry>
+</customer>
+<items>
+<item>
+<qty>1</qty>
+<sku>10233</sku>
+<name>Nourish Daily Moisturizer, 0.5 Fl. Oz. Travel Size</name>
+<product_id>504</product_id>
+<discount>0.0</discount>
+<finalPrice>20.00</finalPrice>
+<price>20.00</price>
+</item>
+<item>
+<qty>1</qty>
+<sku>16033</sku>
+<name>SAMPLE</name>
+<product_id>191</product_id>
+<discount>0</discount>
+<finalPrice>0</finalPrice>
+<price>0</price>
+</item>
+</items>
+</order>
+</textarea></td>
+</tr>
+<tr>
+    <td colspan="2" style="text-align:right"><input type="submit" value="POST DATA TO API" name="submit"/></td>
+</tr>
+</table>
+</form>
+</body>
+</html>

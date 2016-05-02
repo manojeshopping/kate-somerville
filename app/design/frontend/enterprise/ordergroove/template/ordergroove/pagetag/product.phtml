@@ -1,0 +1,14 @@
+<?php
+/**
+ * @see block Pixafy_Ordergroove_Block_Pagetag_Product
+ */
+?>
+	<?php if($this->_canShow()){ ?>
+	<script type="text/javascript">
+		var og_settings = {
+			"product" : { "id":"<?php echo $this->getProduct()->getId() ?>", "price":"<?php echo Mage::helper('core')->currency($this->getProduct()->getPrice(), false, false) ?>" }
+		};
+	</script>
+	<script type="text/javascript" src="<?php echo $this->getPageTaggingUrl().$this->getMerchantId() ?>/core-model.js"></script>
+	<script type="text/javascript" src="<?php echo $this->getPageTaggingUrl().$this->getMerchantId() ?>/1/controller.js"></script>
+	<?php } ?>

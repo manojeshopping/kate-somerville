@@ -1,0 +1,204 @@
+<?php
+$_productCollection = $this->getLoadedProductCollection();
+$_helper = $this->helper('catalog/output');
+?>
+
+<?php echo $this->getChildHtml('alliance.productfilter');?>
+
+<?php if (!$_productCollection->count()): ?>
+	<p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
+<?php else: ?>
+	<?php // echo $this->getToolbarHtml() ?>
+	<?php echo $this->getAdditionalHtml() ?>
+	<div id="nomatches-message" style="display: none;">There are no matches for your selection.</div>
+	<div class="category-products">
+		<ul class="products-grid">
+		<?php // Grid Mode ?>
+		<?php $_collectionSize = $_productCollection->count() ?>
+		<?php $_columnCount = $this->getColumnCount(); ?>
+		<?php $i = 0;
+		foreach ($_productCollection as $_product): ?>
+				<li data-productid="<?php echo $_product->getId();?>" class="item<?php if (($i - 1) % $_columnCount == 0): ?> first<?php elseif ($i % $_columnCount == 0): ?> last<?php endif; ?>">
+					<div class="prod-grid-thumb">
+						<img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(300); ?>" width="300" height="300"
+							 alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"/>
+
+						<div class="prod-grid-content">
+							<div class="prod-grid-content-inner actions">
+
+								<div class="button btn-view"><a class="button" href="<?php echo $_product->getProductUrl() ?>"
+																title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><span><span><?php echo $this->__('View Detail') ?></span></span></a>
+								</div>
+
+								<div class="button btn-quickview"><a class="button fancybox"
+								data-fancybox-height="<?php echo ($_product->getTypeId() == "giftcard" ? 710 : 600);?>"
+								href="<?php echo Mage::getUrl('quickview/product/view/id/' . $_product->getId()); ?>"><span><span><?php echo $this->__('Quick View') ?></span></span></a>
+								</div>
+								<?php if ($_product->isSaleable()): ?>
+									<div class="qty-holder">
+										<?php
+										$_max = Mage::getModel('cataloginventory/stock_item')->loadByProduct($_product)->getMaxSaleQty();
+										?>
+										<script type="text/javascript">
+											function setQty(id, url) {
+												var qty = document.getElementById('qty_' + id).value;
+												if (url.substring(url.length - 1) == '/') {
+													document.getElementById('cart_button_' + id).innerHTML = '<button type="button" class="button" onclick="setLocation(\'' + url + 'qty/' + qty + '/\')"><span><span><?php echo $this->__('Add to Bag') ?></span></span></button>';
+												}
+											}
+										</script>
+										<select name="qty_<?php echo $_product->getId() ?>" id="qty_<?php echo $_product->getId() ?>" maxlength="12"
+												title="<?php echo $this->__('Qty') ?>" class="input-text qty"
+												onchange="setQty(<?php echo $_product->getId(); ?>, '<?php echo $this->getAddToCartUrl($_product) ?>');">
+											<?php for ($k = 1; $k <= $_max; $k++) : ?>
+												<option value="<?php echo $k ?>"><?php echo $k ?></option>
+											<? endfor; ?>
+										</select>
+									</div>
+									<div class="btn-cart" id="cart_button_<?php echo $_product->getId(); ?>">
+										<button type="button" title="<?php echo $this->__('Add to Bag') ?>" class="button"
+												onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')">
+											<span><span><?php echo $this->__('Add to Bag') ?></span></span></button>
+									</div>
+								<?php endif; ?>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="product-name"><a href="<?php echo $_product->getProductUrl() ?>"
+												 title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_product->getData('title'); ?>
+							<span><?php echo $_product->getData('sub_title'); ?></span></a>
+					</div>
+
+					<div class="product-price">
+						<?php 
+							if(!$_product->isAvailable()){
+								echo '<div style="position:absolute; right:0; line-height:28px; margin:5px; color:#61a8d4;">Out of Stock</div>';
+							}									
+						?>	
+						<?php
+						if ($_product->getTypeId() == 'configurable' || $_product->getTypeId() == 'subscription_configurable'): ?>
+							<?php
+							$var_price = '';
+							$k = 0;
+							$associatedProducts = Mage::getModel('catalog/product_type_configurable')->getUsedProducts(null, $_product);
+							foreach ($associatedProducts as $pro) {
+								$status = $pro->getStatus();
+								$stock = $pro->getIsInStock();
+								if (($status == 1) && ($stock == 1)) {
+									$var_price[] = $pro->getPrice();
+									$k++;
+								}
+							}
+							sort($var_price);
+							$lower_price = reset($var_price);
+							$higher_price = end($var_price);
+							?>
+							<?php if ($k > 1): ?>
+								<div class="price-box">
+								<span class="regular-price">
+									<span class="price">
+                                        <?php if($lower_price !== $higher_price) :?>
+                                            <?php 
+                                                $lowerPrice = str_replace(".00","", Mage::helper('core')->currency($lower_price));
+                                                $higherPrice = str_replace(".00","", Mage::helper('core')->currency($higher_price));
+                                                echo $lowerPrice . " - " . $higherPrice; 
+                                            ?>
+                                        <?php else : ?>
+                                            <?php 
+                                                $lowerPrice = str_replace(".00","", Mage::helper('core')->currency($lower_price));
+                                                echo $lowerPrice; 
+                                            ?>
+                                        <?php endif ?>
+									</span>                
+								</span>
+								</div>
+							<?php endif; ?>
+
+							<?php if ($k == 0 || $k == 1): ?>
+								<?php echo $this->getPriceHtml($_product, true) ?>
+							<?php endif; ?>
+
+						<?php else: ?>
+							<?php echo $this->getPriceHtml($_product, true) ?>
+						<?php endif; ?>
+					</div>
+
+				</li>
+		<?php endforeach ?>
+		</ul>
+		<script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd', 'even', 'first', 'last'])</script>
+		<?php /* <div class="ad-bottom clearfix"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('ultimate-kate-rewards')->toHtml(); ?></div> */ ?>
+	</div>
+	<script type="text/javascript">
+		jQuery(document).ready(function () {
+			jQuery(".fancybox").fancybox({
+				padding: 10,
+				helpers: {
+					overlay: {
+						locked: false
+					}
+				},
+				type: 'iframe',
+				maxWidth: 860,
+				fitToView: false,
+				width: '100%',
+				autoSize: false,
+				closeClick: false,
+				openEffect: 'none',
+				closeEffect: 'none',
+				beforeLoad : function() {         
+					this.height = parseInt(this.element.data('fancybox-height'));
+				}
+			});
+		});
+	</script>
+<?php endif; ?>
+
+<?php
+$z_product = array();
+$i = 0;
+foreach ($_productCollection as $_product){ 
+	$product = Mage::getModel('catalog/product')->load($_product->getId()); 
+
+	if($_product->getTypeId() == 'configurable'){
+
+		$childProducts = Mage::getModel('catalog/product_type_configurable')->getUsedProducts(null,$product);   
+
+		foreach($childProducts as $child) {
+			$z_product[$i]["product_id"] = $child->getId();
+			$z_product[$i]["og_default_frequency"] =	$child->getAttributeText('og_default_frequency');
+			$i++;
+		}
+	}else{
+		$z_product[$i]["product_id"] = $_product->getId();
+		$z_product[$i]["og_default_frequency"] =	$product->getAttributeText('og_default_frequency');
+		$i++;
+	}
+}
+?>
+<?php //Ordergroove  Script Tags ?>
+<script type="text/javascript">
+og_settings = {
+	page_type: "6",
+	<?php  if(Mage::getSingleton('customer/session')->isLoggedIn()): ?> logged_in: true,  <?php else: ?> logged_in: false, <?php endif; ?>
+	impulse_upsell: true,
+	default_frequency: {
+	<?php 
+		$z_prod = array();
+		foreach ($z_product as  $_product): 
+			$z_prod[] = "'".$_product["product_id"]."'" .": " . "'" . $_product["og_default_frequency"] ."'";
+		endforeach;
+		echo implode(', ', $z_prod);
+	?>
+
+	}
+}
+</script>
+<?php 
+$storeCode = Mage::app()->getStore()->getCode();
+if( $storeCode  != 'uk_store'  && $storeCode  != 'ca_store'  ): ?>
+<?php //Ordergroove  main.js ?>
+<script type="text/javascript" src="<?php echo Mage::helper('ordergroove/config')->getPageTaggingUrl(); ?><?php echo Mage::helper('ordergroove/config')->getMerchantId(); ?>/main.js"></script>
+<?php endif; ?>	

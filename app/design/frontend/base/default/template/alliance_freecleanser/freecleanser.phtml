@@ -1,0 +1,56 @@
+<h2><?php echo $this->getConfigTitle(); ?></h2>
+<p><?php echo $this->getConfigDescription(); ?></p>
+	
+<div class="freecleanser-gift">
+	<div class="freecleanser-products-title">Free Cleanser Products.</div>
+	<?php if ($this->checkProductsInCart()) { ?>
+		Product already added.
+	<?php } else { ?>
+		<div class="freecleanser-products">
+			<?php
+			$productCollection = $this->getProductCollection();
+			foreach ($productCollection as $_product) { ?>
+				<div class="freecleanser-product">
+					<img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(135); ?>" width="135"
+						 height="135" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"/>
+
+					<h1 class="product-name" id="product-link<?php echo $_product->getEntityId() ?>">
+						<?php echo $_product->getTitle(); ?>
+						<?php if ($_product->getAttributeText('product_icon')): ?>
+							<img
+								src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . "icons/large/" . $_product->getAttributeText('product_icon'); ?>"
+								width="25" height="25"/>
+						<?php endif;  ?>
+					</h1>
+
+					<h2 class="product-subtitle"
+						id="sub-title<?php echo $_product->getEntityId() ?>"><?php echo $_product->getSubTitle(); ?>
+					</h2>
+					
+					<p>Product Size:
+					<?php
+					$productSize = $this->getProductSize($_product);
+					echo $productSize;
+					?>
+					</p>
+					
+					<?php if ($_product->getAttributeText('skin_concern')): ?>
+						<div class="skin-concern">
+							Skin Concern:
+							<?php if (is_array($_product->getAttributeText('skin_concern'))): ?>
+								<?php foreach ($_product->getAttributeText('skin_concern') as $option) {
+									echo '<div class="option">' . $option . '</div>';
+								} ?>
+							<?php else: ?>
+								<?php echo $_product->getAttributeText('skin_concern'); ?>												
+							<?php endif; ?>
+						</div>
+					<?php endif; ?>
+					
+					<input type="radio" id="freecleanser<?php echo $_product->getId(); ?>" name="freecleanser[productId]"
+						   value="<?php echo $_product->getId(); ?>"/>
+				</div>
+			<?php } ?>
+		</div>
+	<?php } ?>
+</div>

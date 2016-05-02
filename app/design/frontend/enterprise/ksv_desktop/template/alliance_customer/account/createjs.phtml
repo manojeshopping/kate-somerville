@@ -1,0 +1,74 @@
+<script type="text/javascript">
+    //<![CDATA[
+    jQuery(document).ready(function () {
+        var primary_skin_concern = jQuery('#primary_skin_concern');
+        var secondary_skin_concern = jQuery('#secondary_skin_concern');
+
+        primary_skin_concern.closest('li').hide();
+        secondary_skin_concern.closest('li').hide();
+
+        var container = primary_skin_concern.closest('ul');
+        var new_heading_li = jQuery('<li />')
+        var new_heading_label = jQuery('<label />');
+        var new_heading_div = jQuery('<div />', {  });
+        var new_heading_h3 = jQuery('<h3 />', { text: "Please select your two main skin concerns:" });
+
+        new_heading_li.appendTo(container);
+        new_heading_label.appendTo(new_heading_li);
+        new_heading_div.appendTo(new_heading_li);
+        new_heading_h3.appendTo(new_heading_div);
+
+        var new_li = jQuery('<li />');
+        var empty_label = jQuery('<label />');
+        var new_div = jQuery('<div />', { class: 'input-box', style: 'width: 400px;' });
+        new_li.appendTo(container);
+        empty_label.appendTo(new_li);
+        new_div.appendTo(new_li);
+
+        jQuery("#primary_skin_concern option").each(function () {
+            if (!jQuery(this).text()) {
+                return true;
+            }
+            // create elements for new form inputs
+            var new_pair_div = jQuery('<div />', { style: 'display: inline-block; width: 200px;' });
+            var new_label = jQuery('<label />', { text: jQuery(this).text(), style: 'width: auto; padding-left: 10px;', for: 'option' + jQuery(this).val() });
+            var new_input = jQuery('<input />',
+                { type: 'checkbox', id: 'option' + jQuery(this).val(), class: 'skin-concern-option-checkbox',
+                    style: 'float: left', skinconcern: jQuery(this).text() });
+            // append new form inputs
+            new_pair_div.appendTo(new_div);
+            new_input.appendTo(new_pair_div);
+            new_label.appendTo(new_pair_div);
+        });
+
+        jQuery(".skin-concern-option-checkbox").change(function () {
+            var checkbox = jQuery(this);
+            var number_checked = jQuery(".skin-concern-option-checkbox:checked").length;
+            if (number_checked > 2) {
+                checkbox.attr('checked', false);
+                return true;
+            }
+            if (this.checked) {
+                if (primary_skin_concern.val() == '') {
+                    var target_option = primary_skin_concern.children("option:contains('" + checkbox.attr('skinconcern') + "')");
+                    primary_skin_concern.val(target_option.val());
+                    return true;
+                }
+                if (secondary_skin_concern.val() == '') {
+                    var target_option = secondary_skin_concern.children("option:contains('" + checkbox.attr('skinconcern') + "')");
+                    secondary_skin_concern.val(target_option.val());
+                    return true;
+                }
+            }
+            if (!this.checked) {
+                if (jQuery("#primary_skin_concern option:selected").text() == checkbox.attr('skinconcern')) {
+                    primary_skin_concern.val('');
+                }
+                else if (jQuery("#secondary_skin_concern option:selected").text() == checkbox.attr('skinconcern')) {
+                    secondary_skin_concern.val('');
+                }
+            }
+        });
+    });
+    //]]>
+</script>

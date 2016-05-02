@@ -1,0 +1,99 @@
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @copyright  Copyright (c) 2008 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+ 
+#anav { padding: 0 0 0 140px; position: relative; text-align: left; width: 812px; margin:0;  z-index: 1000;  }
+
+/************** ALL LEVELS  *************/ /* Style consistent throughout all nav levels */
+#anav li { text-align:left; float: left;  position: relative; z-index: 1;}
+#anav li li{ border:0;}
+#anav li.over { z-index:999; }
+#anav a,
+#anav a:hover { display:block; line-height:1.3em; text-decoration:none; }
+#anav span { display:block; white-space:nowrap; }
+#anav li ul span {white-space:normal; padding:5px 10px; }
+
+/************ 0 LEVEL  ***************/
+#anav li { float:left; }
+#anav li span.nav-shopby{ color:#75b8db; font-size:14px;}
+#anav li.active a { color:#d96708; }
+#anav a {  background: url("../images/nav-seperator.gif") no-repeat scroll 0 4px transparent; color: #6A747C; float: left; font-size: 15px; padding:0 0 0 2px;    text-decoration: none !important; border:2px solid #ffffff;}
+#anav a span{ padding: 2px 7px;}
+#anav li a span{ position:relative; margin-top:-3px; bottom:-3px; z-index:100; background:#ffffff;}
+#anav li li a span{ position:relative; margin-top:0px; bottom:0px; z-index:1;}
+#anav li.first a{ background:none; padding:0;}
+
+
+#anav a:hover, #anav a {}
+#anav a:hover{ color:#222222;}
+#anav li.over a{ border:2px solid #c2dbe0; border-bottom-color:#ffffff; color:#222222; background:none; }
+#anav li.over li a{ border:0 !important; padding:0;}
+
+/************ 1ST LEVEL ************/
+#anav ul li,
+#anav ul li.active { float:none; }
+/*#anav ul li.over { background:#d5e4eb url(../images/nav_divider.gif) repeat-x 0 100%; }*/
+#anav ul li.last { padding-bottom:0; }
+
+#anav ul a,
+#anav ul a:hover { float:none; padding:0; background:none; }
+#anav ul li a { font-weight:normal !important; }
+#anav ul li a:hover{ color:#75b8db!important;}
+
+/************ 2ND LEVEL ************/
+/*width:275px;*/
+
+#anav ul { position:absolute;  width:433px;  top:22px; left:-10000px; border:2px solid #c2dbe0; background:#ffffff; padding:0 0 5px; z-index: 1;}
+#anav ul ul{ padding:0; margin:0;}
+/* Show menu */
+#anav li.over > ul { left:0; }
+
+#anav li.over > ul li.over > ul { left:100px; }
+/* #anav li.over ul ul { left:-10000px; } */
+
+/* #anav ul li a { background:#0A263D; } */
+/* #anav ul li a:hover { background:#d5e4eb; } */
+#anav ul li a { color: #75b8db !important; }
+#anav ul li li li a:hover { color: #222222 !important; }
+#anav ul span, #anav ul li.last li span { padding:0 10px;}
+#anav li.columns { overflow:hidden;}
+#anav li.columns ul { width: auto; }
+#anav li li li li span { padding:1px 0; font-size:13px; }
+
+
+/************ 3RD+ LEVEL ************/
+#anav ul ul { border: 0px; left:0; position: relative; top:0; background: none; }
+#anav ul ul ul{ #top:0;}
+#anav ul ul li { float: left; /* width:136px; */ width:142px; padding-bottom:1000em; margin-bottom:-1000em; overflow:hidden; background: url("../images/nav-pipe-bkg.gif") repeat-y;}
+#anav ul ul li:first-child{ background:none;}
+#anav ul ul li li{ padding-bottom:0; margin-bottom:0; background:none; }
+#anav ul ul ul { margin-left: 10px; }
+#anav ul ul li.first a, #anav ul ul li a{ padding:1px 0 !important; border:0; display:block;}
+#anav ul ul ul li a { color: #6A747C !important; font-size: 0.95em; }
+
+/** ie6 hack */
+#anav li.over ul.shown-sub { left:0; }
+#anav li.over li li ul.shown-sub { left:100px; }
+
+
+#anav .nav-banner{ text-align:center; position:relative; display:none; }
+#anav .nav-banner a{ border:0 !important;}

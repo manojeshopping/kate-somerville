@@ -1,0 +1,16 @@
+/app/etc/local.xml
+/app/etc/local.xml.*
+/media/*
+/media/wysiwyg/
+/media/wysiwyg/*
+/media/wysiwyg/swatches/
+/var/*
+/.idea
+.sass-cache
+/skin/frontend/shedrain/default/css/*
+Vagrantfile
+/.vagrant/*
+/.buildpath
+/.project
+/.settings
+/.sass-cache

@@ -1,0 +1,19 @@
+<style>
+    .katerewards-enroll-notlogged {
+    border: 2px solid #00bfff;
+        margin: 10px;
+        padding: 10px;
+        font-size: 14px;
+    }
+</style>
+
+<div class="katerewards-enroll-notlogged">
+    <h1>The Kate Somerville Rewards Program</h1>
+    <br>
+    <p>Description and infographics selling rewards program</p>
+    <br>
+    <p>You can enroll by filling out one of the forms below</p>
+    <br>
+    <?php echo $this->getChildHtml('katerewards_enrollment_notloggedin_register') ?>
+    <?php echo $this->getChildHtml('katerewards_enrollment_notloggedin_login') ?>
+</div>

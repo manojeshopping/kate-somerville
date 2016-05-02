@@ -1,0 +1,70 @@
+.swatch-option {
+    cursor: pointer;
+    position: relative;
+    float: left;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.swatch_container {
+    width: 100%;
+}
+
+.swatch-option img {
+    border: 1px solid transparent;
+}
+
+.swatch-option img.selected {
+    border: 1px solid red;
+}
+
+.clear {
+    height: 1px;
+    width: 90%;
+    clear: both;
+}
+
+.hidden {
+    display: none;
+}
+
+.popup {
+    background-color: white;
+    position: absolute;
+    z-index: 9999;
+    padding: 10px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    box-shadow: 1px 1px 10px 1px grey;
+    -moz-box-shadow: 1px 1px 10px 1px grey;
+    -webkit-box-shadow: 1px 1px 10px 1px grey;
+}
+
+.popup-link {
+    border: solid;
+    border-color: #FFF rgba(0, 0, 0, 0);
+    border-width: 7px 9px 0 8px;
+    bottom: -7px;
+    position: inherit;
+}
+
+.hidden-select.validation-failed {
+    overflow: hidden;
+    height: 0;
+    border: 0 !important;
+    padding: 0;
+
+}
+
+.hidden-select {
+    overflow: hidden;
+    height: 0;
+    border: 0;
+    padding: 0;
+}
+
+.super-attribute-select {
+    visibility:hidden;
+    height:0;
+}

@@ -1,0 +1,96 @@
+<?php
+    $prodId    = ($this->getRequest()->getParam('id'));
+    $_product  = Mage::getSingleton('catalog/product')->load($prodId);
+
+
+
+	$reviewUrl = 	Mage::getUrl('review/product/list', array(	
+						   'id'        => $_product->getId(),
+						   'category'  => $_product->getCategoryId()
+						));	
+	$storeId = Mage::app()->getStore()->getId();
+
+
+				$summaryData 	= 	Mage::getModel('review/review_summary')->setStoreId($storeId)->load($_product->getId()); 
+				$review_all_count 	= 	$summaryData->getReviewsCount();
+				$review_all_url	= 	$this->getUrl('review/product/listall/id/'.$summaryData->getEntityPkValue());
+
+
+
+
+
+
+
+?>
+ 
+<?php $_reviews = Mage::getModel('review/review')->getCollection()
+    ->addStoreFilter(Mage::app()->getStore()->getId())
+   ->addEntityFilter('product', $_product->getId())
+   ->addStatusFilter('approved')
+   ->setDateOrder('DESC')
+   ->addRateVotes();   
+?>
+
+    <?php if($_reviews->count()): ?>
+    <?php $counter = 0;?>
+
+        <div class="reviews-top">
+            <a class="button small" href="<?php echo $reviewUrl ?>" rel="nofollow">Write Review</a>
+        
+            <div class="pager">
+                <p class="amount"></p>
+
+
+                <div class="pages">
+                    <a class="prev" id="review_prev" href="#"><span>prev</span></a>
+
+                    <a class="next" id="review_next" href="#"><span>next</span></a>
+
+                </div>
+
+                <div id="pagination"></div>
+
+            </div>
+
+        </div>
+
+        
+        <div class="reviews-list-container">
+
+        
+            <ul class="reviews-list">
+                <?php foreach ($_reviews->getItems() as $_review): ?>
+                    <?php if ($counter % 3 == 0) : ?>
+                       <li class="review-block">
+                        <ul>
+                    <?php endif ?>
+                    <li>
+                        <div class="review-head">
+                            <?php foreach( $_review->getRatingVotes() as $_vote ): ?>
+                                <div class="rating-box">
+                                    <div class="rating" style="width: <?php echo $_vote->getPercent() ?>%;"></div>
+                                </div>
+                            <?php endforeach; ?>
+                            <h4><a href="<?php echo $this->getReviewUrl($_review->getId()) ?>"><?php echo $this->htmlEscape($_review->getTitle()) ?></a></h4>
+                        </div>
+
+                        <div class="review-details">
+                            <p><?=nl2br($_review->getDetail())?></p>
+                            <small><?=$this->__('(Posted on %s)', $this->formatDate($_review->getCreatedAt()), 'long')?> <?=$this->__('Review by %s', $_review->getNickname())?></small>
+                        </div>
+                    </li>
+                    <?php $counter++; ?>
+                    <?php if ($counter % 3 == 0) : ?>
+                       </ul>
+                       </li>
+                    <?php endif ?>
+                <?php endforeach; ?> 
+            </ul>
+            
+        </div>
+
+    <?php else: ?>
+        <a class="button grey" href="<?php echo $reviewUrl ?>">Write first review</a>
+
+    <?php endif; ?>
+

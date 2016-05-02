@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Alliance_EmailCapture>
+            <version>1.1.0</version>
+        </Alliance_EmailCapture>
+    </modules>
+
+    <global>
+        <helpers>
+            <alliance_emailcapture>
+                <class>Alliance_EmailCapture_Helper</class>
+            </alliance_emailcapture>
+        </helpers>
+
+        <blocks>
+            <alliance_emailcapture>
+                <class>Alliance_EmailCapture_Block</class>
+            </alliance_emailcapture>
+        </blocks>
+
+        <models>
+            <alliance_emailcapture>
+                <class>Alliance_EmailCapture_Model</class>
+            </alliance_emailcapture>
+        </models>
+    </global>
+
+    <frontend>
+        <layout>
+            <updates>
+                <alliance_emailcapture>
+                    <file>alliance/emailcapture.xml</file>
+                </alliance_emailcapture>
+            </updates>
+        </layout>
+
+        <routers>
+            <emailcapture>
+                <use>standard</use>
+                <args>
+                    <module>Alliance_EmailCapture</module>
+                    <frontName>emailcapture</frontName>
+                </args>
+            </emailcapture>
+        </routers>
+    </frontend>
+</config>

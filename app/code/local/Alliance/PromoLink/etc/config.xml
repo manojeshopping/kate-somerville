@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Alliance_PromoLink>
+            <version>1.0.0</version>
+        </Alliance_PromoLink>
+    </modules>
+
+    <global>
+        <helpers>
+            <alliance_promolink>
+                <class>Alliance_PromoLink_Helper</class>
+            </alliance_promolink>
+        </helpers>
+
+        <models>
+            <alliance_promolink>
+                <class>Alliance_PromoLink_Model</class>
+            </alliance_promolink>
+        </models>
+    </global>
+
+    <frontend>
+        <events>
+            <checkout_cart_product_add_after>
+                <observers>
+                    <promolink_catch_standard_add_to_cart>
+                        <type>singleton</type>
+                        <class>Alliance_PromoLink_Model_Observer</class>
+                        <method>applyEmptyPromo</method>
+                    </promolink_catch_standard_add_to_cart>
+                </observers>
+            </checkout_cart_product_add_after>
+        </events>
+
+        <routers>
+            <alliance>
+                <use>standard</use>
+                <args>
+                    <module>Alliance_PromoLink</module>
+                    <frontName>promolink</frontName>
+                </args>
+            </alliance>
+        </routers>
+    </frontend>
+</config>

@@ -1,0 +1,113 @@
+<div class="results-container">
+  <div class="breadcrumbs">
+  <h1>SKINCARE EVALUATION <span class="divider">&rsaquo;</span> Your Skincare Evaluation</h1>
+  </div>
+    <div class="evaluation-form" ng-controller="CustomerInfo">
+      <div ng-controller="PopoverDemoCtrl">
+      <p ng-hide="prompt">Hi {{customer.name_customer}}, your specific skin concerns have been reviewed and analyzed. The combination of the products below will create the most remarkable results for your skin! Please print or email yourself these results. <a class="question" popover-placement="top" popover="You will not be subscribed nor will your email address and personal information be stored.">?</a></p>
+      <p ng-hide="success">Congratulations!<br/><br />Your email is on the way. Our team of Kate Somerville Skin Health Experts are here to guide you to beautiful skin, so please visit us anytime!</p>
+      <p ng-hide="printSuccess">Congratulations!<br/><br />Your results are printing. Our team of Kate Somerville Skin Health Experts are here to guide you to beautiful skin, so please visit us anytime!</p>
+      </div>
+      <form name="emailForm" ng-class="{true: 'error'}[submitted && form.email.$invalid]" novalidate>
+        <input ng-hide="prompt" type="email" ng-model="email" name="uEmail" ng-click="submitted=false" placeholder="Email Address" required />
+        <span class="error email-error" ng-show="submitted && emailForm.uEmail.$error.required">
+          Please enter a valid email address
+        </span>
+        <span class="error email-error" ng-show="submitted && emailForm.uEmail.$error.email">
+          Please enter a valid email address
+        </span>
+       
+        <button ng-click="print('print_rept')">Print</button>
+        <button ng-hide="prompt" ng-click="submitted=true; checkEmail(email)">Email</button>
+      </form>
+    </div>
+
+    <div class="note"><img src="img/results_note.png" /></div>
+
+
+  <div ng-controller="AccordionCtrl" id="resultsAccordion">
+    <accordion close-others="oneAtATime">
+      <accordion-group heading="Top Products for skin changing results" is-open="true">
+        <div>
+          <a ng-repeat="result in results | limitTo: 4" href="{{result.url_path}}" class="accordion-link">
+          <h1>{{result.name}}</h1>
+          <img src="{{result.small_image}}" />
+          <h2>{{result.price}}</h2>
+          </a>
+        </div>
+      </accordion-group>
+
+      <accordion-group heading="FULL REGIMEN FOR OPTIMAL RESULTS">
+          <div>
+            <div class="regimen-slider">
+            <ul class="bxslider" ui-jq="bxSlider" ui-options="{moveSlider:1, slideWidth:187, slideMargin:0}">
+              <li ng-repeat="result in results | startFrom:4 | limitTo: 10">
+                <a href="{{result.url_path}}" class="accordion-link">
+                <h1>{{result.name}}</h1>
+                <img src="{{result.small_image}}" />
+                <h2>{{result.price}}</h2>
+                </a>
+              </li>
+            </ul>
+          </div>
+          </div>
+      </accordion-group>
+    </accordion>
+  </div>
+
+<div id="print_rept" style="display:none;" ng-controller="CustomerInfo">
+
+<div class="print-logo"><img src="img/print_logo.jpg" /></div>
+<cutpaper></cutpaper>
+  <p class="hi">Hi {{customer.name_customer}},</p>
+
+<p>
+Thank you for taking the Kate Somerville Skin
+Evaluation at {{customer.nordstrom_store}} on {{customer.current_date}}. 
+Based upon your responses, the products below 
+will help you achieve remarkable results!
+</p>
+
+  <div class="top-products">
+    <div class="sub-title">
+<br />
+<img src="img/print_text1.jpg" />
+<br /><br />
+</div>
+
+<div ng-repeat="result in results | limitTo: 4" >
+{{result.name}} <br />
+{{result.price}} <br /><br />
+</div>
+
+  </div>
+
+  <div class="top-products">
+    <div class="sub-title">
+<br />
+<img src="img/print_text2.jpg" />
+<br /><br />
+</div>
+<div ng-repeat="result in results | startFrom:4 | limitTo: 10" >
+{{result.name}} <br />
+{{result.price}} <br /><br />
+</div>
+<br /><br />
+  </div>
+  <p class="more-info">For more information, please visit the Kate 
+Somerville counter at Nordstrom Glendale.</p>
+</div>
+
+
+  <div class="tabs">
+  <span class="tab_box">
+  Tell us about yourself
+  </span>
+  <span class="tab_box ">
+  Specific skin concerns
+  </span>
+  <span class="tab_box active evaluation-tab">
+  Your skincare evaluation
+  </span>
+  </div>
+</div>

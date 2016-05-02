@@ -1,0 +1,10 @@
+<div class="rewards-container">
+<div class="tab-desc">
+<div class="container">
+<p class="description">Congratulations!</p>
+<h2>You earned <?php echo $this->getEarnedPoints();?> points on <br/>your purchase today.</h2>
+<a class="claim-points" href="<?php echo Mage::getUrl('rewards-program/customer/rewards').'?newcustomer=1&_ff_action=register&email='.$this->getCustomerEmail();?>">Join to claim your points ></a>
+<p class="desclaimer">Purchase points are pending for 30 days. <br/>Check activity tab for confirmation.</p>
+</div>
+</div>
+</div>

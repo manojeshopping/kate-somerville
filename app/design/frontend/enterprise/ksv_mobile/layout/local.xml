@@ -1,0 +1,252 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+
+		 <reference name="head">
+			<!-- Add custom stylesheets -->
+			<action method="addCss">
+				<stylesheet>css/styles.css</stylesheet>
+				<sort_order>20</sort_order>
+			</action>
+			<action method="addCss">
+				<stylesheet>css/global.css</stylesheet>
+				<sort_order>30</sort_order>
+			</action>
+			<action method="addCss">
+				<stylesheet>css/home.css</stylesheet>
+				<sort_order>40</sort_order>
+			</action>  
+			<action method="addCss">
+				<stylesheet>css/account-pages.css</stylesheet>
+				<sort_order>50</sort_order>
+			</action>
+			<action method="addCss">
+				<stylesheet>css/product-detail.css</stylesheet>
+				<sort_order>70</sort_order>
+			</action>
+			<action method="addCss">
+				<stylesheet>css/category-grid.css</stylesheet>
+				<sort_order>80</sort_order>
+			</action>           
+			<action method="addCss">
+				<stylesheet>css/product-reviews.css</stylesheet>
+				<sort_order>90</sort_order>
+			</action>  
+			<action method="addCss">
+				<stylesheet>css/shopping-cart.css</stylesheet>
+				<sort_order>100</sort_order>
+			</action>         
+			<action method="addCss">
+				<stylesheet>css/onestepcheckout.css</stylesheet>
+				<sort_order>110</sort_order>
+			</action>    		
+			<action method="addCss">
+				<stylesheet>css/cms-pages.css</stylesheet>
+				<sort_order>120</sort_order>
+			</action>			
+			<action method="addCss">
+				<stylesheet>css/store-locator.css</stylesheet>
+				<sort_order>130</sort_order>
+			</action>	
+			<action method="addCss">
+				<stylesheet>css/ukr.css</stylesheet>
+				<sort_order>140</sort_order>
+			</action>
+			<action method="addCss">
+                <stylesheet>css/sweepstakes_responsive.css</stylesheet>
+                <sort_order>150</sort_order>
+            </action> 	
+			<!-- Share this -->
+			<block type="core/text" name="share_this">
+				<action method="setText">
+				<text>
+					<![CDATA[
+					<script type="text/javascript" src="//w.sharethis.com/button/buttons.js"></script>
+					<script type="text/javascript">stLight.options({publisher: "55af799e-a9a1-4840-83ba-af5834162c98", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+					]]>
+				</text>
+				</action>
+			</block>
+		</reference>
+	
+        <reference name="root">
+            <reference name="top.links">
+                <!-- Add custom links. Pretty self-explanatory.
+                Dig into app/code/core/Mage/Page/Block/Template/Links.php for more info -->
+                <action method="addLink" translate="label title">
+                    <label>Shop</label>
+                    <url>/shop</url>
+                    <title>shop</title>
+                    <prepare/>
+                    <urlParams/>
+					<position>1</position>
+                </action>
+				
+                <action method="addLink" translate="label title">
+                    <label>Search</label>
+                    <url>#</url>  <!-- can use full url also -->
+                    <title>Search</title>
+                    <prepare>true</prepare> <!-- set true if adding base url param -->
+                    <urlParams helper="core/url/getHomeUrl"/> <!-- base url - thanks @Russ! --> 
+                    <position>2</position>
+                    <liParams/>
+                    <aParams>id="top-link-search"</aParams>
+                    <beforeText></beforeText>
+                    <afterText></afterText>
+                </action>
+
+                <!-- for Magento 1.4.x -->
+                <remove name="wishlist_link"/>             
+ 
+                <!-- Removes 'My Account' link - Default position: 10 -->
+                <action method="removeLinkByUrl"><url helper="customer/getAccountUrl"/></action>
+                
+                <action method="addLink" translate="label title" module="customer">
+                    <label>My Account</label>
+                    <url helper="customer/getAccountUrl"/>
+                    <title>My Account</title>
+                    <prepare/>
+                    <urlParams/>
+                    <position>3</position>
+                </action>
+
+                <!-- Removes 'My Cart' AND 'Checkout' links
+                Default position: 40 and 50 respectively -->
+                <remove name="checkout_cart_link" />
+ 
+                <!-- To re-add 'My Cart' or 'Checkout' after removing both -->
+                <block type="checkout/links" name="checkout_cart_link_custom">
+                    <action method="addCartLink">
+                        <label><!-- bag --></label>
+                        <position>5</position>                    
+                    </action>
+                    
+                </block>
+				
+            </reference>
+
+            <block type="core/text_list" name="homeslider" as="homeslider" translate="label">
+                <label>Home Slider</label>
+            </block>
+
+                       
+            <block type="core/text_list" name="shopcategories" as="shopcategories" translate="label">
+                <label>Shop Categories</label>
+            </block>
+
+        </reference>
+
+        <reference name="homeslider">
+            <block type="core/template" name="homesliderblock" template="catalog/product/homefeatured.phtml" />
+        </reference>
+
+        <reference name="shopcategories">
+            <block type="core/template" name="shopcatblock" template="catalog/category/list.phtml" />
+        </reference>
+
+    </default>
+ 
+    <customer_logged_in>
+        <!-- Removes 'Log In' link - Default position: 60 -->
+        <reference name="top.links">
+            <action method="removeLinkByUrl"><url helper="customer/getLogoutUrl"/></action>
+            <action method="addLink" translate="label title" module="customer"><label>Log Out</label><url helper="customer/getLogoutUrl"/><title>Log Out</title><prepare/><urlParams/><position>4</position></action>
+        </reference>
+    </customer_logged_in>
+ 
+    <customer_logged_out>
+        <reference name="top.links">
+            <action method="removeLinkByUrl"><url helper="customer/getLoginUrl"/></action>
+            <action method="addLink" translate="label title" module="customer"><label>Log In</label><url>#</url><title>Log In</title><prepare/><urlParams/><position>3</position><aParams>class="top-link-login"</aParams></action>
+        </reference>
+        <remove name="reorder"></remove>
+    </customer_logged_out>
+
+    <checkout_cart_index>
+        <reference name="breadcrumbs">
+            <action method="addCrumb">
+                <crumbName>Home</crumbName>
+                <crumbInfo><label>Home</label><title>Home</title><link>/home</link></crumbInfo>
+            </action>
+            <action method="addCrumb">
+                <crumbName>Shopping Cart</crumbName>
+                <crumbInfo><label>Shopping Cart</label><title>Shopping Cart</title></crumbInfo>
+            </action>
+        </reference>
+		
+		<!--
+		This code remove the cart sidebar right from content, and put into checkout.cart.
+		Requiere the Alliance_Ajaxcart Module.
+		!-->
+		<reference name="content">
+			<action method="unsetChild"><name>cart.sidebar.right</name></action>
+			
+			<block type="checkout/cart_sidebar" name="product.info.addtopopup" as="addtopopup" template="alliance_ajaxcart/cartheader.phtml" ifconfig="alliance_ajaxcart/ajaxcart_config/enabled">
+				<action method="addItemRender"><type>simple</type><block>checkout/cart_item_renderer</block><template>alliance_ajaxcart/cartitem.phtml</template></action>
+				<action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>alliance_ajaxcart/cartitem.phtml</template></action>
+				<action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>alliance_ajaxcart/cartitem.phtml</template></action>
+			</block>
+		</reference>
+		<reference name="checkout.cart">
+			<action method="insert"><block>cart.sidebar.right</block></action>
+		</reference>
+		<!-- End Alliance_Ajaxcart -->
+	</checkout_cart_index> 
+	
+	<!--
+	Block to add ajaxcart popup.
+	Requiere the Alliance_Ajaxcart Module.
+	-->
+	<catalog_product_view>
+		<reference name="product.info">
+			<block type="checkout/cart_sidebar" name="product.info.addtopopup" as="addtopopup" template="alliance_ajaxcart/cartheader.phtml" ifconfig="alliance_ajaxcart/ajaxcart_config/enabled">
+				<action method="addItemRender"><type>simple</type><block>checkout/cart_item_renderer</block><template>alliance_ajaxcart/cartitem.phtml</template></action>
+				<action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>alliance_ajaxcart/cartitem.phtml</template></action>
+				<action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>alliance_ajaxcart/cartitem.phtml</template></action>
+			</block>
+		</reference>
+	</catalog_product_view>
+	<!--
+	End Alliance_Ajaxcart
+	-->
+
+    <!--
+    add default crumbs to display in all the customer account pages
+    this will add Home / My Account crubms.
+    -->
+    <customer_account translate="label">
+        <reference name="breadcrumbs">
+            <action method="addCrumb"><crumbName>Home</crumbName><crumbInfo><label>Home</label><title>Home</title><link>/home</link></crumbInfo></action>
+              <action method="addCrumb"><crumbName>My Account</crumbName><crumbInfo><label>My Account</label><title>My Account</title><link>/customer/account/</link></crumbInfo></action>
+        </reference>
+    </customer_account>
+
+    <checkout_onepage_index translate="label">
+        <reference name="breadcrumbs">
+            <action method="addCrumb"><crumbName>Home</crumbName><crumbInfo><label>Home</label><title>Home</title><link>/home</link></crumbInfo></action>
+              <action method="addCrumb"><crumbName>Checkout</crumbName><crumbInfo><label>Checkout</label><title>Checkout</title><link>/checkout/onepage/</link></crumbInfo></action>
+        </reference>
+    </checkout_onepage_index>
+	
+	
+	<!-- ############# This section depends on the modules Ajaxcart and OneStepCheckout to work. ############# -->
+    <checkout_cart_index>
+		<reference name="head">
+			<action method="addItem"><type>skin_js</type><name>onestepcheckout/js/window.js</name></action>
+            <action method="addItem"><type>skin_js</type><name>onestepcheckout/js/onestepcheckout-cart.js</name></action>
+            <action method="addCss"><stylesheet>onestepcheckout/onestepcheckout.css</stylesheet><sort_order>0</sort_order></action>
+		</reference>
+        <reference name="content">
+            <block type="core/template" template="alliance_ajaxcart/login_popup.phtml" name="login-popup" />
+        </reference>
+    </checkout_cart_index>
+	
+    <onestepcheckout_index_index>
+		<reference name="foot">
+			<block type="core/template" template="onestepcheckout/login_popup.phtml" name="login-popup" />
+		</reference>
+    </onestepcheckout_index_index>
+	<!-- ############# This section depends on the modules Ajaxcart and OneStepCheckout to work. ############# -->
+</layout>
+
+

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+ 
+    <adminhtml_giftreports_giftreports_index>
+        <reference name="content">
+            <block type="giftreports/adminhtml_giftreports" name="giftreports" />
+        </reference>
+    </adminhtml_giftreports_giftreports_index>
+	    
+	  <adminhtml_giftreports_redemption_index>
+        <reference name="content">
+            <block type="giftreports/adminhtml_redemption" name="redemption" />
+        </reference>
+    </adminhtml_giftreports_redemption_index>
+</layout>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * StoreFront Authorize.Net CIM Tokenized Payment Extension
+ *
+ * This source file is subject to commercial source code license of StoreFront Consulting, Inc.
+ *
+ * @category	SFC
+ * @package    	SFC_AuthnetToken
+ * @author      Garth Brantley
+ * @website 	http://www.storefrontconsulting.com/
+ * @copyright 	Copyright (C) 2009-2013 StoreFront Consulting, Inc. All Rights Reserved.
+ * @license     http://www.storefrontconsulting.com/media/downloads/ExtensionLicense.pdf StoreFront Consulting Commercial License
+ *
+ */
+-->
+<config>
+	<modules>
+		<SFC_AuthnetToken>
+			<active>true</active>
+			<codePool>local</codePool>
+		</SFC_AuthnetToken>
+	</modules>
+</config>

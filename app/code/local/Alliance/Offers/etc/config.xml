@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<Alliance_Offers>
+			<version>1.0.0</version>
+		</Alliance_Offers>
+	</modules>
+	
+	<global>
+		<models>
+			<offers>
+				<class>Alliance_Offers_Model</class>
+			</offers>
+		</models>
+		<helpers>
+			<offers>
+				<class>Alliance_Offers_Helper</class>
+			</offers>
+		</helpers>
+		<blocks>
+			<offers>
+				<class>Alliance_Offers_Block</class>
+			</offers>
+		</blocks>
+	</global>
+	
+	<frontend>
+		<routers>
+			<offers>
+				<use>standard</use>
+				<args>
+					<module>Alliance_Offers</module>
+					<frontName>offers</frontName>
+				</args>
+			</offers>
+		</routers>
+		<layout>
+			<updates>
+				<offers>
+					<file>alliance_offers.xml</file>
+				</offers>
+			</updates>
+		</layout>
+		<events>
+			<controller_action_predispatch_onestepcheckout>
+				<observers>
+					<offers_redirect>
+						<type>singleton</type>
+						<class>offers/observer</class>
+						<method>checkOffersPage</method>
+					</offers_redirect>
+				</observers>
+			</controller_action_predispatch_onestepcheckout>
+			<checkout_cart_save_after>
+				<observers>
+					<offers_cart>
+						<type>singleton</type>
+						<class>offers/observer</class>
+						<method>checkCart</method>
+					</offers_cart>
+				</observers>
+			</checkout_cart_save_after>
+		</events>
+	</frontend>
+</config>

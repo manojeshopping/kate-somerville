@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head>
+    <?php echo $this->getChildHtml('head'); ?>
+</head>
+<body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?>>
+<?php echo $this->getChildHtml('after_body_start') ?>
+    <div id="katesomerville" class="wrapper" data-role="page">
+        <header data-role="header">
+            <?php echo $this->getChildHtml('header'); ?>
+        </header>
+        <section role="main" data-role="content" id="main"class="<?php echo $this->getMyClass() ?>">
+            <?php echo $this->getChildHtml('breadcrumbs') ?>
+            <?php echo $this->getChildHtml('content') ?>
+        </section>
+        <footer data-role="footer">
+            <?php echo $this->getChildHtml('footer'); ?>
+        </footer>
+    </div>
+
+</body>
+</html>

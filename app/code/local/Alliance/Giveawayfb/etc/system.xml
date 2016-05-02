@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <katesomerville translate="label">
+            <label>Kate Somerville</label>
+            <sort_order>0</sort_order>
+        </katesomerville>
+    </tabs>
+    <sections>
+        <giveawayfb_recaptcha translate="label">
+            <label>reCAPTCHA Configuration</label>
+            <tab>katesomerville</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>10</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <recaptcha_keys translate="label">
+                    <label>ReCaptcha Keys</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <public_key translate="label">
+                            <label>Public Key</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </public_key>
+                        <private_key translate="label">
+                            <label>Private Key</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </private_key>
+                    </fields>
+                </recaptcha_keys>
+            </groups>
+        </giveawayfb_recaptcha>
+    </sections>
+</config>

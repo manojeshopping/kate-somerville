@@ -1,0 +1,234 @@
+<script>
+
+    jQuery(document).ready(function () {
+
+        jQuery('html,body').animate({
+                scrollTop: jQuery("body").offset().top},
+            'slow');
+
+        jQuery("#enrollnow").click(function () {
+            jQuery('html,body').animate({
+                    scrollTop: jQuery("#form-validate").offset().top},
+                'slow');
+        });
+
+    });
+
+    jQuery(document).ready(function () {
+        jQuery("#signin").click(function () {
+            jQuery('.overlay-content').css('display', 'block');
+            jQuery('.overlay-bg').css('display', 'block');
+        });
+        jQuery("#close").click(function () {
+            jQuery('.overlay-content').css('display', 'none');
+            jQuery('.overlay-bg').css('display', 'none');
+        });
+    });
+</script>
+
+<div class="katerewards-enroll-notlogged">
+<div class="wrap">
+<table class="table_wrap">
+    <tr>
+        <td style="bordr-bottom:none !important;">
+            <table class="program_overview">
+                <tr>
+                    <td style="padding: 10px 0 10px 10px;" class="bg-img">
+                        <h2 class="main_header"><a href="#"><img
+                                    src='<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN)."frontend/enterprise/ksv_desktop/images/ukr/ukrlogo.png"; ?>'/></a></h2>
+
+                        <div class="program_text">Kate's promise to you is simple:<br>
+                            <span class="renew-skin">Renew Skin, </span><span class="restore-health">Restore Health, </span><span
+                                class="deliver-result">Deliver Results.</span><br><br>
+                            In addition to achieving a healthy, glowing complexion, Kate believes you should be rewarded too. Redeem your Ultimate Kate
+                            Rewards points for products and exclusive VIP-only benefits!
+                        </div>
+                        <div class="button-area">
+
+                            <a id="enrollnow" class="enroll-now">Enroll Now</a>
+                            <a id="signin" class="sign-in">Sign In</a>
+
+
+                        </div>
+                        <div class="faq-area">
+                            <a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB) . "rewards-program-faq"; ?>" target="_parent"
+                               class="faq">FAQ</a>  / 
+                            <a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB) . "rewards-program-terms-and-conditions"; ?>"
+                               target="_parent" class="terms-condition">Program Terms & Conditions</a>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="border-top:1px solid #ddd; border-bottom:1px solid #ddd;">
+                    <td style="padding:0 !important;">
+                        <div class="first-content-area">
+                            <div class="content-sign-in">
+                                <div class="title">
+                                    <h3>Sign Up</h3>
+                                </div>
+                                <div class="cont-text">
+                                    <h4>Create a Free Account</h4>
+                                    <div class="desc">
+                                        Create a free Ultimate Kate Rewards account using your email address. Connect your Facebook and/or Twitter
+                                        accounts to start earning points right away!
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content-earn-point">
+                                <div class="title">
+                                    <h3>Earn Points</h3>
+                                </div>
+                                <div class="cont-text">
+                                    <h4>Purchase. Engage. Share.</h4>
+                                    <div class="desc">
+                                        Earning points is easy! Once you enroll, check out everything the Ultimate Kate Rewards program has to offer and
+                                        see how quickly you can start earning points and rewards!
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content-get-reward">
+                                <div class="title">
+                                    <h3>Get Rewards</h3>
+                                </div>
+                                <div class="cont-text">
+                                    <h4>Result & Rewards!</h4>
+                                    <div class="desc">
+                                        Earn points for your shopping and social activity. Redeem points for gift cards, products and more. Points
+                                        accrued from shopping at KateSomerville.com will unlock exclusive tiers and VIP status - giving you advance
+                                        notification of special events and other exclusive happenings and rewards.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="points">
+                        <div class="title">
+                            <h3>How to Earn</h3>
+                        </div>
+                        <ul class="listing">
+                            <li class="first">
+                                <div class="box">
+                                    <div class="description">Sign Up For Email</div>
+                                    <div class="point_image_wrap"><img
+                                            src='<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN)."frontend/enterprise/ksv_desktop/images/ukr/ukr200.png"; ?>'/></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="box">
+                                    <div class="description">Refer A Friend</div>
+                                    <div class="point_image_wrap"><img
+                                            src='<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN)."frontend/enterprise/ksv_desktop/images/ukr/ukr250.png"; ?>'/></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="box">
+                                    <div class="description">Purchase</div>
+                                    <div class="point_image_wrap_less"><img
+                                            src='<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN)."frontend/enterprise/ksv_desktop/images/ukr/ukr2X.png"; ?>'/></div>
+                                </div>
+                            </li>
+                            <li class="first">
+                                <div class="box">
+                                    <div class="description">Write A Review</div>
+                                    <div class="point_image_wrap_less"><img
+                                            src='<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN)."frontend/enterprise/ksv_desktop/images/ukr/ukr250star.png"; ?>'/></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="box">
+                                    <div class="description">Tweet A Product</div>
+                                    <div class="point_image_wrap"><img
+                                            src='<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN)."frontend/enterprise/ksv_desktop/images/ukr/ukr25.png"; ?>'/></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="box">
+                                    <div class="description">Link Accounts</div>
+                                    <div class="point_image_wrap_less"><img
+                                            src='<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN)."frontend/enterprise/ksv_desktop/images/ukr/ukr100.png"; ?>'/></div>
+                                </div>
+                            </li>
+                            <li class="first">
+                                <div class="box">
+                                    <div class="description">Share</div>
+                                    <div class="point_image_wrap_less"><img
+                                            src='<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN)."frontend/enterprise/ksv_desktop/images/ukr/ukr25two.png"; ?>'/></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td style=" border-bottom:none !important;">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr style="border-top:1px solid #ddd;">
+                                <td style="border-right:1px solid #ddd !important;border-bottom: none !important;">
+                                    <div class="content-rewards">
+                                        <div class="title">
+                                            <h3>Rewards <span>For Shopping & Social</span></h3>
+                                        </div>
+                                        <ul class="rewards-listing">
+                                            <li class="first">
+                                                <div class="rewards-box">
+                                                    <div class="reward_image_wrap"><img
+                                                            src='<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN)."frontend/enterprise/ksv_desktop/images/ukr/ukr400.jpg"; ?>'/>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="rewards-box">
+                                                    <div class="reward_image_wrap"><img
+                                                            src='<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN)."frontend/enterprise/ksv_desktop/images/ukr/ukr500.jpg"; ?>'/>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="first">
+                                                <div class="rewards-box">
+                                                    <div class="reward_image_wrap"><img
+                                                            src='<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN)."frontend/enterprise/ksv_desktop/images/ukr/ukr800.jpg"; ?>'/>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </td>
+                                <td style="border-bottom:none !important;">
+                                    <div class="content-tire-rewards">
+                                        <div class="title">
+                                            <h3>Ultimate Kate Premier Tier <span>For Shopping</span></h3>
+                                        </div>
+                                        <p style="font-size:18px; font-weight:bold; margin-top:20px;">The More You Shop, The More Benefits You Receive <br/>
+                                            <span>Reach 1,500 points from purchases ($750 spend) and you'll receive these Ultimate Kate Premier benefits:</span>
+                                        </p>
+                                        <img src='<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN)."frontend/enterprise/ksv_desktop/images/ukr/ukrkss.jpg"; ?>' /> 
+
+                                        <p style="font-size:18px; margin-top:10px;">FREE Expedited Shipping*</p>
+
+                                        <p style="font-size:18px; margin-top:10px;">50% BONUS on purchase points for ONE YEAR<br/><span>(3 points per dollar instead of 2)</span></p>
+                                        
+										<p style="font-size:18px; margin-top:10px;">$50 eGift Card valid toward a future purchase</p>
+										
+                                        <small>* Unfortunately, expedited shipping is not available for select products or kits or for shipments outside
+                                            the US.
+                                        </small>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<?php echo $this->getChildHtml('katerewards_enrollment_notloggedin_register') ?>
+</div>
+</div>
+
+<div class="overlay-bg">
+    <div class="overlay-content">
+        <?php echo $this->getChildHtml('katerewards_enrollment_notloggedin_login') ?>
+    </div>
+</div>

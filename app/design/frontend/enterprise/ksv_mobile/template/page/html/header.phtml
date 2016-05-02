@@ -1,0 +1,15 @@
+<hgroup>
+	<h1 class="logo">
+		<a class="logo_bg" href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img class="logo_img" src="<?php echo $this->getSkinUrl('images/logo_sign.png'); ?>" /></a>	
+	</h1>
+</hgroup>
+<nav class="menu-wrapper">
+    <?php echo $this->getChildHtml('topLinks') ?>
+</nav>
+<div id="searchHolder">
+    <?php echo $this->getChildHtml('topSearch') ?>
+</div>
+<div id="loginHolder">
+    <?php echo $this->getChildHtml('mini_login') ?>
+</div>
+

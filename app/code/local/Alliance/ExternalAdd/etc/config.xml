@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Alliance_ExternalAdd>
+            <version>1.0.0</version>
+        </Alliance_ExternalAdd>
+    </modules>
+
+    <global>
+        <helpers>
+            <alliance_externaladd>
+                <class>Alliance_ExternalAdd_Helper</class>
+            </alliance_externaladd>
+        </helpers>
+    </global>
+
+    <frontend>
+        <routers>
+            <alliance_externaladd>
+                <use>standard</use>
+                <args>
+                    <module>Alliance_ExternalAdd</module>
+                    <frontName>externaladd</frontName>
+                </args>
+            </alliance_externaladd>
+        </routers>
+    </frontend>
+</config>

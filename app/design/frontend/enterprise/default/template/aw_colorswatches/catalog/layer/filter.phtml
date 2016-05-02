@@ -1,0 +1,68 @@
+<?php
+/**
+ * aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This software is designed to work with Magento enterprise edition and
+ * its use on an edition other than specified is prohibited. aheadWorks does not
+ * provide extension support in case of incorrect edition use.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Colorswatches
+ * @version    1.0.3
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ */
+?><?php
+/**
+ * Template for filter items block
+ *
+ * @see Mage_Catalog_Block_Layer_Filter
+ */
+?>
+
+<ol>
+<?php foreach ($this->getItems() as $_item): ?>
+    <li>
+        <?php
+        $swatch = Mage::getModel('awcolorswatches/swatch')->getSwatchByOption($_item->getValue());
+        ?>
+        <?php if ($_item->getCount() > 0): ?>
+            <?php if(!$swatch->getId() || !$swatch->getData('image')):?>
+            <a href="<?php echo $this->urlEscape($_item->getUrl()) ?>">
+                <?php echo $_item->getLabel() ?>
+            </a>
+            <?php else:?>
+            <a style="text-decoration: none" href="<?php echo $this->urlEscape($_item->getUrl()) ?>">
+                <img src="<?php echo $swatch->getLayeredImage()?>" height="16" width="16" alt="<?php echo $_item->getLabel() ?>" title="<?php echo $_item->getLabel() ?>"/>
+            </a>
+            <?php endif;?>
+        <?php else:
+        if(!$swatch->getId() || !$swatch->getData('image')){
+            echo $_item->getLabel();
+        } else {
+            echo '<img src="' . $swatch->getLayeredImage() . '" height="16" width="16" alt="' . $_item->getLabel() . '" title="' . $_item->getLabel() . '" />';
+        }
+        ?>
+
+        <?php endif; ?>
+
+        <?php
+        if(!method_exists($this,'shouldDisplayProductCount')):?>
+            (<?php echo $_item->getCount() ?>)
+            <?php elseif ($this->shouldDisplayProductCount()):?>
+        (<?php echo $_item->getCount() ?>)
+        <?php endif; ?>
+    </li>
+<?php endforeach ?>
+</ol>

@@ -1,0 +1,12 @@
+<div class="page-title">
+    <h1>My Auto-Delivery</h1>
+</div>
+<div id="og-msi"></div>
+<?php 
+$storeCode = Mage::app()->getStore()->getCode();
+if( $storeCode  != 'uk_store'  && $storeCode  != 'ca_store'  ): ?>
+<?php //Ordergroove  main.js ?>
+<script type="text/javascript" src="<?php echo Mage::helper('ordergroove/config')->getPageTaggingUrl(); ?><?php echo Mage::helper('ordergroove/config')->getMerchantId(); ?>/msi.js"></script>
+<?php else: ?>
+At this time, the Auto-Delivery service is only available for shipping within the United States.
+<?php endif; ?>

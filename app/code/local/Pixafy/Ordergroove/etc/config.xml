@@ -1,0 +1,413 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Pixafy_Ordergroove>
+			<version>0.0.0.5</version>
+		</Pixafy_Ordergroove>
+	</modules>
+	<frontend>
+		<routers>
+			<pixafy_ordergroove>
+				<use>standard</use>
+				<args>
+					<module>Pixafy_Ordergroove</module>
+					<frontName>ordergroove</frontName>
+				</args>
+			</pixafy_ordergroove>
+		</routers>
+		<layout>
+			<updates>
+				<ordergroove>
+					<file>pixordergroove.xml</file>
+				</ordergroove>
+			</updates>
+		</layout>
+		<translate>
+			<modules>
+				<translations>
+					<files>
+						<default>Pixafy_Ordergroove.csv</default>
+					</files>
+				</translations>
+			</modules>
+		</translate>
+	</frontend>
+	<admin>
+		<routers>
+			<adminhtml>
+				<args>
+					<modules>
+						<ordergroove before="Mage_Adminhtml">Pixafy_Ordergroove_Adminhtml</ordergroove>
+					</modules>
+				</args>
+			</adminhtml>
+		</routers>
+	</admin>
+	<global>
+		<helpers>
+			<ordergroove>
+				<class>Pixafy_Ordergroove_Helper</class>
+			</ordergroove>
+			
+			<!-- BEGIN MULTI ADDRESS CHECKOUT REWRITE.
+					This rewrite will disable multi ship checkout
+					when the og_autoship cookie is present.
+					Comment or uncomment the line below to
+					disable or enable the functionality, respectively.
+			-->
+			<checkout>
+				<rewrite>
+					<data>Pixafy_Ordergroove_Helper_Rewrite_Checkout_Data</data>
+				</rewrite>
+			</checkout>
+			<!-- END MULTI ADDRESS CHECKOUT REWRITE. -->
+		</helpers>
+		<blocks>
+			<ordergroove>
+				<class>Pixafy_Ordergroove_Block</class>
+			</ordergroove>
+			<!--
+				These block rewrites are required to display custom Initial Order Incentive discounts
+				in the Magento admin. These allow the custom total to be displayed on the order, invoice,
+				and credit memo pages. If other modules require rewriting these blocks as well, the code
+				in the _initTotals function for each in the Ordergroove module can be moved to the other
+				module that rewrites these blocks.
+			-->
+			<adminhtml>
+				<rewrite>
+					<sales_order_totals>Pixafy_Ordergroove_Block_Adminhtml_Sales_Order_Totals</sales_order_totals>
+					<sales_order_invoice_totals>Pixafy_Ordergroove_Block_Adminhtml_Sales_Order_Invoice_Totals</sales_order_invoice_totals>
+					<sales_order_creditmemo_totals>Pixafy_Ordergroove_Block_Adminhtml_Sales_Order_Creditmemo_Totals</sales_order_creditmemo_totals>
+				</rewrite>
+			</adminhtml>
+		</blocks>
+		<models>
+			<ordergroove>
+				<class>Pixafy_Ordergroove_Model</class>
+				<resourceModel>ordergroove_mysql4</resourceModel>
+			</ordergroove>
+			<ordergroove_mysql4>
+				<class>Pixafy_Ordergroove_Model_Mysql4</class>
+				<entities>
+					<log>
+						<table>ordergroove_logs</table>
+					</log>
+				</entities>
+			</ordergroove_mysql4>
+			<paygate>
+				<rewrite>
+					<authorizenet>Pixafy_Ordergroove_Model_Rewrite_Paygate_Authorizenet</authorizenet>
+				</rewrite>
+			</paygate>
+			<sales>
+				<rewrite>
+					<quote_address_rate>Pixafy_Ordergroove_Model_Rewrite_Sales_Quote_Address_Rate</quote_address_rate>
+				</rewrite>
+			</sales>
+			<payment>
+				<rewrite>
+					<!-- BEGIN CHECK MONEY ORDER REWRITE.
+							This rewrite will disable check money order
+							when the og_autoship cookie is present.
+							Comment or uncomment the line below to
+							disable or enable the functionality, respectively.
+					-->
+					<method_checkmo>Pixafy_Ordergroove_Model_Rewrite_Payment_Method_Checkmo</method_checkmo>
+					<!-- END CHECK MONEY ORDER REWRITE. -->
+					
+					<!-- BEGIN SAVED CC REWRITE.
+							This rewrite will disable saved credit card
+							when the og_autoship cookie is present.
+							Comment or uncomment the line below to
+							disable or enable the functionality, respectively.
+					-->
+					<method_ccsave>Pixafy_Ordergroove_Model_Rewrite_Payment_Method_Ccsave</method_ccsave>
+					<!-- END SAVED CC REWRITE. -->
+					
+					<!-- BEGIN CASH ON DELIVERY REWRITE.
+							This rewrite will disable cash on delivery
+							when the og_autoship cookie is present.
+							Comment or uncomment the line below to
+							disable or enable the functionality, respectively.
+					-->
+					<method_cashondelivery>Pixafy_Ordergroove_Model_Rewrite_Payment_Method_Cashondelivery</method_cashondelivery>
+					<!-- END CASH ON DELIVERY REWRITE. -->
+					
+					<!-- BEGIN BANK TRANSFER REWRITE.
+							This rewrite will disable bank transfer
+							when the og_autoship cookie is present.
+							Comment or uncomment the line below to
+							disable or enable the functionality, respectively.
+					-->
+					<method_banktransfer>Pixafy_Ordergroove_Model_Rewrite_Payment_Method_Banktransfer</method_banktransfer>
+					<!-- END BANK TRANSFER REWRITE. -->
+					
+					<!-- BEGIN ZERO SUBTOTAL REWRITE.
+							This rewrite will disable zero subtotal
+							when the og_autoship cookie is present.
+							Comment or uncomment the line below to
+							disable or enable the functionality, respectively.
+					-->
+					<method_free>Pixafy_Ordergroove_Model_Rewrite_Payment_Method_Free</method_free>
+					<!-- END ZERO SUBTOTAL REWRITE. -->
+					
+					<!-- BEGIN PURCHASE ORDER REWRITE.
+							This rewrite will disable purchase order
+							when the og_autoship cookie is present.
+							Comment or uncomment the line below to
+							disable or enable the functionality, respectively.
+					-->
+					<method_purchaseorder>Pixafy_Ordergroove_Model_Rewrite_Payment_Method_Purchaseorder</method_purchaseorder>
+					<!-- END ZERO SUBTOTAL REWRITE. -->
+				</rewrite>
+			</payment>
+			
+			<paypal>
+				<rewrite>
+					<!-- BEGIN PAYPAL EXPRESS REWRITE.
+							This rewrite will disable PayPal Express
+							when the og_autoship cookie is present.
+							Comment or uncomment the line below to
+							disable or enable the functionality, respectively.
+					-->
+					<express>Pixafy_Ordergroove_Model_Rewrite_Paypal_Express</express>
+					<!-- END PAYPAL EXPRESS REWRITE. -->
+					
+					<!-- BEGIN PAYPAL STANDARD REWRITE.
+							This rewrite will disable PayPal Standard
+							when the og_autoship cookie is present.
+							Comment or uncomment the line below to
+							disable or enable the functionality, respectively.
+					-->
+					<standard>Pixafy_Ordergroove_Model_Rewrite_Paypal_Standard</standard>
+					<!-- END PAYPAL STANDARD REWRITE. -->
+					
+					<!-- BEGIN PAYPAL PAYFLOW PRO REWRITE
+							This rewrite will disable PayPal Payflow Pro
+							when the og_autoship cookie is present.
+							Comment or uncomment the line below to
+							disable or enable the functionality, respectively.
+					-->
+					<payflowpro>Pixafy_Ordergroove_Model_Rewrite_Paypal_Payflowpro</payflowpro>
+					<!-- END PAYPAL PAYFLOW PRO REWRITE. -->
+					
+					<!-- BEGIN PAYPAL PAYFLOW LINK REWRITE
+							This rewrite will disable PayPal Payflow Link
+							when the og_autoship cookie is present.
+							Comment or uncomment the line below to
+							disable or enable the functionality, respectively.
+					-->
+					<payflowlink>Pixafy_Ordergroove_Model_Rewrite_Paypal_Payflowlink</payflowlink>
+					<!-- END PAYPAL PAYFLOW LINKRO REWRITE. -->
+				</rewrite>
+			</paypal>
+			<!-- BEGIN INTERNATIONAL ADDRESS REWRITE.
+					This rewrite will disable either
+					internation billing OR shipping 
+					addresses if og_autoship cookie is set.
+					This rewrite must be in place if either
+					the customer wants to disable one, or
+					both of the address types. They can be
+					set separately from the system configuration
+					panel.
+			-->
+			<checkout>
+				<rewrite>
+					<type_onepage>Pixafy_Ordergroove_Model_Rewrite_Checkout_Type_Onepage</type_onepage>
+				</rewrite>
+			</checkout>
+			<!-- END INTERNATIONAL ADDRESS REWRITE. -->
+			
+			<directory_resource>
+				<rewrite>
+					<country_collection>Pixafy_Ordergroove_Model_Rewrite_Directory_Resource_Country_Collection</country_collection>
+				</rewrite>
+			</directory_resource>
+		</models>
+		<resources>
+			<ordergroove_setup>
+				<setup>
+					<module>Pixafy_Ordergroove</module>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</ordergroove_setup>
+			<ordergroove_write>
+				<connection>
+				  <use>core_write</use>
+				</connection>
+			</ordergroove_write>
+			<ordergroove_read>
+			   <connection>
+				<use>core_read</use>
+			  </connection>
+			</ordergroove_read>
+		 </resources>
+		<events>
+			<sales_order_place_after>
+				<observers>
+					<pixafy_ordergroove_subscriptionpost>
+						<type>singleton</type>
+						<class>ordergroove/observer</class>
+						<method>subscriptionPost</method>
+					</pixafy_ordergroove_subscriptionpost>
+				</observers>
+			</sales_order_place_after>
+			<checkout_onepage_controller_success_action>
+				<observers>
+					<pixafy_ordergroove_register_order_id>
+						<type>singleton</type>
+						<class>ordergroove/observer</class>
+						<method>registerOrder</method>
+					</pixafy_ordergroove_register_order_id>
+				</observers>
+			</checkout_onepage_controller_success_action>
+			<controller_action_predispatch_checkout_cart_index>
+				<observers>
+					<pixafy_ordergroove_apply_ioi_discount>
+						<type>singleton</type>
+						<class>ordergroove/observer</class>
+						<method>applyIoiDiscount</method>
+					</pixafy_ordergroove_apply_ioi_discount>
+				</observers>
+			</controller_action_predispatch_checkout_cart_index>
+			<checkout_allow_guest>
+				<observers>
+					<pixafy_ordergroove_disable_guest_checkout>
+						<class>ordergroove/observer</class>
+						<method>disableGuestCheckout</method>
+					</pixafy_ordergroove_disable_guest_checkout>
+				</observers>
+			</checkout_allow_guest>
+			<customer_save_after>
+				<observers>
+					<pixafy_ordergroove_update_customer_email>
+						<class>ordergroove/observer</class>
+						<method>updateCustomerEmail</method>
+					</pixafy_ordergroove_update_customer_email>
+				</observers>
+			</customer_save_after>
+		</events>
+		<sales>
+			<quote>
+				<totals>
+					<og_ioi_order_discount>
+						<class>ordergroove/sales_quote_address_total_ogioidiscount</class>
+						<after>subtotal</after>
+						<before>grand_total</before>
+					</og_ioi_order_discount>
+				</totals>
+			</quote>
+			<order_invoice>
+				<totals>
+					<og_ioi_order_discount>
+						<class>ordergroove/sales_order_invoice_total_ogioidiscount</class>
+						<after>subtotal</after>
+						<before>grand_total</before>
+					</og_ioi_order_discount>
+				</totals>
+			</order_invoice>
+			<order_creditmemo>
+				<totals>
+					<og_ioi_order_discount>
+						<class>ordergroove/sales_order_creditmemo_total_ogioidiscount</class>
+						<after>subtotal</after>
+						<before>grand_total</before>
+					</og_ioi_order_discount>
+				</totals>
+			</order_creditmemo>
+		</sales>
+		<fieldsets>
+			<sales_convert_quote_item>
+				<og_ioi_item_discount>
+					<to_order_item>*</to_order_item>
+				</og_ioi_item_discount>
+				<base_og_ioi_item_discount>
+					<to_order_item>*</to_order_item>
+				</base_og_ioi_item_discount>
+			</sales_convert_quote_item>
+			<sales_convert_quote>
+				<og_ioi_order_discount>
+					<to_order>*</to_order>
+				</og_ioi_order_discount>
+				<base_og_ioi_order_discount>
+					<to_order>*</to_order>
+				</base_og_ioi_order_discount>
+			</sales_convert_quote>
+		</fieldsets>
+		<rewrite>
+			<pixafy_ordergroove_recurring_subscriptions_view>
+				<from><![CDATA[#^/recurring/subscriptions/view#]]></from>
+				<to>/ordergroove/customer_account/subscriptions</to>
+			</pixafy_ordergroove_recurring_subscriptions_view>
+		</rewrite>
+	</global>
+	<default>
+		<ordergroove>
+			<product_feed>
+				<image_type>small_image</image_type>
+			</product_feed>
+		</ordergroove>
+		<!-- Configuration data to declare custom credit card payment method -->
+		<payment>
+			<og_zerototalcc>
+				<active>1</active>
+				<model>ordergroove/payment_method_zerototalcc</model>
+				<order_status>processing</order_status>
+				<title>Credit Card</title>
+				<group>offline</group>
+			</og_zerototalcc>
+		 </payment>
+	</default>
+	<adminhtml>
+		<layout>
+			<updates>
+				<imageslider>
+					<file>ordergroove.xml</file>
+				</imageslider>
+			</updates>
+		</layout>
+		<menu>
+			<system>
+				<children>
+					<tools>
+						<children>
+							<ordergroovelog translate="title" module="ordergroove">
+								<title>OrderGroove Log</title>
+								<action>adminhtml/ordergroove_log/index</action>
+							</ordergroovelog>
+						</children>
+					</tools>
+				</children>
+			</system>
+		</menu>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>
+										<ordergroove>
+											<title>OrderGroove Configuration</title>
+										</ordergroove>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+	</adminhtml>
+	<crontab>
+		<jobs>
+			<ordergroove_run_product_feed>
+				<schedule><cron_expr>0 4 * * *</cron_expr></schedule>
+				<run><model>ordergroove/observer::runProductFeed</model></run>
+			</ordergroove_run_product_feed>
+		</jobs>
+	</crontab>
+</config>

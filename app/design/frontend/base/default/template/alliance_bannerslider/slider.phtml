@@ -1,0 +1,16 @@
+<div class="cycle-slideshow"
+     data-cycle-fx="fade"
+     data-cycle-timeout="<?php echo $this->delay; ?>"
+     data-cycle-slides="> a"
+     data-cycle-pause-on-hover="false"
+     style="overflow: hidden;">
+<?php foreach ($this->banner_collection as $banner) { ?>
+    <a href="<?php echo $banner->getLink(); ?>" <?php if ($banner->getNewTab() == 'Yes') { ?>target="_blank"<?php } ?>>
+    <img src="<?php echo Mage::getBaseUrl('media') . $banner->getImage(); ?>"
+         style="width: <?php echo $this->width; ?>px;
+         height: <?php echo $this->height; ?>px;"
+         title="<?php echo $banner->getTitle(); ?>"
+         alt="<?php echo $banner->getTitle(); ?>">
+    </a>
+<?php } ?>
+</div>

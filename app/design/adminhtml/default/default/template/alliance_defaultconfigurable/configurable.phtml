@@ -1,0 +1,17 @@
+<?php if (Mage::helper('alliance_defaultconfigurable')->isEnabled()) { ?>
+<script type="text/javascript">
+//<![CDATA[
+    if (typeof superProduct != 'undefined'){
+        var createEmptyUrl = superProduct.createEmptyUrl;
+        var createNormalUrl = superProduct.createNormalUrl;
+        var createQuickUrl = superProduct.createQuickUrl;
+        var links = superProduct.links;
+
+        superProduct = new Alliance.Switcher(superProduct.attributes, links, superProduct.idPrefix, superProduct.grid, superProduct.readonly, '<?php echo Alliance_DefaultConfigurable_Helper_Data::DEFAULT_CONFIGURATION_ATTRIBUTE_CODE; ?>');
+        superProduct.createEmptyUrl = createEmptyUrl;
+        superProduct.createNormalUrl = createNormalUrl;
+        superProduct.createQuickUrl = createQuickUrl;
+    }
+//]]>
+</script>
+<?php } ?>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <adminhtml_globalbanner_index>
+        <reference name="content">
+            <block type="alliance_globalbanner/adminhtml_banner" name="alliance_globalbanner_banner" />
+        </reference>
+    </adminhtml_globalbanner_index>
+</layout>

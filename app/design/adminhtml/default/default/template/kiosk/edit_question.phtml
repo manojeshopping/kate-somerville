@@ -1,0 +1,169 @@
+<div class="content-header">
+    <table cellspacing="0" class="grid-header">
+        <tr>
+            <td><h3>Edit Question</h3></td>
+            <td class="a-right">
+                <p class="form-buttons">
+                <button title="Back" type="button" onclick="kioskForm.go('<?php echo $this->getUrl('*/*/index'); ?>')" class="scalable back"><span><span><span>Back</span></span></span></button>
+                <button onclick="editForm.submit()" class="scalable save" type="button"><span>Save</span></button>
+                <button title="Delete" type="button" class="scalable delete" onclick="kioskForm.prompt()" style=""><span><span><span>Delete</span></span></span></button>
+                </p>
+            </td>
+   
+        </tr>
+    </table>
+</div>
+<div class="entry-edit">
+    <form id="question_edit" name="edit_form" method="post" action="<?php echo $this->getUrl('*/*/save'); ?>">
+        <input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
+        <h4 class="icon-head head-edit-form fieldset-legend">Question</h4>
+        <fieldset id="question_group">
+            <table cellspacing="0" class="form-list">
+            <input class="input-text" type="hidden" name="question[id]" value="<?php echo Mage::registry('kiosk_question')->getId(); ?>" />
+                <tr>
+                    <td class="label">Sort Order<span class="required">*</span></td>
+                    <td class="input-ele"><input class="input-text required-entry" type="number" min="0" name="question[sort_order]" value="<?php echo Mage::registry('kiosk_question')->getSortOrder(); ?>" /></td>
+                    
+                </tr>
+                <tr>
+                    <td class="label">Question Text<span class="required">*</span></td>
+                    <td class="input-ele"><input class="input-text required-entry" maxlength="255" name="question[text]" value="<?php echo Mage::registry('kiosk_question')->getText(); ?>" /></td>
+                    
+                </tr>
+                <tr>
+                  <td class="label">Allow only one answer</td>
+                  <td class="input-ele"><input type="checkbox" name="question[single_answer]" <?php if (Mage::registry('kiosk_question')->getSingleAnswer() != 0) echo 'checked'; ?> value="1" />
+                </tr>
+                <tr>
+                    <td class="label">Hint Title</td>
+                    <td class="input-ele"><input class="input-text" name="question[hint_title]" maxlength="50" value="<?php echo Mage::registry('kiosk_question')->getHintTitle(); ?>" /></td>
+                    
+                </tr>
+                <tr>
+                    <td class="label">Hint Text</td>
+                    <td class="input-ele"><textarea class="textarea" rows="4" cols="50" maxlength="255" name="question[hint_text]"><?php echo Mage::registry('kiosk_question')->getHintText(); ?></textarea></td>
+                    
+                </tr>
+
+            </table>
+        </fieldset>
+        <h4 class="icon-head head-edit-form fieldset-legend">Answers</h4>
+        <fieldset id="answers_group">
+        <?php $answers = Mage::registry('kiosk_answer'); ?>
+        <?php $attr = Mage::registry('kiosk_attributes'); ?>
+        <?php $options = Mage::registry('kiosk_options'); ?>
+        <div class="grid">
+        <table cellspacing="0" class="form-list answer-form" style="width:800px;">
+        <thead>
+				  <tr class="headings">
+				  <th>Answer Text</th>
+				  <th style="width:120px;">Properties</th>
+				  <th style="width: 111px;">Action</th>
+				  </tr>
+			  </thead>
+			  <tbody id="answers_wrapper">
+        <?php if (!$answers): // IF WE HAVE NO PRESAVED ANSWERS ?>
+        
+                 <tr class="option-row answer-form">
+                    
+                    <td><input class="input-text required-entry" name="answer[0][text]" value="" /></td>
+                    <td>
+                    <select multiple class="required-entry attr-field" style="height: 300px;" name="answer[0][attributes][]">
+                    <?php foreach ($options as $key => $option) { ?>
+                    <option style="background-color: black;color: white;" value="0"><?php echo $key; ?></option>
+                      <?php foreach($option as $sub) { ?>
+                      <option value="<?php echo $sub['value']; ?>"><?php echo $sub['label']; ?></option>
+                      <?php } ?>
+                    <?php } ?>
+                    </select>
+                    </td>
+                    <td><button onclick="kioskForm.removeRow();" class="scalable delete delete-option" type="button"><span>Remove Row</span></button></td>
+                </tr>
+        
+        <?php else: // IF WE HAVE PRESAVED ANSWERS ?>
+        <?php foreach ($answers as $index => $answer) : ?>        
+                <tr class="option-row answer-form">
+                    <input type="hidden"  name="answer[<?php echo $index; ?>][id]" value="<?php echo $answer['id']; ?>" />
+                    <td><input class="input-text required-entry" name="answer[<?php echo $index; ?>][text]" value="<?php echo $answer['answer_text']; ?>" /></td>
+                    <td>
+                    <select multiple class="required-entry attr-field" style="height: 300px;" name="answer[<?php echo $index; ?>][attributes][]">
+                    <?php foreach ($options as $key => $option) { ?>
+                    <option value="0" style="background-color: black;color: white;"><?php echo $key; ?></option>
+                      <?php foreach($option as $sub) { ?>
+                      <option <?php if ($attr[$answer['id']][$sub['value']]) echo "selected"; ?> value="<?php echo $sub['value']; ?>"><?php echo $sub['label']; ?></option>
+                      <?php } ?>
+                    <?php } ?>
+                    </select>
+                    </td>
+                    <td><button onclick="kioskForm.removeRow(this);" class="scalable delete delete-option" type="button"><span>Remove Row</span></button></td>
+                    
+                </tr>
+        <?php endforeach; ?>
+        <?php endif; ?>
+        </tbody>
+        </table>
+        </div>
+        
+        </fieldset>   
+        <button onclick="kioskForm.addRow(this);" class="scalable add" type="button"><span>Add Row</span></button>     
+    </form>
+</div>
+<form id="question_delete" name="delete_form" method="post" action="<?php echo $this->getUrl('*/*/delete'); ?>">
+ <input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
+<input name="id" type="hidden" value="<?php echo Mage::registry('kiosk_question')->getId(); ?>" />
+</form>
+<script type="text/javascript">
+    var editForm = new varienForm('question_edit');
+    var deleteForm = new varienForm('question_delete');
+    var kioskForm = new Object();
+    kioskForm.wrapper = document.getElementById("answers_wrapper");
+    kioskForm.refreshIndex = function() {
+    var objects = document.querySelectorAll(".answer-form");
+      for (var i = 0; i < objects.length - 1; i++) {
+        var form = objects[i];
+        var textField = form.querySelectorAll(".input-text")[0];
+        var optionsField = form.querySelectorAll(".attr-field")[0];
+        textField.setAttribute("name","answer["+i+"][text]");
+        optionsField.setAttribute("name","answer["+i+"][attributes][]");
+      }
+      
+    
+    }
+    kioskForm.addRow = function() {
+      var blank = document.getElementById("blankNode");
+      console.log(blank);
+      var newBlank = blank.cloneNode(true);
+      newBlank.id = "";
+      kioskForm.wrapper.appendChild(newBlank); 
+      kioskForm.refreshIndex();
+    }
+    kioskForm.removeRow = function(object) {
+      var toRemove =  object.parentNode.parentNode;
+      console.log(kioskForm.wrapper);
+      kioskForm.wrapper.removeChild(toRemove);
+      kioskForm.refreshIndex();
+    }
+    kioskForm.prompt = function() {
+    var del=confirm("Are you sure? This will delete the question and its results from completed quizes.");
+    if (del)
+    {
+      deleteForm.submit()
+    }
+    return false;
+    
+    }
+    
+   kioskForm.go = function($url) {
+    window.location.href=$url;
+    }
+    
+
+</script>
+<table style="display:none;">
+<tr id="blankNode" class="option-row answer-form" ><td><input class="input-text required-entry" name="answer[1][text]" value="" /></td><td><select multiple class="required-entry attr-field"  style="height: 300px;" name="answer[1][attributes][]"><?php foreach ($options as $key => $option) { ?>
+                    <option style="background-color: black;color: white;" value="0"><?php echo $key; ?></option>
+                      <?php foreach($option as $sub) { ?>
+                      <option value="<?php echo $sub['value']; ?>"><?php echo $sub['label']; ?></option>
+                      <?php } ?>
+                    <?php } ?></select></td><td><button onclick="kioskForm.removeRow(this);" class="scalable delete delete-option" type="button"><span>Remove Row</span></button></td></tr></table>
+

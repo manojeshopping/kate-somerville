@@ -1,0 +1,493 @@
+"Product Name",Type,SKU,"Attribute Set Name","Skin Concern(s)","Benefits - Quiz",status,qty
+"Purify Clarifying Cleanser",simple,10004,"Kate Somerville Cleansers",Oily,"combination skin;oily skin;safe for sensitive skin",enabled,1922
+"ExfoliKate® Gentle Exfoliating Treatment",simple,10097,"Kate Somerville Exfoliators","Sensitive;All Skin Types","smoothes skin;safe for sensitive skin;polishes skin",enabled,1766
+"ExfoliKate® Acne Clearing Exfoliating Acne Treatment",simple,10124,"Kate Somerville Exfoliators",Acne,"smoothes skin;acne prone skin;polishes skin;reduces and prevents breakouts",enabled,327
+"Clearing Mask",simple,10008,"Kate Somerville",,,disabled,0
+"Quench Hydrating Mask",simple,10090,"Kate Somerville",,,disabled,0
+"Micro Glycolic Polisher",simple,10030,"Kate Somerville",,,disabled,0
+"Clinic-To-Go™ Resurfacing Peel Pads",simple,10126,"Kate Somerville","Anti-Aging;Anti-Aging & Acne;Discoloration;Sensitive;Oily",,enabled,3644
+"Total Vitamin Antioxidant Face Serum",simple,10013,"Kate Somerville Serums",,,disabled,0
+"Overnight Discoloration Perfector Corrective Treatment",simple,10121,"Kate Somerville Discoloration Treatments",,,disabled,0
+"Daily Discoloration Perfector Corrective Moisturizer",simple,10122,"Kate Somerville Moisturizers",,,disabled,0
+"Spot Reducing Concentrate Skin Lightening Treatment",simple,10123,"Kate Somerville Discoloration Treatments",,,disabled,0
+"Anti Bac Clearing Lotion Acne Treatment",simple,10015,"Kate Somerville Acne Treatments","Anti-Aging & Acne;Acne","helps treat cystic acne;helps treat whiteheads;helps clear blackheads;treats and prevents acne;controls shine;combination skin;oily skin",enabled,1346
+"Clarifying Treatment Toner",simple,10016,"Kate Somerville","Anti-Aging & Acne;Acne;Oily",,enabled,3387
+"EradiKate Acne Treatment",simple,10000,"Kate Somerville Acne Treatments","Anti-Aging & Acne;Acne","helps treat cystic acne;helps treat whiteheads;treats and prevents acne;controls shine;reduces redness;dry skin",enabled,7253
+"Line Release Under Eye Repair Cream",simple,10017,"Kate Somerville Eye Creams","Anti-Aging;All Skin Types","reduces discoloration;reduces expression lines;reduces fine lines and wrinkles;firms the appearance of skin;improves smoothness;all skin types;dry skin",enabled,2424
+"CytoCell™ Dermal Energizing Treatment",simple,10112,"Kate Somerville Moisturizers",Anti-Aging;Dry,"dry skin;improves elasticity;improves firmness;improves smoothness;reduces fine lines and wrinkles;supports cell turnover;improves moisture barrier",enabled,1871
+"CytoCell™ Dark Circle Corrective Eye Cream",simple,10125,"Kate Somerville Eye Creams","Anti-Aging;All Skin Types","improves puffiness;improves dark circles;reduces fine lines and wrinkles;improves smoothness;all skin types;oil free;combination skin;oily skin",enabled,4045
+"Neck Tissue Repair Cream with Peptide K8",simple,10111,"Kate Somerville",,,disabled,0
+"Oil Free Moisturizer",simple,10011_Old,"Kate Somerville","Anti-Aging & Acne;Acne;Oily",,disabled,0
+"Goat Milk Cream",simple,10012,"Kate Somerville Moisturizers","Sensitive;Dry;All Skin Types","dry skin;improves smoothness;sensitive skin;very dry skin;supports cell turnover;improves moisture barrier",enabled,579
+"ExfoliKate® Body Intensive Exfoliating Treatment",simple,10098,"Kate Somerville","All Skin Types",,enabled,2469
+"Somerville360° Body Self Tanning Towelettes",simple,10116_Old,"Kate Somerville","All Skin Types",,disabled,0
+"Somerville360 Body Tanning Towelette Single (Complimentary Gift)",simple,10113,"Kate Somerville","All Skin Types",,disabled,0
+"Serum Sunscreen Broad Spectrum SPF 50+",simple,10120,"Kate Somerville","All Skin Types",,disabled,0
+"The Best of Kate Kit",simple,10100,"Kate Somerville",Anti-Aging,,disabled,0
+"Glow Kit",simple,10086,"Kate Somerville",Anti-Aging,,disabled,0
+"The 911 Kit",simple,10085,"Kate Somerville",Acne,,disabled,0
+"The Discovery Kit",simple,10087,"Kate Somerville",,,disabled,0
+"Repair the Wear Duo",simple,13015,"Kate Somerville",Anti-Aging,,enabled,213
+"Complexion Perfection!",simple,10107,"Kate Somerville",,,enabled,28
+"E-Gift Card",giftcard,09999,"Kate Somerville",,,enabled,99842
+"True Lash™ Lash Enhancing Eye Makeup Remover ",simple,10128,"Kate Somerville","Anti-Aging;All Skin Types",,enabled,5079
+"Oil Free Moisturizer (Sample)",simple,39004,"Kate Somerville","Anti-Aging & Acne;Acne;Oily",,enabled,929
+"ExfoliKate® Intensive Exfoliating Treatment (Sample)",simple,39001,"Kate Somerville","All Skin Types",,enabled,2504
+"Nourish Daily Moisturizer (Sample)",simple,39000,"Kate Somerville",Anti-Aging;Sensitive,,enabled,1782
+"Deep Tissue Repair Cream (Sample)",simple,39007,"Kate Somerville","Anti-Aging;Anti-Aging & Acne;Dry",,enabled,2153
+"Quench Hydrating Face Serum (Sample)",simple,39008,"Kate Somerville",Anti-Aging;Dry,,enabled,1511
+"HydraKate® Lifting Serum (Sample)",simple,39009,"Kate Somerville","Anti-Aging;Anti-Aging & Acne;Oily",,enabled,506
+"CytoCell™ Dermal Energizing Treatment (Sample)",simple,39011,"Kate Somerville",Anti-Aging;Dry,,enabled,443
+"ExfoliKate® Gentle Exfoliating Treatment (Sample)",simple,39012,"Kate Somerville",Sensitive,,enabled,948
+"ExfoliKate Acne Clearing Exfoliating Acne Treatment (Sample)",simple,39006,"Kate Somerville",Acne,,disabled,0
+"CytoCell™ Dark Circle Corrective Eye Cream (Sample)",simple,39002,"Kate Somerville","Anti-Aging;All Skin Types",,enabled,1118
+"Serum Sunscreen Broad Spectrum SPF 50+ (Sample)",simple,39021,"Kate Somerville","All Skin Types",,disabled,147
+"True Lash™ Lash Enhancing Eye Makeup Remover (Sample)",simple,39013,"Kate Somerville","Anti-Aging;All Skin Types",,enabled,547
+"Line Release Under Eye Repair Cream (Sample)",simple,39010,"Kate Somerville","Anti-Aging;All Skin Types",,disabled,5
+"Acne Fighting Trio",simple,10136,"Kate Somerville",Acne,,disabled,0
+"Summer Essentials Kit",simple,10135,"Kate Somerville","All Skin Types",,disabled,0
+"Kate's Recommended Acne Regimen",simple,Acne-Regimen,Default,,,enabled,100000
+"Kate's Recommended Anti-Aging Regimen",simple,Anti-Aging-Regimen,Default,,,enabled,100000
+"Kate's Recommended Anti Aging & Acne Regimen",simple,Anti-Aging-Acne-regimen,Default,,,enabled,100000
+"Kate's Recommended Sensitive Regimen",simple,Sensitive-regimen,Default,,,enabled,100000
+"Kate's Recommended Oily Regimen",simple,Oily-regimen,Default,,,enabled,100000
+"Kate's Recommended Discoloration Regimen",simple,Discoloration-regimen,Default,,,enabled,100000
+"Kate's Recommended Dry Regimen",simple,Dry-regimen,Default,,,enabled,100000
+"ExfoliKate Intensive Exfoliating Treatment (Complimentary Travel-Size Gift)",simple,35099,"Kate Somerville",,,enabled,690
+"ExfoliKate® Intensive Exfoliating Treatment",configurable,10095_ExfoliKate,"Kate Somerville Exfoliators","Anti-Aging;Anti-Aging & Acne;Discoloration;Dry;Oily","combination skin;oily skin;very dry skin;dry skin",enabled,0
+"HydraKate® Lifting Serum",configurable,10053_HydraKate,"Kate Somerville Serums","Anti-Aging;Anti-Aging & Acne;Oily","combination skin;oily skin;dry skin;reduces expression lines;reduces fine lines and wrinkles;firms the appearance of skin;improves smoothness",enabled,0
+"HydraKate® Lifting Serum - 1 oz",simple,10053,"Kate Somerville Serums","Anti-Aging;Anti-Aging & Acne;Oily",,enabled,1379
+"HydraKate® Lifting Serum-2 oz Luxury Size",simple,10102,"Kate Somerville Serums","Anti-Aging;Anti-Aging & Acne;Oily",,enabled,475
+"Deep Tissue Repair Cream with Peptide K8",configurable,10010_Deep_Tissue,"Kate Somerville Moisturizers","Anti-Aging;Anti-Aging & Acne;Discoloration","dry skin;helps reduce redness;improves smoothness;reduces crow's feet;reduces fine lines and wrinkles;very dry skin;improves moisture barrier",enabled,0
+"Deep Tissue Repair Cream with Peptide K8-1 oz",simple,10010,"Kate Somerville Moisturizers","Anti-Aging;Anti-Aging & Acne;Discoloration",,enabled,2651
+"Deep Tissue Repair Cream with Peptide K8, 5 Fl. Oz. Luxury Size",simple,10035,"Kate Somerville Moisturizers","Anti-Aging;Anti-Aging & Acne;Discoloration",,enabled,73
+"Nourish Daily Moisturizer",configurable,10009_Nourish,"Kate Somerville Moisturizers",Anti-Aging;Sensitive,"combination skin;evens overall skin tone;reduces crow's feet;reduces expression lines;reduces fine lines and wrinkles;sensitive skin",enabled,0
+"Nourish Daily Moisturizer, 1.7 Fl. Oz.",simple,10009,"Kate Somerville Moisturizers",Anti-Aging;Sensitive,,enabled,901
+"Nourish Daily Moisturizer, 5 Fl. Oz. Luxury Size",simple,10101,"Kate Somerville Moisturizers",Anti-Aging;Sensitive,,disabled,0
+"ExfoliKate® Intensive Exfoliating Treatment, 2 Fl. Oz.",simple,10095,"Kate Somerville Exfoliators","Anti-Aging;Anti-Aging & Acne;Discoloration;Dry;Oily;All Skin Types",,enabled,2520
+"ExfoliKate® Intensive Exfoliating Treatment, 5 Fl. Oz. Luxury Size",simple,10096,"Kate Somerville Exfoliators","Anti-Aging;Anti-Aging & Acne;Discoloration;Dry;Oily;All Skin Types",,enabled,1630
+"Recurring Payment Test",simple,Recurring-test,"Kate Somerville",,,enabled,0
+"Daily Discoloration Perfector Corrective Moisturizer (Sample)",simple,39005,"Kate Somerville",Anti-Aging;Discoloration,,disabled,0
+"Deep Tissue Repair Cream with Peptide K8 (Complimentary Gift)",simple,16033,"Kate Somerville",,,disabled,0
+"2 Somerville360 Tanning Towelettes & Travel-Size ExfoliKate Intensive (Complimentary Gift)",simple,16095,"Kate Somerville",,,disabled,0
+"Detox Daily Cleanser",configurable,10005_Detox,"Kate Somerville Cleansers","Anti-Aging & Acne;Acne","acne prone skin",enabled,0
+"Gentle Daily Wash",configurable,10003_Gentle_Daily_Wash,"Kate Somerville Cleansers","Anti-Aging;Discoloration;Sensitive;Dry;All Skin Types","combination skin;very dry skin;dry skin;safe for sensitive skin",enabled,0
+"Goat Milk Body Lotion",configurable,10104_Goat_Body,"Kate Somerville",,,disabled,0
+"Quench Hydrating Face Serum",configurable,10014_Quench,"Kate Somerville Serums",Anti-Aging;Sensitive;Dry,"very dry skin;dry skin;safe for sensitive skin;antioxidant defense;evens skin tone;reduces fine lines and wrinkles;firms the appearance of skin;improves smoothness",enabled,0
+"Quench Hydrating Face Serum, 2 Fl. Oz. Luxury Size",simple,10132,"Kate Somerville Serums",Anti-Aging;Sensitive;Dry,,enabled,814
+"Quench Hydrating Face Serum, 1 Fl. Oz.",simple,10014,"Kate Somerville Serums",Anti-Aging;Sensitive;Dry,,enabled,1213
+"ExfoliKate Gentle Exfoliating Treatment (Complimentary Gift)",simple,16056,"Kate Somerville",Sensitive,,disabled,0
+"Detox Daily Cleanser, 16 Fl. Oz. Luxury Size",simple,10106,"Kate Somerville","Anti-Aging & Acne;Acne",,enabled,243
+"Detox Daily Cleanser, 4 Fl. Oz.",simple,10005,"Kate Somerville","Anti-Aging & Acne;Acne",,enabled,6411
+"Gentle Daily Wash, 16 Fl. Oz. Luxury Size",simple,10059,"Kate Somerville","Anti-Aging;Discoloration;Sensitive;Dry;All Skin Types",,enabled,274
+"Gentle Daily Wash, 4 Fl. Oz.",simple,10003,"Kate Somerville","Anti-Aging;Discoloration;Sensitive;Dry;All Skin Types",,enabled,5306
+"Goat Milk Body Lotion, 16 Fl. Oz. Luxury Size",simple,10141,"Kate Somerville","Sensitive;All Skin Types",,disabled,0
+"Goat Milk Body Lotion, 5 Fl. Oz.",simple,10104,"Kate Somerville",,,disabled,0
+"Ageless Solutions Kit",simple,10137,"Kate Somerville",Anti-Aging,,enabled,0
+"Blemish Banisher Kit",simple,10138,"Kate Somerville",Acne;Oily,,enabled,851
+"Kate's Essentials Kit",simple,10134,"Kate Somerville","Anti-Aging;All Skin Types",,disabled,0
+"Fine Lines / Dry / Cyto",simple,"Fine Lines / Dry / Cyto",Default,,,enabled,0
+"Quench & Correct Plumping Lip Gloss and Restorative Lip Treatment",simple,10131,"Kate Somerville","Anti-Aging;All Skin Types",,disabled,0
+"Mini Gentle Trio: Gentle Daily Wash, Nourish Daily Moisturizer, Clinic-to-Go Pads (Complimentary Gift)",simple,16081,"Kate Somerville",,,disabled,30
+"Fine Lines / Oily / Cyto",simple,"Fine Lines / Oily / Cyto",Default,,,enabled,0
+"Fine Lines / Enlarged Pores / Oily / Cyto",simple,Fine-Lines-Wrinkles-Enlarged-Pores-Oily-Cyto,Default,,,enabled,0
+"Fine Lines / Enlarged Pores / Dry/Normal / Cyto",simple,Fine-Lines-Wrinkles-Enlarged-Pores-Dry-Normal-Cyto,Default,,,enabled,0
+"Fine Lines / Acne / Dry/Normal / Ctyo",simple,Fine-Lines-Wrinkles-Acne-Dry-Normal-Cyto,Default,,,enabled,0
+"Fine Lines / Acne / Oily/Very Oily / Cyto",simple,Fine-Lines-Wrinkles-Acne-Oily-Very-Oily-Cyto,Default,,,enabled,0
+"Fine Lines / Sensitive / Combo/Oily / Cyto",simple,Fine-Lines-WrinklesSensitive-ComboOily-Cyto,Default,,,enabled,0
+"Fine Lines / Sensitive / Normal / Cyto",simple,FineLinesWrinklesSensitive-Normal-Cyto,Default,,,enabled,0
+"Fine Lines / Sensitive / Dry / Cyto",simple,FineLinesWrinklesSensitiveDry-Cyto,Default,,,enabled,0
+"Fine Lines / Discoloration / Dry/Normal / Cyto",simple,FineLinesWrinklesDiscoloration-DryNormal-Cyto,Default,,,enabled,0
+"Acne / Dry/Normal / Cyto",simple,Acne-Cyto,Default,,,enabled,0
+"Acne / Discoloration / Dry / Cyto",simple,AcneDiscoloration-Dry-Cyto,Default,,,enabled,0
+"Acne / Discoloration / Combo/Oily / Cyto",simple,AcneDiscolorationComboOily-Cyto,Default,,,enabled,0
+"Acne / Enlarged Pores / Combo/Oily / Cyto",simple,AcneEnlargedPoresComboOily-Cyto,Default,,,enabled,0
+"Acne / Enlarged Pores / Dry / Cyto",simple,AcneEnlargedPoresDry-Cyto,Default,,,enabled,0
+"Acne / Sensitive / Dry/Normal / Cyto",simple,AcneSensitiveDryNormal-Cyto,Default,,,enabled,0
+"Acne / Sensitive / Oily/Combo / Cyto",simple,AcneSensitiveOilyCombo-Cyto,Default,,,enabled,0
+"Enlarged Pores / Dry/Normal / Cyto",simple,EnlargedPoresDryNormal-Cyto,Default,,,enabled,0
+"Enlarged Pores / Oily / Cyto",simple,EnlargedPoresOily-Cyto,Default,,,enabled,0
+"Discoloration / Dry/Normal / Cyto",simple,DiscolorationDryNormal-Cyto,Default,,,enabled,0
+"Discoloration / Enlarged Pores / Dry/Normal / Cyto",simple,DiscolorationEnlargedPoresDryNormal-Cyto,Default,,,enabled,0
+"Discoloration / Oily / Cyto",simple,DiscolorationOily-Cyto,Default,,,enabled,0
+"Discoloration / Enlarged Pores / Oily / Cyto",simple,DiscolorationEnlargedPoresOily-Cyto,Default,,,enabled,0
+"Discoloration / Sensitive / Dry / Cyto",simple,DiscolorationSensitiveDry-Cyto,Default,,,enabled,0
+"Discoloration / Sensitive / Oily / Cyto",simple,DiscolorationSensitiveOily-Cyto,Default,,,enabled,0
+"Sensitive / Dry/Normal / Cyto",simple,"Sensitive / Dry/Normal / Cyto",Default,,,enabled,0
+"Sensitive / Enlarged Pores / Dry/Normal / Cyto",simple,SensitiveEnlargedPoresDryNormal-Cyto,Default,,,enabled,0
+"Sensitive / Enlarged Pores / Oily / Cyto",simple,SensitiveEnlargedPores-Oily-Cyto,Default,,,enabled,0
+"Sensitive / Oily / Cyto",simple,SensitiveOily-Cyto,Default,,,enabled,0
+"Fine Lines / Dry / Line",simple,FineLinesWrinkles-Dry-Line,Default,,,enabled,0
+"Fine Lines / Oily / Line",simple,FineLinesWrinklesOily-Line,Default,,,enabled,0
+"Fine Lines / Enlarged Pores / Oily / Line",simple,FineLinesWrinklesEnlargedPoresOily-Line,Default,,,enabled,0
+"Fine Lines / Enlarged Pores / Dry/Normal / Line",simple,FineLinesWrinklesEnlargedPoresDryNormal-Line,Default,,,enabled,0
+"Fine Lines / Acne / Dry/Normal / Line",simple,FineLinesWrinklesAcneDryNormal-Line,Default,,,enabled,0
+"Fine Lines / Acne / Oily/Very Oily / Line",simple,FineLinesWrinklesAcneOilyVeryOily-Line,Default,,,enabled,0
+"Fine Lines / Sensitive / Combo/Oily / Line",simple,FineLinesWrinklesSensitiveComboOily-Line,Default,,,enabled,0
+"Fine Lines / Sensitive / Normal / Line",simple,FineLinesWrinklesSensitiveNormal-Line,Default,,,enabled,0
+"Fine Lines / Sensitive / Dry / Line",simple,FineLinesWrinklesSensitiveDry-Line,Default,,,enabled,0
+"Fine Lines / Discoloration / Dry/Normal / Line",simple,FineLinesWrinklesDiscolorationDryNormal-Line,Default,,,enabled,0
+"Acne / Dry/Normal / Line",simple,Acne-Line,Default,,,enabled,0
+"Acne / Discoloration / Dry / Line",simple,AcneDiscolorationDry-Line,Default,,,enabled,0
+"Acne / Discoloration / Combo/Oily / Line",simple,AcneDiscolorationComboOily-Line,Default,,,enabled,0
+"Acne / Enlarged Pores / Combo/Oily / Line",simple,AcneEnlargedPoresComboOily-Line,Default,,,enabled,0
+"Acne / Enlarged Pores / Dry / Line",simple,AcneEnlargedPoresDry-Line,Default,,,enabled,0
+"Acne / Sensitive / Dry/Normal / Line",simple,AcneSensitiveDryNormal-Line,Default,,,enabled,0
+"Acne / Sensitive / Oily/Combo / Line",simple,"Acne/Sensitive – Oily/Combo -Line",Default,,,enabled,0
+"Enlarged Pores / Dry/Normal / Line",simple,EnlargedPoresDryNormal-Line,Default,,,enabled,0
+"Enlarged Pores / Oily / Line",simple,EnlargedPoresOily-Line,Default,,,enabled,0
+"Discoloration / Dry/Normal / Line",simple,DiscolorationDryNormal-Line,Default,,,enabled,0
+"Discoloration / Enlarged Pores / Dry/Normal / Line",simple,DiscolorationEnlargedPoresDryNormal-Line,Default,,,enabled,0
+"Discoloration / Oily / Line",simple,DiscolorationOily-Line,Default,,,enabled,0
+"Discoloration / Enlarged Pores / Oily / Line",simple,DiscolorationEnlargedPoresOily-Line,Default,,,enabled,0
+"Discoloration / Sensitive / Dry / Line",simple,DiscolorationSensitiveDry-Line,Default,,,enabled,0
+"Discoloration / Sensitive / Oily / Line",simple,DiscolorationSensitiveOily-Line,Default,,,enabled,0
+"Sensitive / Dry/Normal /  Line",simple,"Sensitive / Dry/Normal /  Line",Default,,,enabled,0
+"Sensitive / Enlarged Pores / Dry/Normal / Line",simple,SensitiveEnlargedPoresDryNormal-Line,Default,,,enabled,0
+"Sensitive / Enlarged Pores / Oily / Line",simple,SensitiveEnlargedPoresOily-Line,Default,,,enabled,0
+"Sensitive / Oily / Line",simple,SensitiveOily-Line,Default,,,enabled,0
+"Fine Lines / Discoloration / Oily/Combo / Cyto",simple,FineLinesWrinklesDiscoloration-OilyCombo-Cyto,Default,,,enabled,0
+"Fine Lines / Discoloration / Oily/Combo / Line",simple,FineLinesWrinklesDiscolorationOilyCombo-Line,Default,,,enabled,0
+"Fine Lines / Discoloration / Oily/Combo / Most/All / Line",simple,"Fine Lines / Discoloration / Oily/Combo / Most/All / Line",Default,,,enabled,0
+"Fine Lines / Discoloration / Oily/Combo / Most/All / Cyto",simple,"Fine Lines / Discoloration / Oily/Combo / Most/All / Cyto",Default,,,enabled,0
+"Sensitive / Oily / Most/All / Line",simple,"Sensitive / Oily / Most/All / Line",Default,,,enabled,0
+"Sensitive / Enlarged Pores / Oily/Combo / Most/All / Line",simple,"Sensitive / Enlarged Pores / Oily/Combo / Most/All / Line",Default,,,enabled,0
+"Sensitive / Enlarged Pores / Dry/Normal / Most/All / Line",simple,"Sensitive / Enlarged Pores / Dry/Normal / Most/All / Line",Default,,,enabled,0
+"Sensitive / Dry/Normal / Most/All / Line",simple,"Sensitive / Dry/Normal / Most/All / Line",Default,,,enabled,0
+"Discoloration / Sensitive / Oily/Combo / Most/All / Line",simple,"Discoloration / Sensitive / Oily/Combo / Most/All / Line",Default,,,enabled,0
+"Discoloration / Sensitive / Dry/Normal / Most/All / Line",simple,"Discoloration / Sensitive / Dry/Normal / Most/All / Line",Default,,,enabled,0
+"Discoloration / Enlarged Pores / Oily/Combo / Most/All / Line",simple,"Discoloration / Enlarged Pores / Oily/Combo / Most/All / Line",Default,,,enabled,0
+"Discoloration / Oily/Combo / Most/All / Line",simple,"Discoloration / Oily/Combo / Most/All / Line",Default,,,enabled,0
+"Discoloration / Enlarged Pores / Dry/Normal / Most/All / Line",simple,"Discoloration / Enlarged Pores / Dry/Normal / Most/All / Line",Default,,,enabled,0
+"Discoloration / Dry/Normal / Most/All / Line",simple,"Discoloration / Dry/Normal / Most/All / Line",Default,,,enabled,0
+"Enlarged Pores / Oily/Combo / Most/All / Line",simple,"Enlarged Pores / Oily/Combo / Most/All / Line",Default,,,enabled,0
+"Enlarged Pores / Dry/Normal / Most/All / Line",simple,"Enlarged Pores / Dry/Normal / Most/All / Line",Default,,,enabled,0
+"Acne / Sensitive / Oily/Combo / Most/All / Line",simple,"Acne / Sensitive / Oily/Combo / Most/All / Line",Default,,,enabled,0
+"Acne / Sensitive / Dry/Normal / Most/All / Line",simple,"Acne / Sensitive / Dry/Normal / Most/All / Line",Default,,,enabled,0
+"Acne / Enlarged Pores / Dry/Normal / Most/All / Line",simple,"Acne / Enlarged Pores / Dry/Normal / Most/All / Line",Default,,,enabled,0
+"Acne / Enlarged Pores / Combo/Oily / Most/All / Line",simple,"Acne / Enlarged Pores / Oily/Combo / Most/All / Line",Default,,,enabled,0
+"Acne / Discoloration / Oily/Combo / Most/All / Line",simple,"Acne / Discoloration / Oily/Combo / Most/All / Line",Default,,,enabled,0
+"Acne / Discoloration / Dry/Normal / Most/All / Line",simple,"Acne / Discoloration / Dry/Normal / Most/All / Line",Default,,,enabled,0
+"Acne / Most/All / Line",simple,"Acne / Most/All / Line",Default,,,enabled,0
+"Fine Lines / Discoloration / Dry/Normal / Most/All / Line",simple,"Fine Lines / Discoloration / Dry/Normal / Most/All / Line",Default,,,enabled,0
+"Fine Lines / Sensitive / Dry / Most/All / Line",simple,"Fine Lines / Sensitive / Dry / Most/All / Line",Default,,,enabled,0
+"Fine Lines / Sensitive / Normal / Most/All / Line",simple,"Fine Lines / Sensitive / Normal / Most/All / Line",Default,,,enabled,0
+"Fine Lines / Sensitive / Combo/Oily / Most/All / Line",simple,"Fine Lines / Sensitive / Combo/Oily / Most/All / Line",Default,,,enabled,0
+"Fine Lines / Acne / Oily/Very Oily / Most/All / Line",simple,"Fine Lines / Acne / Oily/Very Oily / Most/All / Line",Default,,,enabled,0
+"Fine Lines / Acne / Dry/Normal / Most/All / Line",simple,"Fine Lines / Acne / Dry/Normal / Most/All / Line",Default,,,enabled,0
+"Fine Lines / Enlarged Pores / Dry/Normal / Most/All / Line",simple,"Fine Lines / Enlarged Pores / Dry/Normal / Most/All / Line",Default,,,enabled,0
+"Fine Lines / Enlarged Pores / Oily / Most/All / Line",simple,"Fine Lines / Enlarged Pores / Oily / Most/All / Line",Default,,,enabled,0
+"Fine Lines / Oily/Combo / Most/All / Line",simple,"Fine Lines / Oily/Combo / Most/All / Line",Default,,,enabled,0
+"Fine Lines / Dry/Normal / Most/All / Line",simple,"Fine Lines / Dry/Normal / Most/All / Line",Default,,,enabled,0
+"Sensitive / Oily / Most/All / Cyto",simple,"Sensitive / Oily / Most/All / Cyto",Default,,,enabled,0
+"Sensitive / Enlarged Pores / Oily/Combo / Most/All / Cyto",simple,"Sensitive / Enlarged Pores / Oily/Combo / Most/All / Cyto",Default,,,enabled,0
+"Sensitive / Enlarged Pores / Dry/Normal / Most/All / Cyto",simple,"Sensitive / Enlarged Pores / Dry/Normal / Most/All / Cyto",Default,,,enabled,0
+"Sensitive / Dry/Normal / Most/All / Cyto",simple,"Sensitive / Dry/Normal / Most/All / Cyto",Default,,,enabled,0
+"Discoloration / Sensitive / Oily/Combo / Most/All / Cyto",simple,"Discoloration / Sensitive / Oily/Combo / Most/All / Cyto",Default,,,enabled,0
+"Discoloration / Sensitive / Dry / Most/All / Cyto",simple,"Discoloration / Sensitive / Dry / Most/All / Cyto",Default,,,enabled,0
+"Discoloration / Enlarged Pores / Oily/Combo / Most/All / Cyto",simple,"Discoloration / Enlarged Pores / Oily/Combo / Most/All / Cyto",Default,,,enabled,0
+"Discoloration / Oily/Combo / Most/All / Cyto",simple,"Discoloration / Oily/Combo / Most/All / Cyto",Default,,,enabled,0
+"Discoloration / Enlarged Pores / Dry/Normal / Most/All / Cyto",simple,"Discoloration / Enlarged Pores / Dry/Normal / Most/All / Cyto",Default,,,enabled,0
+"Discoloration / Dry/Normal / Most/All / Cyto",simple,"Discoloration / Dry/Normal / Most/All / Cyto",Default,,,enabled,0
+"Enlarged Pores / Oily/Combo / Most/All / Cyto",simple,"Enlarged Pores / Oily/Combo / Most/All / Cyto",Default,,,enabled,0
+"Enlarged Pores / Dry/Normal / Most/All / Cyto",simple,"Enlarged Pores / Dry/Normal / Most/All / Cyto",Default,,,enabled,0
+"Acne / Sensitive / Oily/Combo / Most/All / Cyto",simple,"Acne / Sensitive / Oily/Combo / Most/All / Cyto",Default,,,enabled,0
+"Acne / Sensitive / Dry/Normal / Most/All / Cyto",simple,"Acne / Sensitive / Dry/Normal / Most/All / Cyto",Default,,,enabled,0
+"Acne / Enlarged Pores / Dry/Normal / Most/All / Cyto",simple,"Acne / Enlarged Pores / Dry/Normal / Sometimes/Most/All / Cyto",Default,,,enabled,0
+"Acne / Enlarged Pores / Combo/Oily / Most/All / Cyto",simple,"Acne / Enlarged Pores / Combo/Oily / Most/All / Cyto",Default,,,enabled,0
+"Acne / Discoloration / Combo/Oily / Most/All / Cyto",simple,"Acne / Discoloration / Combo/Oily / Most/All / Cyto",Default,,,enabled,0
+"Acne / Discoloration / Dry/Normal / Most/All / Cyto",simple,"Acne / Discoloration / Dry/Normal / Most/All / Cyto",Default,,,enabled,0
+"Acne / Most/All / Cyto",simple,"Acne / Most/All / Cyto",Default,,,enabled,0
+"Fine Lines / Discoloration / Dry/Normal / Most/All / Cyto",simple,"Fine Lines / Discoloration / Dry/Normal / Most/All / Cyto",Default,,,enabled,0
+"Fine Lines / Sensitive / Dry / Most/All / Cyto",simple,"Fine Lines / Sensitive / Dry / Most/All / Cyto",Default,,,enabled,0
+"Fine Lines / Sensitive / Normal / Most/All / Cyto",simple,"Fine Lines / Sensitive / Normal / Most/All / Cyto",Default,,,enabled,0
+"Fine Lines / Sensitive / Oily/Combo / Most/All / Cyto",simple,"Fine Lines / Sensitive / Oily/Combo / Most/All / Cyto",Default,,,enabled,0
+"Fine Lines / Acne / Oily/Very Oily / Most/All / Cyto",simple,"Fine Lines / Acne / Oily/Very Oily / Most/All / Cyto",Default,,,enabled,0
+"Fine Lines / Acne / Dry/Normal / Most/All / Cyto",simple,"Fine Lines / Acne / Dry/Normal / Most/All / Cyto",Default,,,enabled,0
+"Fine Lines / Enlarged Pores / Dry/Normal / Most/All / Cyto",simple,"Fine Lines / Enlarged Pores / Dry/Normal / Most/All / Cyto",Default,,,enabled,0
+"Fine Lines / Enlarged Pores / Oily/Combo / Most/All / Cyto",simple,"Fine Lines / Enlarged Pores / Oily/Combo / Most/All / Cyto",Default,,,enabled,0
+"Fine Lines / Oily/Combo / Most/All / Cyto",simple,"Fine Lines / Oily/Combo / Most/All / Cyto",Default,,,enabled,0
+"Fine Lines / Dry/Normal / Most/All / Cyto",simple,"Fine Lines / Dry/Normal / Most/All / Cyto",Default,,,enabled,0
+"24 Hour Pimple Punisher",simple,10130,"Kate Somerville Acne Treatments","Anti-Aging & Acne;Acne","helps treat cystic acne;helps treat whiteheads;treats and prevents acne;controls shine;reduces redness;sensitive skin;very dry skin;combination skin;oily skin;dry skin",enabled,487
+"CytoCell Dark Circle Corrective Eye Cream Travel Size (Complimentary Gift)",simple,16101,"Kate Somerville",,,disabled,0
+"Under the Mistletoe Holiday Set",simple,10144,"Kate Somerville","All Skin Types",,disabled,0
+"Merry Must-Haves Holiday Set",simple,10145,"Kate Somerville","Anti-Aging;All Skin Types",,disabled,0
+"Glow in the New Year Holiday Set",simple,10146,"Kate Somerville","All Skin Types",,disabled,0
+"Refinery29 Winter Kit",simple,10150,"Kate Somerville","All Skin Types",,disabled,0
+"Somerville360® Face Self Tanning Pads-12 pack",simple,10140,"Kate Somerville","All Skin Types",,enabled,883
+"ExfoliKate Body Intensive Exfoliating Treatment (A Halloween Treat)",simple,16274,"Kate Somerville","All Skin Types",,enabled,431
+"Quench Oil Free Hydrating Face Serum",simple,10139,"Kate Somerville Serums",Anti-Aging;Oily,"acne problem skin;combination skin;oily skin;antioxidant defense;reduces expression lines;reduces fine lines and wrinkles;firms the appearance of skin;improves smoothness;oil free",enabled,271
+"CytoCell Dermal Energizing Treatment (Complimentary Gift)",simple,16103,"Kate Somerville",,,disabled,104
+"Quench Oil Free Hydrating Face Serum (Sample)",simple,39014,"Kate Somerville",Anti-Aging;Dry,,enabled,1623
+"Age Defense Duo",simple,10155,"Kate Somerville",Anti-Aging,,enabled,903
+"Fresh & Flawless Duo",simple,10156,"Kate Somerville","Anti-Aging & Acne;Acne",,disabled,0
+"Brighten Up Duo",simple,10154,"Kate Somerville",Anti-Aging;Discoloration,,disabled,0
+"True Lash Lash Enhancing Eye Makeup Remover (Complimentary Gift)",simple,16110,"Kate Somerville",,,disabled,0
+"Kate's Skin Solutions",simple,10157,"Kate Somerville",Anti-Aging,,disabled,0
+"DermalQuench Liquid Lift Advanced Wrinkle Treatment with HydraFill Complex",simple,10143_OLDDONOTUSE,"Kate Somerville Anti Aging Treatments",Anti-Aging,,disabled,6069
+"Somerville Glow to Go",simple,10152,"Kate Somerville","All Skin Types",,disabled,0
+"Quench Hydrating Face Serum (travel-size)",simple,16049,"Kate Somerville",Anti-Aging;Dry,,enabled,0
+"HydraKate® Line Release Face Serum (travel-size)",simple,16059,"Kate Somerville",Anti-Aging;Oily,,enabled,0
+"Total Vitamin Antioxidant Face Serum (Complimentary Travel-Size Gift)",simple,16063,"Kate Somerville","Anti-Aging;All Skin Types",,disabled,0
+"Quench Oil Free Hydrating Face Serum Deluxe Sample (Complimentary Gift)",simple,35098,"Kate Somerville",Anti-Aging;Oily,,disabled,99984
+"True Lash Lash Enhancing Eye Makeup Remover (Gift)",simple,124,"Kate Somerville","Anti-Aging;All Skin Types",,disabled,0
+"Daily Deflector™ Moisturizer Broad Spectrum SPF 20 Anti-Aging Sunscreen",simple,10149,"Kate Somerville Protection",Anti-Aging;Dry,"improves elasticity;improves firmness;improves smoothness;provides luminosity;reduces fine lines and wrinkles;very dry skin;improves moisture barrier;low level SPF;very dry skin;dry skin;low spf;chemical sunscreen",enabled,95
+"KateCeuticals™ Multi-Active Repair Lifting and Lineless Cream ",simple,10127,"Kate Somerville Moisturizers",Anti-Aging,"improves smoothness;reduces fine lines and wrinkles;reduces the appearance of discoloration;very dry skin;improves moisture barrier",enabled,150
+"KateCeuticals™ Moisture Milk Cleanser",simple,10148,"Kate Somerville Cleansers",Anti-Aging;Dry,,enabled,152
+"KateCeuticals™ Multi-Active Repair Eye Cream",simple,10129,"Kate Somerville Eye Creams",Anti-Aging,"reduces discoloration;reduces expression lines;reduces fine lines and wrinkles;very dry skin",enabled,322
+"Ultimate Oil Free Duo",simple,10166,"Kate Somerville",Acne;Oily,,enabled,23
+"2 Somerville360 Face Self Tanning Pads & ExfoliKate Intensive 0.5 oz (Complimentary Gift)",simple,16116,"Kate Somerville",,,disabled,0
+"Somerville360® Face Self Tanning Pad (Sample)",simple,39015,"Kate Somerville","All Skin Types",,disabled,0
+"Somerville360® Body Tanning Towelettes",configurable,10116_Somerville360B,"Kate Somerville","All Skin Types",,enabled,0
+"Somerville360® Body Tanning Towelettes-16 pack Luxury Size",simple,10169,"Kate Somerville","All Skin Types",,enabled,425
+"Somerville360® Body Tanning Towelettes-8 pack",simple,10116,"Kate Somerville","All Skin Types",,enabled,506
+"ExfoliKate® Intensive Exfoliating Treatment, 0.5 Fl. Oz.",simple,10119,"Kate Somerville Exfoliators","Anti-Aging;Anti-Aging & Acne;Discoloration;Dry;Oily;All Skin Types",,enabled,131
+"CytoCell Dark Circle Corrective Eye Cream and True Lash Eye Makeup Remover (Complimentary Gift)",simple,16117,"Kate Somerville","All Skin Types",,disabled,0
+"Daily Deflector Moisturizer Broad Spectrum SPF 20 Anti-Aging Sunscreen (Complimentary Gift)",simple,35106,"Kate Somerville",,,disabled,0
+"Clinical Breakthrough Kit",simple,10142,"Kate Somerville",Anti-Aging,,enabled,0
+"Golden Glow Kit",simple,10147,"Kate Somerville","All Skin Types",,disabled,0
+"KateCeuticals™ Multi-Active Repair Lifting and Lineless Cream (Sample)",simple,39016,"Kate Somerville",Anti-Aging,,enabled,379
+"KateCeuticals™ Multi-Active Repair Eye Cream (Sample)",simple,39017,"Kate Somerville",Anti-Aging,,enabled,1170
+"Daily Deflector™ Broad Spectrum SPF 20 Anti-Aging Sunscreen (Sample)",simple,39018,"Kate Somerville",Anti-Aging;Dry,,disabled,0
+"Mini Nourish Daily Moisturizer and 2 Clinic-to-Go Resurfacing Peel Pads (Complimentary Gift)",simple,16114,"Kate Somerville",,,disabled,0
+"Summer Glow Duo",simple,10172,"Kate Somerville","All Skin Types",,disabled,0
+"Complimentary Gift Test",simple,"test -Complimentary",Default,,,enabled,0
+"Purify Clarifying Cleanser (Complimentary Gift)",simple,16144,"Kate Somerville",Oily,,enabled,199
+"Gentle Daily Wash (Complimentary Gift)",simple,16142,"Kate Somerville","All Skin Types",,enabled,195
+"Detox Daily Cleanser  (Complimentary Gift)",simple,16143,"Kate Somerville",Acne;Oily,,enabled,188
+"KateCeuticals™ Restor8 Replenishing Serum",simple,10165,"Kate Somerville Serums",Anti-Aging,"very dry skin;reduces discoloration;reduces expression lines;reduces fine lines and wrinkles",enabled,395
+"CytoCell™ P299 Oil Free Anti-Wrinkle Serum",simple,10159,"Kate Somerville Serums",Anti-Aging,"combination skin;oily skin;dry skin;helps reduce skin redness;evens skin tone;reduces expression lines;reduces fine lines and wrinkles;firms the appearance of skin;improves smoothness;oil free",enabled,186
+"KateCeuticals™ Restor8 Replenishing Serum (Sample)",simple,39019,"Kate Somerville",Anti-Aging,,enabled,1162
+"Nourish Body Perfection Body Rescue Cream",simple,10163,"Kate Somerville","All Skin Types",,enabled,122
+"Perfect and Polish Duo",simple,10174,"Kate Somerville","All Skin Types",,disabled,0
+"Get Gorgeous Kit",simple,10153,"Kate Somerville","All Skin Types",,disabled,0
+"ExfoliKate® Intensive Exfoliating Treatment (Deluxe Sample)",simple,35124,"Kate Somerville","All Skin Types",,enabled,6299
+"CytoCell™ P299 Oil Free Anti Wrinkle Serum (Sample)",simple,39020,"Kate Somerville","Anti-Aging;All Skin Types",,enabled,797
+"Oil Free Moisturizer",configurable,10011_OilFree,"Kate Somerville Moisturizers","Anti-Aging & Acne;Acne;Oily","acne prone skin;helps control shine;improves elasticity;improves firmness;improves smoothness;oily skin;reduces crow's feet;reduces expression lines;reduces fine lines and wrinkles;supports cell turnover;improves moisture barrier;oil free",enabled,0
+"Oil Free Moisturizer, 1.7 Fl. Oz.",simple,10011,"Kate Somerville Moisturizers","Anti-Aging & Acne;Acne;Oily",,enabled,394
+"Oil Free Moisturizer, 5 Fl. Oz. Luxury Size",simple,10170,"Kate Somerville Moisturizers","Anti-Aging & Acne;Acne;Oily",,enabled,430
+"Complimentary $25 Gift Card *Please note, Gift Card will be emailed within 8 weeks of offer expiration date and must be redeemed within 2 months from the date of issue. Gift Card will be sent to the email address used with order and is non-transferable.",simple,09998,"Kate Somerville",,,disabled,0
+"Perfect and Protect Duo",simple,10179,"Kate Somerville",Anti-Aging;Discoloration,,disabled,0
+"Oil Free Moisturizer (Complimentary Gift)",simple,16124,"Kate Somerville",,,disabled,0
+"Gentle Daily Wash (travel-size complimentary gift)",simple,16066,"Kate Somerville",,,disabled,0
+"D-Scar Scar Diminishing Serum",simple,10161,"Kate Somerville Acne Treatments","Acne;All Skin Types","helps reduce scarring;sensitive skin;very dry skin;combination skin;oily skin;dry skin",enabled,272
+"Completely Quenched Luxury Bonus Duo",simple,13010,"Kate Somerville",Anti-Aging;Dry,,disabled,0
+"Get Glowing Luxury Bonus Duo",simple,13004,"Kate Somerville","All Skin Types",,disabled,0
+"Fresh and Flawless Luxury Bonus Duo",simple,13008,"Kate Somerville","Anti-Aging & Acne;Acne;Oily",,disabled,0
+"Totally Nourished Luxury Bonus Duo",simple,13006,"Kate Somerville","Sensitive;All Skin Types",,disabled,0
+"Ultimate Line Release Luxury Bonus Duo",simple,13007,"Kate Somerville",Anti-Aging,,disabled,0
+"Soothed and Silky Luxury Bonus Duo",simple,13009,"Kate Somerville",Sensitive;Dry,,disabled,0
+"Perfectly Clean Luxury Bonus Duo",simple,13003,"Kate Somerville","All Skin Types",,disabled,0
+"Perfectly Clear Luxury Bonus Duo",simple,13002,"Kate Somerville","Anti-Aging & Acne;Acne;Oily",,disabled,0
+"Award Winning Favorites Luxury Bonus Duo",simple,13005,"Kate Somerville","All Skin Types",,disabled,0
+"Ultimate Quench and Repair Luxury Bonus Duo",simple,13025,"Kate Somerville",Anti-Aging,,disabled,0
+"Complimentary Gift Wrapping",simple,09997,"Kate Somerville",,,enabled,264
+"'Tis the Season to be Ageless",simple,13012,"Kate Somerville",Anti-Aging,,disabled,0
+"Skin's Little Helper Blemish Banisher Kit",simple,13011,"Kate Somerville",Acne;Oily,,disabled,457
+"Body Glow Sunscreen Broad Spectrum SPF 20",simple,10164,"Kate Somerville","All Skin Types",,enabled,0
+"RetAsphere 2-in-1 Retinol Night Cream",simple,10158,"Kate Somerville Anti Aging Treatments",Anti-Aging,,enabled,278
+"Revive and Renew Kit",simple,10151,"Kate Somerville","Anti-Aging;All Skin Types",,disabled,0
+"Golden Glow Kit",simple,13013,"Kate Somerville","All Skin Types",,disabled,0
+"ExfoliKate® Intensive Trio",simple,13014,"Kate Somerville","All Skin Types",,disabled,123
+"Perfect Pair",simple,10178,"Kate Somerville","All Skin Types",,disabled,0
+"Restor8 Replenishing Serum (Complimentary Travel-Size Gift)",simple,35123,"Kate Somerville",,,disabled,0
+"RetAsphere 2-in-1 Retinol Night Cream (Sample)",simple,39022,"Kate Somerville","Anti-Aging;All Skin Types",,enabled,788
+"Quench & Correct Plumping Lip Gloss and Restorative Lip Treatment (Complimentary Gift)",simple,16152,"Kate Somerville","All Skin Types",,disabled,0
+"Somerville360® Tan Maximizer Tan Enhancing Moisturizer",simple,10181,"Kate Somerville","All Skin Types",,disabled,468
+"Daily Deflector™ Waterlight Broad Spectrum 50+ PA+++ Anti-Aging Sunscreen",simple,10175,"Kate Somerville Protection","Anti-Aging;All Skin Types","oily skin;dry skin;high spf;safe for sensitive skin",enabled,353
+"Dilo Oil Restorative Treatment",simple,10190,"Kate Somerville Anti Aging Treatments",Anti-Aging,,enabled,117
+"DermalQuench Liquid Lift™ Advanced Wrinkle Treatment with HydraFill Complex Luxury Size",simple,10177_OLD_DONOTUSE,"Kate Somerville",Anti-Aging,,disabled,2127
+"Micro Glycolic Polisher (Complimentary Gift)",simple,16156,"Kate Somerville",Anti-Aging;Dry,,disabled,200
+"Age Arrest Anti-Wrinkle Cream",simple,10193,"Kate Somerville Moisturizers",Anti-Aging;Sensitive,"dry skin;evens overall skin tone;helps reduce redness;improves elasticity;improves firmness;improves smoothness;reduces crow's feet;reduces expression lines;reduces fine lines and wrinkles;reduces the appearance of discoloration;sensitive skin;very dry skin;improves moisture barrier",enabled,366
+"Age Arrest Eye Cream",simple,10194,"Kate Somerville Eye Creams",Anti-Aging;Sensitive,"safe for sensitive skin;improves dark circles;all skin types",enabled,233
+"Deep Tissue Repair Cream and ExfoliKate Intensive Exfoliating Treatment (Travel-size complimentary gift)",simple,16106,"Kate Somerville",Anti-Aging,,disabled,0
+"Total Vitamin Antioxidant Face Serum (Complimentary Travel-Size Gift)",simple,20002,"Kate Somerville","Anti-Aging;All Skin Types",,disabled,782
+"Mini ExfoliKate and DermalQuench Liquid Lift (Complimentary Gift)",simple,16147,"Kate Somerville","All Skin Types",,enabled,55
+"Kate Somerville Beach Towel (Complimentary Gift)",simple,80256,"Kate Somerville","All Skin Types",,disabled,0
+"Private Island Duo",simple,13016,"Kate Somerville","All Skin Types",,disabled,487
+"Surf's Up Tanning Duo",simple,13017,"Kate Somerville","All Skin Types",,disabled,496
+"Ready, Set, Glow Tanning Duo",simple,13018,"Kate Somerville","All Skin Types",,disabled,496
+"Daily Deflector™ Moisturizer Broad Spectrum SPF 50+ PA+++",simple,10189,"Kate Somerville Protection","Anti-Aging;All Skin Types","all skin types;improves smoothness;reduces fine lines and wrinkles;improves moisture barrier;high level SPF;oil free;acne prone skin;combination skin;oily skin;very dry skin;dry skin;high spf;chemical sunscreen;safe for sensitive skin",enabled,0
+"Illumikate CC Cream Broad Spectrum SPF 50+ PA+++ (Fair) [Do Not Use]",simple,10191_old,"Kate Somerville","All Skin Types",,disabled,0
+"Illumikate CC Cream Broad Spectrum SPF 50+ PA+++ (Light) [Do Not Use]",simple,10186_old,"Kate Somerville","All Skin Types",,disabled,0
+"Illumikate CC Cream Broad Spectrum SPF 50+ PA+++ (Light/Medium) [Do Not Use]",simple,10192_old,"Kate Somerville","All Skin Types",,disabled,0
+"Illumikate CC Cream Broad Spectrum SPF 50+ PA+++ (Medium) [Do Not Use]",simple,10187_old,"Kate Somerville","All Skin Types",,disabled,0
+"IllumiKate™ CC Cream Broad Spectrum SPF 50+ PA+++",configurable,10186_illumikate,"Kate Somerville","All Skin Types",,enabled,0
+"IllumiKate™ CC Cream Broad Spectrum SPF 50+ PA+++ (Light)",simple,10186,"Kate Somerville","All Skin Types",,enabled,1030
+"IllumiKate™ CC Cream Broad Spectrum SPF 50+ PA+++ (Fair)",simple,10191,"Kate Somerville","All Skin Types",,enabled,876
+"IllumiKate™ CC Cream Broad Spectrum SPF 50+ PA+++ (Light/Medium)",simple,10192,"Kate Somerville","All Skin Types",,enabled,400
+"IllumiKate™ CC Cream Broad Spectrum SPF 50+ PA+++ (Medium)",simple,10187,"Kate Somerville","All Skin Types",,enabled,366
+"KateCeuticals™ Replenishing Toner",simple,10195,"Kate Somerville",Anti-Aging,,enabled,435
+"IllumiKate™ CC Cream Broad Spectrum SPF 50+ PA+++ (Fair) (Sample)",simple,39024,"Kate Somerville","Anti-Aging;All Skin Types",,enabled,834
+"IllumiKate™ CC Cream Broad Spectrum SPF 50+ PA+++ (Light) (Sample)",simple,39026,"Kate Somerville","Anti-Aging;All Skin Types",,enabled,873
+"IllumiKate™ CC Cream Broad Spectrum SPF 50+ PA+++ (Light/Medium) (Sample)",simple,39027,"Kate Somerville","Anti-Aging;All Skin Types",,enabled,1311
+"IllumiKate™ CC Cream Broad Spectrum SPF 50+ PA+++ (Medium) (Sample)",simple,39028,"Kate Somerville","Anti-Aging;All Skin Types",,enabled,972
+"IllumiKate™ CC Cream Broad Spectrum SPF 50+ PA+++ (Extra Fair)",simple,10199,"Kate Somerville","All Skin Types",,disabled,0
+"Age Arrest Anti-Wrinkle Cream (Sample)",simple,39025,"Kate Somerville",Anti-Aging,,enabled,2403
+"Kate's Clear Solutions Acne Kit",simple,13021,"Kate Somerville",Acne,,enabled,533
+"Kate's Correct & Renew Brightening Kit",simple,13022,"Kate Somerville",Anti-Aging,,disabled,0
+"KateCeuticals™ Rich and Powerful Collection",simple,13024,"Kate Somerville",,,disabled,115
+"DermalQuench Liquid Lift™ Advanced Wrinkle Treatment",configurable,10143_dermalquench,"Kate Somerville Anti Aging Treatments","Anti-Aging;All Skin Types",,enabled,0
+"Nourish Body Perfection Body Rescue Cream + Dilo Oil Restorative Treatment Deluxe Sample (Complimentary Gift)",simple,16200,"Kate Somerville",,,disabled,46
+"DermalQuench Liquid Lift™ Advanced Wrinkle Treatment, 2.5 Fl. Oz.",simple,10143,"Kate Somerville Anti Aging Treatments",,,enabled,4592
+"DermalQuench Liquid Lift™ Advanced Wrinkle Treatment, 5 Fl. Oz. Luxury Size",simple,10177,"Kate Somerville Anti Aging Treatments",,,enabled,803
+"Age Arrest Anti-Wrinkle Cream (Deluxe Sample)",simple,35201,"Kate Somerville Moisturizers","Sensitive;All Skin Types",,enabled,1560
+"Age Arrest Anti-Wrinkle Cream and RetAsphere 2-in-1 Retinol Night Cream (Deluxe Samples)",simple,13027,"Kate Somerville Moisturizers","Sensitive;All Skin Types",,enabled,4
+"Age Arrest Eye Cream (Allure Gift)",simple,16218,"Kate Somerville Eye Creams",Anti-Aging;Sensitive,"safe for sensitive skin",enabled,0
+"The SOS Kit (Sweepstakes Prize)",simple,16131,"Kate Somerville",,,enabled,3
+"Anti-Aging Assortment (Sample Kit)",simple,35233,media_gallery,Anti-Aging,,enabled,0
+"Oily/Acne Prone Assortment (Sample Kit)",simple,35234,media_gallery,Acne;Oily,,enabled,1100
+"Somerville360® Body & Sun Assortment (Sample Kit)",simple,35235,media_gallery,"All Skin Types",,disabled,0
+"D-Scar Scar Diminishing Serum (Complimentary Deluxe Sample)",simple,35125,"Kate Somerville",,,enabled,285
+"HydraClear™ Hydrating Acne Gel",simple,10200,"Kate Somerville Acne Treatments",Acne,"helps treat cystic acne;helps treat whiteheads",enabled,453
+"HydraClear™ Hydrating Acne Gel (Sample)",simple,39047,"Kate Somerville",Acne,,enabled,362
+"Clinic Solutions Kit",simple,10204,"Kate Somerville",Anti-Aging,,enabled,122
+"True Lash™ Lash Enhancing Eye Makeup Remover (Complimentary Gift)",simple,35101,"Kate Somerville",,,enabled,921
+"The Glow Maximizer Kit (Complimentary Gift)",simple,16149,"Kate Somerville",,,enabled,138
+"Eczema Therapy Cream",simple,10205,"Kate Somerville Moisturizers",Sensitive,,enabled,187
+"Age Arrest Eye Cream (Sample)",simple,39036,"Kate Somerville",Anti-Aging;Sensitive,,disabled,0
+"Daily Deflector™ Moisturizer Broad Spectrum SPF 50+ PA+++ (Sample)",simple,39023,"Kate Somerville","Anti-Aging;All Skin Types",,disabled,0
+"Wrinkle Release Duo",simple,13035,"Kate Somerville",Anti-Aging,,disabled,0
+"CytoCell™ Duo",simple,13034,"Kate Somerville",Anti-Aging,,enabled,429
+"Age Arrest Hydrating Firming Mask",simple,10215,"Kate Somerville Masks",Anti-Aging;Sensitive,"all skin types;helps reduce redness;improves elasticity;improves firmness;reduces fine lines and wrinkles;sensitive skin;very dry skin",enabled,526
+"Mega-C Dual Radiance Serum ",simple,10216,"Kate Somerville Serums",Anti-Aging,,enabled,3337
+"DermalQuench Clear™ Anti-Acne Treatment",simple,10213,"Kate Somerville Acne Treatments",Acne,"treats and prevents acne",enabled,94
+"FlyKate - Passport to First Class Beauty (Complimentary Gift)",simple,35137,"Kate Somerville","All Skin Types",,enabled,1495
+"Red Carpet Essentials Kit",simple,10211,"Kate Somerville","Anti-Aging;All Skin Types",,enabled,101
+"Nourish Daily Moisturizer, 0.5 Fl. Oz. Travel Size",simple,10233,"Kate Somerville Moisturizers",Anti-Aging;Sensitive,"combination skin;evens overall skin tone;reduces crow's feet;reduces expression lines;reduces fine lines and wrinkles;sensitive skin",enabled,3585
+"Travel-size Age Arrest Eye Cream and True Lash Lash Enhancing Eye Makeup Remover (Complimentary Gift)",simple,13036,"Kate Somerville",,,disabled,0
+"IllumiKate™ Concealing Eye Cream",configurable,10208_illumikate,"Kate Somerville","All Skin Types",,enabled,0
+"IllumiKate™ Concealing Eye Cream (Light)",simple,10208,"Kate Somerville","All Skin Types",,enabled,123
+"IllumiKate™ Concealing Eye Cream (Medium)",simple,10209,"Kate Somerville","All Skin Types",,enabled,123
+"IllumiKate™ Concealing Eye Cream (Dark)",simple,10210,"Kate Somerville","All Skin Types",,enabled,395
+"LumiWhite Dark Spot Corrector",simple,10207,"Kate Somerville Discoloration Treatments",Anti-Aging;Discoloration,"dark spots",enabled,2194
+"LumiWhite Skin Tone Perfector",simple,10206,"Kate Somerville Discoloration Treatments",Anti-Aging;Discoloration,"dark spots",enabled,199
+"RetAsphere Micro Peel Retinol Glycolic Treatment",simple,10217,"Kate Somerville Anti Aging Treatments",Anti-Aging,,enabled,567
+"High Definition Wrinkle Repair",simple,10221,"Kate Somerville Moisturizers",,,disabled,0
+"Ultimate Oil Free Duo (Complimentary Gift)",simple,13038,"Kate Somerville",,,enabled,88
+"Mega-C Dual Radiance Serum (Sample)",simple,39042,"Kate Somerville","Anti-Aging;All Skin Types",,enabled,1740
+"Age Arrest Hydrating Firming Mask (Sample)",simple,39041,"Kate Somerville",Anti-Aging;Sensitive,,enabled,157
+"RetAsphere™ Micro Peel Retinol Glycolic Treatment (Sample)",simple,39043,"Kate Somerville","Anti-Aging;All Skin Types",,enabled,1219
+"Ultimate Acne Duo (Complimentary Gift)",simple,13039,"Kate Somerville",,,enabled,211
+"Gentle Daily Wash, 5 Fl. Oz. (Complimentary Gift)",simple,16259,"Kate Somerville","All Skin Types",,enabled,896
+"Detox Daily Cleanser, 5 Fl. Oz. (Complimentary Gift)",simple,16260,"Kate Somerville",Acne;Oily,,enabled,773
+"KateCeuticals™ Essentials Kit",simple,10226,"Kate Somerville",Anti-Aging;Dry,,enabled,388
+"Now You See It, Now You Don't Kit",simple,10224,"Kate Somerville",,,enabled,59
+"Simply Glowing Kit",simple,10222,"Kate Somerville",,,enabled,127
+"Kate's Luminous & Bright Kit (Complimentary Gift)",simple,16255,"Kate Somerville",,,enabled,141
+"Dilo Oil Restorative Treatment (Sample)",simple,39032,"Kate Somerville","Anti-Aging;All Skin Types",,disabled,0
+"Daily Deflector™ Waterlight Broad Spectrum SPF 50+ PA+++ Anti-Aging Sunscreen (Sample)",simple,39033,"Kate Somerville","Anti-Aging;All Skin Types",,enabled,675
+"Eczema Therapy Cream (Sample)",simple,39034,"Kate Somerville","Anti-Aging;All Skin Types",,enabled,548
+"LumiWhite Skin Tone Perfector (Sample)",simple,39035,"Kate Somerville","Anti-Aging;All Skin Types",,enabled,486
+"IllumiKate™ Concealing Eye Cream Light (Sample)",simple,39038,"Kate Somerville","Anti-Aging;All Skin Types",,enabled,991
+"IllumiKate™ Concealing Eye Cream Medium (Sample)",simple,39039,"Kate Somerville","Anti-Aging;All Skin Types",,enabled,1072
+"IllumiKate™ Concealing Eye Cream Dark (Sample)",simple,39040_old,"Kate Somerville","Anti-Aging;All Skin Types",,disabled,0
+"KateCeuticals™ Contouring Eye Serum",simple,10225,"Kate Somerville Eye Creams",Anti-Aging,"reduces discoloration;reduces expression lines;reduces fine lines and wrinkles;very dry skin",enabled,475
+"EradiKate Mask Foam-Activated Acne Treatment",simple,10219,"Kate Somerville Acne Treatments","Anti-Aging & Acne;Acne","helps treat cystic acne;helps treat whiteheads;treats and prevents acne;controls shine;reduces redness;dry skin",enabled,779
+"Quench Hydrating Face Serum (Allure Gift)",simple,16272,"Kate Somerville Serums",Anti-Aging;Sensitive;Dry,,disabled,-21
+"Age Arrest Anti-Wrinkle Cream",configurable,10193_AgeArrest,"Kate Somerville Moisturizers","Anti-Aging & Acne;Acne;Oily","acne prone skin;helps control shine;improves elasticity;improves firmness;improves smoothness;oily skin;reduces crow's feet;reduces expression lines;reduces fine lines and wrinkles;supports cell turnover;improves moisture barrier;oil free",enabled,0
+"Age Arrest Anti-Wrinkle Cream, 5 Fl. Oz. Luxury Size",simple,10223,"Kate Somerville Moisturizers",Anti-Aging;Sensitive,"dry skin;evens overall skin tone;helps reduce redness;improves elasticity;improves firmness;improves smoothness;reduces crow's feet;reduces expression lines;reduces fine lines and wrinkles;reduces the appearance of discoloration;sensitive skin;very dry skin;improves moisture barrier",enabled,589
+"Travel-size Deep Tissue Repair Cream and RetAsphere 2-in-1 Retinol Night Cream (Complimentary Gift)",simple,16271,"Kate Somerville",,,enabled,179
+"ExfoliKate Intensive Exfoliating Treatment (Complimentary Gift)",simple,16275,"Kate Somerville",,,enabled,88
+"Deep Tissue Repair Cream with Peptide K8 (Complimentary Gift)",simple,,"Kate Somerville",,,disabled,0
+"Deep Tissue Repair Cream with Peptide K8 0.5 Fl. Oz. (Complimentary Gift)",simple,16276,"Kate Somerville",,,enabled,359
+"Age Arrest Anti-Wrinkle Cream (Auto-Replenishment Deluxe Sample)",simple,16277,"Kate Somerville Moisturizers","Sensitive;All Skin Types",,enabled,500
+"RetAsphere 2-in-1 Retinol Night Cream (Auto-Replenishment Deluxe Sample)",simple,16279,"Kate Somerville Moisturizers","Sensitive;All Skin Types",,enabled,45
+"Dilo Oil Restorative Treatment (Auto-Replenishment Deluxe Sample)",simple,16278,"Kate Somerville Moisturizers","Sensitive;All Skin Types",,enabled,420
+"ExfoliKate® Intensive Exfoliating Treatment, 0.5 Fl. Oz. Travel Size Holiday Ornament",simple,10230,"Kate Somerville Exfoliators","Anti-Aging;Anti-Aging & Acne;Discoloration;Dry;Oily;All Skin Types",,disabled,173
+"Luminous Holiday Kit",simple,13055,"Kate Somerville",Anti-Aging;Dry,,disabled,495
+"Shimmering Holiday Kit",simple,13057,"Kate Somerville",Anti-Aging;Dry,,disabled,499
+"Glowing Holiday Kit",simple,13053,"Kate Somerville",Anti-Aging;Dry,,disabled,490
+"Age Arrest Holiday Kit",simple,13050,"Kate Somerville",Anti-Aging;Dry,,disabled,481
+"Flawless Essentials Holiday Kit",simple,13052,"Kate Somerville",Anti-Aging;Dry,,disabled,493
+"Clear Solutions Holiday Kit",simple,13051,"Kate Somerville",Anti-Aging;Dry,,disabled,497
+"Men's Essentials Holiday Kit",simple,13056,"Kate Somerville",Anti-Aging;Dry,,disabled,498
+"KateCeuticals™ Holiday Kit",simple,13054,"Kate Somerville",Anti-Aging;Dry,,disabled,497
+"Nourish Body Perfection Body Rescue Cream (Complimentary Gift)",simple,16196,"Kate Somerville",,,enabled,2
+"Nourish Daily Moisturizer (Complimentary Gift)",simple,16064,"Kate Somerville Moisturizers",,"combination skin;evens overall skin tone;reduces crow's feet;reduces expression lines;reduces fine lines and wrinkles;sensitive skin",enabled,63
+"Nourish HydraGel Mask",simple,10229,"Kate Somerville Masks",,,enabled,43
+"Oil Free Moisturizer (Complimentary Gift)",simple,16201,"Kate Somerville Moisturizers",,,enabled,123
+"Complimentary Gift- ExfoliKate Intensive (7.5mL) & RetAsphere 2-in-1 (7.5mL)",simple,13060,"Kate Somerville",,,enabled,285
+"DermalQuench Liquid Lift™ Advanced Wrinkle Treatment, 0.5 Fl. Oz.",simple,10214,"Kate Somerville Anti Aging Treatments",,,enabled,172
+"Nourish Hydrating Firming Mist",simple,10228,"Kate Somerville",,,enabled,1397
+CrdDrmlBstrTrHK,simple,"80434 ",Default,,,disabled,0
+"DQ Retinol 2.5o",simple,"10234 ",Default,,,disabled,0
+AAAnti-AgingDuo,simple,"10235 ",Default,,,disabled,0
+RdCrptEsntilsKt,simple,"10236 ",Default,,,disabled,0
+SmpGlowCan,simple,"11141 ",Default,,,disabled,0
+"ClncSltn Can",simple,"11142 ",Default,,,disabled,0
+EK.5ozHldyBg,simple,"11143 ",Default,,,disabled,0
+"HlwdGlow EK&Qch",simple,"11146 ",Default,,,disabled,0
+ErdKAc&Msk,simple,"13061 ",Default,,,disabled,0
+NordAnniv2015,simple,"13062 ",Default,,,disabled,0
+"ErdKtMsk 2oz",simple,"14071 ",Default,,,disabled,0
+"KC R-A Crm 1.7o",simple,"14072 ",Default,,,disabled,0
+"A267470 000 000",simple,"15097 ",Default,,,disabled,0
+"A267967 000 000",simple,"15098 ",Default,,,disabled,0
+"DQ Retinol2.5oz",simple,"15099 ",Default,,,disabled,0
+HlwdScrtKtHK,simple,"16293 ",Default,,,disabled,0
+"PrPk Mrc'15Nord",simple,"16294 ",Default,,,disabled,0
+KCReviveCrm,simple,"16295 ",Default,,,disabled,0
+PrmPrtcSPF15WIP,simple,"20131 ",Default,,,disabled,0
+"DQ Retinol WIP",simple,"20135 ",Default,,,disabled,0
+NourMist10mLUPC,simple,"35292 ",Default,,,disabled,0
+"PrmPrt 5mL",simple,"35293 ",Default,,,disabled,0
+"AASrm 7.5mL",simple,"35294 ",Default,,,disabled,0
+"Can DQRtnl2.5oz",simple,"40936 ",Default,,,disabled,0
+"Tb PrmPrtc7.5mL",simple,"40940 ",Default,,,disabled,0
+"Tb AA Srm7.5mL",simple,"40941 ",Default,,,disabled,0
+"UPC IlKt ELghtC",simple,"47231 ",Default,,,disabled,0
+"UPC IlKtE Drk C",simple,"47233 ",Default,,,disabled,0
+"Blk DQ Retinol",simple,"60112 ",Default,,,disabled,0
+"Bulk PP SPF",simple,"60113 ",Default,,,disabled,0
+"Machine Wheels",simple,"70029 ",Default,,,disabled,0
+"Lbl SogoTSTCntr",simple,"80431 ",Default,,,disabled,0
+"Mirror w KSLogo",simple,"80436 ",Default,,,disabled,0
+LeafletNourHK,simple,"80437 ",Default,,,disabled,0
+ShprWht5x5x3,simple,"90286 ",Default,,,disabled,0
+"InnerPk 1ozTbs",simple,"90288 ",Default,,,disabled,0
+"Shipper 1oz Tb",simple,"90289 ",Default,,,disabled,0
+"MF Nour15mLwUPC",simple,"MF10233 ",Default,,,disabled,0
+PolyBag7x8,simple,"90287 ",Default,,,disabled,0
+"MF AAFace&E Duo",simple,"MF10235 ",Default,,,disabled,0
+"MF RdCrptEsntls",simple,"MF10236 ",Default,,,disabled,0
+"MF DQRtnl 2.5oz",simple,"MF10234 ",Default,,,disabled,0
+"OBS 012215",simple,"MF11148 ",Default,,,disabled,0
+MFPrmPrtSPF15Ca,simple,"MF11110 ",Default,,,disabled,0
+MFClnSltnNoStkr,simple,"MF11150 ",Default,,,disabled,0
+"MF NourMsk(2)Ts",simple,"MF12107 ",Default,,,disabled,0
+"MF ErdKAc&Msk",simple,"MF13061 ",Default,,,disabled,0
+"MF ErdKtMkTstAU",simple,"MF12108 ",Default,,,disabled,0
+"MF NordAnniv'15",simple,"MF13062 ",Default,,,disabled,0
+"MF ErdKtMsk 2oz",simple,"MF14071 ",Default,,,disabled,0
+"MF KC M-A 1.7oz",simple,"MF14072 ",Default,,,disabled,0
+MFA266465000000,simple,"MF15096 ",Default,,,disabled,0
+MFA267470000000,simple,"MF15097 ",Default,,,disabled,0
+"MF A267967",simple,"MF15098 ",Default,,,disabled,0
+"MF DQ Retinol",simple,"MF15099 ",Default,,,disabled,0
+"MF PrPkJan'15#1",simple,"MF16288 ",Default,,,disabled,0
+"MF PrPkJan'15#2",simple,"MF16289 ",Default,,,disabled,0
+MFPrPkApr'15Nor,simple,"MF16292 ",Default,,,disabled,0
+MFPrPkMrch'15NM,simple,"MF16291 ",Default,,,disabled,0
+MFPrPkMrch'15No,simple,"MF16294 ",Default,,,disabled,0
+"MF KCReviveCrm",simple,"MF16295 ",Default,,,disabled,0
+MFBdGlw5ozTOA,simple,"MF16296 ",Default,,,disabled,0
+"MF PrmPrtSPF30W",simple,"MF20131 ",Default,,,disabled,0
+"MF DQRtnl WIP",simple,"MF20135 ",Default,,,disabled,0
+"MF NourMskWIP",simple,"MF20134 ",Default,,,disabled,0
+MFRetA7.5mLwUPC,simple,"MF35289 ",Default,,,disabled,0
+MFNorMsk25pk,simple,"MF35290 ",Default,,,disabled,0
+MFNourMt10mlUPC,simple,"MF35292 ",Default,,,disabled,0
+"MF PrmPrtc 5mL",simple,"MF35293 ",Default,,,disabled,0
+"MF AASrm7.5mL",simple,"MF35294 ",Default,,,disabled,0
+"Nourish HydraGel Mask (Sample)",simple,39048,"Kate Somerville",,,disabled,0
+"Prime Protection Dual Action Primer Broad Spectrum SPF15 (Sample)",simple,39040,"Kate Somerville",,,disabled,0
+"Age Arrest Anti-Wrinkle Serum (Sample)",simple,39044,"Kate Somerville",,,disabled,0
+"Beautiful Indulgences Gift Set",simple,10231,"Kate Somerville",,,enabled,96
+"Age Arrest Serum",simple,10196,"Kate Somerville Serums",,,disabled,0
+"KateCeuticals™ Multi-Active Revive Cream (Sample)",simple,39046,"Kate Somerville",,,disabled,0
+"Age Arrest Anti-Wrinkle Cream (Auto-Replenishment Deluxe Sample)",simple,35288,"Kate Somerville Moisturizers","Sensitive;All Skin Types",,disabled,300
+"ExfoliKate Gentle Exfoliating Treatment 7.5 mL (Complimentary Gift)",simple,35186,"Kate Somerville",,,enabled,43
+"Gentle Daily Wash 1 Fl. Oz. (Complimentary Gift)",simple,35232,"Kate Somerville",,,enabled,93
+"Body Glow Sunscreen Broad Spectrum SPF 20 (Complimentary Gift)",simple,16296,"Kate Somerville",,,enabled,114
+"Prime Protection Dual Action Primer Broad Spectrum SPF 15",simple,10232,"Kate Somerville",,,enabled,249

@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<config>
+	<tabs>
+		<katesomerville translate="label" module="requiredsku">
+            <label>Kate Somerville</label>
+			<sort_order>0</sort_order>
+		</katesomerville>
+	</tabs>
+	<sections>
+		<alliance_offers translate="label">
+			<label>Offers Configuration</label>
+			<tab>katesomerville</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>1</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<requiredsku_configuration translate="label">
+					<label>Complimentary Item with Required SKU Settings</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>200</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<enabled translate="label comment">
+							<label>Enabled</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</enabled>
+						<order translate="label comment">
+							<label>Order</label>
+							<frontend_type>Text</frontend_type>
+							<sort_order>15</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<validate>validate-digits</validate>
+						</order>
+						<title translate="label comment">
+							<label>Title</label>
+							<frontend_type>Text</frontend_type>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title>
+						<description translate="label comment">
+							<label>Description</label>
+							<frontend_type>Textarea</frontend_type>
+							<sort_order>25</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</description>
+						<customer_group translate="label comment">
+							<label>Customer Group</label>
+							<frontend_type>Multiselect</frontend_type>
+							<source_model>requiredsku/system_config_source_customer_group</source_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</customer_group>
+						<minimum_amount translate="label comment">
+							<label>Minimum Order Amount</label>
+							<frontend_type>Text</frontend_type>
+							<validate>validate-number</validate>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</minimum_amount>
+						<category_id translate="label comment">
+							<label>Product category</label>
+							<frontend_type>Select</frontend_type>
+							<source_model>requiredsku/system_config_source_category</source_model>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</category_id>
+						<required_sku translate="label comment">
+							<label>Required SKU</label>
+							<frontend_type>Text</frontend_type>
+							<sort_order>60</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</required_sku>
+					</fields>
+				</requiredsku_configuration>
+			</groups>
+		</alliance_offers>
+	</sections>
+</config>

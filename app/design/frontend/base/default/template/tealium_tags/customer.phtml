@@ -1,0 +1,15 @@
+<?php
+
+$helper = Mage::helper('tealium_tags');
+$store = Mage::app()->getStore();
+
+if (!$helper->isEnabled($store)) {
+    return; // not enabled, no javascript inserted
+}
+
+
+$tealium = $helper->getTealiumObject($store, $this);
+$tealium->pageType("Customer");
+echo $tealium->render("udo");
+echo $helper->getDiagnosticTag($store);
+?>

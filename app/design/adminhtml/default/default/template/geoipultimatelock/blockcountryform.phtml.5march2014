@@ -1,0 +1,291 @@
+<?php
+/**
+ * Geoip Ultimate Lock extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * @category   FME
+ * @package    Geoipultimatelock
+ * @author     R.Rao <rafay.tahir@unitedsol.net>
+ * @copyright  Copyright 2010 © free-magentoextensions.com All right reserved
+ */
+?>
+<?php
+$id = $this->getRequest()->getParam('id');
+$flagWidth = 'width = "25px" height="15px"';
+//get Countries names from cc table
+$results = Mage::helper('geoipultimatelock')->getCountries();
+$continents = Mage::helper('geoipultimatelock')->getContinentsName();
+//get Blocked countries from geoipblockedcountries table
+$aclcountries = Mage::helper('geoipultimatelock')->getBlockedCountries($id);
+
+$flagsUrl = $this->getSkinUrl('images/geoipflags/');
+?>
+<script type="text/javascript">
+    var $j = jQuery.noConflict();
+
+    $j(document).ready(function() {
+
+
+        $j("#cabutton").live("click", checkall);
+        $j("#ucabutton").live("click", uncheckall);
+
+        $j("#africainp").live("click", checkafrica);
+        $j("#asiainp").live("click", checkasia);
+        $j("#europeinp").live("click", checkeurope);
+        $j("#namericainp").live("click", checknamerica);
+        $j("#oceaniainp").live("click", checkoceania);
+        $j("#samericainp").live("click", checksamerica);
+        $j("#otherinp").live("click", checkothers);
+
+        $j(".test_left ul").accordion();
+
+    });
+
+    function checkafrica() {
+        if ($j('#africainp').attr('checked'))
+            $j('.africacbox').attr('checked', true);
+        else
+            $j('.africacbox').attr('checked', false);
+    }
+
+
+    function checkasia() {
+        if ($j('#asiainp').attr('checked'))
+            $j('.asiacbox').attr('checked', true);
+        else
+            $j('.asiacbox').attr('checked', false);
+    }
+
+    function checkeurope() {
+        if ($j('#europeinp').attr('checked'))
+            $j('.europecbox').attr('checked', true);
+        else
+            $j('.europecbox').attr('checked', false);
+    }
+
+    function checknamerica() {
+        if ($j('#namericainp').attr('checked'))
+            $j('.namericacbox').attr('checked', true);
+        else
+            $j('.namericacbox').attr('checked', false);
+    }
+
+
+    function checkoceania() {
+        if ($j('#oceaniainp').attr('checked'))
+            $j('.oceaniacbox').attr('checked', true);
+        else
+            $j('.oceaniacbox').attr('checked', false);
+    }
+
+    function checksamerica() {
+        if ($j('#samericainp').attr('checked'))
+            $j('.samericacbox').attr('checked', true);
+        else
+            $j('.samericacbox').attr('checked', false);
+    }
+
+    function checkothers() {
+        if ($j('#otherinp').attr('checked'))
+            $j('.othercbox').attr('checked', true);
+        else
+            $j('.othercbox').attr('checked', false);
+    }
+
+    function checkall() {
+
+        //alert("checked");
+        $j('.cboxinput').attr('checked', true);
+
+        $j('#africainp').attr('checked', true);
+        $j('#asiainp').attr('checked', true);
+        $j('#europeinp').attr('checked', true);
+        $j('#namericainp').attr('checked', true);
+        $j('#oceaniainp').attr('checked', true);
+        $j('#samericainp').attr('checked', true);
+        $j('#otherinp').attr('checked', true);
+
+    }
+
+    function uncheckall() {
+
+
+        $j('.cboxinput').attr('checked', false);
+
+        $j('#africainp').attr('checked', false);
+        $j('#asiainp').attr('checked', false);
+        $j('#europeinp').attr('checked', false);
+        $j('#namericainp').attr('checked', false);
+        $j('#oceaniainp').attr('checked', false);
+        $j('#samericainp').attr('checked', false);
+        $j('#otherinp').attr('checked', false);
+    }
+</script>
+
+
+<?php
+$main_i = 0;
+$countriesArr = array();
+$countriesArrcc = array();
+
+foreach ($results as $row) {
+
+
+    //finds the continent of a country and places it in its continent array.        
+    if (Mage::helper('geoipultimatelock')->getcontinent($row["cn"]) == 1) {
+        $countriesArr['africa'][] = $row["cn"];
+        //$africa[] = $row["cn"];
+        $countriesArrcc['africa'][] = $row["cc"];
+        //$africacc[] = $row["cc"];
+    } else if (Mage::helper('geoipultimatelock')->getcontinent($row["cn"]) == 2) {
+        $countriesArr['asia'][] = $row["cn"];
+        $countriesArrcc['asia'][] = $row["cc"];
+    } else if (Mage::helper('geoipultimatelock')->getcontinent($row["cn"]) == 3) {
+        $countriesArr['europe'][] = $row["cn"];
+        $countriesArrcc['europe'][] = $row["cc"];
+    } else if (Mage::helper('geoipultimatelock')->getcontinent($row["cn"]) == 4) {
+        $countriesArr['north_america'][] = $row["cn"];
+        $countriesArrcc['north_america'][] = $row["cc"];
+    } else if (Mage::helper('geoipultimatelock')->getcontinent($row["cn"]) == 5) {
+        $countriesArr['oceania'][] = $row["cn"];
+        $countriesArrcc['oceania'][] = $row["cc"];
+    } else if (Mage::helper('geoipultimatelock')->getcontinent($row["cn"]) == 6) {
+        $countriesArr['south_america'][] = $row["cn"];
+        $countriesArrcc['south_america'][] = $row["cc"];
+    } else if (Mage::helper('geoipultimatelock')->getcontinent($row["cn"]) == 7) {
+        $countriesArr['others'][] = $row["cn"];
+        $countriesArrcc['others'][] = $row["cc"];
+    }
+}
+
+//echo '<pre>';print_r($countriesArr);echo '</pre>';
+?>
+
+
+
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4 class="icon-head head-edit-form fieldset-legend"><?php echo $this->__("Edit Blocked Countries List") ?></h4>
+    </div>
+    <div id="group_fields4" class="fieldset fieldset-wide">
+        <div class="hor-scroll">
+            <input type="hidden" name="cnid" value="<?php echo $id ?>">
+            <span class="countrieslistlabel"><?php echo $this->__("NOTE: Check country to block from being visiting the site or uncheck to allow the country.") ?></span><br/>
+        </div>
+    </div>
+</div>
+
+
+<div class="test_left">
+    <ul class="accordion">
+
+        <?php foreach ($continents as $c): ?>
+
+            <?php 
+            
+                $sc = strtolower($c); 
+                $titleContinent = str_replace('_', ' ', ucwords($sc));
+            ?>
+            <li>
+                <div class="inp"><input id="<?php echo $sc ?>inp" name="blocked_countries[<?php echo $sc ?>]" type="checkbox" <?php echo (sizeof($aclcountries[$sc]) != 0)?'checked="checked"': ''; ?> value="1"></div>
+                <a href="javascript:void(0)">&nbsp;&nbsp;<?php echo $this->__($titleContinent) ?></a>
+                <div class="mapdiv">
+
+                    <table cellspacing="0" class="form-list">
+                        <tbody>
+                            <?php $i = 0; ?>
+                            <?php
+                            for ($x = 0; $x < sizeof($countriesArr[$sc]); $x++) {
+                                
+                                $checked = false;
+                                
+                                if (isset($aclcountries[$sc])) {
+                                    
+                                    foreach ($aclcountries[$sc] as $aclc) {
+
+                                        if (strcmp($aclc, $countriesArr[$sc][$x]) == 0) {
+                                            
+                                            $checked = true;
+                                        }
+                                    }
+                                }
+                                ?>
+                                <?php if (($i++) % 3 == 0): ?> 
+                                    <tr>
+                                    <?php endif; ?>
+                                    <?php if (($i - 1) % 3 == 0): ?>      
+                                        <td class="cboxflag"> <img <?php echo $flagWidth; ?> src="<?php echo $flagsUrl . strtolower($countriesArrcc[$sc][$x]) . '.png'; ?>" alt="<?php echo $countriesArr[$sc][$x]; ?>" /></td>
+                                        <td class="cboxtd">
+                                            <input class="cboxinput <?php echo $sc ?>cbox" type="checkbox" name="blocked_countries[<?php echo $sc ?>][]" <?php if ($checked) echo "checked=\"checked\""; ?> value="<?php echo $countriesArr[$sc][$x]; ?>">
+                                        </td>
+                                        <td class="cboxlabel"><?php echo $countriesArr[$sc][$x]; ?></td>
+                                    <?php endif; ?>    
+
+
+
+                                    <?php if (($i - 1) % 3 == 1): ?>      
+                                        <td class="cboxflag"> <img <?php echo $flagWidth; ?> src="<?php echo $flagsUrl . strtolower($countriesArrcc[$sc][$x]) . '.png'; ?>" alt="<?php echo $countriesArr[$sc][$x]; ?>" /></td>
+                                        <td class="cboxtd">
+                                            <input class="cboxinput <?php echo $sc ?>cbox" type="checkbox" name="blocked_countries[<?php echo $countriesArr[$sc] ?>][]" <?php if ($checked) echo "checked=\"checked\""; ?> value="<?php echo $countriesArr[$sc][$x]; ?>">
+                                        </td>
+                                        <td class="cboxlabel"><?php echo $countriesArr[$sc][$x]; ?></td>
+                                    <?php endif; ?>    
+
+
+
+                                    <?php if (($i - 1) % 3 == 2): ?>      
+                                        <td class="cboxflag"> <img <?php echo $flagWidth; ?> src="<?php echo $flagsUrl . strtolower($countriesArrcc[$sc][$x]) . '.png'; ?>" alt="<?php echo $countriesArr[$sc][$x]; ?>" /></td>
+                                        <td class="cboxtd">
+                                            <input class="cboxinput <?php echo $countriesArr[$sc] ?>cbox" type="checkbox" name="blocked_countries[<?php echo $countriesArr[$sc] ?>][]" <?php if ($checked) echo "checked=\"checked\""; ?> value="<?php echo $countriesArr[$sc][$x]; ?>">
+                                        </td>
+                                        <td class="cboxlabel"><?php echo $countriesArr[$sc][$x]; ?></td>
+                                    <?php endif; ?>    
+
+
+                                    <?php if (($i) == sizeof($countriesArr[$sc]) && ($i) % 3 == 1): ?>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    <?php endif; ?>  
+
+
+                                    <?php if (($i) == sizeof($countriesArr[$sc]) && ($i) % 3 == 2): ?>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    <?php endif; ?>      
+
+
+
+
+
+                                    <?php if (($i) % 3 == 0): ?>
+                                    </tr>    
+                                <?php endif; ?> 
+
+
+
+
+                            <?php } ?>
+                        </tbody>
+                    </table>
+
+                </div>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</div>
+
+
+
+

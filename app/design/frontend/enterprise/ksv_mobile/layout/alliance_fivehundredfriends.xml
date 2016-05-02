@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout version="0.1.0">
+	<checkout_onepage_success translate="label">
+        <label>One Page Checkout Success</label>
+        <reference name="content">
+            <block type="alliance_fivehundredfriends/checkout_referral" template="alliance_fivehundredfriends/checkout/referral.phtml"/>
+        </reference>
+    </checkout_onepage_success>
+	
+    <katerewards_index_index>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column-responsive.phtml</template>
+            </action>
+            <reference name="head">
+                <action method="addItem">
+                    <type>skin_css</type>
+                    <script>css/new-ukr.css</script>
+                </action>
+            </reference>
+        </reference>
+        <reference name="content">
+            <block type="core/template" name="new_ukr_template" template="cms/new-ukr.phtml"/>
+        </reference>
+    </katerewards_index_index>
+
+    <katerewards_enroll_thanks>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="alliance_fivehundredfriends/enroll_thanks" template="alliance_fivehundredfriends/enroll/thanks.phtml" name="katerewards_enrollment_thanks"/>
+        </reference>
+    </katerewards_enroll_thanks>
+	
+	 <customer_account_index>
+        <reference name="customer_account_dashboard">				
+			<block type="alliance_fivehundredfriends/customer_rewards" name="rewards500" as="rewards500" template="alliance_fivehundredfriends/customer/rewards.phtml"/>
+        </reference>
+    </customer_account_index>
+	
+	<checkout_cart_index>
+		<reference name="cart.sidebar.right">
+			<block type="alliance_fivehundredfriends/redemption_cart" name="fivehundredfriends.redemption.rewards"/>
+		</reference>
+	</checkout_cart_index>
+</layout>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Alliance_BannerSlider>
+            <version>1.1.0</version>
+        </Alliance_BannerSlider>
+    </modules>
+
+    <global>
+        <helpers>
+            <alliance_bannerslider>
+                <class>Alliance_BannerSlider_Helper</class>
+            </alliance_bannerslider>
+        </helpers>
+
+        <blocks>
+            <alliance_bannerslider>
+                <class>Alliance_BannerSlider_Block</class>
+            </alliance_bannerslider>
+        </blocks>
+
+        <models>
+            <alliance_bannerslider>
+                <class>Alliance_BannerSlider_Model</class>
+                <resourceModel>alliance_bannerslider_resource</resourceModel>
+            </alliance_bannerslider>
+
+            <alliance_bannerslider_resource>
+                <class>Alliance_BannerSlider_Model_Resource</class>
+                <entities>
+                    <slider>
+                        <table>alliance_bannerslider_slider</table>
+                    </slider>
+                    <banner>
+                        <table>alliance_bannerslider_banner</table>
+                    </banner>
+                </entities>
+            </alliance_bannerslider_resource>
+        </models>
+
+        <resources>
+            <alliance_bannerslider_setup>
+                <setup>
+                    <module>Alliance_BannerSlider</module>
+                </setup>
+            </alliance_bannerslider_setup>
+        </resources>
+    </global>
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Alliance_BannerSlider before="Mage_Adminhtml">Alliance_BannerSlider_Adminhtml</Alliance_BannerSlider>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <alliance_bannerslider>
+                    <file>alliance/bannerslider.xml</file>
+                </alliance_bannerslider>
+            </updates>
+        </layout>
+    </adminhtml>
+
+    <frontend>
+        <layout>
+            <updates>
+                <alliance_bannerslider>
+                    <file>alliance_bannerslider.xml</file>
+                </alliance_bannerslider>
+            </updates>
+        </layout>
+        <routers>
+            <alliance>
+                <use>standard</use>
+                <args>
+                    <module>Alliance_BannerSlider</module>
+                    <frontName>alliance</frontName>
+                </args>
+            </alliance>
+        </routers>
+    </frontend>
+</config>

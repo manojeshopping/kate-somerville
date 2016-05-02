@@ -1,0 +1,66 @@
+<script>
+    jQuery(document).ready(function () {
+        jQuery("#enrollnow").click(function () {
+            jQuery("#registercontainer").toggle("slow");
+        });
+    });
+    jQuery(document).ready(function () {
+        jQuery("#signin").click(function () {
+            jQuery('.overlay-content').css('display', 'block');
+            jQuery('.overlay-bg').css('display', 'block');
+        });
+        jQuery("#close").click(function () {
+            jQuery('.overlay-content').css('display', 'none');
+            jQuery('.overlay-bg').css('display', 'none');
+        });
+    });
+</script>
+
+<div class="kate-rewards">
+
+    <div class="entry-content">
+
+        <div class="entry-image"><img title="Ultimate Kate Rewards"
+                                      src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . "wysiwyg/katerewards.jpg"; ?>"
+                                      alt="Ultimate Kate Rewards"/></div>
+
+        <p>Kate's promise to you is simple: <br/> <span style="color: #6db5da;">Renew Skin</span>, <span style="color: #98d8d1;">Restore Health</span>, <span
+                style="color: #f9a451;">Deliver Results.</span></p>
+
+        <p>In additon to achieving healthy, glowing complexion, Kate believes you should be rewarded too. Redeem your Ultimate Kate Rewards points for products
+            and exclusive VIP-only benefits!</p>
+
+        <ul class="buttons">
+            <li class="one-half"><a class="button" id="enrollnow">Enroll Now</a></li>
+            <li class="one-half"><a class="button" id="signin">Sign In</a></li>
+        </ul>
+
+        <div style="display:none; margin-bottom:20px; clear:both;"
+             id="registercontainer"><?php echo $this->getChildHtml('katerewards_enrollment_notloggedin_register') ?></div>
+
+        <h3>SIGN UP</h3>
+
+        <p>Create a free Ultimate Kate Rewards account using your email address. Connect your Facebook and/or Twitter accounts to start earning points right
+            away!</p>
+
+        <h3>EARN POINTS</h3>
+
+        <p>Earning points is easy! Once you enroll, check out everything the Ultimate Kate Rewards program has to offer and see how quickly you can start
+            earning points and rewards!</p>
+
+        <h3>GET REWARDS</h3>
+
+        <p>Kate's promise to you is simple: Renew Skin, Restore Health and Deliver Results. In a addition to achieving a healthy, glowing complexion, Kate
+            believes you should be rewarded too. Redeem your Ultimate Kate Rewards points for products and exclusive VIP-only benefits!</p>
+
+    </div>
+
+</div>
+
+<div class="overlay-bg">
+    <div class="overlay-content">
+        <span class="close"><a id="close">close</a></span>
+        <?php echo $this->getChildHtml('katerewards_enrollment_notloggedin_login') ?>
+    </div>
+</div>
+

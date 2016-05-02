@@ -1,0 +1,147 @@
+<?xml version="1.0" ?>
+<config>
+    <modules>
+        <Alliance_Kiosk>
+            <version>0.0.1</version>
+        </Alliance_Kiosk>
+    </modules>
+     <admin>
+        <routers>
+            <adminhtml>
+				<args>
+					<modules>
+						<kiosk before="Mage_Adminhtml">Alliance_Kiosk_Adminhtml</kiosk>
+					</modules>
+				</args>
+			</adminhtml>
+        </routers>
+    </admin>
+    <frontend>
+        <layout>
+            <updates>
+                <kiosk module="kiosk">
+                    <file>kiosk.xml</file>
+                </kiosk>
+            </updates>
+        </layout>
+        <routers>
+            <kiosk>
+                <use>standard</use>
+                <args>
+                    <module>Alliance_Kiosk</module>
+                    <frontName>kiosk</frontName>
+                </args>
+            </kiosk>
+        </routers>   
+    </frontend>
+    <adminhtml>
+        <menu>
+            <kiosk module="kiosk">
+            <title>Kiosk</title>
+            <sort_order>77</sort_order>
+                <children>
+                    <report module="kiosk">
+                        <title>See Report</title>
+                        <sort_order>0</sort_order>
+                        <action>adminhtml/kiosk_report</action>
+                    </report>
+                    <question module="kiosk">
+                        <title>Manage Questions</title>
+                        <sort_order>1</sort_order>
+                        <action>adminhtml/kiosk_question</action>
+                    </question>
+                </children>
+            </kiosk>
+        </menu>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <kiosk>
+                            <title>Kiosk Module</title>
+                            <sort_order>200</sort_order>
+															<children>
+												        <report module="kiosk">
+												            <title>See Report</title>
+												            <sort_order>0</sort_order>
+												        </report>
+												        <question module="kiosk">
+												            <title>Manage Questions</title>
+												            <sort_order>1</sort_order>
+												        </question>
+               						 </children>
+                        </kiosk>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <layout>
+            <updates>
+                <kiosk>
+                    <file>kiosk.xml</file>
+                </kiosk>
+            </updates>
+        </layout>
+    </adminhtml>
+    <global>
+        <models>
+            <kiosk>
+                <class>Alliance_Kiosk_Model</class>
+                <resourceModel>kiosk_resource</resourceModel>
+            </kiosk>
+            <kiosk_resource>
+                <class>Alliance_Kiosk_Model_Resource</class>
+                <entities>
+                    <question>
+                        <table>nordstrom_quiz_questions</table>
+                    </question>
+                    <answer>
+                        <table>nordstrom_quiz_answers</table>
+                    </answer>
+                    <attribute>
+                        <table>nordstrom_quiz_attributes</table>
+                    </attribute>
+                    <report>
+                        <table>nordstrom_quiz_completed</table>
+                    </report>
+                    <supplement>
+                        <table>nordstrom_quiz_completed_details</table>
+                    </supplement>
+                </entities>
+            </kiosk_resource>
+        </models>
+        <resources>
+            <kiosk_setup>
+                <setup>
+                    <module>Alliance_Kiosk</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </kiosk_setup>
+            <kiosk_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </kiosk_write>
+            <kiosk_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </kiosk_read>
+        </resources>
+        <blocks>
+            <kiosk>
+                <class>Alliance_Kiosk_Block</class>
+            </kiosk>
+        </blocks>
+        <helpers>
+            <kiosk>
+                <class>Alliance_Kiosk_Helper</class>
+            </kiosk>
+        </helpers>
+    </global>
+</config>

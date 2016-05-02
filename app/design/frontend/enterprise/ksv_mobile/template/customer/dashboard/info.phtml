@@ -1,0 +1,256 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+
+
+<div class="box-set" style="display:block;">
+    <h3>Edit Account Information</h3>
+    <div class="box">
+        <div class="box-content">
+            <form action="<?php echo $this->getUrl('customer/account/editPost') ?>" method="post" id="form-validate" enctype="multipart/form-data">
+
+                <div class="fieldset">
+                    <?php echo $this->getBlockHtml('formkey')?>
+                    <ul class="form-list">
+                        <li class="fields">
+                            <?php echo $this->getLayout()->createBlock('customer/widget_name')->setObject($this->getCustomer())->toHtml() ?>
+                        </li>
+                        <li>
+                            <label for="email" class="required"><em>*</em><?php echo $this->__('Email Address') ?></label>
+                            <div class="input-box">
+                                <input type="text" name="email" id="email" value="<?php echo $this->htmlEscape($this->getCustomer()->getEmail()) ?>" title="<?php echo $this->__('Email Address') ?>" class="input-text required-entry validate-email" />
+                            </div>
+                        </li>
+                        <?php $_dob = $this->getLayout()->createBlock('customer/widget_dob') ?>
+                        <?php if ($_dob->isEnabled()): ?>
+                            <li><?php echo $_dob->setDate($this->getCustomer()->getDob())->toHtml() ?></li>
+                        <?php endif ?>
+                        <?php $_taxvat = $this->getLayout()->createBlock('customer/widget_taxvat') ?>
+                        <?php if ($_taxvat->isEnabled()): ?>
+                            <li><?php echo $_taxvat->setTaxvat($this->getCustomer()->getTaxvat())->toHtml() ?></li>
+                        <?php endif ?>
+                        <?php $_gender = $this->getLayout()->createBlock('customer/widget_gender') ?>
+                        <?php if ($_gender->isEnabled()): ?>
+                            <li><?php echo $_gender->setGender($this->getCustomer()->getGender())->toHtml() ?></li>
+                        <?php endif ?>
+                        <li class="control checkboxes">
+                            <input type="checkbox" name="change_password" id="change_password" value="1" onclick="setPasswordForm(this.checked)" title="<?php echo $this->__('Change Password') ?>"<?php if($this->getCustomer()->getChangePassword()==1): ?> checked="checked"<?php endif; ?> class="checkbox" /><label for="change_password"><?php echo $this->__('Change Password') ?></label>
+                        </li>
+
+
+
+
+
+
+              <li class="skin-care checkboxes">
+                            <fieldset class="skin-concerns" data-role="controlgroup">
+                            <legend>Please select your two main skin concerns:</legend>
+                            <fieldset class="skin-concerns primary-skin-concern" data-role="controlgroup">
+                                <legend>Primary:</legend>	
+                                <input type="checkbox" name="primary_skin_concern" id="q1option1" value="76"
+								<?php if($this->getCustomer()->getData('primary_skin_concern')==76  ) echo "checked='checked'"   ?>   
+                                autocomplete="off"  ><label for="q1option1">Acne</label>
+                        
+                                <input type="checkbox" name="primary_skin_concern" id="q1option2" value="77" 
+                               	<?php if($this->getCustomer()->getData('primary_skin_concern')==77  ) echo "checked='checked'"   ?>  
+                                autocomplete="off" ><label for="q1option2">Anti-Aging</label>
+                                
+                                <input type="checkbox" name="primary_skin_concern" id="q1option3" value="78"
+                                <?php if($this->getCustomer()->getData('primary_skin_concern')==78 ) echo "checked='checked'"   ?>  
+                                autocomplete="off"  ><label for="q1option3">Acne &amp; Anti-Aging</label>
+                                
+                                <input type="checkbox" name="primary_skin_concern" id="q1option4" value="79"     
+                               <?php if($this->getCustomer()->getData('primary_skin_concern')==79 ) echo "checked='checked'"   ?>  
+                                autocomplete="off" ><label for="q1option4">Sensitive</label>
+                                
+                                <input type="checkbox" name="primary_skin_concern" id="q1option5" value="80"     
+                                <?php if($this->getCustomer()->getData('primary_skin_concern')==80 ) echo "checked='checked'"   ?>  
+                                autocomplete="off"  ><label for="q1option5">Discoloration</label>
+                                
+                                <input type="checkbox" name="primary_skin_concern" id="q1option6" value="81"  
+                                <?php if($this->getCustomer()->getData('primary_skin_concern')==81 ) echo "checked='checked'"   ?>  
+                                autocomplete="off"  ><label for="q1option6">Dry</label>
+                                
+                                <input type="checkbox" name="primary_skin_concern" id="q1option7" value="82"  
+                                 <?php if($this->getCustomer()->getData('primary_skin_concern')==82 ) echo "checked='checked'"   ?>  
+                                autocomplete="off" ><label for="q1option7">Oily</label>
+          				</fieldset> 
+
+						<fieldset class="skin-concerns  secondary-skin-concern" data-role="controlgroup">
+							<legend>Secondary:</legend>
+                           <input type="checkbox" name="secondary_skin_concern" id="q1option8" value="83"
+								<?php if( $this->getCustomer()->getData('secondary_skin_concern')==83 ) echo "checked='checked'"   ?>   
+                                autocomplete="off"  ><label for="q1option8">Acne</label>
+                        
+                                <input type="checkbox" name="secondary_skin_concern" id="q1option9" value="84" 
+                               	<?php if($this->getCustomer()->getData('secondary_skin_concern')==84 ) echo "checked='checked'"   ?>  
+                                autocomplete="off" ><label for="q1option9">Anti-Aging</label>
+                                
+                                <input type="checkbox" name="secondary_skin_concern" id="q1option10" value="85"
+                                <?php if($this->getCustomer()->getData('secondary_skin_concern')==85 ) echo "checked='checked'"   ?>  
+                                autocomplete="off"  ><label for="q1option10">Acne &amp; Anti-Aging</label>
+                                
+                                <input type="checkbox" name="secondary_skin_concern" id="q1option11" value="86"     
+                               <?php if( $this->getCustomer()->getData('secondary_skin_concern')==86 ) echo "checked='checked'"   ?>  
+                                autocomplete="off" ><label for="q1option11">Sensitive</label>
+                                
+                                <input type="checkbox" name="secondary_skin_concern" id="q1option12" value="87"     
+                                <?php if( $this->getCustomer()->getData('secondary_skin_concern')==87 ) echo "checked='checked'"   ?>  
+                                autocomplete="off"  ><label for="q1option12">Discoloration</label>
+                                
+                                <input type="checkbox" name="secondary_skin_concern" id="q1option13" value="88"  
+                                <?php if( $this->getCustomer()->getData('secondary_skin_concern')==88 ) echo "checked='checked'"   ?>  
+                                autocomplete="off"  ><label for="q1option13">Dry</label>
+                                
+                                <input type="checkbox" name="secondary_skin_concern" id="q1option14" value="89"  
+                                 <?php if($this->getCustomer()->getData('secondary_skin_concern')==89 ) echo "checked='checked'"   ?>  
+                                autocomplete="off" ><label for="q1option14">Oily</label>
+                            </fieldset>
+                            
+                            
+                            </fieldset>
+                  
+                        </li>
+                    </ul>
+      </div>
+                
+                
+                
+                
+                <?php $userDefinedAttributes = $this->getLayout()->getBlock('customer_form_user_attributes'); ?>
+                <?php if ($userDefinedAttributes):?>
+                    <?php echo $userDefinedAttributes->setEntity($this->getCustomer())->toHtml(); ?>
+                <?php endif;?>
+
+
+
+                <div class="fieldset" id="change_password_form" style="display:none;">
+                    <h3 class="legend"><?php echo $this->__('Change Password') ?></h3>
+                    <ul class="form-list">
+                        <li>
+                            <label for="current_password" class="required"><em>*</em><?php echo $this->__('Current Password') ?></label>
+                            <div class="input-box">
+                                <input type="password" title="<?php echo $this->__('Current Password') ?>" class="input-text" name="current_password" id="current_password" />
+                            </div>
+                        </li>
+                        <li class="fields">
+                            <div class="field">
+                                <label for="password" class="required"><em>*</em><?php echo $this->__('New Password') ?></label>
+                                <div class="input-box">
+                                    <input type="password" title="<?php echo $this->__('New Password') ?>" class="input-text validate-password" name="password" id="password" />
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="confirmation" class="required"><em>*</em><?php echo $this->__('Confirm New Password') ?></label>
+                                <div class="input-box">
+                                    <input type="password" title="<?php echo $this->__('Confirm New Password') ?>" class="input-text validate-cpassword" name="confirmation" id="confirmation" />
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="buttons-set">
+                    <button type="submit" title="<?php echo $this->__('Save') ?>" class="button small"><?php echo $this->__('Save') ?></button>
+                </div>
+            </form>
+            <script type="text/javascript">
+            //<![CDATA[
+                var dataForm = new VarienForm('form-validate', true);
+                function setPasswordForm(arg){
+                    if(arg){
+                        $('current_password').up(3).show();
+                        $('current_password').addClassName('required-entry');
+                        $('password').addClassName('required-entry');
+                        $('confirmation').addClassName('required-entry');
+
+                    }else{
+                        $('current_password').up(3).hide();
+                        $('current_password').removeClassName('required-entry');
+                        $('password').removeClassName('required-entry');
+                        $('confirmation').removeClassName('required-entry');
+                    }
+                }
+                <?php if($this->getCustomer()->getChangePassword()): ?>
+                    setPasswordForm(true);
+                <?php endif; ?>
+            //]]>
+            </script>
+            <script language="javascript">
+
+                jQuery(function(){
+                   var max = 1;
+                    var cbx_pri = jQuery('.primary-skin-concern input[type="checkbox"]');
+                    var cbx_sec = jQuery('.secondary-skin-concern input[type="checkbox"]');
+
+         				var current_pri = cbx_pri.filter(':checked').length;
+                        cbx_pri.filter(':not(:checked)').prop('disabled', current_pri >= max);
+				        
+						var current_sec = cbx_sec.filter(':checked').length;
+                        cbx_sec.filter(':not(:checked)').prop('disabled', current_sec >= max);		
+						
+
+                    cbx_pri.change(function(){
+                        var current = cbx_pri.filter(':checked').length;
+                        cbx_pri.filter(':not(:checked)').prop('disabled', current >= max);
+                    });
+                
+				
+                    cbx_sec.change(function(){
+                        var current = cbx_sec.filter(':checked').length;
+                        cbx_sec.filter(':not(:checked)').prop('disabled', current >= max);
+                    });
+				
+				
+				});
+
+                jQuery(function(){
+                   jQuery('#change_password').change(function(){
+                        if(jQuery(this).is(":checked")) {
+                            jQuery('#change_password_form').slideDown('fast');
+                        } else {
+                            jQuery('#change_password_form').slideUp('fast');
+                        }
+                    });
+                });
+             
+	
+	
+		 	for(x=0;x<document.getElementsByName("primary_skin_concern").length;x++) {
+					if(document.getElementsByName("primary_skin_concern")[x].checked==true)
+					console.log(x);
+					//document.getElementsByName("q1option[]")[x].checked	=	true;
+				}
+				for(x=0;x<document.getElementsByName("secondary_skin_concern").length;x++) {
+				if(document.getElementsByName("secondary_skin_concern")[x].checked==true)
+					console.log(x);
+					//document.getElementsByName("q1option[]")[x].checked	=	true;
+				}
+
+            </script>        
+        </div>
+    </div>
+</div>
+

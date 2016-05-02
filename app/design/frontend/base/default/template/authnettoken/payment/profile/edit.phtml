@@ -1,0 +1,322 @@
+<?php
+/**
+ * StoreFront Authorize.Net CIM Tokenized Payment Extension
+ *
+ * This source file is subject to commercial source code license of StoreFront Consulting, Inc.
+ *
+ * @category  SFC
+ * @package   SFC_AuthnetToken
+ * @author    Garth Brantley
+ * @website   http://www.storefrontconsulting.com/
+ * @copyright Copyright (C) 2009-2013 StoreFront Consulting, Inc. All Rights Reserved.
+ * @license   http://www.storefrontconsulting.com/media/downloads/ExtensionLicense.pdf StoreFront Consulting Commercial License
+ *
+ */
+?>
+<?php $cimProfile = $this->getCimProfile(); ?>
+<?php $countries = Mage::getResourceModel('directory/country_collection')->loadByStore()->toOptionArray(); ?>
+
+<div class="page-title">
+    <h1><?php echo $this->getTitle(); ?></h1>
+</div>
+
+<form id="edit_form" method="post" action="<?php echo $this->getSaveUrl() ?>">
+    <input type="hidden" id="customer_id" name="customer_id"
+           value="<?php echo $this->escapeHtml($cimProfile->getData('customer_id')) ?>" title="Customer Id" maxlength="32"/>
+    <input type="hidden" id="cim_payment_profile_id" name="cim_payment_profile_id"
+           value="<?php echo $this->escapeHtml($cimProfile->getData('cim_payment_profile_id')) ?>" title="CIM Profile Id"
+           maxlength="32"/>
+
+    <div class="fieldset">
+        <h2 class="legend">Cardholder Information</h2>
+        <ul class="form-list">
+            <li class="fields">
+                <div class="field name-firstname">
+                    <label for="customer_fname" class="required"><em>*</em>First Name</label>
+
+                    <div class="input-box">
+                        <input type="text" id="customer_fname" name="customer_fname"
+                               value="<?php echo $this->escapeHtml($cimProfile->getData('customer_fname')) ?>" title="First Name"
+                               maxlength="255" class="input-text required-entry"/>
+                    </div>
+                </div>
+                <div class="field name-lastname">
+                    <label for="customer_lname" class="required"><em>*</em>Last Name</label>
+
+                    <div class="input-box">
+                        <input type="text" id="customer_lname" name="customer_lname"
+                               value="<?php echo $this->escapeHtml($cimProfile->getData('customer_lname')) ?>" title="Last Name"
+                               maxlength="255" class="input-text required-entry"/>
+                    </div>
+                </div>
+            </li>
+            <li class="wide">
+                <div class="">
+                    <div class="input-box">
+                        <label for="company" class="required">Company</label>
+                        <input type="text" id="company" name="company"
+                               value="<?php echo $this->escapeHtml($cimProfile->getData('company')) ?>" title="Company" maxlength="255"
+                               class="input-text"/>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="fieldset">
+        <h2 class="legend">Billing Address</h2>
+        <ul class="form-list">
+            <li class="wide">
+                <div class="address">
+                    <label for="street" class="required">Street Address</label>
+
+                    <div class="input-box">
+                        <input type="text" id="street" name="street"
+                               value="<?php echo $this->escapeHtml($cimProfile->getData('street')) ?>" title="Address" maxlength="255"
+                               class="input-text"/>
+                    </div>
+                </div>
+            </li>
+            <li class="fields">
+                <div class="field name-firstname">
+                    <label for="city" class="required">City</label>
+
+                    <div class="input-box">
+                        <input type="text" id="city" name="city" value="<?php echo $this->escapeHtml($cimProfile->getData('city')) ?>"
+                               title="City" maxlength="255" class="input-text"/>
+                    </div>
+                </div>
+                <div class="field name-lastname">
+                    <label for="region" class="required">State/Province</label>
+
+                    <div class="input-box">
+                        <input type="text" id="region" name="region"
+                               value="<?php echo $this->escapeHtml($cimProfile->getData('region')) ?>" title="State" maxlength="255"
+                               class="input-text"/>
+                    </div>
+                </div>
+            </li>
+            <li class="fields">
+                <div class="field name-firstname">
+                    <label for="postcode" class="required">Zip/Postal Code</label>
+
+                    <div class="input-box">
+                        <input type="text" id="postcode" name="postcode"
+                               value="<?php echo $this->escapeHtml($cimProfile->getData('postcode')) ?>" title="Zip" maxlength="255"
+                               class="input-text"/>
+                    </div>
+                </div>
+            </li>
+            <li class="wide">
+                <div class="country">
+                    <label for="country_id" class="required">Country</label>
+
+                    <div class="input-box">
+                        <select id="country_id" name="country_id" title="Country" class="input-text">
+                            <?php foreach ($countries as $country) : ?>
+                                <option value="<?php echo $country['value']; ?>" <?php if ($country['value'] ==
+                                    $cimProfile->getData('country_id')
+                                ) {
+                                    echo 'selected="selected"';
+                                } ?>><?php echo $country['label']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
+            </li>
+            <li class="fields">
+                <div class="field name-firstname">
+                    <label for="telephone" class="required">Telephone</label>
+
+                    <div class="input-box">
+                        <input type="text" id="telephone" name="telephone"
+                               value="<?php echo $this->escapeHtml($cimProfile->getData('telephone')) ?>" title="Phone" maxlength="255"
+                               class="input-text"/>
+                    </div>
+                </div>
+                <div class="field name-lastname">
+                    <label for="fax" class="required">Fax</label>
+
+                    <div class="input-box">
+                        <input type="text" id="fax" name="fax" value="<?php echo $this->escapeHtml($cimProfile->getData('fax')) ?>"
+                               title="Fax" maxlength="255" class="input-text"/>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="fieldset">
+        <h2 class="legend">Payment Information</h2>
+        <ul class="form-list">
+            <li>
+                <label for="cc_type" class="required"><em>*</em><?php echo $this->__('Credit Card Type') ?></label>
+
+                <div class="input-box">
+                    <select id="cc_type" name="cc_type" class="required-entry validate-cc-type-select-xxxx">
+                        <option value=""><?php echo $this->__('--Please Select--') ?></option>
+                        <?php $_ccType = $cimProfile->getData('cc_type') ?>
+                        <?php foreach ($this->getCcAvailableTypes() as $_typeCode => $_typeName): ?>
+                            <option value="<?php echo $_typeCode ?>"<?php if ($_typeCode == $_ccType
+                            ): ?> selected="selected"<?php endif ?>><?php echo $_typeName ?></option>
+                        <?php endforeach ?>
+                    </select>
+                </div>
+            </li>
+            <li class="wide">
+                <div class="">
+                    <label for="customer_cardnumber" class="required"><em>*</em>Card Number</label>
+
+                    <div class="input-box">
+                        <input type="text" id="customer_cardnumber" name="customer_cardnumber"
+                               value="<?php echo $this->escapeHtml($cimProfile->getData('customer_cardnumber')) ?>"
+                               class="input-text required-entry"/>
+                    </div>
+                </div>
+            </li>
+            <li class="fields">
+                <div class="field name-firstname">
+                    <label for="cc_exp_month" class="required"><em>*</em><?php echo $this->__('Expiration Month') ?></label>
+
+                    <div class="input-box">
+                        <select id="cc_exp_month" name="cc_exp_month" class="validate-month required-entry validate-month-xxxx">
+                            <?php $_ccExpMonth = $this->getInfoData('cc_exp_month') ?>
+                            <?php if ($cimProfile->getData('exp_date') == 'XXXX') : ?>
+                                <option value="XXXX" selected="selected"><?php echo $cimProfile->getData('exp_date'); ?></option>
+                            <?php else: ?>
+                                <option value="month" selected="selected"><?php echo $this->__('Month') ?></option>
+                            <?php endif; ?>
+                            <?php foreach ($this->getCcMonths() as $k => $v): ?>
+                                <option value="<?php echo $k ? $k : '' ?>"<?php if ($k == $_ccExpMonth
+                                ): ?> <?php endif ?>><?php echo $v ?></option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="field name-lastname">
+                    <label for="cc_exp_year" class="required"><em>*</em><?php echo $this->__('Expiration Year') ?></label>
+
+                    <div class="input-box">
+                        <?php $_ccExpYear = $this->getInfoData('cc_exp_year') ?>
+                        <select id="cc_exp_year" name="cc_exp_year" class="year required-entry validate-year validate-year-xxxx">
+                            <?php if ($cimProfile->getData('exp_date') == 'XXXX') : ?>
+                                <option value="XXXX" selected="selected"><?php echo $cimProfile->getData('exp_date'); ?></option>
+                            <?php else: ?>
+                                <option value="year" selected="selected"><?php echo $this->__('Year') ?></option>
+                            <?php endif; ?>
+                            <?php foreach ($this->getCcYears() as $k => $v): ?>
+                                <option value="<?php echo $k ? $k : '' ?>"<?php if ($k == $_ccExpYear
+                                ): ?> selected="selected"<?php endif ?>><?php echo $v ?></option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="buttons-set form-buttons">
+        <p class="back-link"><a href="<?php echo $this->getBackUrl() ?>">
+                <small>&#171;</small>
+                Back</a></p>
+        <button type="submit" class="button" title="Save" onclick="checkDate()">
+            <span><span>Save Credit Card</span></span>
+        </button>
+    </div>
+</form>
+<script type="text/javascript">
+    //< ![CDATA[
+
+    var date = new Date();
+    var month = date.getMonth();
+    var year = date.getFullYear();
+
+    var editForm = new VarienForm('edit_form', true);
+    Validation.add('validate-cc-type-xxxx', 'Credit card number does not match credit card type.', function (v, elm) {
+        // remove credit card number delimiters such as "-" and space
+        elm.value = removeDelimiters(elm.value);
+        v         = removeDelimiters(v);
+
+        var ccTypeContainer = $('cc_type');
+        if (!ccTypeContainer) {
+            return true;
+        }
+        var ccType = ccTypeContainer.value;
+
+        if (v.indexOf('XXXX') != -1) {
+            return true;
+        }
+
+        if (typeof Validation.creditCartTypes.get(ccType) == 'undefined') {
+            return false;
+        }
+
+        // Other card type or switch or solo card
+        if (Validation.creditCartTypes.get(ccType)[0]==false) {
+            return true;
+        }
+
+        // Matched credit card type
+        var ccMatchedType = '';
+
+        Validation.creditCartTypes.each(function (pair) {
+            if (pair.value[0] && v.match(pair.value[0])) {
+                ccMatchedType = pair.key;
+                throw $break;
+            }
+        });
+
+        if(ccMatchedType != ccType) {
+            return false;
+        }
+
+        if (ccTypeContainer.hasClassName('validation-failed') && Validation.isOnChange) {
+            Validation.validate(ccTypeContainer);
+        }
+
+        return true;
+    });
+    Validation.add('validate-cc-type-select-xxxx', 'Card type does not match credit card number.', function (the_field_value) {
+        var ccNumberContainer = $('customer_cardnumber');
+        if (Validation.isOnChange && Validation.get('IsEmpty').test(ccNumberContainer.value)) {
+            return true;
+        }
+        if (Validation.get('validate-cc-type-xxxx').test(ccNumberContainer.value, ccNumberContainer)) {
+            Validation.validate(ccNumberContainer);
+        }
+        return Validation.get('validate-cc-type-xxxx').test(ccNumberContainer.value, ccNumberContainer);
+    });
+    Validation.add('validate-month', 'This expiration date is not valid.', function (the_field_value) {
+        var yearInput = document.forms["edit_form"]["cc_exp_year"].value;
+        if (yearInput == year && the_field_value <= month) {
+            return false;
+        }
+        else if (the_field_value == 'month') {
+            return false;
+        }
+        return true;
+    });
+    Validation.add('validate-year', 'This expiration date is not valid.', function (the_field_value) {
+        if (the_field_value == 'year') {
+            return false;
+        }
+        return true;
+    });
+    Validation.add('validate-month-xxxx', 'Please fill in this expiration field', function (the_field_value) {
+        var yearInput = document.forms["edit_form"]["cc_exp_year"].value;
+        if (the_field_value == 'XXXX' && yearInput != 'XXXX') {
+            return false;
+        }
+        return true;
+    });
+    Validation.add('validate-year-xxxx', 'Please fill in this expiration field', function (the_field_value) {
+        var monthInput = document.forms["edit_form"]["cc_exp_month"].value;
+        if (the_field_value == 'XXXX' && monthInput != 'XXXX') {
+            return false;
+        }
+        return true;
+    });
+
+
+    //]]>
+</script>

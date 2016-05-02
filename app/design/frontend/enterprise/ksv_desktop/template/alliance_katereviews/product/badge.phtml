@@ -1,0 +1,14 @@
+<?php
+	$avg = $this->star_average;
+	$avgWidth = $avg/5;
+	$percent = round((float)$avgWidth * 100 ) . '%';
+    $product = Mage::getModel('catalog/product')->load($this->product_id);
+?>
+
+<div id="katereviews-product-summary">
+    <div class="rating-box">
+    	<div class="rating" style="width:<?php echo $percent; ?>"></div>
+    </div>
+
+    <a href="<?php echo $product->getProductUrl(); ?>#katereviews-main-display"><?php echo $this->review_count ?> Reviews</a> / <a href="<?php echo $this->write_link ?>">Add Your Review</a>
+</div>

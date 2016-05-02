@@ -1,0 +1,8 @@
+<?php /* <img src="<?php echo $this->getSkinUrl('images/250points.png'); ?>" alt="250 points"> */ ?>
+<?php $_product = $this->getProduct(); ?>
+<!-- 500friends LoyaltyPlus Javascript -->
+<!-- Include this script at the beginning of body, only once.  -->
+<script type='text/javascript'>
+		document.write(unescape("%3Cscript%20src='"+(('https:' == document.location.protocol ? 'https://' : 'http://') + 'd3aa0ztdn3oibi.cloudfront.net/javascripts/ff.loyalty.widget.js')+"'%20type='text/javascript'%3E%3C/script%3E"));
+</script>			
+<script type="text/javascript">_ffLoyalty.displayWidget("<?php echo Mage::helper('alliance_fivehundredfriends')->getShareWidgetId() ;?>", {"image_url":"<?php echo $this->helper('catalog/image')->init($_product, 'image')->resize(250,250); ?>","title":"<?php echo $this->htmlEscape($_product->getName()) ?>","subject":"Check out <?php echo $_product->getName(); ?> at KateSomerville.com","description":"<?php echo substr(strip_tags(addslashes($_product->getDescription())),0,20); ?>...","message":"I like this product"});</script>

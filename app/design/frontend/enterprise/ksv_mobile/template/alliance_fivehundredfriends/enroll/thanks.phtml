@@ -1,0 +1,30 @@
+<div class="kate-rewards">
+
+    <div class="entry-content">
+
+        <div class="entry-image"><img title="Ultimate Kate Rewards"
+                                      src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . "wysiwyg/katerewards.jpg"; ?>"
+                                      alt="Ultimate Kate Rewards"/></div>
+        <h3 class="katerewards-thank-you-heading">Thank you for being an Ultimate Kate Rewards member!</h3>
+
+        <p>Kate's promise to you is simple: <br/> <span style="color: #6db5da;">Renew Skin</span>, <span style="color: #98d8d1;">Restore Health</span>, <span
+                style="color: #f9a451;">Deliver Results.</span></p>
+
+        <p>In additon to achieving healthy, glowing complexion, Kate believes you should be rewarded too. Redeem your Ultimate Kate Rewards points for products
+            and exclusive VIP-only benefits!</p>
+        <ul class="buttons">
+            <li class="one-half"><a class="button" id="enrollnow" href="<?php echo Mage::getUrl('rewards-program/customer/rewards') ?>">My Rewards</a></li>
+        </ul>
+
+    </div>
+
+</div>
+
+<?php if (Mage::getSingleton('customer/session')->isLoggedIn()) { ?>
+    <img
+        src="https://loyalty.500friends.com/api/refer.gif?uuid=<?php
+        echo urlencode(Mage::helper('alliance_fivehundredfriends')->getUserId()); ?>&email=<?php
+        echo urlencode(Mage::getSingleton('customer/session')->getCustomer()->getEmail()); ?>&event_type=<?php
+        echo urlencode('Refer_member'); ?>"
+        style="position: absolute; left: -10px; visibility: hidden;" />
+<?php } ?>

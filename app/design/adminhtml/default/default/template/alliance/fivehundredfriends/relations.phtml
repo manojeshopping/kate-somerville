@@ -1,0 +1,37 @@
+<table>
+	<tr>
+		<th>Reward Name</th>
+		<th>Type</th>
+		<th>Value</th>
+	</tr>
+<?php foreach($this->getRewards() as $_reward) {?>
+	<tr>
+		<td style="white-space: nowrap;"><?php echo $_reward['name'];?></td>
+		<td><select name="<?php echo $_reward['element_type']['name'];?>" class="rewards-type" style="width: 200px;">
+			<option value="disabled"<?php if($_reward['element_type']['value'] == 'disabled') echo ' selected="selected"'?>>Disabled</option>
+			<option value="discount"<?php if($_reward['element_type']['value'] == 'discount') echo ' selected="selected"'?>>Discount</option>
+			<option value="offers"<?php if($_reward['element_type']['value'] == 'offers') echo ' selected="selected"'?>>Complementary Offer</option>
+			<option value="birthday"<?php if($_reward['element_type']['value'] == 'birthday') echo ' selected="selected"'?>>Birthday Gift</option>
+		</select></td>
+		<td style="white-space: nowrap;">
+			<div class="type-disabled"<?php if($_reward['element_type']['value'] != 'disabled') echo ' style="display: none;"'?>></div>
+			<div class="type-discount"<?php if($_reward['element_type']['value'] != 'discount') echo ' style="display: none;"'?>><input type="text" name="<?php echo $_reward['element_value']['name'];?>" value="<?php echo $_reward['element_value']['value']?>"<?php if($_reward['element_type']['value'] != 'discount') echo ' disabled="disabled"'?>/></div>
+			<div class="type-offers"<?php if($_reward['element_type']['value'] != 'offers') echo ' style="display: none;"'?>>500 Friends Offer</div>
+			<div class="type-birthday"<?php if($_reward['element_type']['value'] != 'birthday') echo ' style="display: none;"'?>>SKU: <input type="text" name="<?php echo $_reward['element_value']['name'];?>" value="<?php echo $_reward['element_value']['value']?>"<?php if($_reward['element_type']['value'] != 'birthday') echo ' disabled="disabled"'?>/></div></div>
+		</td>
+	</tr>
+<?php }?>
+</table>
+<script type="text/javascript">
+	$$('select.rewards-type').invoke('observe', 'change', function(event) {
+		// Hide all divs and disable all inputs.
+		var tr = this.up('tr');
+		tr.select('div').invoke('hide');
+		tr.select('input').invoke('disable');
+		
+		// Show current div and enable input.
+		var currentDiv = this.up('tr').down('div.type-'+this.value);
+		currentDiv.show();
+		currentDiv.select('input').invoke('enable');
+	});
+</script>

@@ -1,0 +1,233 @@
+<?php
+/**
+ * Magento Enterprise Edition
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magento Enterprise Edition License
+ * that is bundled with this package in the file LICENSE_EE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magentocommerce.com/license/enterprise-edition
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://www.magentocommerce.com/license/enterprise-edition
+ */
+?>
+<?php
+    $columns = $this->getColumns();
+?>
+<table class="data-table" id="wishlist-table">
+    <thead>
+        <tr>
+            <?php foreach ($columns as $column): ?>
+                <th><?php echo $column->getTitle();?></th>
+            <?php endforeach; ?>
+        </tr>
+    </thead>
+    <tbody>
+        <?php if (count($this->getItems())): ?>
+            <?php foreach ($this->getItems() as $item): ?>                        
+				<tr id="item_<?php echo $item->getId();?>">
+                    <?php foreach ($columns as $column): ?>
+						<td><?php $column->setItem($item); echo $column->toHtml($item);?></td>
+                    <?php endforeach; ?>
+                </tr>
+				<?php /* <tr>
+					<td class="og-wishlist"  colspan=4>
+						<?php //Ordergroove Container  Module wish non-cart ?>
+						<div class="og-offer" data-og-module="wish" data-og-product="<?php echo $item->getId();?>"></div>
+						<?php //Ordergroove Container  Module wish non-cart ?>
+					</td>
+				</tr> */ ?>
+			<?php endforeach ?>
+        <?php else: ?>
+            <td colspan="<?php echo count($columns);?>" class="wishlist-empty"><?php echo $this->__('This Wishlist has no Items');?></td>
+        <?php endif; ?>
+    </tbody>
+</table>
+<?php foreach ($columns as $column): ?>
+    <?php echo $column->getAdditionalHtml();?>
+<?php endforeach; ?>
+<script type="text/javascript">
+//<![CDATA[
+    decorateTable('wishlist-table');
+
+<?php foreach ($columns as $column): ?>
+    <?php echo $column->getJs();?>
+<?php endforeach; ?>
+//]]>
+</script>
+
+<?php
+if (count($this->getItems())){
+	$z_prod_wishlist_id   =  array();
+	
+	$i = 0;
+	foreach($this->getItems() as $item){
+		$product = $item->getProduct();
+
+		if($product->getTypeId() == "configurable") {
+			$z_prod_options = Mage::helper('catalog/product_configuration')->getOptions($item);		
+			$childProducts = Mage::getModel('catalog/product_type_configurable')->getUsedProducts(null,$product);   
+
+			foreach($childProducts as $child) {
+				$x_prod_id 			= $child->getId();
+				$mod_prod 			= Mage::getModel('catalog/product')->load($x_prod_id);
+
+				$x_prod_attr_size 	= $product->getResource()->getAttribute('size')->getFrontend()->getValue($mod_prod);
+				$x_prod_attr_color 	= $product->getResource()->getAttribute('color_swatch')->getFrontend()->getValue($mod_prod);	
+				
+			
+				if( isset($z_prod_options[0]) && $x_prod_attr_size == $z_prod_options[0]['value'] ){
+					$z_prod_wishlist_id[$i]["product_id"] = $x_prod_id;
+					$z_prod_wishlist_id[$i]["og_default_frequency"] = $child->getAttributeText('og_default_frequency');
+					$i++;
+				}elseif( isset($z_prod_options[0]) && $x_prod_attr_color == $z_prod_options[0]['value'] ) {
+					$z_prod_wishlist_id[$i]["product_id"] = $x_prod_id;
+					$z_prod_wishlist_id[$i]["og_default_frequency"] = $child->getAttributeText('og_default_frequency');
+					$i++;
+				}
+				
+			}		
+		}else{
+			$z_prod_wishlist_id[$i]["product_id"] = $product->getId();
+			$z_prod_wishlist_id[$i]["og_default_frequency"] = $product->getAttributeText('og_default_frequency');
+			$i++;
+		}
+	} 
+	$z_prod_wishlist_id = array_values($z_prod_wishlist_id);
+}
+?>
+
+<?php //Ordergroove  Script Tags ?>
+<script type="text/javascript">
+og_settings = {
+	page_type: "15",
+	<?php  if(Mage::getSingleton('customer/session')->isLoggedIn()): ?> logged_in: true,  <?php else: ?> logged_in: false, <?php endif; ?>
+	impulse_upsell: true,
+	default_frequency: {
+			<?php 
+			$z_prod = array();
+			if (count($z_prod_wishlist_id)): ?>
+				<?php
+				foreach ($z_prod_wishlist_id as $_product):
+					$z_prod[] = "'".$_product["product_id"]."'" .": " . "'" . $_product["og_default_frequency"] ."'";
+				endforeach; 
+				echo implode(', ', $z_prod);
+				?>
+			<?php endif; ?>			
+		}
+}
+</script>
+<?php 
+$storeCode = Mage::app()->getStore()->getCode();
+if( $storeCode  != 'uk_store'  && $storeCode  != 'ca_store'  ): ?>
+<?php //Ordergroove  main.js ?>
+<script type="text/javascript" src="<?php echo Mage::helper('ordergroove/config')->getPageTaggingUrl(); ?><?php echo Mage::helper('ordergroove/config')->getMerchantId(); ?>/main.js"></script>
+<?php endif; ?>	
+<script type="text/javascript">
+//<![CDATA[
+	jQuery(document).ready(function () {
+
+		var prod_attr = {	
+			<?php foreach($z_prod_wishlist_id as $key => $_product): ?>
+					'elem_<?php echo $key ?>' : {
+					'prod_id' :       '<?php echo $_product['product_id'] ?>',
+				},	
+			<?php endforeach; ?>
+		};	
+	
+	
+	$i = 0;
+	jQuery('.btn-cart-og').each(function () {
+		var config_btn = jQuery(this);
+		var btn_prod_id  = ObjProdAttr(prod_attr, $i);
+		//config_btn.attr('data-og-product', btn_prod_id);
+		config_btn.attr('prod_id', btn_prod_id);
+		$i++;
+	});
+	$i = 0;
+	jQuery('.og-offer').each(function () {		
+	var config_btn = jQuery(this);
+		var btn_prod_id  = ObjProdAttr(prod_attr, $i);
+		config_btn.attr('data-og-product', btn_prod_id);
+		$i++;
+	});
+	
+	$i = 0;
+	jQuery('.og-quantity').each(function () {
+		var config_btn = jQuery(this);
+		var btn_prod_id  = ObjProdAttr(prod_attr, $i);
+		config_btn.attr('data-og-product', btn_prod_id);
+		$i++;
+	});
+	
+	/*jQuery('.btn-cart-og').click(function () {
+		var config_btn = jQuery(this);
+		var btn_prod_id = config_btn.attr('prod_id');
+			
+		OgSetProductId( btn_prod_id );
+	});*/
+	
+	jQuery('.btn-cart-og').click(function () {
+		var config_btn = jQuery(this);
+		var btn_prod_id = config_btn.attr('prod_id');
+			
+		OgUpdateCartProductId( btn_prod_id );
+	});
+	
+});
+
+function ObjProdAttr(prod_attr, $elem){
+	for (var key in prod_attr) {
+		var key = "elem_"+$elem;
+		if (prod_attr.hasOwnProperty(key)) {
+			var obj = prod_attr[key];
+			for (var prop in obj) {
+				if (obj.hasOwnProperty(prop)) {	   
+					return prod_attr[key].prod_id;
+				}
+			}
+		}
+	}
+	return;
+} 
+
+function OgSetProductId( val ) {
+	var product_id_val = val;
+	console.log(product_id_val);
+	if(window.OG && OG.setProduct){
+		OG.setProduct(
+			{
+				id: product_id_val,
+				module: "wish"
+			}
+		);
+	}
+}
+
+function OgUpdateCartProductId( val ){
+	var product_id_val = val;
+	console.log(product_id_val);
+	if(window.OG && OG.updateCart){
+		OG.updateCart([
+			{
+				id: product_id_val,
+				module: "wish"
+			}
+		]);
+	}
+}
+//]]>
+</script>

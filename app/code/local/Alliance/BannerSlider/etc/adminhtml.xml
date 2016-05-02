@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <menu>
+        <cms>
+            <children>
+                <alliance_bannerslider translate="title">
+                    <title>Banner Sliders</title>
+                    <children>
+                        <sliders translate="title">
+                            <title>Manage Homepage Slider</title>
+                            <action>adminhtml/homepage_slider</action>
+                        </sliders>
+                    </children>
+                </alliance_bannerslider>
+            </children>
+        </cms>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <cms>
+                        <children>
+                            <alliance_bannerslider>
+                                <title>Banner Sliders</title>
+                            </alliance_bannerslider>
+                        </children>
+                    </cms>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

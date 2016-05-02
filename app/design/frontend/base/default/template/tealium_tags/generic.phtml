@@ -1,0 +1,20 @@
+<?php
+
+$helper = Mage::helper('tealium_tags');
+$store = Mage::app()->getStore();
+
+if (!$helper->isEnabled($store)) {
+    return; // not enabled, no javascript inserted
+}
+
+$tealium = $helper->getTealiumObject($store, $this);
+if(preg_match('/checkout.+success|success.+checkout/i',$_SERVER['PHP_SELF'])){
+	$tealium->pageType("Confirmation");
+}
+else{
+	$tealium->pageType("Home");
+	$tealium->updateUdo("page_type","generic");
+}
+echo $tealium->render("udo");
+echo $helper->getDiagnosticTag($store);
+?>

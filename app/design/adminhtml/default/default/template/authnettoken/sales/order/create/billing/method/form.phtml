@@ -1,0 +1,79 @@
+<?php
+/**
+ * StoreFront Authorize.Net CIM Tokenized Payment Extension
+ *
+ * This source file is subject to commercial source code license of StoreFront Consulting, Inc.
+ *
+ * @category	SFC
+ * @package    	SFC_AuthnetToken
+ * @author      Garth Brantley
+ * @website 	http://www.storefrontconsulting.com/
+ * @copyright 	Copyright (C) 2009-2013 StoreFront Consulting, Inc. All Rights Reserved.
+ * @license     http://www.storefrontconsulting.com/media/downloads/ExtensionLicense.pdf StoreFront Consulting Commercial License
+ *
+ */
+?>
+<?php if($this->hasMethods()): ?>
+<div id="order-billing_method_form">
+    <dl class="payment-methods">
+    <?php
+        $_methods       = $this->getMethods();
+        $_methodsCount  = count($_methods);
+        $_counter = 0;
+    ?>
+    <?php foreach ($_methods as $_method): $_code = $_method->getCode(); $_counter++; ?>
+
+        <?php // Output extra methods for each saved CC profile ?>
+        <?php if($_code == SFC_AuthnetToken_Model_Cim::METHOD_CODE): ?>
+	    <?php 
+		    // FetchCIM saved payment profiles
+		    $savedProfiles = $this->getSavedProfiles();
+	    ?>
+	    <?php foreach ($savedProfiles as $profile): ?>
+        <dt>
+    	<?php 
+    		$curMethodName = 'Use Saved Credit Card (' . $profile->getCustomerCardnumber() . ')';
+    		$curLast4 = substr($profile->getCustomerCardnumber(), -4);
+    		$curPaymentProfileId = $profile->getCimPaymentProfileId();
+    		$curNewCode = $_code . '_cc4_' . $curLast4;
+    	?>
+            <input 
+        	    id="p_method_<?php echo $curNewCode ?>" 
+        	    value="<?php echo $curNewCode ?>" 
+        	    type="radio" name="payment[method]" 
+        	    title="<?php echo $this->htmlEscape($curMethodName) ?>" 
+        	    onclick="payment.switchMethod('<?php echo $curNewCode ?>')" 
+        	    <?php if($this->getSavedCcLast4()==$curLast4): ?> checked="checked"<?php endif; ?> 
+        	class="radio" />
+            <label for="p_method_<?php echo $curNewCode ?>">
+            	<?php echo $this->escapeHtml($curMethodName) ?>
+            </label>
+        </dt>
+        <dd>
+            <ul id="payment_form_<?php echo $curNewCode ?>" style="display:none">
+                <input type="hidden" id="<?php echo $curNewCode ?>_payment_profile_id" name="payment[<?php echo $curNewCode ?>_payment_profile_id]" value="<?php echo $curPaymentProfileId ?>" />
+            </ul>
+        </dd>
+
+        <?php endforeach; ?>
+        <?php endif;?>
+
+        <dt>
+        <?php if ($_methodsCount > 1): ?>
+            <input id="p_method_<?php echo $_code ?>" value="<?php echo $_code ?>" type="radio" name="payment[method]" title="<?php echo $this->htmlEscape($_method->getTitle()) ?>" onclick="payment.switchMethod('<?php echo $_code ?>')"<?php if($this->getSelectedMethodCode()==$_code): ?> checked="checked"<?php endif; ?> <?php if ($_counter == $_methodsCount) : ?>class="validate-one-required-by-name"<?php endif;?>/>
+        <?php else :?>
+            <span class="no-display"><input id="p_method_<?php echo $_code ?>" value="<?php echo $_code ?>" type="radio" name="payment[method]" checked="checked" /></span>
+        <?php endif;?>
+
+            <label for="p_method_<?php echo $_code ?>"><?php echo $_method->getTitle() ?></label>
+        </dt>
+        <dd>
+            <?php echo $this->getChildHtml('payment.method.'.$_code) ?>
+        </dd>
+    <?php endforeach; ?>
+    </dl>
+</div>
+<script type="text/javascript">order.setPaymentMethod('<?php echo $this->getSelectedMethodCode() ?>')</script>
+<?php else: ?>
+    <div><?php echo Mage::helper('sales')->__('No Payment Methods') ?></div>
+<?php endif; ?>

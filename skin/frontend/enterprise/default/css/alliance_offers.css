@@ -1,0 +1,87 @@
+.offers .offers-modules h2 {
+	width:100%;
+	float:left;
+	margin-top:15px;
+	margin-bottom:15px;
+	font-size: 45px;
+	color: #61a8d4;
+	padding-bottom:6px;
+	border-bottom:5px solid #ccc;
+}
+.offers .offers-modules p {
+	width:100%;
+	float:left;
+}
+.offers .offers-modules .giftofchoice-products-title,
+.offers .offers-modules .freecleanser-products-title {
+	width:100%;
+	float:left;
+	display:none;
+}
+.offers .offers-checkout {
+	width:100%;
+	float:left;
+}
+.offers .offers-checkout button {
+	float:right;
+	margin-top:20px;
+}
+.offers .offers-modules .giftofchoice-product,
+.offers .offers-modules .freecleanser-product {
+	width:33%;
+	float:left;
+	border-top:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+	border-right:1px solid #ccc;
+	text-align:center;
+	height:310px;
+}
+.offers .offers-modules .giftofchoice-product:nth-child(3n),
+.offers .offers-modules .freecleanser-product:nth-child(3n) {
+	border-right:0;
+}
+.offers .offers-modules .giftofchoice-product img,
+.offers .offers-modules .freecleanser-product img {
+	margin:25px 0 15px 0;
+}
+.offers .offers-modules .giftofchoice-product h1,
+.offers .offers-modules .giftofchoice-product h2,
+.offers .offers-modules .freecleanser-product h1,
+.offers .offers-modules .freecleanser-product h2 {
+	font-size:16px !important;
+	color:#75b8db !important;
+	padding-bottom:5px !important;
+	border-bottom:0 !important;
+	margin-top:0 !important;
+	margin-bottom:0 !important;
+}
+.offers .offers-modules .giftofchoice-product p,
+.offers .offers-modules .giftofchoice-product p,
+.offers .offers-modules .freecleanser-product p,
+.offers .offers-modules .freecleanser-product p {
+	font-size:16px !important;
+	color:#75b8db !important;
+	padding-bottom:5px !important;
+	border-bottom:0 !important;
+	margin-top:0 !important;
+	margin-bottom:0 !important;
+}
+.offers .offers-modules .giftofchoice-product input,
+.offers .offers-modules .freecleanser-product input {
+	width:100%;
+	float:left;
+	height:12px;
+	margin-top:3px;
+}
+.offers .offers-modules .giftofchoice-product .skin-concern,
+.offers .offers-modules .freecleanser-product .skin-concern {
+	height:24px;
+	line-height:24px;
+	clear:both;
+	font-size:12px;
+}
+.offers .offers-modules .giftofchoice-product .skin-concern .option,
+.offers .offers-modules .freecleanser-product .skin-concern .option {
+	display:inline;
+	margin-left:5px;
+}

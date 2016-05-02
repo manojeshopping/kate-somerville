@@ -1,0 +1,7 @@
+<layout>
+    <adminhtml_autoreplenish_index>
+        <reference name="content">
+            <block type="autoreplenish/adminhtml_main" name="autoreplenish_main_container" />
+        </reference>
+    </adminhtml_autoreplenish_index>
+</layout>

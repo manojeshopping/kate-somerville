@@ -1,0 +1,23 @@
+<config>
+  <modules>
+    <Alliance_MobileTemplate>
+      <version>0.1.0</version>
+    </Alliance_MobileTemplate>
+  </modules>
+  <global>
+    <page>
+      <layouts>
+        <katesomerville_1column module="page" translate="label">
+            <label>Kate Somerville 1 Column</label>
+            <template>page/1column.phtml</template>
+            <layout_handle>page_katesomerville_1column</layout_handle>
+        </katesomerville_1column>
+        <katesomerville_goforgold module="page" translate="label">
+            <label>Kate Somerville Going For Gold</label>
+            <template>page/goforgold.phtml</template>
+            <layout_handle>page_katesomerville_goforgold</layout_handle>
+        </katesomerville_goforgold>      
+      </layouts>
+    </page>
+  </global>
+</config>

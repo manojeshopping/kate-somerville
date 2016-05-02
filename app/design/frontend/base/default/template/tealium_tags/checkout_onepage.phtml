@@ -1,0 +1,59 @@
+<?php
+
+$helper = Mage::helper('tealium_tags');
+$store = Mage::app()->getStore();
+
+if (!$helper->isEnabled($store)) {
+    return; // not enabled, no javascript inserted
+}
+
+$tealium = $helper->getTealiumObject($store, $this);
+$tealium->pageType("Cart");
+echo $tealium->render("udo");
+echo $helper->getDiagnosticTag($store);
+$jsonUDO = $tealium->render("json");
+
+if (!$helper->enableOnePageCheckout($store)) {
+    return; // not enabled, no javascript inserted
+}
+
+echo <<<EOD
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',function(){
+	if(!!window.Checkout){
+		Checkout.prototype.gotoSection = function(section) {
+			utag.data=$jsonUDO;
+			utag.data["page_name"] = section;
+			utag.view(utag.data);
+			section = $('opc-'+section);
+			section.addClassName('allow');
+			this.accordion.openSection(section)
+		}
+	}
+	
+});
+</script>
+
+EOD
+
+
+?>
+<?php
+echo <<<EOD
+<script type="text/javascript"> 
+document.addEventListener('DOMContentLoaded',function(){
+	if (!!window.Review){
+EOD
+?>
+<?php
+echo "review = new Review('".$this->getUrl('checkout/onepage/saveOrder', array('form_key' => Mage::getSingleton('core/session')->getFormKey()))."', '".$this->getUrl('checkout/onepage/success')."', $('checkout-agreements'));";
+?>
+
+<?php
+echo <<<EOD
+	}
+});
+</script> 
+EOD
+?>
+

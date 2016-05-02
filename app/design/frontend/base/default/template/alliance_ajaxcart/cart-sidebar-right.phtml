@@ -1,0 +1,49 @@
+<?php
+if((int)Mage::helper('checkout/cart')->getItemsCount() > 0) {
+?>
+<div class="cart-right">
+	<dl id="collateral-tabs" class="collateral-tabs">
+		<dt class="tab"><span><?php echo $this->__('Free Samples') ?></span></dt>
+		<dd class="tab-container">
+		   <div class="tab-content">
+			<div class="tab-desc">
+	<?php echo $this->getChildHtml('freesamples');?>
+			</div>
+		   </div>
+		</dd>
+	<?php
+	//Check if Customer is not restricted
+	if(! Mage::helper('alliance_fivehundredfriends/data')->getCustomerRestriction()):
+	?>		
+		<dt class="tab" id="reward-tab"><span class="rewards-tab"><?php echo $this->__('Rewards') ?></span></dt>
+		<dd class="tab-container rewards-container">
+		   <div class="tab-content">
+			<div class="tab-desc" id="fivehundredfriends.redemption.rewards">
+		<?php echo $this->getChildHtml('fivehundredfriends.redemption.rewards') ?>
+			</div>
+		   </div>
+		</dd>
+	<?php endif; ?>		
+		<dt class="tab"><span class="wishlist-holder"><div class="wishlist-icon"><?php echo $this->__('Wishlist') ?></div></span></dt>
+		<dd class="tab-container">
+		   <div class="tab-content">
+			<div class="tab-desc">
+	<?php echo $this->getChildHtml('ajaxcart.wishlist');?>
+			</div>
+		   </div>
+		</dd>
+		<dt class="faux-tab"><span><a href="<?php echo Mage::getBaseUrl(); ?>rewards-program"><?php echo $this->__('My Rewards') ?></a></span></dt>
+	</dl>
+	
+	<script type="text/javascript">
+	//<![CDATA[
+	var collateralTabs = new Enterprise.Tabs('collateral-tabs');
+	Event.observe(window, 'load', function() {
+		collateralTabs.select();
+	});
+	//]]>
+	</script>
+</div>
+<?php
+}
+?>

@@ -1,0 +1,164 @@
+/* product quick view pop-up */
+
+/* global fancybox changes */
+.fancybox-skin {
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	background: #fff;
+	color: #6a747c;
+	padding: 30px 10px 20px 20px !important;
+}
+
+#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
+	background-image: url(../images/fancybox_sprite.png);
+}
+
+.fancybox-close {
+	top: -3px;
+	right: 0;
+}
+
+
+/* quick view specific */
+.quickview-product-view .col-main {
+	min-height: intrinsic;
+}
+
+.quickview-product-view .wrapper {
+	padding-bottom: 0;
+}
+
+.quickview-product-view .main {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+.quickview-product-view .product-view {
+	margin: 0;
+}
+
+.quickview-product-view .product-essential {
+	width: 100%;
+}
+
+.quickview-product-view .product-left-box {
+	float: left;
+	width: 325px;
+	margin-left:15px;
+	margin-top:20px;
+}
+
+.quickview-product-view .product-left-box .product-img-box {
+	width: 325px;
+	margin-top: -10px;
+	margin-bottom: 0;
+}
+
+.quickview-product-view .product-left-box .product-img-box .product-image,
+.quickview-product-view .product-left-box .product-img-box img {
+	width: 325px !important;
+	height: 325px !important;
+}
+
+.quickview-product-view .product-box-1 {
+	padding-top: 15px;
+	width: auto;
+}
+
+.quickview-product-view .product-shop {
+	padding: 0 0 0 30px;
+	float: left;
+	width:437px !important;
+}
+
+.quickview-product-view .product-shop .product-main-info {
+	margin: 10px 0 0 0;
+}
+
+.quickview-product-view .product-shop .product-main-info .product-name {
+	font-size: 24px;
+}
+
+.quickview-product-view .product-shop .product-main-info .product-subtitle {
+	font-size: 18px;
+}
+
+.quickview-product-view .product-shop .add-to-cart button.btn-cart span span {
+	height: 30px !important;
+	line-height: 30px !important;
+}
+
+.quickview-product-view .product-shop .add-to-cart #qty {
+	padding-top: 6px !important;
+	padding-bottom: 5px !important;
+}
+
+.quickview-product-view .product-view select,
+.product-view .product-options .hidden-select {
+	padding: 5px 40px 5px 10px !important;
+}
+
+.quickview-product-view .product-view .swatch-option {
+	padding-bottom: 4px !important;
+}
+
+.quickview-product-view .product-view .swatch-option img {
+	width: 25px !important;
+	height: 25px !important;
+}
+
+.quickview-product-view .product-view .product-options dd {
+	clear: both;
+	float: none;
+	width: 100%;
+}
+
+.quickview-product-view .product-view .product-options dd select {
+	width: auto;
+}
+
+.quickview-product-view .product-view .product-options-bottom .add-to-cart {
+	padding-bottom: 0;
+}
+
+.quickview-product-view .view-more {
+	clear: both;
+	padding-top: 10px;
+}
+
+.product-view .product-shop .favorites {
+	bottom:-223px !important;
+}
+
+.quickview-product-view .product-shop .add-to-cart #qty {
+	padding:10px !important;
+}
+
+.product-view .product-shop .add-to-cart label {
+	padding-bottom:0 !important;
+}
+
+.product-view .favoriates-link {
+	position:absolute;
+	bottom:2px !important;
+	left:240px !important;
+}
+
+.product-view .product-shop .out-of-stock {
+	display: block !important;
+	position: absolute !important;
+	bottom: -110px !important;
+	color: #75b8db !important;
+	font-weight: lighter !important;
+	font-size: 18px !important;	
+}
+
+
+
+
+
+
+

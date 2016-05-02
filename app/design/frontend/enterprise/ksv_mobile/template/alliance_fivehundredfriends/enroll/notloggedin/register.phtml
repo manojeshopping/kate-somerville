@@ -1,0 +1,65 @@
+<form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="form-validate">
+    <div class="katerewards-enroll-register">
+        <div class="content">
+            <input type="hidden" name="success_url" value="<?php echo $this->getSuccessUrl() ?>"/>
+            <input type="hidden" name="error_url" value="<?php echo $this->getErrorUrl() ?>"/>
+            <input type="hidden" name="is_rewards_enrolled" value="1" id="is_rewards_enrolled"/>
+
+            <h2 class="legend"><?php echo $this->__('New to KateSomerville.com?') ?></h2>
+            <?php echo $this->__("If you don't have a KateSomerville.com account yet, register a new one here and you'll be automatically enrolled in our rewards program") ?>
+            <br>
+            <ul class="form-list">
+                <li class="fields">
+                    <?php echo $this->getLayout()->createBlock('customer/widget_name')->setObject($this->getFormData())->setForceUseCustomerAttributes(true)->toHtml() ?>
+                </li>
+                <li>
+                    <label for="email_address" class="required"><em>*</em><?php echo $this->__('Email Address') ?></label>
+
+                    <div class="input-box">
+                        <input type="text" name="email" id="email_address" value="<?php echo $this->escapeHtml($this->getFormData()->getEmail()) ?>"
+                               title="<?php echo $this->__('Email Address') ?>" class="input-text validate-email required-entry"/>
+                    </div>
+                </li>
+                <li class="fields">
+                    <div class="field">
+                        <label for="password" class="required"><em>*</em><?php echo $this->__('Password') ?></label>
+
+                        <div class="input-box">
+                            <input type="password" name="password" id="password" title="<?php echo $this->__('Password') ?>"
+                                   class="input-text required-entry validate-password"/>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="confirmation" class="required"><em>*</em><?php echo $this->__('Confirm Password') ?></label>
+
+                        <div class="input-box">
+                            <input type="password" name="confirmation" title="<?php echo $this->__('Confirm Password') ?>" id="confirmation"
+                                   class="input-text required-entry validate-cpassword"/>
+                        </div>
+                    </div>
+                </li>
+                <?php if ($this->isNewsletterEnabled()): ?>
+                    <li class="control">
+                        <div class="input-box">
+                            <input type="checkbox" name="is_subscribed" title="<?php echo $this->__('Sign Up for Newsletter') ?>" value="1" id="is_subscribed"
+                                   checked="checked" class="checkbox"/>
+                        </div>
+                        <label for="is_subscribed"><?php echo $this->__('Sign Up for Newsletter') ?></label>
+                    </li>
+                <?php endif ?>
+                <?php echo $this->getChildHtml('form.additional.info'); ?>
+            </ul>
+        </div>
+        <div class="buttons-set">
+            <p class="required"><?php echo $this->__('* Required Fields') ?></p>
+            <button type="submit" title="<?php echo $this->__('Submit') ?>" class="button"><span><span><?php echo $this->__('Create & Enroll') ?></span></span>
+            </button>
+        </div>
+    </div>
+</form>
+
+<script type="text/javascript">
+    //<![CDATA[
+    var dataForm = new VarienForm('form-validate', true);
+    //]]>
+</script>

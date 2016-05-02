@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<config>
+ <placeholders>
+	 <quiz_quiz>
+		  <block>quiz/quiz</block> 
+		  <placeholder>Quiz</placeholder> 
+		  <container>Alliance_Gp_Model_Container_Gp</container> 
+		  <cache_lifetime>-1</cache_lifetime> 
+	  </quiz_quiz>
+  </placeholders>
+</config>

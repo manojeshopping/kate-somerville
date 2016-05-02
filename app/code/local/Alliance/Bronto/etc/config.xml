@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Alliance_Bronto>
+            <version>1.0.0</version>
+        </Alliance_Bronto>
+    </modules>
+    <global>
+		 <helpers>
+            <bronto>
+                <class>Alliance_Bronto_Helper</class>
+            </bronto>
+        </helpers>
+	</global>
+	
+	<frontend>
+        <layout>
+            <updates>
+                <bronto>
+                    <file>alliance_bronto.xml</file>
+                </bronto>
+            </updates>
+        </layout>
+        <routers>
+            <bronto>
+                <use>standard</use>
+                <args>
+                    <module>Alliance_Bronto</module>
+                    <frontName>bronto</frontName>
+                </args>
+            </bronto>
+        </routers>   
+    </frontend>
+	
+</config>
+
+
+

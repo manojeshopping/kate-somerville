@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <menu>
+        <cms>
+            <children>
+                <alliance_globalbanner translate="title">
+                    <title>Global Banners</title>
+                    <action>adminhtml/globalbanner</action>
+                    <sort_order>100</sort_order>
+                </alliance_globalbanner>
+            </children>
+        </cms>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <cms>
+                        <children>
+                            <alliance_globalbanner>
+                                <title>Global Banners</title>
+                            </alliance_globalbanner>
+                        </children>
+                    </cms>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

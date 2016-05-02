@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Alliance_CustomerUnilever>
+            <version>0.1.0</version>
+        </Alliance_CustomerUnilever>
+    </modules>
+    <frontend>
+        <routers>
+            <customerunilever>
+                <use>standard</use>
+                <args>
+                    <module>Alliance_CustomerUnilever</module>
+                    <frontName>customerunilever</frontName>
+                </args>
+            </customerunilever>
+        </routers>
+    </frontend>
+    <global>
+        <models>
+            <customerunilever>
+                <class>Alliance_CustomerUnilever_Model</class>
+            </customerunilever>
+        </models>
+        <blocks>
+            <customerunilever>
+                <class>Alliance_CustomerUnilever_Block</class>
+            </customerunilever>
+        </blocks>
+        <helpers>
+            <customerunilever>
+                <class>Alliance_CustomerUnilever_Helper</class>
+            </customerunilever>
+        </helpers>
+		
+		
+		<events>
+            <customer_register_success>
+                <observers>
+                    <alliance_customerunilever>
+                        <type>singleton</type>
+                        <class>Alliance_CustomerUnilever_Model_Observer</class>
+                        <method>customerRegisterSuccess</method>
+                    </alliance_customerunilever>
+                </observers>
+            </customer_register_success>
+		</events>	
+		
+    </global>
+</config>

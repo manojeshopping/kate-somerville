@@ -1,0 +1,21 @@
+<layout version="0.1.0">
+
+	<bronto_index_unsubscribe>
+         <reference name="head">
+            <action method="setTitle" translate="title" module="bronto"><title>Email Unsubscribe</title></action>
+        </reference>
+		<reference name="content">
+            <block type="core/template" name="bronto_unsubscribe" template="alliance_bronto/unsubscribe.phtml" />
+        </reference>
+    </bronto_index_unsubscribe>
+	
+	<bronto_index_thankyou>
+         <reference name="head">
+            <action method="setTitle" translate="title" module="bronto"><title>Email Unsubscribe</title></action>
+        </reference>
+		<reference name="content">
+            <block type="core/template" name="bronto_unsubscribe" template="alliance_bronto/unsubscribe_thankyou.phtml" />
+        </reference>
+    </bronto_index_thankyou>
+
+</layout>

@@ -1,0 +1,39 @@
+<?php if($this->getSummaryCount() > 0 && $this->freeSampleEnabled()) {?>
+<div class="free-samples">
+	<div class="free-samples-title"><?php echo $this->freeSampleTitle();?></div>
+	<a href="#" id="free-samples-view-all"><?php echo $this->__('View All Samples');?></a>
+	<a href="#" id="free-samples-collapse" style="display: none;"><?php echo $this->__('View Less');?></a>
+	
+	<div id="free-samples-list-visible">
+	<?php
+	$productCollection = $this->getProductCollection();
+	$productCount = 0;
+	foreach($productCollection as $_product) {
+		$productCount++;
+		$productName = $this->htmlEscape($_product->getName());
+		$img = $this->helper('catalog/image')->init($_product, 'thumbnail')->resize(130, 130);
+		$productInCart = $this->checkProductInCart($_product->getId());
+	?>
+		<div class="free-sample-product" data-id="<?php echo $_product->getId();?>" data-price="<?php echo $_product->getPrice();?>">
+			<?php if(! empty($img)) {?><div class="free-sample-product-image"><img src="<?php echo $img;?>" alt="<?php echo $productName;?>" /></div><?php }?>
+			<div class="free-sample-product-title"><a href="<?php echo $_product->getProductUrl();?>"><?php echo $productName;?></a></div>
+			<div class="free-sample-product-button">
+				<button type="button" title="Add To Cart" class="button btn-free-cart"<?php if($productInCart) echo ' style="display: none;"';?>><span><span>+</span></span></button>
+				<button type="button" title="Remove From Cart" class="button btn-free-remove"<?php if(! $productInCart) echo ' style="display: none;"';?>><span><span>-</span></span></button>
+			</div>
+		</div>
+	<?php
+		if($productCount == 9) {
+	?>
+		</div><div id="free-samples-list-hide" style="display: none;">
+	<?php
+		}
+	}
+	?>
+	</div>
+	<p>
+	<a href="#" id="free-samples-view-all-2"><?php echo $this->__('View All Samples');?></a>
+	<a href="#" id="free-samples-collapse-2" style="display: none;"><?php echo $this->__('View Less');?></a>
+	</p>
+</div>
+<?php }?>

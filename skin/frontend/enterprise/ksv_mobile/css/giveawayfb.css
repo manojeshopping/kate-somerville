@@ -1,0 +1,138 @@
+/*** Generic ***/
+.table100{display: table; width: 100%;}
+
+.giveawayfb-container{margin: 15px 0 50px; padding: 0 20px;}
+
+.giveawayfb-container p{font-family: Arial; line-height: 1.5em; font-size: 17px; font-weight: 300; color: #797979;}
+.giveawayfb-container p strong{color: #6db5da; font-weight: 300;}
+
+.giveawayfb-container h1{margin-bottom: 30px; font-size: 24px; font-weight: 300; text-align: center; color: #6db5da;}
+.giveawayfb-container h2{margin-bottom: 10px; font-family: Arial; font-size: 20px; font-weight: 300; color: #6db5da;}
+
+.giveawayfb-container input, .giveawayfb-container select{margin-bottom: 10px; padding: 5px 10px; border: 1px solid #e6e6e6; background: url('../images/giveawayfb/input-bg.png') repeat-x; font-family: Arial; font-size: 17px; text-align: left; color: #797979;}
+
+.validate-select{font-family: Arial; font-size: 17px; text-align: left; color: #797979;}
+.ui-btn-text{text-align: left;}
+.ui-select .ui-btn-icon-right .ui-btn-inner{margin-bottom: 10px; padding: 5px 10px; border: 1px solid #e6e6e6; background: url('../images/giveawayfb/input-bg.png') repeat-x;}
+
+.giveawayfb-container label{font-family: Arial; font-size: 15px; font-weight: 300; color: #797979;}
+.giveawayfb-container .creation-label{font-family: Arial; font-size: 15px; font-weight: 300; color: #797979;}
+.giveawayfb-container .creation-field{min-height: 35px;}
+
+.giveawayfb-button {
+	padding: 10px 25px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: 0; background: #6db5da; font-size: 18px; color: #ffffff; text-transform: uppercase; cursor: pointer;
+}
+.giveawayfb-comment{font-family: Arial; font-size: 14px; font-weight: 300; color: #6db5da;}
+a.giveawayfb-button {color: #ffffff;}
+a.giveawayfb-button:hover {color: #ffffff; text-decoration: none;}
+
+
+.validation-advice{margin: 0 0 10px; text-align: left;}
+
+.giveawayfb-container input.ui-input-text, textarea.ui-input-text{margin-top: 0;}
+/*** Generic ***/
+
+
+/*** Landing ***/
+.giveawayfb-title{text-align: center; margin-bottom: 15px;}
+
+.giveawayfb-landing{background: url('../images/giveawayfb/samples.jpg') no-repeat center top; padding-top: 210px;}
+.giveawayfb-landing p{padding: 0 0 15px;}
+.giveawayfb-landing input{width: 100%;}
+.giveawayfb-landing a{padding-top: 20px; line-height: 42px; font-size: 15px; color: #6db5da; text-decoration: none;}
+.giveawayfb-landing button{float: right;}
+/*** Landing ***/
+
+
+/*** Sorry ***/
+.giveawayfb-container p.giveawayfb-sorry{text-align: center; padding-top: 30px; font-size: 15px; color: #797979;}
+/*** Sorry ***/
+
+
+/*** Creation ***/
+.giveawayfb-container input.input-date{width: 60px; text-align: center;}
+
+.creation-fields{}
+
+.input-date{position: absolute;}
+#creation-birthdate_day{margin-left: 70px;}
+.giveawayfb-container input.input-date#creation-birthdate_year{width: 70px; margin-left: 140px;}
+#advice-concerns-month-creation-birthdate_month{position: absolute; margin-top: 30px;}
+#advice-concerns-day-creation-birthdate_day{position: absolute; margin-top: 42px;}
+#advice-concerns-year-creation-birthdate_year{position: absolute; margin-top: 52px;}
+
+.sec_code{margin: 50px 0 20px;}
+
+.creation-buttons-container{margin: 40px 0 0 0; text-align: right;}
+.creation-buttons-container span{padding-right: 20px;}
+
+.concerns-list label{padding-left: 15px; line-height: 20px;}
+.concerns-list .left{float: left;}
+.concerns-list .right{float: left; margin-left: 20px;}
+.concerns-list .ui-checkbox input{left: 0;}
+
+.giveawayfb-container .ui-fullsize .ui-btn-inner, .ui-fullsize .ui-btn-inner{padding: 0;}
+
+.giveawayfb-container .creation-newsletter-container .ui-checkbox input{left: 0;}
+.giveawayfb-container .creation-newsletter-container label{position: absolute; margin: -12px 0 0 15px;}
+/*** Creation ***/
+
+
+/*** Creation Sample ***/
+.creation-sample{margin-bottom: 25px; padding: 10px; border: 1px solid #e1e1e1;}
+
+.giveawayfb-container .creation-sample-title h2{display: inline; margin-bottom: 10px; font-family: Arial; font-size: 14px; color: #6db5da;}
+
+.creation-sample-images{padding: 10px 0 0 20px;}
+.creation-sample-image{display: table; margin-bottom: 15px;}
+.creation-sample-image img{display: table-cell; padding-right: 15px;}
+.creation-sample-image p{display: table-cell; font-size: 11px; font-weight: bold; color: #6a747c; vertical-align: middle;}
+
+.creation-sample-container{text-align: right;}
+.creation-sample-container button.giveawayfb-button{padding: 5px 10px; font-size: 11px;}
+/*** Creation Sample ***/
+
+
+/*** Creation Address ***/
+/*** Creation Address ***/
+
+
+/*** Success ***/
+.giveawayfb-container.giveawayfb-success p{margin-top: 50px; text-align: center; color: #797979;}
+/*** Success ***/
+
+
+/*** Email Verification ***/
+.giveawayfb-container.giveawayfb-emailverification h1{margin-bottom: 10px;}
+.giveawayfb-container.giveawayfb-emailverification p{text-align: center; font-size: 15px;}
+
+.giveawayfb-socials ul{margin: 10px auto 40px; text-align: center;}
+.giveawayfb-socials ul li{display: inline; font-family: Arial; line-height: 40px; font-size: 15px; font-weight: 300; color: #797979;}
+.giveawayfb-socials ul li img{vertical-align: top;}
+/*** Email Verification ***/
+
+
+/*** Tooltip ***/
+body .ui-tooltip {border-width: 1px;}
+.ui-tooltip, .arrow:after {background: #ffffff; border: 1px solid #e1e1e1;}
+.ui-tooltip {
+	position: absolute; z-index: 9999; max-width: 200px; padding: 15px;
+	-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;
+	-webkit-box-shadow: 0 0 2px #cccccc; box-shadow: 0 0 2px #cccccc;
+	font-family: Arial; font-size: 13px; color: #797979;
+}
+.arrow {width: 70px; height: 16px; overflow: hidden; position: absolute; left: 50%; margin-left: -35px; bottom: -16px;}
+.arrow.top {top: -16px; bottom: auto;}
+.arrow.left {left: 20%;}
+.arrow:after {
+	content: ""; position: absolute; left: 20px; top: -20px; width: 25px; height: 25px;
+	-webkit-box-shadow: 0 0 2px #cccccc; box-shadow: 0 0 2px #cccccc;
+	-webkit-transform: rotate(45deg); -moz-transform: rotate(45deg); -ms-transform: rotate(45deg); -o-transform: rotate(45deg); tranform: rotate(45deg);
+}
+.arrow.top:after {bottom: -20px;top: auto;}
+/*** Tooltip ***/
+

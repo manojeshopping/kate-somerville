@@ -1,0 +1,89 @@
+/* Search results page */
+
+.catalogsearch-result-index .results-view {
+	margin: 0;
+}
+
+.catalogsearch-result-index ul.products-grid {
+	margin: 0;
+	padding: 0;
+}
+
+.catalogsearch-result-index ul.products-grid li.item {
+	position: relative;
+	width: 328px;
+	margin: 0 20px 0 0;
+	padding: 0;	
+}
+
+.catalogsearch-result-index ul.products-grid li.item.last {
+	margin-right: 0;
+}
+
+
+.catalogsearch-result-index ul.products-grid .product-image {
+	margin: 0 auto;
+	width: 300px;
+}
+
+.catalogsearch-result-index ul.products-grid li .product-name {
+	margin: 40px 0 0 0;
+	height: 66px;
+	overflow: hidden;
+	border-bottom: 1px solid #d5d5d5;
+}
+
+.catalogsearch-result-index ul.products-grid li .product-name a {
+	text-decoration: none;
+	font-size: 18px;
+	color: #6A747C;
+	line-height: 23px;
+}
+
+.catalogsearch-result-index ul.products-grid li .product-name span {
+	display: block;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.catalogsearch-result-index ul.products-grid li .product-price {	
+	padding: 10px 0 10px 10px;
+	float: left;
+}
+
+.catalogsearch-result-index ul.products-grid li .actions {
+	padding: 10px 10px 10px 0;
+	float: right;
+}
+
+.catalogsearch-result-index ul.products-grid li .product-price span {
+	font-size: 21px;
+	color: #6A747C;
+	font-weight: normal;
+}
+
+.catalogsearch-result-index ul.products-grid li .product-price .old-price {
+	float: left;
+}
+
+.catalogsearch-result-index ul.products-grid li .product-price .price-label {
+	display: none;
+}
+
+.catalogsearch-result-index ul.products-grid li .product-price .special-price {
+	float: left;
+	padding-left: 7px;
+}
+
+.catalogsearch-result-index ul.products-grid li .product-price .special-price span {
+	color: #61a8d4;
+
+}
+
+.catalogsearch-result-index .minimal-price-link {
+	display: none;
+}
+
+.catalogsearch-result-index .results-view .recommendations {
+	padding: 0 0 30px 0;
+}

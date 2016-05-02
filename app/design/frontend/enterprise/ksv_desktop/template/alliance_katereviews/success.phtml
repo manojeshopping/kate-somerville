@@ -1,0 +1,22 @@
+<div id="katereviews-success-page" class="success-review-description">
+    <div class="page-title"><h1>Thank you</h1></div>
+	<p>Thank you for your submitting your review. Kate Somerville respects and values our clients opinions and appreciate your taking the time to share yours.</p>
+
+	<div class="description">
+		Please allow 3 to 5 business days for your review to appear online. Please note that submissions are subject to the terms of our <div class="review-guideline-tooltip-container success-review-guideline">
+			<span>Review Guidelines</span>
+			<div class="review-guideline-tooltip">
+				<div class="inner-tooltip">
+					<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('review_guidelines')->toHtml(); ?> 
+				</div>
+			</div>
+		</div>.
+	</div>
+	
+	<br /> <br /><br />
+    
+    <a div class="button" href="<?php echo $this->product_url; ?>"><span><span>Back to Product</span></span></a>
+    <br /><br />
+    <a div class="button" href="<?php echo Mage::app()->getStore()->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK); ?>"><span><span>Continue Shopping</span></span></a>
+    
+</div>

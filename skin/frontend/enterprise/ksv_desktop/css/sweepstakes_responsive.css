@@ -1,0 +1,461 @@
+@font-face {
+	font-family: 'Didot';
+	src: url('../fonts/Didot.eot');
+	src: url('../fonts/Didot.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/Didot.woff') format('woff'),
+		url('../fonts/Didot.ttf') format('truetype'),
+		url('../fonts/Didot.svg#Didot') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Landing page */
+#sweepstakes #sweepstakes-main {
+	width: 100%;
+	max-width: 1024px;
+	background: none !important;
+	margin: 0 auto;
+	border-top: 1px solid #d3d3d3;
+	padding-top: 10px;
+}
+
+#sweepstakes .col-main {
+	width: 100% !important;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-position: 50% 50%;
+	height: 100%;
+	width: auto;
+}
+
+#sweepstakes-container {
+	padding: 4%; 
+	text-align: center;
+}
+
+#sweepstakes-container-inner {
+	background: #FFF;
+	padding: 3%;
+}
+
+#sweepstakes #sweepstakes-main:after, 
+#sweepstakes-container-inner:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+
+#sweepstakes-container img {
+	max-width: 100%;
+	height:auto;
+}
+
+#sweepstakes-container .sweepstakes-logo {
+	padding: 25px 0;
+}
+
+#sweepstakes-container .sweepstakes-header {
+	padding: 20px 0;
+}
+
+#sweepstakes-container .sweepstakes-intro {
+	padding: 7px 14%;
+}
+
+#sweepstakes-container .sweepstakes-intro p {
+	font-family: 'GilsansLightFCNormal','GillSansMT-Light';
+	font-size: 22px;
+	color: #818385;
+	line-height: 33px;
+	font-weight: 600;
+}
+
+#sweepstakes-content {
+	clear: both;
+	padding-top: 24px;
+}
+
+#sweepstakes-details {
+	background: #F3F3F4;
+	padding: 2%; 
+	margin-bottom: 50px;
+	color: #818385;
+}
+
+#sweepstakes-details-inner {
+	display: table; 
+	width: 90%; 
+	padding: 32px 5% 48px 5%;
+	border: 1px solid #D6D7D9;
+}
+
+#sweepstakes-details .left {
+	width: 48%; 
+	padding-right: 2%;
+	margin-top: 30px; 
+	border-right: 2px solid #B5B7B9;
+	text-align: left;
+}
+
+#sweepstakes-details .right {
+	width: 45%;
+	padding-left: 4%;
+	text-align: left;
+}
+
+#sweepstakes-details h2 {
+	font-family: 'GilsansLightFCNormal','GillSansMT-Light'; 
+	font-size: 20px; 
+	text-transform: uppercase; 
+	padding: 61px 0 25px 0;
+	letter-spacing: .5px;
+	color: #818385;
+	font-weight: 600 !important;
+}
+
+#sweepstakes-details ul {
+	font-family: 'GilsansLightFCNormal','GillSansMT-Light'; 
+	padding-left: 11px; 
+	list-style-position: inside; 
+	list-style: inherit; 
+	font-size: 16px;
+	font-weight: 600;
+}
+
+#sweepstakes-details ul li {
+	padding: 5px 0 0 0;
+	text-align: left;
+}
+
+#sweepstakes-details strong {
+	font-family: 'GillSansMTRegular','GillSansMT';
+	font-weight: 600;
+}
+
+#sweepstakes-details .highlight {
+	font-size: 21px;
+	padding: 31px 0 0 11px;
+	color: #90CDF0;
+	letter-spacing: 0.5px;
+	font-weight: 600;
+}
+
+#sweepstakes-katelogo {
+	padding-left: 5%;
+}
+
+#sweepstakes-katelogo p {
+	padding: 0;
+}
+
+#sweepstakes-embebedform {
+	padding: 10px 0 0 0;
+}
+
+#sweepstakes-agreement {
+	padding: 0 0 0 5%;
+	margin-top: -10px;
+	margin-right: -10px;
+}
+
+#sweepstakes-agreement p {
+	color: #818385;
+}
+
+#sweepstakes-agreement a {
+	text-decoration: underline;
+	color: #818385;
+}
+
+#sweepstakes-image-container {
+	clear: both;
+}
+
+.sweepstakes-images-left {
+	float: left; 
+	width: 24%;
+	padding-right: 1%;
+	text-align: left;
+}
+
+.sweepstakes-images-center {
+	float: left; 
+	width: 50%;
+}
+
+.sweepstakes-images-right {
+	float: right; 
+	width: 24%;
+	padding-left: 1%;
+	text-align: right;
+}
+
+.sweepstakes-images-single {
+	clear: both;
+	width: 100%;
+}
+
+#sweepstakes-image-container img {
+	margin-bottom: 20px;
+}
+
+#sweepstakes-footer {
+	clear: both;
+	margin: 0 4% 4% 4%;
+	text-align: left;
+	padding-top: 20px;
+	font-weight: 600;
+}
+
+#sweepstakes-footer p {
+	color: #818385;
+}
+
+#sweepstakes-footer a {
+	color: #818385;
+	text-decoration: underline;
+}
+
+
+
+
+/* Thank You page */
+.sweepstakes-thankyou {
+	margin-bottom: 90px !important;
+}
+
+.sweepstakes-thankyou .col-main {
+	margin-bottom: 50px;
+}
+
+#sweepstakes-thankyou-container {
+	width: 96%;
+	border: 1px solid #57585b; 
+	padding: 2%;
+}
+
+#sweepstakes-thankyou-inner {
+	border: 1px solid #d4d5d6; 
+	padding: 1%; 
+	text-align: center;
+}
+
+#sweepstakes-thankyou-inner #sweepstakes-katelogo {
+	margin: 50px 0 90px 0;
+}
+
+#sweepstakes-thankyou-inner h1 {
+	margin: 0 0 60px 0;
+	font-size: 51px; 
+	font-family: 'Didot'; 
+	color: #818385;
+	letter-spacing: .5px;
+	text-transform: none;
+	font-weight: 600 !important;
+}
+
+#sweepstakes-share {
+	font-family: 'GilsansLightFCNormal','GillSansMT-Light';
+	letter-spacing: 2px;
+	font-weight: 600; 
+	font-size: 23px; 
+	text-transform: uppercase;
+	padding-bottom: 11px;
+}
+
+#sweepstakes-share p {
+	font-family: 'GilsansLightFCNormal','GillSansMT-Light';
+	letter-spacing: 2px;
+	font-weight: 600; 
+	font-size: 23px;
+	padding-bottom: 0; 
+	color: #818385;
+	line-height: 1.35em;
+}
+
+#sweepstakes-share .social-icons {
+	height: 45px; 
+	margin: 6px 0 18px 0;
+}
+
+#sweepstakes-share .social-icons .stButton {
+	width: 46px; 
+	height: 45px; 
+	text-indent: -9999em; 
+	padding: 0; 
+	margin: 0; 
+	vertical-align: top;
+}
+
+#sweepstakes-share .social-icons .st_facebook .stButton {
+	background: url(../images/sweepstakes/share-facebook.png) no-repeat;
+}
+
+#sweepstakes-share .social-icons .st_twitter .stButton {
+	background: url(../images/sweepstakes/share-twitter.png) no-repeat;
+}
+
+#sweepstakes-share .social-icons .st_pinterest .stButton {
+	background: url(../images/sweepstakes/share-pinterest.png) no-repeat;
+}
+
+#sweepstakes-share .social-icons .st_googleplus .stButton {
+	background: url(../images/sweepstakes/share-google.png) no-repeat;
+}
+
+#sweepstakes-thankyou-bottom {
+	display: table;
+	max-width: 900px;
+	margin: 0 auto;
+	border: 1px solid #57585b;
+	padding: 2% 2% 0 2%;
+	text-align: center;
+	width: 95%;
+}
+
+#sweepstakes-thankyou-bottom .left {
+	width: 56%;
+	padding: 0 2%;
+}
+
+#sweepstakes-thankyou-bottom .right {
+	width: 40%;
+	text-align: right;
+}
+
+#sweepstakes-thankyou-bottom .left h2 {
+	font-size: 48px; 
+	font-family: 'Didot';
+	letter-spacing: .5px; 
+	color: #818385; 
+	padding-bottom: 14px; 
+	margin: 26px 0 8px 0; 
+	background: url('../images/sweepstakes/sweeptakes-line.png') no-repeat center bottom;
+	font-weight: 600 !important;
+}
+
+#sweepstakes-thankyou-bottom .left p {
+	font-family: 'GilsansLightFCNormal','GillSansMT-Light';
+	letter-spacing: 1.5px;
+	font-size: 18px; 
+	color: #818385;
+	line-height: 1.35em;
+	padding: 24px 0 2px 0;
+	font-weight: 600;
+}
+
+#sweepstakes-thankyou-bottom .left strong {
+	font-family: 'GillSansMTRegular','GillSansMT';
+	font-weight: 600;
+}
+
+#sweepstakes-thankyou-bottom .left .highlight {
+	font-size: 22px;
+	padding: 0 0 9px 0 !important;
+}
+
+#sweepstakes-thankyou-bottom .left .highlight span {
+	font-family: 'Didot'; 
+	font-weight: 600;
+	font-size: 26px;
+}
+
+#sweepstakes-thankyou-bottom .left .small {
+	font-size: 13px;
+	padding: 12px 0 10px 0 !important;
+}
+
+
+
+
+@media screen and (min-width: 1024px) {
+	#sweepstakes-embebedform {
+		margin-left: -25px;
+	}
+}
+
+@media screen and (max-width: 770px) {
+	#sweepstakes-container .sweepstakes-intro {
+		padding: 7px 0;
+	}
+	
+    #sweepstakes-details .left {
+	    width: 100%;
+		padding: 0;
+		margin: 0;
+	    border: none;	   
+	    text-align: center;
+    }
+    
+    #sweepstakes-details .right {
+	    width: 100%;
+	    padding: 0 0 30px 0;
+		margin: 0 0 30px 0;
+	    text-align: center;
+	    border-bottom: 2px solid #B5B7B9;
+    }
+    
+    #sweepstakes-details .right img {
+	    width: 100%;
+    }
+    
+    #sweepstakes-details h2 {
+	    padding-top: 0;
+    }
+    
+    #sweepstakes-katelogo,
+    #sweepstakes-agreement {
+	    padding: 0;
+	    margin: 0;
+    }
+    
+    .sweepstakes-images-center,
+    .sweepstakes-images-left,
+    .sweepstakes-images-right {
+	    width: 100%;
+	    padding: 0;
+	    text-align: center;
+    }
+    
+    #sweepstakes-image-container img {
+    	padding: 0 2%;
+    }
+    
+    .sweepstakes-thankyou .col-main {
+		margin-bottom: 0;
+	}
+    
+    #sweepstakes-thankyou-inner h1 {
+		margin: 0 0 30px 0;
+	}
+    
+    #sweepstakes-thankyou-bottom { 
+    	border: none;
+    }
+    
+    #sweepstakes-thankyou-bottom .left .highlight {
+		font-size: 18px;
+		line-height: 30px;
+	}
+	
+	#sweepstakes-thankyou-bottom .left p {
+		padding: 0 0 10px 0 !important;
+	}
+	
+	#sweepstakes-thankyou-bottom .left .small {
+		padding: 0 0 15px 0 !important;
+	}
+    
+    #sweepstakes-thankyou-bottom .left,
+    #sweepstakes-thankyou-bottom .right {
+		width: 100%;
+		padding: 0;
+		margin: 0;	    
+		text-align: center;
+    }
+}

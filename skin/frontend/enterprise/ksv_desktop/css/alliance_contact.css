@@ -1,0 +1,104 @@
+/* Form lists */
+.contactus p{
+	font-size:14px;
+	margin:0;
+	padding:10px 0 20px 0;
+}
+
+
+.contactusForm .fieldset .form-list {padding:0; !important;}
+
+.contactusForm .form-list li { margin:0 0 15px; vertical-align:top; }
+.contactusForm .form-list label { padding:2px 15px 0 0; font-size:14px;color:#a7a9ac; text-align:right;float:left;width:auto;line-height: 32px; }
+
+.contactusForm .form-list .value { float:left; padding:2px 0 0; }
+.contactusForm .form-list .note { clear:both; font-size:11px; width:60%; margin:0; padding:3px 0 0 0px; }
+.contactusForm .form-list span.label { font-weight:normal; }
+.contactusForm .form-list .input-box { float:left; clear:both; width:60%;position:relative;}
+.contactusForm .form-list .input-box a { font-size:11px; margin-top:4px; }
+.contactusForm .form-list input.input-text,
+.contactusForm .form-list textarea { float:left; width:100%; vertical-align:top;font-size:13px; }
+.contactusForm .form-list input.input-text{clear:both;}
+.contactusForm .form-list textarea { width:100%; height:13em; }
+.contactusForm .form-list select { float:left; width:300px; vertical-align:top; font-size:13px;padding:7px 40px 7px 10px;}
+.contactusForm .form-list p { margin:0 0 10px 0; padding:0;font-size:14px;text-align:left;}
+.contactusForm ul.add-row,
+.contactusForm .form-list li.add-row { background:url(../images/bkg_dots.gif) repeat-x 0 0; margin-top:15px; }
+.contactusForm ul.add-row .btn-remove,
+.contactusForm .form-list li.add-row .btn-remove { font-size:0; line-height:0; padding:5px 5px 0 0; margin:0; text-align:right; }
+.contactusForm .form-list .range input.input-text { float:none; width:64px; vertical-align:middle; }
+
+.contactusForm .form-list .add-field .input-box { /*margin-left:240px */}
+.contactusForm .form-list .control { position:relative; vertical-align:top; z-index:1; padding:0 0 0 20px; } /* row with checkbox or radio button */
+.contactusForm .form-list .control label { line-height:16px; }
+.contactusForm .form-list .control .input-box { position:absolute; left:0; line-height:16px; /* margin-left:240px; padding-top:1px;*/ }
+.contactusForm .form-list .control input.radio { margin-top:3px; }
+
+
+
+.contactusForm .form-list #t1, .contactusForm .form-list #t2, .contactusForm .form-list #t3{
+	float:left;
+	clear:none;
+	width:8%;
+	margin-left:1%;
+	text-align: center;
+}
+
+.contactusForm .form-list #t1{
+	margin-left:0;
+}
+
+.contactusForm .form-list #street1{
+	margin-bottom:8px;
+}
+
+.contactusForm .form-list .zipdiv{
+	margin-top:-1px;
+	margin-left:15px;
+	float:left;
+	width:270px;
+}
+
+.contactusForm .form-list li .required em{font-style: normal;margin-left:5px !important;}
+
+.contactusForm .buttons-set{
+	width:60%;
+}
+
+.contactusForm .buttons-set .button{
+	float:left;
+}
+
+.contactusForm .form-list .validation-advice{
+	font-size:12px !important;
+	margin:0;
+	width:auto;
+}
+
+/* Combination of fields */
+.form-list li.fields { margin:0; }
+.form-list li.fields .field { clear:left; padding:0 0 15px; }
+
+.form-list .input-box.skin_concern_box{
+    float:left;
+    width:auto;
+    margin:10px 0 20px 0;
+}
+.skin_concern_option{
+    float:left;
+    width:100%;
+    clear:both;
+}
+
+.skin_concern_option input{
+    float:left;
+    margin:4px 0 0 0;
+}
+
+#recaptcha_message {
+	float: left;
+	margin-top: 20px;
+	font-size: 14px;
+	color: #6db5da;
+	width:100%;	
+}

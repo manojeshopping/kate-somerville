@@ -1,0 +1,60 @@
+<?php $categoryId = $this->getData('category_id'); ?>
+<?php $_helper = Mage::helper('catalog/category') ?>
+<?php $_categories = $_helper->getStoreCategories(); ?>
+<?php $currentCategory = Mage::registry('current_category') ?>
+
+<?php 
+if(isset($_REQUEST['cat'])) $x_cat = $_REQUEST['cat'];
+else $x_cat = "";
+?>
+
+
+<?php if (count($_categories) > 0): ?>
+
+    <div id="skincare-links" class="links" data-role="collapsible-set" data-iconpos="right">
+        <?php foreach($_categories as $_category): ?>	
+        <?php if ($_category->getId() == $categoryId) : ?>
+		
+            <?php $_category = Mage::getModel('catalog/category')->load($_category->getId()) ?>
+            <?php $_subcategories = $_category->getChildrenCategories() ?>
+            <?php if (count($_subcategories) > 0): ?>
+                <?php foreach($_subcategories as $_subcategory): ?>
+                    
+                        <?php $_subcategory = Mage::getModel('catalog/category')->load($_subcategory->getId()) ?>
+                        <?php $_subsubcategories = $_subcategory->getChildrenCategories() ?>
+
+                        <?php if (count($_subsubcategories) > 0): ?>                             
+							 <?php
+								$x_display_div = "";
+								if( $x_cat == 1 && $_subcategory->getName() == 'Shop By Category') $x_display_div = "id='collapseMe'";
+								else if( $x_cat == 2 && $_subcategory->getName() == 'Shop By Concern') $x_display_div = "id='collapseMe'";
+								else if( $x_cat == 3 && $_subcategory->getName() == 'Shop by Collection') $x_display_div = "id='collapseMe'";
+						    	else $x_display_div = "";								 
+							 ?>
+                              
+                            <div data-role="collapsible"  class="box" <?php echo $x_display_div; ?> >                                
+                                <h3><?php echo $_subcategory->getName() ?></h3>
+                                <ul class="sub-menu" data-role="listview"     >
+                                    <?php foreach($_subsubcategories as $_subsubcategory): ?>
+                                        <li>
+                                            <a href="<?php echo $_helper->getCategoryUrl($_subsubcategory) ?>">
+                                                <?php echo $_subsubcategory->getName() ?>
+                                            </a>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                        <?php else : ?>
+                            <div data-role="collapsible" data-allow-collapse="false">
+                             	<h3>
+                                    <a href="<?php echo $_helper->getCategoryUrl($_subcategory) ?>" class="collapsible-header-link">
+                                        <?php echo $_subcategory->getName() ?>
+                                    </a>
+                                </h3>
+                        <?php endif; ?>
+                        </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        <?php break; endif; ?>
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>

@@ -1,0 +1,48 @@
+<?php
+//if($confirmed) {
+	$moduleURL = Mage::helper('giveawayfb')->getModuleURL();
+	$moduleDescription = urlencode("Discover Hollywood's Best Kept Secret");
+	
+	$confirmid = $this->getRequest()->getParam('id');
+	$model = Mage::getModel('giveawayfb/giveawayfb');
+	$customer_email = $model->getConfirmEmail($confirmid);
+
+?>
+<div class="giveawayfb-container giveawayfb-success">
+	<h1>Your samples are on their way</h1>
+	
+	<?php if($customer_email): ?>
+	<p>Thank you for verifying your email address: <?php echo $customer_email; ?>. </p>
+	<?php else: ?>
+	<p>Thank you for verifying your email address.</p>
+	<?php endif; ?>	
+	<p>Your order will be created shortly in our system and you will receive a separate email with your order confirmation.  </p>
+	<p>Please allow 6-8 weeks to receive your samples.  We hope you enjoy!</p>
+	
+	<div class="giveawayfb-socials"><ul>
+		<li>Share with your friends:</li>
+		<li><a href="http://www.facebook.com/share.php?u=<?php echo $moduleURL?>" rel="external"><img src="<?php echo $this->getSkinUrl('images/giveawayfb/social-facebook.png');?>" alt="" /></a></li>
+		<li><a href="http://twitter.com/home/?status=<?php echo $moduleDescription;?>%20:%20<?php echo $moduleURL?>" rel="external"><img src="<?php echo $this->getSkinUrl('images/giveawayfb/social-twitter.png');?>" alt="" /></a></li>
+		<li><a href="http://pinterest.com/pin/create/button/?url=<?php echo $moduleURL?>&media=<?php echo $this->getSkinUrl('images/giveawayfb/samples.jpg');?>&description=<?php echo $moduleDescription;?>" rel="external"><img src="<?php echo $this->getSkinUrl('images/giveawayfb/social-pinterest.png');?>" alt="" /></a></li>
+	</ul></div>
+</div>
+
+<!-- Facebook Conversion Code for KS NL Sign-ups -->
+<script type="text/javascript">
+var fb_param = {};
+fb_param.pixel_id = '6014472199202';
+fb_param.value = '0.01';
+fb_param.currency = 'USD';
+(function(){
+var fpw = document.createElement('script');
+fpw.async = true;
+fpw.src = '//connect.facebook.net/en_US/fp.js';
+var ref = document.getElementsByTagName('script')[0];
+ref.parentNode.insertBefore(fpw, ref);
+})();
+</script>
+<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/offsite_event.php?id=6014472199202&value=0.01&currency=USD"; /></noscript>
+
+<?php //} else {?>
+
+<?php //} ?>

@@ -1,0 +1,268 @@
+
+      .wrap{
+        width: 952px; margin:0 auto;
+        /*margin-right:5px;*/
+      }	  
+	  
+      table.aside {
+        width: 270px;
+        font-size: 12px;
+        line-height: 16px;
+        color: #666;
+        margin-bottom: 20px;
+      }
+    a img { border: 0}
+      table.aside .subheader{
+        font-size: 14px;
+        font-weight: bold;
+        padding-bottom: 3px;
+        color: #333;
+      }
+      table.program_overview {
+        margin-right: 20px;
+      }
+      table{
+        border-collapse: collapse;
+      }
+      table td{
+        vertical-align: top;
+      }
+      table.aside td,
+      table.program_overview td{
+        /*border: 1px solid #ccc;*/
+      }
+      table.program_overview td {
+        padding: 20px 10px;
+        color: #666;
+      }
+      table.aside td {
+        padding: 20px;
+      }
+      h2.main_header{
+        margin-left: 0px;
+        font-size: 20px;
+        line-height: 20px;
+      }
+      h2{
+        color: #333;
+        font-size: 16px;
+        font-weight: normal;
+        margin-bottom: 10px;
+		text-align:center;
+      }
+      .program_text{
+        font-size: 18px;
+        line-height: 22px;
+        color: #666;
+		padding:25px 0 0;
+		width:420px;
+      }
+      .earn_links{
+        font-size: 16px;
+        display: inline-block;
+        border-left: 1px solid #ccc;
+        line-height: 16px;
+        padding-left: 10px;
+        margin-left: 10px;
+      }
+      ul.listing{
+        margin-top: 10px;
+        padding: 0px;
+      }
+      ul.listing li{
+        list-style-type: none;
+        float: left;
+        width: 128px;
+        text-align: center;
+      }
+      ul.listing li.first div.box{
+      }
+      table.program_overview td.points{
+      }
+      .points div.box{
+        height: 180px;
+      }
+      div.box img{
+        margin: 20px auto 0px;
+      }
+      .point_image_wrap{
+        height: 110px;
+      }
+      .point_image_wrap_less{
+        height: 100px;
+      }
+      div.box{
+        /*padding: 15px;
+        margin: 10px;*/
+        height: 150px;   
+        /*border: 1px solid #ccc;*/
+      }                  
+      .points .description{
+        margin: 0px;
+      }
+      .description{
+        font-size: 12px;
+        font-weight: bold;
+        margin: 5px 10px 10px;
+        line-height: 18px;
+      }
+      .description_text{
+        font-size: 11px;
+        line-height: 14px;
+        font-weight: normal;
+      }
+      .back_to_top{
+        float: right;
+        font-size: 12px;
+        font-weight: bold;
+        margin-top: 2px;
+        margin-right: 10px;
+      }
+      .link{
+        background:url('https://d3aa0ztdn3oibi.cloudfront.net/merchant/13fe23f510beb2ee7cd7deaeaab19069.png') repeat-x left bottom;
+        text-align:center;
+        color:#2e5c99;
+        width:160px;
+        height:30px;
+        display:block;
+        border-radius:20px;
+        -moz-border-radius:20px;
+        -webkit-border-radius:20px;
+        border:1px solid #999;
+        font-size:13px;
+        font-weight:bold;
+        line-height:30px;
+        margin-top:15px;
+        text-decoration:none;
+      }
+	  .button-area{ margin:60px 5px 0 0; clear:both; overflow:hidden; float:right; padding:10px;}
+	  .button-area .enroll-now{background:#fdcc43; padding:10px; text-transform:uppercase; color:#fff; margin-right:10px;}
+	  .button-area .sign-in{background:#6db7dc; padding:10px; text-transform:uppercase; color:#fff;}
+	  
+	  .first-content-area{ margin-bottom:10px;}
+	  .content-sign-in {float: left; padding: 10px 10px 0; width: 303px; }
+	  .content-earn-point, .content-get-reward{ border-left: 1px solid #D6D6D6; float: left; padding: 10px 10px 0; width: 302px;}
+	  
+	 
+	  
+	  
+	  
+	  .first-content-area .title, .points .title, .content-rewards .title, .content-tire-rewards .title{background:#6db7dc; color:#fff; padding:10px;}
+	  .first-content-area .title h3, .points .title h3, .content-rewards .title h3, .content-tire-rewards .title h3{ font-size:18px; margin:0px; text-transform:capitalize;}
+.content-tire-rewards p span{font-size:13px;}
+.content-tire-rewards small{font-size:11px;}
+	  .first-content-area .content-link{color:#6db7dc; font-size:16px; padding:10px 0px 10px 10px;}
+	  .first-content-area .desc{padding:0 10px; color:#666666; line-height:18px; font-size:14px;}
+	  
+	  .content-sign-in .cont-text, .content-earn-point .cont-text, .content-get-reward .cont-text{ padding:10px 0;}
+	  .content-sign-in .cont-text h4, .content-earn-point .cont-text h4, .content-get-reward .cont-text h4{font-size:18px; margin-bottom:10px; text-transform:capitalize; font-weight:normal; margin-top:0px;}
+	  .content-sign-in .cont-text .content-link, .content-earn-point .cont-text .content-link, .content-get-reward .cont-text .content-link{font-size:16px; margin:0px; text-transform:capitalize;}
+	  .content-rewards, .content-tire-rewards{ width:435px;}
+	  .content-rewards .title h3 span, .content-tire-rewards .title h3 span{font-size:12px;}
+	  .rewards-listing{list-style:none; overflow:hidden; padding-left:0px;}
+	  	  .rewards-listing li{float:left; width:auto;margin-left:50px;padding-bottom:10px;}
+
+	  .rewards-listing .reward_image_wrap{float:left; padding-right:5px;}
+	  .rewards-listing .rewards-box{}
+	  .rewards-box .tier{padding-left:10px; font-size:12px; font-weight:bold; padding-top:5px;}
+	  
+	  .rewards-listing .description{padding-top:20px; font-size: 12px; font-weight: bold; height: 60px; line-height: 18px; margin: 0; vertical-align: middle;}
+	  .rewards-listing .tier-description{padding-top:30px; font-size: 12px; font-weight: bold; height: 60px; line-height: 18px; margin: 0; vertical-align: middle; width:180px;}
+	  
+	  
+	  .first-content-area .content-sign-in { padding:10px 5px 0 0;}
+	  .first-content-area .content-earn-point { padding:10px 5px 0;}
+	  .first-content-area .content-get-reward { padding:10px 0 0 5px;}
+	  .first-content-area .content-sign-in,
+	  .first-content-area .content-earn-point,
+	  .first-content-area .content-get-reward { min-height: 218px; }
+	  .bg-img{background:url('https://d3aa0ztdn3oibi.cloudfront.net/merchant/a9b2b5792de1ff04a5b8f2f84a9f2694.png') no-repeat right bottom;}
+	  
+	  .renew-skin{text-transform:capitalize; font-size:18px; color:#6db7de; font-weight:bold;}
+	  .restore-health{text-transform:capitalize; font-size:18px; color:#95d7cb; font-weight:bold;}
+	  .deliver-result{text-transform:capitalize; font-size:18px; color:#FDA84D; font-weight:bold;}
+	  
+	  .faq-area{text-align:left; float:left; margin-top:80px; color:#6DB7DE; line-height:16px;}
+	  .faq{color:#6DB7DE; font-size:14px;}
+	   a.faq:hover{text-decoration:underline;}
+	  .terms-condition{color:#6DB7DE; font-size:14px;}
+	  a.terms-condition:hover{text-decoration:underline;}
+	    
+	  /* login form */
+	.overlay-bg {
+		position: fixed;
+		top: 0;
+		left: 0;
+		height:100%;
+		width: 100%;
+		cursor: pointer;
+		z-index: 1000; /* high z-index */
+		background: #000; /* fallback */
+		background: rgba(0,0,0,0.75);
+		display: none;
+	}
+	.overlay-content {
+		background: #FFF;
+		width: 260px;
+		height: 370px;
+		position: relative;
+		top: 50px;
+		left: 50%;
+		margin: 0 0 0 -130px; /* add negative left margin for half the width to center the div */
+		cursor: pointer;
+		box-shadow: 0 0 5px rgba(0,0,0,0.9);
+		display: none;
+	}
+	
+	.overlay-content span.close { float:right; font-size:12px; line-height:30px; padding-right:10px; }
+	.overlay-content form { clear:both; }
+	.katerewards-enroll-login h2 { font-size:15px; }
+	.katerewards-enroll-login .loginformdescription { margin: 0 auto; width:100%; padding:0 10px 0 10px; }
+	.katerewards-enroll-login .form-list .input-box { margin:0 !important; }
+    .katerewards-enroll-login .content .form-list { text-align:left; margin:5px 10px 0 10px;  }
+    .katerewards-enroll-login .content .form-list li { padding: 5px 0 5px 0; width:100%; float:left; }
+    .katerewards-enroll-login .content .form-list label { text-align:left; width:100px; line-height:47px !important; }
+	.katerewards-enroll-login .content .form-list .input-box { width:100px; float:right; margin-right:35px !important; }
+	.katerewards-enroll-login p.required { text-align:left; margin-left:10px; color:#6a747c; margin-bottom:20px; clear:both;  }
+	.katerewards-enroll-login .buttons-set { margin:0; text-align:center; }
+	.katerewards-enroll-login .buttons-set  button { margin:5px auto;  }
+	.katerewards-enroll-login .buttons-set a { clear:both; margin:0; }
+	
+	/* register form */
+	  .katerewards-enroll-register .content .form-list .control label { line-height:25px !important; float:left; }
+	  .katerewards-enroll-register .content .form-list .control .input-box { margin:0 !important; }
+	  .katerewards-enroll-register .content .form-list .input-box { line-height:16px; }
+	  .katerewards-enroll-register p.required { text-align:left; margin-left:15px; color:#6a747c;  }
+	  .katerewards-enroll-register button { margin:0 auto; }
+	
+	
+/***** iPhone (portrait) *****/
+@media only screen and (max-width: 767px) {
+
+}
+
+/***** iPhone (landscape) *****/
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+	.overlay-content {
+		background: #FFF;
+		width: 470px;
+		height: 370px;
+		position: relative;
+		top: 10px;
+		left: 50%;
+		margin: 0 0 0 -235px; /* add negative left margin for half the width to center the div */
+		cursor: pointer;
+		box-shadow: 0 0 5px rgba(0,0,0,0.9);
+		display: none;
+	}
+    .katerewards-enroll-login .content .form-list li { padding: 5px 0 00; width:100%; float:left; }
+    .katerewards-enroll-login .content .form-list label { text-align:left; width:100px; line-height:47px !important; }
+	.katerewards-enroll-login .content .form-list .input-box { width:240px; float:right; margin-right:35px !important; }
+	
+}	
+	
+	
+	
+	
+	

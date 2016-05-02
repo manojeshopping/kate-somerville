@@ -1,0 +1,186 @@
+<?php if ($this->isEnabled()): ?>
+	<style>
+		#email-capture-lightbox-container {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			padding: 0;
+			margin: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, 0.5);
+			z-index: 999;
+		}
+
+		#email-capture-lightbox-signup {
+			width: <?php echo $this->getSignupWidth(); ?>px;
+			height: <?php echo $this->getSignupHeight(); ?>px;
+			margin: auto;
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			background-image: url('<?php echo $this->getSignupImageUrl(); ?>');
+			background-size: <?php echo $this->getSignupWidth(); ?>px <?php echo $this->getSignupHeight(); ?>px;
+		}
+
+		#email-capture-lightbox-thankyou {
+			width: <?php echo $this->getThankyouWidth(); ?>px;
+			height: <?php echo $this->getThankyouHeight(); ?>px;
+			margin: auto;
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			background-image: url('<?php echo $this->getThankyouImageUrl(); ?>');
+			background-size: <?php echo $this->getThankyouWidth(); ?>px <?php echo $this->getThankyouHeight(); ?>px;
+		}
+
+		.email-capture-close {
+			width: 20px;
+			height: 20px;
+			font-size: 20px;
+			cursor: pointer;
+			position: absolute;
+			top: 0;
+			right: 0;
+			color: #75b8db;
+		}
+
+		.email-capture-error {
+			width: 306px !important;
+			height: 16px !important;
+			position: absolute;
+			bottom: 120px;
+			right: 40px;
+			font-size: 11px;
+			line-height: 16px;
+			font-weight: bold;
+			color: #75b8db;
+			text-align: center;
+		}
+
+		.email-capture-input {
+			width: 306px !important;
+			height: 40px !important;
+			position: absolute;
+			bottom: 80px;
+			right: 40px;
+			background-color: #fff;
+		}
+
+		.email-capture-submit {
+			width: 134px !important;
+			height: 37px !important;
+			position: absolute;
+			bottom: 40px;
+			right: 40px;
+			background-color: #75b8db;
+			border-radius: 4px;
+			color: #fff;
+			cursor: pointer;
+		}
+
+		.email-capture-continue {
+			margin: 0 auto;
+			line-height: 32px;
+			font-size: 16px;
+			margin: 0 auto;
+			cursor: pointer;
+			color: #75b8db;
+			font-weight: bold;
+			text-align: center;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+		}
+
+		.email-capture-continue:hover {
+			text-decoration: underline;
+		}
+	</style>
+	<div id="email-capture-lightbox-container" style="display: none;">
+		<div id="email-capture-lightbox-signup">
+			<div class="email-capture-close">X</div>
+			<div class="email-capture-error">Please enter a valid email address and try again.</div>
+			<input class="email-capture-ele email-capture-input" type="email" name="email" autocomplete="off" placeholder="Email Address">
+			<button class="email-capture-ele email-capture-submit" type="submit">Submit</button>
+		</div>
+		<div id="email-capture-lightbox-thankyou">
+			<div class="email-capture-close">X</div>
+			<div class="thankyou-bottom">
+				<span>
+					<a class="email-capture-continue" href="<?php echo $this->getThankyouLinkUrl(); ?>"><?php echo $this->getThankyouLinkText(); ?></a>
+				</span>
+				<br>
+			</div>
+			<div class="email-capture-disclaimer"><?php echo $this->getThankyouDisclaimerText(); ?></div>
+		</div>
+	</div>
+	<script src="/js/jquery-cookie/jquery.cookie.js"></script>
+	<script type="text/javascript">
+		var emailCaptureError = function () {
+			jQuery('.email-capture-ele').removeAttr('disabled');
+			jQuery('.email-capture-error').show();
+			jQuery('.email-capture-input').select();
+		}
+		var emailCaptureSuccess = function () {
+			jQuery('#email-capture-lightbox-signup').hide();
+			jQuery('#email-capture-lightbox-thankyou').show();
+		}
+		var emailCaptureSubmit = function () {
+			jQuery('.email-capture-error').hide();
+			jQuery('.email-capture-ele').attr('disabled', 'disabled');
+			jQuery.ajax({
+				url: '/emailcapture/ajax/subscribe',
+				type: 'post',
+				dataType: 'json',
+				data: {'email': jQuery('.email-capture-input').val()}
+			}).done(function (data) {
+				if (data.status == 'error') {
+					emailCaptureError();
+
+				} else if (data.status == 'success') {
+					emailCaptureSuccess();
+				}
+			}).fail(function (data) {
+				emailCaptureError();
+			});
+		}
+		jQuery(document).ready(function () {
+			if (jQuery.cookie('alliance_emailcapture_shown') !== 'true') {
+				jQuery.cookie('alliance_emailcapture_shown', 'true', { path: '/', expires: 3650, domain: '<?php echo Mage::helper('alliance_emailcapture')->getCookieDomain(); ?>' });
+				jQuery('#email-capture-lightbox-container').show();
+				jQuery('.email-capture-input').focus();
+			}
+			jQuery('#email-capture-lightbox-thankyou').hide();
+			jQuery('.email-capture-error').hide();
+			jQuery('.email-capture-close').click(function () {
+				jQuery('#email-capture-lightbox-container').hide();
+			});
+			jQuery('.email-capture-continue').click(function () {
+				jQuery('#email-capture-lightbox-container').hide();
+			});
+			jQuery('#email-capture-lightbox-container').click(function () {
+				jQuery(this).hide();
+			});
+			jQuery('#email-capture-lightbox-signup').click(function (event) {
+				event.stopPropagation();
+			});
+			jQuery('#email-capture-lightbox-thankyou').click(function (event) {
+				event.stopPropagation();
+			});
+			jQuery('.email-capture-submit').click(emailCaptureSubmit);
+			jQuery('.email-capture-input').bind('keypress', function (event) {
+				if (event.which == 13) {
+					emailCaptureSubmit();
+				}
+			});
+		});
+	</script>
+<?php endif; ?>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Alliance_Catalog>
+            <version>1.0.0</version>
+        </Alliance_Catalog>
+    </modules>
+    <global>
+        <blocks>
+			<catalog>
+                <rewrite>
+					<product_view_type_configurable>Alliance_Catalog_Block_Product_View_Type_Configurable</product_view_type_configurable>
+				</rewrite>
+			</catalog>
+        </blocks>
+	</global>
+</config>
+
+
+

@@ -1,0 +1,20 @@
+<style>
+    .katerewards-enroll-oneclick {
+        border: 2px solid #00bfff;
+        margin: 10px;
+        padding: 10px;
+        font-size: 14px;
+    }
+</style>
+
+<div class="katerewards-enroll-oneclick">
+    <h1><?php echo $this->customer->getFirstname() ?>, you're missing out on free gifts and bonuses</h1>
+    <br>
+    <p>You haven't enrolled in our rewards program</p>
+    <br>
+    <p>Description and infographics selling rewards program</p>
+    <br>
+    <p>You can enroll by clicking the button below</p>
+    <br>
+    <?php echo $this->getChildHtml('katerewards_enroll_button') ?>
+</div>

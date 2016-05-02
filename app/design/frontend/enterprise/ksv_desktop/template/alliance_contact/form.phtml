@@ -1,0 +1,167 @@
+<?php
+$session = Mage::getSingleton('customer/session');
+if($session->isLoggedIn()) {
+   $customer = $session->getCustomer();
+   $customer_first =  $customer->getFirstname();
+   $customer_last =  $customer->getLastname();
+}
+?>
+<?php if(Mage::app()->getLayout()->getMessagesBlock()->getGroupedHtml()): ?>
+<div id="messages_product_view"><?php echo Mage::app()->getLayout()->getMessagesBlock()->getGroupedHtml() ?></div>
+<?php endif; ?>
+<div class="page-title">
+    <h1><?php echo Mage::helper('contacts')->__('Contact Us') ?></h1>
+</div>
+<?php /* <form action="<?php echo $this->getUrl('contacts/index/post'); ?>" id="contactForm" method="post"> */ ?>
+<form action="<?php echo $this->getUrl('contact/index/submit'); ?>" id="contactusForm" name="contactusForm" class="contactusForm" method="post"> 
+	<input type="hidden" name="return_url" value="contactus" />
+    <div class="fieldset contactus">
+        <?php echo Mage::app()->getLayout()->createBlock('cms/block')->setBlockId('contact-page-msg')->toHtml(); ?>
+        <ul class="form-list">
+            <li class="fields">
+                <div class="field">
+                    <label for="name" class="required"><?php echo Mage::helper('contacts')->__('First Name') ?><em>*</em></label>
+                    <div class="input-box">
+                        <?php if($session->isLoggedIn()) : ?>
+                            <input name="ctfirstname" id="name" title="<?php echo Mage::helper('contacts')->__('First Name') ?>" value="<?php echo $customer_first; ?>" class="input-text required-entry" type="text" />
+                        <?php else : ?>
+                            <input name="ctfirstname" id="name" title="<?php echo Mage::helper('contacts')->__('First Name') ?>"  class="input-text required-entry" type="text" />
+                        <?php endif ?>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="name" class="required"><?php echo Mage::helper('contacts')->__('Last Name') ?><em>*</em></label>
+                    <div class="input-box">
+                        <?php if($session->isLoggedIn()) : ?>
+                            <input name="ctlastname" id="lname" title="<?php echo Mage::helper('contacts')->__('Last Name') ?>" value="<?php echo $customer_last; ?>" class="input-text required-entry" type="text" />
+                        <?php else : ?>
+                            <input name="ctlastname" id="lname" title="<?php echo Mage::helper('contacts')->__('Last Name') ?>" class="input-text required-entry" type="text" />
+                        <?php endif ?>
+                    </div>
+                </div>
+
+
+                <div class="field">
+                    <label for="email" class="required"><?php echo Mage::helper('contacts')->__('Email') ?><em>*</em></label>
+                    <div class="input-box">
+                        <input name="ctemail" id="email" title="<?php echo Mage::helper('contacts')->__('Email') ?>" value="<?php echo $this->htmlEscape($this->helper('contacts')->getUserEmail()) ?>" class="input-text required-entry validate-email" type="text" />
+                    </div>
+                </div>
+
+
+                <div class="field">
+                    <label for="phone" class="required"><?php echo Mage::helper('contacts')->__('What is the best number to reach you?') ?></label>
+                    <div class="input-box">
+                        <input name="t1" id="t1" title="<?php echo Mage::helper('contacts')->__('What is the best number to reach you?') ?>" class="input-text cphone" type="text" maxlength="4" size="4" />
+                        <input name="t2" id="t2" title="<?php echo Mage::helper('contacts')->__('What is the best number to reach you?') ?>" class="input-text cphone" type="text" maxlength="4" size="4" />
+                        <input name="t3" id="t3" title="<?php echo Mage::helper('contacts')->__('What is the best number to reach you?') ?>" class="input-text cphone3" type="text" maxlength="5" size="4" />
+                    </div>
+                </div>
+
+
+
+                <div class="field">
+                    <label for="address" ><?php echo Mage::helper('contacts')->__('Street Address') ?></label>
+                    <div class="input-box">
+                        <input name="street1" id="street1" title="<?php echo Mage::helper('contacts')->__('Street Address') ?>"  class="input-text" type="text" /><br/><Br/>
+                        <input name="street2" id="street2" title="<?php echo Mage::helper('contacts')->__('Street Address') ?>"  class="input-text" type="text" />                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="city" ><?php echo Mage::helper('contacts')->__('City') ?></label>
+                    <div class="input-box">
+                        <input name="city" id="city" title="<?php echo Mage::helper('contacts')->__('City') ?>"  class="input-text" type="text" />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div style="float:left;">
+                        <label for="state" ><?php echo Mage::helper('contacts')->__('State') ?></label>
+                        <div class="input-box"> 
+                            <?php $region = Mage::getModel('directory/region')->getResourceCollection()->addCountryFilter('US')->load(); ?>
+                            <select name="state" id="state" title="<?php echo Mage::helper('contacts')->__('State') ?>"  class="input-text state" >
+                                <option value=""><?php echo $this->__('Pick your state'); ?></option>
+                                <?php foreach ($region as $v) : ?>
+                                    <option value="<?php echo $v->getName(); ?>"><?php echo $v->getName(); ?></option>
+                                <?php endforeach; ?>
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="zipdiv" >
+                        <label for="zip" ><?php echo Mage::helper('contacts')->__('Zip') ?></label>
+                        <div class="input-box">
+                            <input name="zip" id="zip" title="<?php echo Mage::helper('contacts')->__('Zip') ?>"  class="input-text zipcode" type="text" />
+                        </div>
+                    </div>    
+                </div>
+
+            </li>
+
+            <li class="wide">
+                <label for="comment" ><?php echo Mage::helper('contacts')->__('Message') ?><em>*</em></label>
+                <div class="input-box">
+                    <textarea name="ctmessages" id="comment" title="<?php echo Mage::helper('contacts')->__('Message') ?>" class="required-entry input-text" cols="5" rows="3"></textarea>
+                </div>
+            </li>
+
+            
+            <li>
+                <label for="securityCode" ><?php echo Mage::helper('contacts')->__('Security Code') ?><em>*</em></label>
+                <div class="input-box">
+                    <?php
+                        require_once(Mage::helper('contact')->getRecaptchaURL());
+                        $publickey = Mage::getStoreConfig('alliance_recaptcha/recaptcha_keys/public_key');
+                        $privatekey = Mage::getStoreConfig('alliance_recaptcha/recaptcha_keys/private_key');
+                        $error = null;                       
+                        echo recaptcha_get_html($publickey, $error);
+                    ?>                    
+                </div>
+				<div id="recaptcha_message"></div>
+            </li>
+            
+            <li>
+                <div class="buttons-set">
+                    <p class="required"><?php echo Mage::helper('contacts')->__('* Required Fields') ?></p>
+                    <input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />
+					<button class="button" id="contactussubmit"><span><span><?php echo Mage::helper('contacts')->__('Submit') ?></span></span></button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+</form>
+
+
+<script type="text/javascript">
+//<![CDATA[
+    var contactForm = new VarienForm('contactusForm',true);
+//]]>	
+	jQuery(document).ready(function(){
+		jQuery("#contactussubmit").click(function(){	
+		
+			var postData = jQuery("#contactusForm").serializeArray();
+			var formURL = jQuery("#contactusForm").attr("action");
+
+			var recaptcha = jQuery("#recaptcha_response_field").val();		
+			if(recaptcha==''){
+				jQuery("#recaptcha_message").text("Please enter the security code");
+			}else{
+				jQuery.ajax({
+					type: "POST",
+					url: formURL,
+					data: postData,
+					cache: false,
+					beforeSend: function(){
+						jQuery("#recaptcha_message").text("Sending the messages...");
+					},
+					success: function(result){
+						jQuery("#recaptcha_message").text(result);
+					}
+				});
+			}
+			return false;
+		});
+	});	
+</script>

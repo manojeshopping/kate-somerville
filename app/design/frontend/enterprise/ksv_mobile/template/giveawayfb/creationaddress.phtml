@@ -1,0 +1,229 @@
+<div class="giveawayfb-container">
+    <h2>Enter in your mailing address</h2>
+
+    <div class="creation-fields">
+        <div class="communications" style="color: red; padding: 0 0 20px 0; font-size: 15px;"></div>
+        <form id="frmCreationAddress" method="post" action="<?php echo $this->getCreationAddressAction(); ?>">
+            <fieldset>
+                <label for="creation-address1" class="creation-label">* Address</label>
+                <input type="text" id="creation-address1" name="address1" value="<?php echo $this->getModuleData('address1'); ?>"
+                       class="input-text required-entry" maxlength="35"/>
+                <br/>
+                <label for="creation-address2" class="creation-label">&nbsp;</label>
+                <input type="text" id="creation-address2" name="address2" value="<?php echo $this->getModuleData('address2'); ?>" class="input-text"
+                       maxlength="35"/>
+                <br/>
+                <label for="creation-city" class="creation-label">* City</label>
+                <input type="text" id="creation-city" name="city" value="<?php echo $this->getModuleData('city'); ?>" class="input-text required-entry"/><br/>
+                <label for="creation-state" class="creation-label">* State</label>
+                <select id="creation-state" name="state" class="validate-select">
+                    <option value="">Please select state</option>
+                    <?php
+                    $state = $this->getModuleData('state');
+                    $stateArray = Mage::helper('giveawayfb')->getUSAStates();
+                    foreach ($stateArray as $_state) {
+                        if ($_state['value']) echo '<option value="' . $_state['value'] . '"' . ($state == $_state['value'] ? ' selected="selected"' : '')
+                            . '>' . $_state['label'] . '</option>';
+                    }
+                    ?>
+                </select><br/>
+                <label for="creation-zip" class="creation-label">* Zipcode</label>
+                <input type="text" id="creation-zip" name="zip" value="<?php echo $this->getModuleData('zip'); ?>" class="input-text required-entry"
+                       size="6"/>
+                <br/>
+                <div class="creation-buttons-container">
+                    <span class="giveawayfb-comment">* Required Fields</span>
+                    <button id="creation-submit" class="giveawayfb-button">Enter</button>
+                    <img id="giveawayfb-creationaddress-ajax-spinner" src="<?php echo $this->getSkinUrl('images/giveawayfb/ajax-loader-48px.gif') ?>" width="42" height="42">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        jQuery('#giveawayfb-creationaddress-ajax-spinner').hide();
+        var NOADDRESS = "Please review your address for accuracy.";
+        var SAMEADDRESS = "Thank you for your interest in Kate Somerville.  This offer is limited to 1 per household.";
+        jQuery("#creation-submit").click(function (event) {
+            event.preventDefault();
+            jQuery('#creation-submit').hide();
+            jQuery('#giveawayfb-creationaddress-ajax-spinner').show();
+
+            // Validate Inputs
+            var errors = [];
+            jQuery('.required-entry').each(function () {
+                if (!jQuery.trim(this.value).length) {
+                    jQuery(this).css("background-color", "rgba(255, 186, 186, 0.58)");
+                    errors.push(1);
+                } else {
+                    jQuery(this).css("background-color", "white");
+                }
+            });
+
+            // Validate Select
+            if (jQuery("#creation-state")[0].selectedIndex == 0) {
+                jQuery("#creation-state").css("background-color", "rgba(255, 186, 186, 0.58)");
+                errors.push(1);
+            } else {
+                jQuery("#creation-state").css("background-color", "white");
+            }
+
+            if (errors.length != 0) {
+                jQuery('#giveawayfb-creationaddress-ajax-spinner').hide();
+                jQuery('#creation-submit').show();
+                return;
+            }
+
+            // Armed Forces exclusion
+            var excludedStates = [6, 7, 8, 9, 10, 11];
+            if (jQuery.inArray(parseInt(jQuery('#creation-state').val()), excludedStates) !== -1) {
+                jQuery("#frmCreationAddress").submit();
+                return;
+            }
+
+            // Then we consult with LiveAddress API and populate address with proper data
+
+            var street = jQuery('#creation-address1').val();
+            var creation_address_2 = jQuery('#creation-address2').val();
+            if (creation_address_2.length > 0) {
+                street += ' ';
+                street += creation_address_2;
+            }
+            var city = jQuery('#creation-city').val();
+            var state = jQuery('#creation-state option:selected').text();
+
+            jQuery.ajax({
+                url: "<?php echo Mage::getUrl('giveawayfb/liveaddress/streetaddress') ?>",
+                data: {
+                    'street': street,
+                    'city': city,
+                    'state': state
+                },
+                success: function(data) {
+                    var response = JSON.parse(data);
+                    if (typeof response[0] === 'undefined') {
+                        jQuery('.communications').html(NOADDRESS);
+                        jQuery('#giveawayfb-creationaddress-ajax-spinner').hide();
+                        jQuery('#creation-submit').show();
+                        return false;
+                    }
+
+                    // Convert form values to standardized USPS address
+                    jQuery('#creation-address1').val(response[0].delivery_line_1);
+                    if (response[0].delivery_line_2) {
+                        jQuery('#creation-address2').val(response[0].delivery_line_2);
+                    }
+                    else {
+                        jQuery('#creation-address2').val('');
+                    }
+                    jQuery('#creation-city').val(response[0].components.city_name);
+                    jQuery('#creation-zip').val(response[0].components.zipcode);
+
+                    /**
+                     * Converts a state name to its abbreviation, or vice versa
+                     *
+                     * @param name
+                     * @param to
+                     * @returns {string}
+                     */
+                    function convert_state(name, to) {
+                        var name = name.toUpperCase();
+                        var states = new Array(                         {'name':'Alabama', 'abbrev':'AL'},          {'name':'Alaska', 'abbrev':'AK'},
+                            {'name':'Arizona', 'abbrev':'AZ'},          {'name':'Arkansas', 'abbrev':'AR'},         {'name':'California', 'abbrev':'CA'},
+                            {'name':'Colorado', 'abbrev':'CO'},         {'name':'Connecticut', 'abbrev':'CT'},      {'name':'Delaware', 'abbrev':'DE'},
+                            {'name':'Florida', 'abbrev':'FL'},          {'name':'Georgia', 'abbrev':'GA'},          {'name':'Hawaii', 'abbrev':'HI'},
+                            {'name':'Idaho', 'abbrev':'ID'},            {'name':'Illinois', 'abbrev':'IL'},         {'name':'Indiana', 'abbrev':'IN'},
+                            {'name':'Iowa', 'abbrev':'IA'},             {'name':'Kansas', 'abbrev':'KS'},           {'name':'Kentucky', 'abbrev':'KY'},
+                            {'name':'Louisiana', 'abbrev':'LA'},        {'name':'Maine', 'abbrev':'ME'},            {'name':'Maryland', 'abbrev':'MD'},
+                            {'name':'Massachusetts', 'abbrev':'MA'},    {'name':'Michigan', 'abbrev':'MI'},         {'name':'Minnesota', 'abbrev':'MN'},
+                            {'name':'Mississippi', 'abbrev':'MS'},      {'name':'Missouri', 'abbrev':'MO'},         {'name':'Montana', 'abbrev':'MT'},
+                            {'name':'Nebraska', 'abbrev':'NE'},         {'name':'Nevada', 'abbrev':'NV'},           {'name':'New Hampshire', 'abbrev':'NH'},
+                            {'name':'New Jersey', 'abbrev':'NJ'},       {'name':'New Mexico', 'abbrev':'NM'},       {'name':'New York', 'abbrev':'NY'},
+                            {'name':'North Carolina', 'abbrev':'NC'},   {'name':'North Dakota', 'abbrev':'ND'},     {'name':'Ohio', 'abbrev':'OH'},
+                            {'name':'Oklahoma', 'abbrev':'OK'},         {'name':'Oregon', 'abbrev':'OR'},           {'name':'Pennsylvania', 'abbrev':'PA'},
+                            {'name':'Rhode Island', 'abbrev':'RI'},     {'name':'South Carolina', 'abbrev':'SC'},   {'name':'South Dakota', 'abbrev':'SD'},
+                            {'name':'Tennessee', 'abbrev':'TN'},        {'name':'Texas', 'abbrev':'TX'},            {'name':'Utah', 'abbrev':'UT'},
+                            {'name':'Vermont', 'abbrev':'VT'},          {'name':'Virginia', 'abbrev':'VA'},         {'name':'Washington', 'abbrev':'WA'},
+                            {'name':'West Virginia', 'abbrev':'WV'},    {'name':'Wisconsin', 'abbrev':'WI'},        {'name':'Wyoming', 'abbrev':'WY'},
+                            {'name': 'American Samoa', 'abbrev':'AS'},                  {'name': 'District of Columbia', 'abbrev':'DC'},
+                            {'name': 'Federated States Of Micronesia', 'abbrev':'FM'},  {'name': 'Guam', 'abbrev':'GU'},
+                            {'name': 'Marshall Islands', 'abbrev':'MH'},                {'name': 'Northern Mariana Islands', 'abbrev':'MP'},
+                            {'name': 'Palau', 'abbrev':'PW'},                           {'name': 'Puerto Rico', 'abbrev':'PR'},
+                            {'name': 'Virgin Islands', 'abbrev':'VI'}
+                        );
+                        var returnthis = false;
+                        jQuery.each(states, function(index, value){
+                            if (to == 'name') {
+                                if (value.abbrev == name){
+                                    returnthis = value.name;
+                                    return false;
+                                }
+                            } else if (to == 'abbrev') {
+                                if (value.name.toUpperCase() == name){
+                                    returnthis = value.abbrev;
+                                    return false;
+                                }
+                            }
+                        });
+                        return returnthis;
+                    }
+                    jQuery("#creation-state option").filter(function () {
+                        return this.text == convert_state(response[0].components.state_abbreviation, 'name');
+                    }).attr('selected', true);
+
+                    var standardized_address = response[0].delivery_line_1;
+                    if (response[0].delivery_line_2) {
+                        standardized_address += '\n' + response[0].delivery_line_2;
+                    }
+                    standardized_address += '\n' + response[0].last_line;
+                    if (confirm("We have standardized your address to comply with USPS standards. Please confirm that it's accurate:\n\n" + standardized_address)) {
+                        var address1 = response[0].delivery_line_1;
+                        if (response[0].delivery_line_2) {
+                            var address2 = response[0].delivery_line_2;
+                        } else {
+                            var address2 = '';
+                        }
+                        var city = response[0].components.city_name;
+                        var state = jQuery("#creation-state").val();
+                        var zipcode = response[0].components.zipcode;
+
+                        jQuery.ajax({
+                            type: "POST",
+                            url: "<?php echo Mage::getUrl('giveawayfb/customer/verifyaddress'); ?>",
+                            data: { address1: address1, address2: address2, city: city, state: state, zip: zipcode }
+                        }).done(function (msg) {
+                            if (msg == 0) {
+                                jQuery('.communications').html(SAMEADDRESS);
+                                jQuery('#giveawayfb-creationaddress-ajax-spinner').hide();
+                                jQuery('#creation-submit').show();
+                                return false;
+                            } else {
+                                // Great success!
+                                if (jQuery('#creation-address2').val()) {
+                                    // Move address2opt to address2
+                                    var text = jQuery('#creation-address2').val();
+                                    var opt = jQuery('#creation-address2opt').val();
+                                    jQuery('#creation-address2').val(opt + " " + text);
+                                }
+                                jQuery("#frmCreationAddress").submit();
+                            }
+                        }).fail(function (xhr, err) {
+                            jQuery('#giveawayfb-creationaddress-ajax-spinner').hide();
+                            jQuery('.communications').html(jQuery(xhr.responseText).filter('title').get(0));
+                            jQuery('#creation-submit').show();
+                        });
+                    }
+                    else {
+                        jQuery('#giveawayfb-creationaddress-ajax-spinner').hide();
+                        jQuery('#creation-submit').show();
+                        return;
+                    }
+                }
+            });
+        });
+    });
+    //< ![CDATA[
+    //var frmVerification = new VarienForm('frmCreationAddress', true);
+    //]]>
+</script>

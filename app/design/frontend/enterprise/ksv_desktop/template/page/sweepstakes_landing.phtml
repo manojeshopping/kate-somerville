@@ -1,0 +1,149 @@
+<?php
+/**
+ * Magento Enterprise Edition
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magento Enterprise Edition License
+ * that is bundled with this package in the file LICENSE_EE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magentocommerce.com/license/enterprise-edition
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     enterprise_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://www.magentocommerce.com/license/enterprise-edition
+ */
+?>
+<?php
+/**
+ * Template for Mage_Page_Block_Html
+ */
+?>
+
+<?php
+// prep variables as needed
+
+// strip background image to just image path
+if (Mage::getModel('cms/block')->load('sweepstakes_module_bkgd')->getIsActive()) { 
+	$bkgd = $this->getLayout()->createBlock('cms/block')->setBlockId('sweepstakes_module_bkgd')->toHtml();
+	$bkgdArray = array();
+	preg_match( '/src="([^"]*)"/i', $bkgd, $bkgdArray );
+	$bkgdUrl = $bkgdArray[1];
+	
+}
+?>
+                
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->getLang() ?>" lang="<?php echo $this->getLang() ?>">
+<head>
+<?php echo $this->getChildHtml('head') ?>
+</head>
+<body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?> id="sweepstakes">
+<?php echo $this->getChildHtml('after_body_start') ?>
+<div class="wrapper">
+    <?php echo $this->getChildHtml('global_notices') ?>
+    <div class="page">
+        <?php echo $this->getChildHtml('header') ?>
+       
+        <div id="sweepstakes-main">
+            <?php echo $this->getLayout()->createBlock('alliance_globalbanner/globalBanner')->setTemplate('alliance/globalbanner/globalbanner.phtml')->setBlockId('alliance-globalbanner-globalbanner')->toHtml(); ?>
+        	<?php echo $this->getChildHtml('global_messages') ?>
+			 <div class="col-main" style="background-image: url(<?php echo $bkgdUrl; ?>);">
+                
+					
+                <div id="sweepstakes-container">
+                <div id="sweepstakes-container-inner">
+                
+                	<?php if (Mage::getModel('cms/block')->load('sweepstakes_module_cobranded_logo')->getIsActive()) { ?> 
+                	<div class="sweepstakes-logo">
+                		<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('sweepstakes_module_cobranded_logo')->toHtml(); ?>
+                	</div>
+                	<?php } ?>
+                	
+                	
+                	<?php if (Mage::getModel('cms/block')->load('sweepstakes_module_landing_hdr')->getIsActive()) { ?> 
+                	<div class="sweepstakes-header">
+                		<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('sweepstakes_module_landing_hdr')->toHtml(); ?>
+                	</div>
+                	<?php } ?>
+                	
+                	
+					<?php if (Mage::getModel('cms/block')->load('sweepstakes_module_landing_intro')->getIsActive()) { ?> 
+                	<div class="sweepstakes-intro">
+                		<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('sweepstakes_module_landing_intro')->toHtml(); ?>
+                	</div>
+                	<?php } ?>
+                	
+
+					<div id="sweepstakes-content">
+												
+						<div id="sweepstakes-details">
+							<div id="sweepstakes-details-inner">
+								
+								<div class="right">
+									<?php if (Mage::getModel('cms/block')->load('sweepstakes_module_ksv_logo')->getIsActive()) { ?> 
+				                	<div id="sweepstakes-katelogo">
+				                		<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('sweepstakes_module_ksv_logo')->toHtml(); ?>
+				                	</div>
+				                	<?php } ?>
+									
+									<div id="sweepstakes-embebedform">
+										<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('sweepstakes_module_landing_form')->toHtml();?>
+									</div>
+									
+									<?php if (Mage::getModel('cms/block')->load('sweepstakes_module_landing_form_agreement')->getIsActive()) { ?> 
+				                	<div id="sweepstakes-agreement">
+				                		<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('sweepstakes_module_landing_form_agreement')->toHtml(); ?>
+				                	</div>
+				                	<?php } ?>
+				                	
+								</div>
+								
+								<?php if (Mage::getModel('cms/block')->load('sweepstakes_module_landing_form_left')->getIsActive()) { ?> 
+			                	<div class="left">
+			                		<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('sweepstakes_module_landing_form_left')->toHtml(); ?>
+			                	</div>
+			                	<?php } ?>
+								
+							</div><!-- end #sweepstakes-details-inner -->
+						</div><!-- end #sweepstakes-details -->
+						
+						<?php if (Mage::getModel('cms/block')->load('sweepstakes_module_landing_images')->getIsActive()) { ?> 
+	                	<div id="sweepstakes-image-container">
+	                		<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('sweepstakes_module_landing_images')->toHtml(); ?>
+	                	</div>
+	                	<?php } ?>
+						
+				   	</div><!-- end #sweepstakes-content -->
+                
+                </div><!-- end #sweepstakes-inner -->
+				</div><!-- end #sweepstakes-container -->
+				                   
+            </div><!-- end #sweepstakes-main -->
+            
+            <?php if (Mage::getModel('cms/block')->load('sweepstakes_module_landing_disclaimer')->getIsActive()) { ?> 
+        	<div id="sweepstakes-footer">
+        		<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('sweepstakes_module_landing_disclaimer')->toHtml(); ?>
+        	</div>
+        	<?php } ?>
+            
+        </div>
+        <?php echo $this->getChildHtml('footer_before') ?>
+        <?php echo $this->getChildHtml('footer') ?>
+        <?php echo $this->getChildHtml('global_cookie_notice') ?>
+        <?php echo $this->getChildHtml('before_body_end') ?>
+    </div>
+</div>
+<?php echo $this->getAbsoluteFooter() ?>
+</body>
+</html>

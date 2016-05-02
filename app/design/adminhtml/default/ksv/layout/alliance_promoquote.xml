@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<layout>
+	<add_promo_grid_column_handle>
+		<reference name="promo_quote.grid">
+			<action method="addColumnAfter">
+				<columnId>description</columnId>
+				<arguments>
+					<header>Description</header>
+					<index>description</index>
+					<type>text</type>	
+				</arguments>
+				<after>name</after>
+			</action>
+		</reference>	
+	</add_promo_grid_column_handle>
+
+	<!-- order grid action -->
+	<adminhtml_promo_quote_grid>
+		<!-- apply the layout handle defined above -->
+		<update handle="add_promo_grid_column_handle" />
+	</adminhtml_promo_quote_grid>
+	<!-- order grid view action -->
+	<adminhtml_promo_quote_index>
+		<!-- apply the layout handle defined above -->
+		<update handle="add_promo_grid_column_handle" />
+	</adminhtml_promo_quote_index>
+
+</layout>

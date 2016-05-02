@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<checkout_cart_index>
+		<reference name="head">
+			<action method="addItem"><type>skin_css</type><file>css/alliance_toa.css</file></action>
+		</reference>
+		<reference name="checkout.cart.form.before">
+			<block type="toa/messages" name="toa.messages" template="alliance_toa/messages.phtml"/>
+		</reference>
+	</checkout_cart_index>
+</layout>

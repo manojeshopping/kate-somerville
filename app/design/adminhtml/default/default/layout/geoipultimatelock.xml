@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+  <default>
+        <reference name="head">
+            <action method="addCss">
+                <stylesheet>geoipultimatelock/geoipultimatelockstyle.css</stylesheet>
+            </action>
+            <!--<action method="removeItem"><type>js</type><name>prototype/prototype.js</name></action>-->
+            <action method="addItem"><type>js</type><name>geoipultimatelock/jquery-1.6.1.min.js</name></action>
+            <action method="addItem"><type>js</type><name>geoipultimatelock/jquery.accordion.source.js</name></action>
+            <!--<action method="addJs"><script>prototype/prototype.js</script></action>-->
+            <action method="addItem"><type>js</type><name>extjs/ext-tree.js</name><params/></action>
+            <action method="addItem"><type>js</type><name>extjs/fix-defer.js</name><params/></action>
+            <action method="addItem"><type>js</type><name>extjs/ext-tree-checkbox.js</name><params/></action>
+            <action method="addItem"><type>js_css</type><name>extjs/resources/css/ext-all.css</name><params/></action>
+        </reference>
+    </default>
+
+    <adminhtml_geoipultimatelock_geoipultimatelock_index>
+        <reference name="content">
+            <block type="geoipultimatelock/adminhtml_geoipultimatelock" name="geoipultimatelock" />
+        </reference>
+    </adminhtml_geoipultimatelock_geoipultimatelock_index>
+    
+    <adminhtml_geoipultimatelock_geoipultimatelock_importtables>
+        <reference name="content">
+            <block type="geoipultimatelock/adminhtml_importtables" name="importtables"  />
+        </reference>
+    </adminhtml_geoipultimatelock_geoipultimatelock_importtables>
+    
+    <adminhtml_geoipultimatelock_geoipultimatelock_onlineip>
+        <reference name="content">
+            <block type="geoipultimatelock/adminhtml_onlineip" name="onlineip"  />
+        </reference>
+    </adminhtml_geoipultimatelock_geoipultimatelock_onlineip>
+    
+    <!--<adminhtml_geoipultimatelock_geoipultimatelock_ipblocked>
+        <reference name="content">
+            <block type="geoipultimatelock/adminhtml_ipblocked" name="ipblocked"  />
+        </reference>
+    </adminhtml_geoipultimatelock_geoipultimatelock_ipblocked>-->
+    
+    
+    <adminhtml_geoipultimatelock_ipblocked_index>
+        <reference name="content">
+            <block type="geoipultimatelock/adminhtml_ipblocked" name="ipblocked" />
+        </reference>
+    </adminhtml_geoipultimatelock_ipblocked_index>
+    
+</layout>

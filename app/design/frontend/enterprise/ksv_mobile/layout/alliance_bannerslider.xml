@@ -1,0 +1,21 @@
+<layout version="0.1.0">
+
+    <default>
+        <reference name="head">
+            <block type="core/text" name="appointment.google.cdn.jquery.ui.css">
+                <action method="setText">
+                    <text><![CDATA[<script src="http://malsup.github.com/jquery.cycle2.js"></script>]]></text>
+                </action>
+            </block>
+        </reference>
+    </default>
+
+    <cms_index_index>
+        <reference name="content">
+            <block type="alliance_bannerslider/slider" before="-" template="alliance_bannerslider/slider.phtml" name="alliance_bannerslider_slider">
+                <action method="loadBannerCollection"><slider_code>homepage</slider_code></action>
+            </block>
+        </reference>
+    </cms_index_index>
+	
+</layout>

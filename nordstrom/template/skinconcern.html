@@ -1,0 +1,38 @@
+<div class="breadcrumbs">
+<h1>SKINCARE EVALUATION <span class="divider">&rsaquo;</span> TELL US ABOUT YOURSELF</h1>
+</div>
+<form name="skinconcern" class="quiz-form">
+<fieldset ng-repeat="question in questions" class="fieldset-{{question.id}}">
+  
+  <label class="point">
+    <span class="number">{{$index + 1}}</span>{{question.text}}
+    <span class="question" ng-click="showDetails = ! showDetails" ng-show="question.hint_title">?</span>
+  </label>
+
+  <div class="popup" ng-show="showDetails">
+    <h1>{{question.hint_title}}</h1>
+    <img src="img/popups/{{question.hint_text}}" />
+  </div>
+
+  <div class="input-container">
+    <span ng-repeat="answer in question.answers" class="answer-point" ng-switch on="question.single">
+      <input ng-switch-when="1" type="radio" ng-model="user[answer.id]" ng-click="changeRadio(question.id)" name="answer_option_{{question.id}}" value="true"  id="answer_option_{{answer.id}}"></input>
+  <input ng-switch-when="0" type="checkbox" ng-model="user[answer.id]" ng-click="changeBox(question.id, answer.id)" name="answer_option_{{question.id}}" name="answer_option" id="answer_option_{{answer.id}}"></input>
+      <label for="answer_option_{{answer.id}}">{{answer.text}}</label>
+    </span>
+  </div>
+
+</fieldset>
+<button ng-click="finishEval(user)">See Results</button>
+</form>
+<div class="tabs">
+<span class="tab_box">
+Tell us about yourself
+</span>
+<span class="tab_box active skin-concern-tab">
+Specific skin concerns
+</span>
+<span class="tab_box">
+Your skincare evaluation
+</span>
+</div>

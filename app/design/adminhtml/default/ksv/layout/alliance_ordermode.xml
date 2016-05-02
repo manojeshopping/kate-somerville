@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<layout>
+    <!-- main layout definition that adds the column -->
+    <add_order_grid_column_handle>
+        <reference name="sales_order.grid">
+            <action method="addColumnAfter">
+                <columnId>order_mode</columnId>
+                <arguments module="customer" translate="header">
+                    <header>Order Mode</header>
+                    <index>order_mode</index>
+                    <type>options</type>
+					<filter>alliance_ordermode/adminhtml_sales_order_filter_orderMode</filter>
+                    <renderer>alliance_ordermode/adminhtml_sales_order_renderer_orderMode</renderer>
+                </arguments>
+                <after>shipping_name</after>
+            </action>
+        </reference>
+    </add_order_grid_column_handle>
+    <!-- order grid action -->
+    <adminhtml_sales_order_grid>
+        <!-- apply the layout handle defined above -->
+        <update handle="add_order_grid_column_handle" />
+    </adminhtml_sales_order_grid>
+    <!-- order grid view action -->
+    <adminhtml_sales_order_index>
+        <!-- apply the layout handle defined above -->
+        <update handle="add_order_grid_column_handle" />
+    </adminhtml_sales_order_index>
+</layout>

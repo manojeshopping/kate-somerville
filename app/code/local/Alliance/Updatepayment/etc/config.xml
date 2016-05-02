@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+	<default>
+		<payment>
+			<authorizenet>
+				<cgi_url_td>https://api.authorize.net/xml/v1/request.api</cgi_url_td>
+			</authorizenet>
+		</payment>
+	</default>
+</config>

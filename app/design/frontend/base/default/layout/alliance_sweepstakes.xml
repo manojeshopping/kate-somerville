@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<alliance_sweepstakes_index_index>
+		<reference name="root">
+			<action method="setTemplate"><template>page/1column.phtml</template></action>
+		</reference>
+		<reference name="head">
+            <action method="setTitle"><title>Enter to Win: Escape to Hollywood Sweepstakes</title></action>
+			<action method="setDescription"><title>Enter to win an escape to Hollywood</title></action>
+			<action method="addItem"><type>skin_css</type><file>css/alliance_sweepstakes.css</file></action>
+		</reference>
+		<reference name="content">
+			<block type="core/template" name="alliance_sweepstakes" template="alliance/sweepstakes/sweepstakes.phtml"/>
+		</reference>
+	</alliance_sweepstakes_index_index>
+	<alliance_sweepstakes_index_confirm>
+		<reference name="root">
+			<action method="setTemplate"><template>page/1column.phtml</template></action>
+		</reference>
+		<reference name="head">
+            <action method="setTitle"><title>Enter to Win: Escape to Hollywood Sweepstakes</title></action>
+			<action method="setDescription"><title>Enter to win an escape to Hollywood</title></action>
+			<action method="addItem"><type>skin_css</type><file>css/alliance_sweepstakes.css</file></action>
+		</reference>
+		<reference name="content">
+			<block type="core/template" name="alliance_sweepstakes" template="alliance/sweepstakes/confirm.phtml"/>
+		</reference>
+	</alliance_sweepstakes_index_confirm>
+</layout>

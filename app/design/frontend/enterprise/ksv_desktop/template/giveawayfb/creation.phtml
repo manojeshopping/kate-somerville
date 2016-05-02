@@ -1,0 +1,80 @@
+<div class="giveawayfb-container"><div class="table100">
+	<form id="frmCreation" method="post" action="<?php echo $this->getCreationAction();?>">
+	<fieldset>
+	<div class="left">
+		<h2>Personal Information</h2>
+		<div class="creation-fields">
+			<div class="table100">
+				<label for="creation-name" class="creation-label">* First Name</label>
+				<div class="creation-field"><input type="text" id="creation-name" name="name" class="input-text required-entry" value="<?php echo $this->getModuleData('name');?>"/></div>
+			</div>
+			<div class="table100">
+				<label for="creation-lastname" class="creation-label">* Last Name</label>
+				<div class="creation-field"><input type="text" id="creation-lastname" name="lastname" class="input-text required-entry" value="<?php echo $this->getModuleData('lastname');?>"/></div>
+			</div>
+			<div class="table100">
+				<label for="creation-birthdate_month" class="creation-label">Date of Birth</label>
+				<div class="creation-field">
+					<input type="text" id="creation-birthdate_month" name="birthdate_month" value="<?php echo $this->getModuleData('birthdate_month');?>" class="input-text input-date concerns-month" placeholder="MM"/>
+					<input type="text" id="creation-birthdate_day" name="birthdate_day" value="<?php echo $this->getModuleData('birthdate_day');?>" class="input-text input-date concerns-day" placeholder="DD"/>
+					<input type="text" id="creation-birthdate_year" name="birthdate_year" value="<?php echo $this->getModuleData('birthdate_year');?>" class="input-text input-date concerns-year" placeholder="YYYY"/>
+				</div>
+			</div>
+			<div class="sec_code">
+				<?php
+				$publickey = $this->getCaptchaPublicKey();
+				if($this->siteProtocol() == "https://" ){
+				?>
+				<script type="text/javascript">var RecaptchaOptions = { theme : 'clean' };</script>
+				<script type="text/javascript" src="https://www.google.com/recaptcha/api/challenge?k=<?php echo $publickey;?>"></script>
+				<?php
+				}
+				$error = null;
+				echo recaptcha_get_html($publickey, $error);
+				?>
+			</div>
+			
+			<!-- input type="checkbox" id="creation-newsletter" name="newsletter" value="1" checked="checked"/>
+			<label for="creation-signup">Sign Up for Newsletter</label -->
+			
+			<div class="creation-buttons-container">
+				<span class="giveawayfb-comment">* Required Fields</span>
+				<button id="creation-submit" class="giveawayfb-button">Enter</button>
+			</div>
+		</div>
+	
+	</div>
+	<div class="right">
+		<h2>Skin Information</h2>
+		<div class="creation-fields">
+
+			<p id="concerns-paragraph">* Please select your two main skin concerns.</p>
+			<div class="table100 concerns-list">
+				<div class="left">
+					<?php
+					$concerns = $this->getModuleData('concerns');
+					$_concerns = Mage::helper('giveawayfb')->getConcernsList();
+					$halfConcerns = ceil((count($_concerns) / 2));
+					$i = 1;
+					foreach($_concerns as $oneConcern) {
+						if(empty($oneConcern['value']) || $oneConcern['label'] == "N/A") continue;
+						if($i++ == $halfConcerns) echo '</div><div class="right">';
+					?>
+					<input type="checkbox" id="concerns<?php echo $oneConcern['value'];?>" name="concerns[]" value="<?php echo $oneConcern['value'];?>"<?php if(is_array($concerns) && in_array($oneConcern['value'], $concerns)) echo ' checked="checked"'?> class="concerns-checkboxs" />
+					<label for="concerns<?php echo $oneConcern['value'];?>"><?php echo $oneConcern['label'];?></label><br/>
+					<?php
+					}
+					?>
+				</div>
+			</div>
+		</div>
+	</div>
+	</fieldset>
+	</form>
+</div></div>
+
+<script type="text/javascript">
+//< ![CDATA[
+var frmVerification = new VarienForm('frmCreation', true);
+//]]>
+</script>

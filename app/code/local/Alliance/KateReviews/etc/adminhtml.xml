@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <menu>
+        <catalog>
+            <children>
+                <reviews_ratings translate="title" module="alliance_katereviews">
+                    <disabled>1</disabled>
+                </reviews_ratings>
+                <alliance_katereviews translate="title" module="alliance_katereviews">
+                    <title>Product Reviews</title>
+                    <children>
+                        <pending translate="title" module="alliance_katereviews">
+                            <title>Pending Reviews</title>
+                            <action>adminhtml/katereviews/pending</action>
+                        </pending>
+                        <all translate="title" module="alliance_katereviews">
+                            <title>All Reviews</title>
+                            <action>adminhtml/katereviews/index</action>
+                        </all>
+                    </children>
+                    <sort_order>50</sort_order>
+                </alliance_katereviews>
+            </children>
+        </catalog>
+        <report>
+            <children>
+                <review translate="title" module="reports">
+                    <disabled>1</disabled>
+                </review>
+                <katereviews translate="title" module="alliance_katereviews">
+                    <title>Product Reviews</title>
+                    <sort_order>55</sort_order>
+                    <action>adminhtml/katereviews/report</action>
+                </katereviews>
+            </children>
+        </report>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <catalog>
+                        <children>
+                            <alliance_katereviews>
+                                <title>Kate Product Reviews</title>
+                            </alliance_katereviews>
+                        </children>
+                    </catalog>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <alliance_katereviews translate="title" module="alliance_katereviews">
+                                        <title>Product Review Options</title>
+                                    </alliance_katereviews>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

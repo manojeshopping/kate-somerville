@@ -1,0 +1,83 @@
+<?php
+
+
+if (isset($_GET["cp"])) {
+	$newslettercopuon = "ksnl";
+	Mage::getSingleton('core/session')->setMyValue($newslettercopuon);
+} else {
+	$newslettercopuon = "april";
+	Mage::getSingleton('core/session')->setMyValue($newslettercopuon);
+}
+
+?>
+<div class="newsletter">
+	<div class="header1">
+		<h1>Become a</h1>
+	</div>
+	<div class="header2">
+		<h1>Kate Somerville</h1>
+	</div>
+	<div class="header3">
+		<h1>Insider!</h1>
+	</div>
+	<div class="header_pic"><img class="kate_pic" src='<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . "wysiwyg/kate.jpg"; ?>' alt=""/>
+
+		<div class="pic_footer">
+			<p>Kate Somerville Founder</p>
+		</div>
+	</div>
+	<div class="news_content">
+		<div class="news_content_0s">
+			<h1>Sign up for the katesomerville.com email list:</h1>
+
+			<div class="uldiv">
+				<ul>
+					<li>Receive special offers</li>
+					<li>Hear about new products</li>
+					<li>Get tips, and advice that Kate gives her celebrity clientele</li>
+				</ul>
+			</div>
+			<div class="hdiv">
+				<h1 class="hfontsize">Sign up today and enjoy 10% off your next purchase!</h1>
+			</div>
+		</div>
+		<div class="news_content_ls">
+			<form id="newsletter-validate-detail-cms" action='<?php echo $this->getStoreUrl() . "/newsletter/subscriber/new/"; ?>' method="post">
+				<div class="news_content_input">
+					<input id="newsletter-input-email-cms" type="text" name="email" size="20"/>
+					<img class="input_button_pic"
+						 src='<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . "wysiwyg/1.png"; ?>'
+						 alt=""/>
+					<input id="add_newsletter_var" type="hidden"
+						   name="add_newsletter_var"
+						   value="newsletter_page"/>
+				</div>
+				<div class="news_content_button">
+					<button class="button" title="Shop Now" type="submit"><span><span>SIGN UP NOW &gt;</span></span></button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	//<![CDATA[
+	jQuery(document).ready(function () {
+		function validateEmailCms(email) {
+			var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			return re.test(email);
+		}
+
+		jQuery('form#newsletter-validate-detail-cms').submit(function (event) {
+			event.preventDefault();
+			var submitted_email = jQuery('input#newsletter-input-email-cms').val();
+			if (validateEmailCms(submitted_email)) {
+				jQuery.post('/newsletter/subscriber/new', jQuery('form#newsletter-validate-detail-cms').serialize());
+				window.location.href = '/newsletter-confirm';
+			}
+			else {
+				alert('Please enter a valid email address');
+			}
+		});
+	});
+	//]]>
+</script>

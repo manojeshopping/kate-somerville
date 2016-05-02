@@ -1,0 +1,24 @@
+<?php
+/**
+ * @see Pixafy_Ordergroove_Block_Pagetag_Cart
+ */
+?>
+	<?php if($this->_canShow()){ ?>
+		<script type="text/javascript">
+			var og_settings = {
+			 "merchant_id" : "<?php echo $this->getMerchantId() ?>",
+			 "products": [
+			 <?php
+			 foreach($this->getCart()->getItems() as $item){
+				?>
+				{"id":"<?php echo $item->getProductId() ?>", "quantity":"<?php echo $item->getQty() ?>", "unit_price": "<?php echo $item->getPrice() ?>", "total_price": "<?php echo ($item->getPrice() * $item->getQty()) ?>"},
+				<?php
+			 }
+			 ?>
+			   ],
+			"subtotal": "<?php echo $this->getAddress()->getSubtotal() ?>", "tax_total": "<?php echo $this->getAddress()->getTaxAmount() ?>", "shipping_total": "<?php echo $this->getAddress()->getShippingAmount() ?>", "order_total": "<?php echo $this->getAddress()->getGrandTotal() ?>"
+			};
+		</script>
+		<script type="text/javascript" src="<?php echo $this->getPageTaggingUrl().$this->getMerchantId() ?>/core-model.js"></script>
+		<script type="text/javascript" src="<?php echo $this->getPageTaggingUrl().$this->getMerchantId() ?>/2/controller.js"></script>
+	<?php } ?>

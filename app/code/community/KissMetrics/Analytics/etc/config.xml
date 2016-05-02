@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<KissMetrics_Analytics>
+			<version>1.0.0</version>
+		</KissMetrics_Analytics>
+	</modules>
+	<frontend>
+        <layout>
+            <updates>
+                <kissmetrics_analytic>
+                    <file>kissmetrics/analytics.xml</file>
+                </kissmetrics_analytic>
+            </updates>
+        </layout>
+        <events>
+<!-- //uses layout xml to add for fpc hole punch
+          <controller_action_layout_render_before>
+            <observers>
+              <kissmetrics_analyticsmore_blocks>
+                <type>singleton</type>
+                <class>kissmetrics_analytics/observer</class>
+                <method>addContainerBlock</method>
+              </kissmetrics_analyticsmore_blocks>
+            </observers>
+          </controller_action_layout_render_before>
+-->
+
+	          <checkout_cart_product_add_after>
+	            <observers>
+	              <kissmetrics_analyticsmore_scripts>
+	                <type>singleton</type>
+	                <class>kissmetrics_analytics/observer</class>
+	                <method>setItemNew</method>
+	              </kissmetrics_analyticsmore_scripts>            
+	            </observers>          
+	          </checkout_cart_product_add_after>
+	
+			<checkout_cart_add_product_complete>
+	            <observers>
+	              <kissmetrics_analyticsmore_scripts>
+	                <type>singleton</type>
+	                <class>kissmetrics_analytics/observer</class>
+	                <method>addToCart</method>
+	              </kissmetrics_analyticsmore_scripts>            
+	            </observers>          
+			</checkout_cart_add_product_complete>
+	
+	          <customer_register_success>
+	            <observers>
+	              <kissmetrics_analyticsmore_customer_register_success>
+	                <type>singleton</type>
+	                <class>kissmetrics_analytics/observer</class>
+	                <method>customerRegistered</method>
+	              </kissmetrics_analyticsmore_customer_register_success>
+	            </observers>          
+	          </customer_register_success>
+	
+          
+        </events>
+
+	</frontend>
+	<global>
+		<blocks>
+			<kissmetrics_analytics>
+				<class>KissMetrics_Analytics_Block</class>
+			</kissmetrics_analytics>
+		</blocks>
+		<models>
+			<kissmetrics_analytics>
+				<class>KissMetrics_Analytics_Model</class>
+			</kissmetrics_analytics>
+		</models>
+		<helpers>
+			<kissmetrics_analytics>
+				<class>KissMetrics_Analytics_Helper</class>
+			</kissmetrics_analytics>
+		</helpers>
+
+
+        <events>
+			<sales_order_place_after>
+			    <observers>
+			        <kissmetrics_sendOrder>
+			            <type>singleton</type>
+			            <class>kissmetrics_analytics/observer</class>
+			            <method>sendOrder</method>
+			        </kissmetrics_sendOrder>
+			    </observers>
+			</sales_order_place_after>
+        </events>
+
+
+	</global>
+	
+<!--
+	<default>
+	    <kissmetrics_analytics>
+	        <options>
+	            <customer_traits>
+created_at
+email
+first_name'
+last_name
+middle_name
+name
+is_active
+updated_at
+total_orders
+total_spent	            
+</customer_traits>
+	        </options>
+	    </kissmetrics_analytics>
+	</default>
+-->
+</config>

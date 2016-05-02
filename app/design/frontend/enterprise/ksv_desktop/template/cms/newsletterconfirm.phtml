@@ -1,0 +1,40 @@
+<?php
+
+$newslettercopuon = Mage::getSingleton('core/session')->getMyValue();
+if($newslettercopuon=="ksnl"){
+	$promcode = "KSNL10";
+	Mage::getSingleton('core/session')->unsMyValue();
+}else{
+	$promcode = "WELCOME10";
+}
+
+?>
+<img src="http://tapjoy.go2cloud.org/SLho" width="1" height="1" />
+<div class="thankyou">
+<div class="header_pic"><img class="kate_pic" src='<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA)."wysiwyg/kate.jpg"; ?>' alt="" />
+<div class="pic_footer">
+<p>Kate Somerville Founder</p>
+</div>
+</div>
+<div class="rightdiv">
+<div class="header1">
+<h1>Thank You!</h1>
+</div>
+<div class="header2">
+<h2>Thank you for signing up. You will now receive exclusive<br />offers, tips and more!<br /><br />Please enjoy 10% off your next purchase</h2>
+</div>
+<div class="header4">
+<div class="header4r">
+<p>Use promo code:&nbsp;</p>
+</div>
+<div class="header4m">
+<p><?php echo $promcode; ?></p>
+</div>
+<div class="header4f">&nbsp;</div>
+</div>
+<div class="header5"><a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB); ?>"><button class="button" title="Shop Now" type="button"><span><span>Shop Now &gt;</span></span> </button></a></div>
+<div class="header6">
+<p>***This offer is valid for first-time e-mail subscribers only.<br /> To take advantage of this offer, enter your promo code during checkout.<br />Offer valid one-time only and some restrictions apply</p>
+</div>
+</div>
+</div>

@@ -1,0 +1,22 @@
+<?php
+/* include_once("lib/geoip/geoip.php");
+$dat = getcwd()."/lib/geoip/GeoIP.dat";
+
+$gi = geoip_open($dat, GEOIP_STANDARD);
+$ip = $_SERVER['REMOTE_ADDR'];
+
+if (is_us($gi, $ip)) {
+echo $this->getLayout()->createBlock('cms/block')->setBlockId('home-banner-television')->toHtml();
+echo $this->getLayout()->createBlock('cms/block')->setBlockId('home-banner-ask-the-expert')->toHtml();
+echo $this->getLayout()->createBlock('cms/block')->setBlockId('home-banner-free-samples')->toHtml();
+} else {
+echo $this->getLayout()->createBlock('cms/block')->setBlockId('intl_promo_top')->toHtml();
+echo $this->getLayout()->createBlock('cms/block')->setBlockId('intl_promo_middle')->toHtml();
+echo $this->getLayout()->createBlock('cms/block')->setBlockId('intl_promo_bottom')->toHtml();
+} */
+?>
+
+
+<div id="top_banner"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('home-banner-top')->toHtml(); ?></div>
+<div id="middle_banner"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('home-banner-middle')->toHtml(); ?></div>
+<div id="bottom_banner"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('home-banner-bottom')->toHtml(); ?></div>

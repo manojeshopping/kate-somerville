@@ -1,0 +1,565 @@
+<?php $_helper = $this->helper('catalog/output'); ?>
+<?php $_product = $this->getProduct(); ?>
+<script type="text/javascript">
+	var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+</script>
+<div class="product-view">
+	<form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post"
+		  id="product_addtocart_form"<?php if ($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+		<?php echo $this->getBlockHtml('formkey') ?>
+		<div class="no-display">
+			<input type="hidden" name="product" value="<?php echo $_product->getId() ?>"/>
+			<input type="hidden" name="related_product" id="related-products-field" value=""/>
+		</div>
+
+		<div class="product-essential">
+			<div class="product-img-box">
+				<?php echo $this->getChildHtml('media') ?>
+			</div>
+
+			<div class="product-shop">
+				<div class="product-main-info">
+					<div class="product-detail-heading">
+						<?php echo $this->getChildHtml('alert_urls') ?>
+
+						<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getTitle(), null, true) ?>">
+							<h1 class="product-name" id="product-link<?php echo $_product->getEntityId() ?>">
+								<?php echo $_helper->productAttribute($_product, $_product->getTitle(), 'title') ?>
+								<?php if ($_product->getAttributeText('product_icon')): ?>
+									<img
+										src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . "icons/large/" . $_product->getAttributeText('product_icon'); ?>"
+										width="25" height="25"/>
+								<?php endif; ?>
+							</h1>
+
+							<h2 class="product-subtitle"
+								id="sub-title<?php echo $_product->getEntityId() ?>"><?php echo $_helper->productAttribute($_product, $_product->getSubTitle(), 'sub_title') ?></h2>
+						</a>
+					</div>
+
+					<?php echo $this->getChildHtml('product_type_data') ?>
+
+					<div class="input-with-price">
+						<?php if ($_product->isSaleable() && $this->hasOptions() && $this->getChildChildHtml('container2')): ?>
+
+							<?php echo $this->getChildChildHtml('container2', '', true, true) ?>
+
+							<?php if ($_product->getTypeID() != "giftcard") { ?>
+								<div class="favorites"><a class="favoriates-link" href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>"><img
+											src="<?php echo $this->getSkinUrl('images/icon-favorite.png'); ?>" alt="Favorite"/></a></div>
+							<?php } else { ?>
+								<div class="favorites">&nbsp;</div>
+							<?php } ?>						
+						<?php else: ?>			
+							<?php if ($_product->getAttributeText('size')): ?>
+								<fieldset class="product-options" id="product-options-wrapper">
+									<dl class="last">
+										<dt><label>Size</label></dt>
+										<dd class="last">
+											<div
+												class="configurable-option-anchor configurable-option-anchor-active"><?php echo $_product->getAttributeText('size'); ?></div>
+										</dd>
+									</dl>
+								</fieldset>
+							<?php endif; ?>
+							<?php echo $this->getChildHtml('product_type_data') ?>
+						<?php endif; ?>
+					</div>
+					<div class="outofstockmessage" style="margin-top:20px; color:#61a8d4; font-size:18px;display:none"></div>
+
+				</div>
+
+				<?php // echo ($_product->getCanShowPrice() === false) ? '' : $this->getChildHtml('tierprices'); ?>
+				<?php // echo $this->getChildHtml('extrahint') ?>
+
+
+				<div class="product-cart-info">
+					<?php if (!$this->hasOptions()): ?>
+						<div class="add-to-box">
+							<?php if ($_product->isSaleable()): ?>
+								<?php echo $this->getChildHtml('addtocart') ?>
+							<?php endif; ?>
+							<?php // echo $this->getChildHtml('addto') ?>
+						</div>
+						<div class="favorites"><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>"><img
+									src="<?php echo $this->getSkinUrl('images/icon-favorite.png'); ?>" alt="Wishlist"/></a></div>
+					<?php else: ?>
+						<?php if ($_product->isSaleable() && $this->hasOptions() && $this->getChildChildHtml('container1')): ?>
+							<div class="options-container-small">
+								<?php echo $this->getChildChildHtml('container1', '', true, true) ?>
+							</div>
+						<?php else: ?>
+							<?php //echo $this->getChildHtml('addto') ?>
+						<?php endif; ?>
+					<?php endif; ?>
+				</div>
+			</div>
+		</div>
+
+		<div class="product-box-1">
+			<?php echo $this->getChildHtml('katereviews_badge'); ?>			
+			<div class="social-icons">
+                <span class='st_facebook' displayText='Facebook' st_url='<?php echo $_product->getProductUrl() ?>'
+					  st_title='<?php echo $_helper->productAttribute($_product, $_product->getTitle(), 'title'); ?> <?php echo $_helper->productAttribute($_product, $_product->getSubTitle(), 'sub_title') ?>'
+					  st_image='<?php echo $this->helper('catalog/image')->init($_product, 'image') ?>'></span>
+                <span class='st_twitter' displayText='Tweet' st_url='<?php echo $_product->getProductUrl() ?>'
+					  st_title='<?php echo $_helper->productAttribute($_product, $_product->getTitle(), 'title'); ?> <?php echo $_helper->productAttribute($_product, $_product->getSubTitle(), 'sub_title') ?>'
+					  st_image='<?php echo $this->helper('catalog/image')->init($_product, 'image') ?>'></span>
+                <span class='st_pinterest' displayText='Pinterest' st_url='<?php echo $_product->getProductUrl() ?>'
+					  st_title='<?php echo $_helper->productAttribute($_product, $_product->getTitle(), 'title'); ?> <?php echo $_helper->productAttribute($_product, $_product->getSubTitle(), 'sub_title') ?>'
+					  st_image='<?php echo $this->helper('catalog/image')->init($_product, 'image') ?>'></span>
+                <span class='st_googleplus' displayText='Google +' st_url='<?php echo $_product->getProductUrl() ?>'
+					  st_title='<?php echo $_helper->productAttribute($_product, $_product->getTitle(), 'title'); ?> <?php echo $_helper->productAttribute($_product, $_product->getSubTitle(), 'sub_title') ?>'
+					  st_image='<?php echo $this->helper('catalog/image')->init($_product, 'image') ?>'></span>
+			</div>
+			
+			<div class="points">
+				<?php echo $this->getChildHtml('fivehundredfriends.sharewidget'); ?>
+				<?php echo $this->getChildHtml('fivehundredfriends.surprisedelightwidget'); ?>
+			</div>
+			
+			<div class="desc"><?php echo $_product->getDescription(); ?></div>
+
+			<?php if ($_helper->productAttribute($_product, $_product->getClinicalResults(), 'clinical_results')) { ?>
+				<h3>Clinical Results</h3>
+				<?php echo $_helper->productAttribute($_product, $_product->getClinicalResults(), 'clinical_results'); ?>
+			<?php } ?>
+
+			<div class="additional-left">
+
+				<?php if ($_helper->productAttribute($_product, $_product->getIngredients(), 'ingredients')) { ?>
+					<h3>Ingredients</h3>
+					<?php echo $_helper->productAttribute($_product, $_product->getIngredients(), 'ingredients'); ?>
+				<?php } ?>
+
+				<?php if ($_helper->productAttribute($_product, $_product->getHowToUse(), 'how_to_use')) { ?>
+					<h3>How To Use</h3>
+					<?php echo $_helper->productAttribute($_product, $_product->getHowToUse(), 'how_to_use'); ?>
+				<?php } ?>
+
+				<?php if ($_helper->productAttribute($_product, $_product->getKatesTips(), 'kates_tips')) { ?>
+					<h3>Kate's Tips</h3>
+					<blockquote><?php echo $_helper->productAttribute($_product, $_product->getKatesTips(), 'kates_tips'); ?></blockquote>
+					<div class="signature"><img src="<?php echo $this->getSkinUrl('images/signature-sm.png'); ?>" alt="Kate Somerville"/></div>
+				<?php } ?>
+			</div>
+
+			<?php echo $this->getChildHtml('relatedProducts2') ?>
+
+			<?php if ($_helper->productAttribute($_product, $_product->getVideo(), 'video')) { ?>
+				<div class="video">
+					<iframe width="1024" height="576" src="<?php echo $_helper->productAttribute($_product, $_product->getVideo(), 'video'); ?>"
+							frameborder="0" allowfullscreen></iframe>
+				</div>
+			<?php } ?>
+
+
+		</div>
+
+		<div class="clearer"></div>
+
+	</form>
+<br/>
+<div id="olapic_specific_widget"></div><script type="text/javascript" src="https://photorankstatics-a.akamaihd.net/81b03e40475846d5883661ff57b34ece/static/frontend/latest/build.min.js"  data-olapic="olapic_specific_widget" data-instance="878315f2e62fdc46d5ba12bdc2867a9b" data-apikey="b9c8f6adb743095853c145c79ef4e7cd826bcf29e8b6d51fe0f1108579e42e86" data-tags="<?php echo $_product->getSku(); ?>" async="async"></script><br/>	
+	<dl id="collateral-tabs" class="collateral-tabs">
+		<dt class="tab"><span><?php echo $this->__('Customer Reviews') ?></span></dt>
+		<dd class="tab-container">
+			<div class="tab-content">
+				<div class="tab-desc">
+					<?php echo $this->getChildHtml('katereviews_display'); ?>
+				</div>
+			</div>
+		</dd>
+	</dl>
+
+	<br clear="all"/>
+
+	<script type="text/javascript">
+		//<![CDATA[
+
+		// add full-screen wrapper to iframe (in description box)
+		jQuery('.product-box-1 .desc iframe').wrap('<div class="videoWrapper" />');
+
+		var collateralTabs = new Enterprise.Tabs('collateral-tabs');
+		Event.observe(window, 'load', function () {
+			collateralTabs.select();
+		});
+		//]]>
+	</script>
+
+</div>
+
+<script type="text/javascript">
+	//<![CDATA[
+	var productAddToCartForm = new VarienForm('product_addtocart_form');
+	productAddToCartForm.submit = function (button, url) {
+		if (this.validator.validate()) {
+			var form = this.form;
+			var oldUrl = form.action;
+
+			if (url) {
+				form.action = url;
+			}
+			var e = null;
+			try {
+				this.form.submit();
+			} catch (e) {
+			}
+			this.form.action = oldUrl;
+			if (e) {
+				throw e;
+			}
+
+			if (button && button != 'undefined') {
+				button.disabled = true;
+			}
+		}
+	}.bind(productAddToCartForm);
+
+	productAddToCartForm.submitLight = function (button, url) {
+		if (this.validator) {
+			var nv = Validation.methods;
+			delete Validation.methods['required-entry'];
+			delete Validation.methods['validate-one-required'];
+			delete Validation.methods['validate-one-required-by-name'];
+			// Remove custom datetime validators
+			for (var methodName in Validation.methods) {
+				if (methodName.match(/^validate-datetime-.*/i)) {
+					delete Validation.methods[methodName];
+				}
+			}
+
+			if (this.validator.validate()) {
+				if (url) {
+					this.form.action = url;
+				}
+				this.form.submit();
+			}
+			Object.extend(Validation.methods, nv);
+		}
+	}.bind(productAddToCartForm);
+	//]]>
+</script>
+<script type="text/javascript">
+	//<![CDATA[
+	jQuery(document).ready(function () {
+		jQuery('.super-attribute-select').hide();
+		jQuery('.super-attribute-select').each(function () {
+			var drop_down = jQuery(this);
+			if (!drop_down.attr('id') || drop_down.attr('id') == 'attribute195') {
+				if (drop_down.attr('id') == 'attribute195') {
+					jQuery('#attribute195 option:eq(0)').hide();
+					jQuery('#attribute195 option:eq(1)').attr('selected', 'selected');
+					$(drop_down.attr('id')).simulate('change');
+				}
+				return;
+			}
+			var lowest_price_option = null;
+			var lowest_price_option_isset = false;
+			jQuery('option', drop_down).each(function () {
+				var option = jQuery(this);
+				if (!option.val()) {
+				    option.remove();
+					return true;
+				}
+				if (lowest_price_option === null) {
+					lowest_price_option = option;
+					lowest_price_option_isset = true;
+				}
+				if (lowest_price_option.attr('price') > option.attr('price')) {
+					lowest_price_option = option;
+				}
+				jQuery("<a></a>")
+					.attr('id', 'configurable-option-anchor-' + drop_down.attr('id') + '-value-' + option.val())
+					.attr('value', option.val())
+					.addClass('configurable-option-anchor')
+					.click(function () {
+						drop_down.val(option.val());
+						$(drop_down.attr('id')).simulate('change');
+						jQuery('[id^=configurable-option-anchor-' + drop_down.attr('id') + ']')
+							.removeClass('configurable-option-anchor-active');
+						jQuery('#configurable-option-anchor-' + drop_down.attr('id') + '-value-' + option.val())
+							.addClass('configurable-option-anchor-active');
+					})
+					//.text(option.text().replace(/((\+|\-)\$[0-9,]+(\.[0-9]+)?)/, '').trim())
+					//.text(option.text().replace('US$', '$').replace(/((\+|\-)\$[0-9,]+(\.[0-9]+)?)/, '').trim()) //Remove USD prefix
+					.text(option.text().replace('CA$', '$').replace(/((\+|\-)\$[0-9,]+(\.[0-9]+)?)/, '').trim())
+					.appendTo(drop_down.parent());
+			});
+
+			/* If else loop to Highlight the middle size when there are 3 sizes else defaults to the lowest price one */
+			var default_configuration_value;
+			var size_of_dropdown = jQuery('.super-attribute-select option').size();
+			if (size_of_dropdown == 4) {
+				default_configuration_value = jQuery('.super-attribute-select option').eq(2).attr("value");
+			} else {
+				default_configuration_value = lowest_price_option.val();
+			}
+			<?php
+			if ($_product->getDefaultConfigurationId()) { ?>
+			var default_configuration_options_array = [];
+			<?php
+				$attributes = $_product->getTypeInstance(true)->getConfigurableAttributesAsArray($_product);
+				$child = Mage::getModel('catalog/product')->load($_product->getDefaultConfigurationId());
+				foreach ($attributes as $attribute) { ?>
+			default_configuration_options_array['<?php echo 'attribute' . $attribute['attribute_id']; ?>'] = <?php echo $child->getData($attribute['attribute_code']); ?>;
+			<?php } ?>
+			default_configuration_value = default_configuration_options_array[drop_down.attr('id')];
+			<?php } ?>
+
+			drop_down.val(default_configuration_value);
+
+			jQuery('#configurable-option-anchor-' + drop_down.attr('id') + '-value-' + default_configuration_value)
+				.addClass('configurable-option-anchor-active');
+			$(drop_down.attr('id')).simulate('change');
+		});
+	});
+	//]]>
+</script>
+
+<?php
+//$_product = $this->getProduct();
+$product = Mage::getModel('catalog/product')->load($_product->getId());
+$z_prod_id = array();
+$z_product = array();
+$store_id = Mage::app()->getStore()->getStoreId();
+
+if ($_product->getTypeId() == 'configurable') {
+	$childProducts = Mage::getModel('catalog/product_type_configurable')->getUsedProducts(null, $product);
+
+	$i = 0;
+	foreach ($childProducts as $child) {
+		$mod_prod = Mage::getModel('catalog/product')->load($child->getId());
+		$x_prod_attr_val = $product->getResource()->getAttribute('size')->getFrontend()->getValue($mod_prod);
+		$x_prod_attr_shade = $product->getResource()->getAttribute('color_swatch')->getFrontend()->getValue($mod_prod);	
+
+		if( /*!empty($x_prod_attr_shade) || */ $x_prod_attr_shade != "No" ){
+			$x_prod_attr_val = $x_prod_attr_shade;
+			//$x_prod_attr_id = $product->getResource()->getAttribute('color_swatch')->getSource()->getOptionId($x_prod_attr_val);
+			$x_prod_attr_id = Mage::getResourceModel('catalog/product')->getAttributeRawValue( $child->getId(), 'color_swatch', $store_id);			
+		}else{
+			$x_prod_attr_id = Mage::getResourceModel('catalog/product')->getAttributeRawValue( $child->getId(), 'size', $store_id);
+		}	
+		$z_product[$i]["product_id"] = $child->getId();
+		$z_product[$i]["product_availability"] = $child->IsAvailable();
+		$z_product[$i]["product_notinstockmessage"] = $child->getnotInStock();
+		$z_product[$i]["product_attr_val"] = $x_prod_attr_val;
+		$z_product[$i]["product_attr_id"] = $x_prod_attr_id;
+		$z_product[$i]["og_default_frequency"] = $mod_prod->getAttributeText('og_default_frequency');
+		$i++;
+	}
+} else {
+	$x_prod_attr_val = $product->getResource()->getAttribute('size')->getFrontend()->getValue($product);
+	$x_prod_attr_shade = $product->getResource()->getAttribute('color_swatch')->getFrontend()->getValue($product);
+
+		if( $x_prod_attr_shade != "No" ){
+			$x_prod_attr_val = $x_prod_attr_shade;
+			$x_prod_attr_id = Mage::getResourceModel('catalog/product')->getAttributeRawValue( $_product->getId(), 'color_swatch', $store_id);			
+		}else{
+			$x_prod_attr_id = Mage::getResourceModel('catalog/product')->getAttributeRawValue( $_product->getId(), 'size', $store_id);
+		}
+	
+	$z_product[0]["product_id"] = $_product->getId();
+	$z_product[0]["product_availability"] = $_product->IsAvailable();
+	$z_product[0]["product_notinstockmessage"] = $_product->getnotInStock();
+	$z_product[0]["product_attr_val"] = $x_prod_attr_val;
+	$z_product[0]["product_attr_id"] = $x_prod_attr_id;
+	$z_product[0]["og_default_frequency"] = $product->getAttributeText('og_default_frequency');
+}
+?>
+<?php //Ordergroove  Script Tags ?>
+<script type="text/javascript">
+	og_settings = {
+		page_type: "1",
+		<?php  if(Mage::getSingleton('customer/session')->isLoggedIn()): ?> logged_in: true, <?php else: ?> logged_in: false, <?php endif; ?>
+		impulse_upsell: true,
+		default_frequency: {
+			<?php
+			$z_prod = array();
+			foreach ($z_product as  $_product):
+					$z_prod[] = "'".$_product["product_id"]."'" .": " . "'" . $_product["og_default_frequency"] ."'";
+			endforeach;
+			echo implode(', ', $z_prod);
+			?>
+
+		}
+	}
+
+</script>
+<?php 
+$storeCode = Mage::app()->getStore()->getCode();
+if( $storeCode  != 'uk_store'  && $storeCode  != 'ca_store'  ): ?>
+<?php //Ordergroove  main.js ?>
+<script type="text/javascript"
+		src="<?php echo Mage::helper('ordergroove/config')->getPageTaggingUrl(); ?><?php echo Mage::helper('ordergroove/config')->getMerchantId(); ?>/main.js"></script>
+<?php endif; ?>				
+<script type="text/javascript">
+	//<![CDATA[
+	jQuery(document).ready(function () {
+		
+		/* Begin -- Removes the decimal precision of the price */
+		jQuery( '.product-main-info span.price' ).each( function(){
+			var price_with_decimals = jQuery(this).text();
+			var price_without_decimals = price_with_decimals.replace(".00","");
+			jQuery(this).text(price_without_decimals);
+		});
+		/* End -- Removes the decimal precision of the price */
+		
+		var prod_attr = {
+			<?php foreach($z_product as $key => $_product): ?>
+			'elem_<?php echo $key ?>': {
+				'prod_id': '<?php echo $_product['product_id'] ?>',
+				'prod_availability': '<?php echo $_product['product_availability'] ?>',
+				'prod_notinstockmessage' : '<?php echo $_product['product_notinstockmessage'] ?>',
+				'prod_attr_val': '<?php echo $_product['product_attr_val'] ?>',
+				'prod_attr_id': '<?php echo $_product['product_attr_id'] ?>'
+			},
+			<?php endforeach; ?>
+		};
+		
+		jQuery('.configurable-option-anchor').each(function () {
+			var config_btn = jQuery(this);
+			var btn_value = config_btn.attr('value');
+
+			if (typeof btn_value !== typeof undefined && btn_value !== false) {
+				var btn_prod_id = ObjProdAttr(prod_attr, btn_value);
+			} else {
+				var btn_prod_id = prod_attr.elem_0.prod_id;
+			}
+			config_btn.attr('prod_id', btn_prod_id);
+			
+			for (var prod in prod_attr) {
+				if (prod_attr[prod]['prod_id'] == config_btn.attr('prod_id')) {
+					config_btn.attr('prod_availability', prod_attr[prod]['prod_availability']);
+					config_btn.attr('prod_notinstockmessage', prod_attr[prod]['prod_notinstockmessage']);
+				}
+			}
+		});
+		
+		jQuery('.configurable-option-anchor').click(function () {
+			var config_btn = jQuery(this);
+			var btn_prod_id = config_btn.attr('prod_id');
+			OgSetProductId(btn_prod_id);
+		});
+
+		$prod_active_val = jQuery(".configurable-option-anchor-active").attr('prod_id');
+		//Initialize btn-cart button
+		jQuery(".btn-cart").attr('button_prod_id', $prod_active_val);
+		jQuery('.configurable-option-anchor').click(function () {
+			
+			/* Begin -- Removes the decimal precision of the price */
+			jQuery( '.product-main-info span.price' ).each( function(){
+				var price_with_decimals = jQuery(this).text();
+				var price_without_decimals = price_with_decimals.replace(".00","");
+				jQuery(this).text(price_without_decimals);
+			});
+			/* End -- Removes the decimal precision of the price */
+			
+			var config_btn = jQuery(this);
+			var btn_prod_id = config_btn.attr('prod_id');
+
+			jQuery(".btn-cart").attr('button_prod_id', btn_prod_id);
+			
+			displayOutOfStockMessage();
+		});
+
+		jQuery(".btn-cart").click(function () {
+			var config_btn = jQuery(this);
+			var btn_prod_id = config_btn.attr('button_prod_id');
+
+			OgUpdateCartProductId(btn_prod_id);
+		});
+		//Initialize Function	
+		OgSetProductId(jQuery('.configurable-option-anchor-active').attr('prod_id'));
+		
+		/////////////////////////////////////////
+		//// Colorswatch
+		jQuery('.swatch-img').each(function () {
+			var config_btn = jQuery(this);
+			var btn_id = config_btn.attr('id');
+			var str = btn_id;	
+			var color_attr = str.split("_");
+			var btn_value = color_attr[1];
+			//console.log(btn_value);
+			if (typeof btn_value !== typeof undefined && btn_value !== false) {
+				var btn_prod_id = ObjProdAttr(prod_attr, btn_value);
+			} else {
+				var btn_prod_id = prod_attr.elem_0.prod_id;
+			}
+			config_btn.attr('prod_id', btn_prod_id);
+		});
+		
+		jQuery('.swatch-img').click(function () {
+			var config_btn = jQuery(this);
+			var btn_prod_id = config_btn.attr('prod_id');
+			OgSetProductId(btn_prod_id);
+			displayOutOfStockMessage();
+		});
+		displayOutOfStockMessage();
+	});
+	
+	/* Function -- Code to hide the add to card and qty button of the active product, when the product is out of stock. Alongside, displays out of stock message. */
+	function displayOutOfStockMessage() {
+		/* countTags variable is used to check the count of configurable-option-anchor-active to determine if the current product is  simple or configurable products.. If it is 0, then it is neither simple nor configurable, but could be giftcard product, in which case , we shouldn't hide add to card button */
+		var countTags = jQuery('.configurable-option-anchor-active').length;
+		if ( countTags == 0 ) {
+	      /* Do Nothing */
+		} else {
+			active_simple_product = jQuery(".configurable-option-anchor-active");
+			if (active_simple_product.attr('prod_availability') != "1") {
+				jQuery('.add-to-cart').hide();
+				jQuery('.outofstockmessage').show();
+				jQuery('.outofstockmessage').text(active_simple_product.attr('prod_notinstockmessage'));
+				jQuery('.add-to-cart').show();
+				jQuery('.outofstockmessage').hide();
+			}
+		}
+	}
+
+	function ObjProdAttr(prod_attr, btn_value) {
+		for (var key in prod_attr) {
+			if (prod_attr.hasOwnProperty(key)) {
+				var obj = prod_attr[key];
+				for (var prop in obj) {	
+					if (obj.hasOwnProperty(prop)) {			
+						if (prop == 'prod_attr_id') {	
+							if (btn_value == obj[prop]) {				
+								return prod_attr[key].prod_id;
+							}
+						}
+					}
+				}
+			}
+		}
+		return;
+	}
+
+	function OgSetProductId(val) {
+		var product_id_val = val;
+		console.log(product_id_val);
+		if (window.OG && OG.setProduct) {
+			OG.setProduct(
+				{
+					id: product_id_val,
+					module: "pdp"
+				}
+			);
+		}
+	}
+
+	function OgUpdateCartProductId(val) {
+		var product_id_val = val;
+		console.log(product_id_val);
+		if (window.OG && OG.updateCart) {
+			OG.updateCart([
+				{
+					id: product_id_val,
+					module: "pdp"
+				}
+			]);
+		}
+	}
+	
+	//]]>
+</script>	
+	

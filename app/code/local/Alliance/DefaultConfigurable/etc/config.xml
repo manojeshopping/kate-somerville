@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Alliance_DefaultConfigurable>
+            <version>1.0.0</version>
+        </Alliance_DefaultConfigurable>
+    </modules>
+    <global>
+        <helpers>
+            <alliance_defaultconfigurable>
+                <class>Alliance_DefaultConfigurable_Helper</class>
+            </alliance_defaultconfigurable>
+        </helpers>
+        <models>
+            <alliance_defaultconfigurable>
+                <class>Alliance_DefaultConfigurable_Model</class>
+            </alliance_defaultconfigurable>
+        </models>
+        <resources>
+            <alliance_defaultconfigurable_setup>
+                <setup>
+                    <module>Alliance_DefaultConfigurable</module>
+                    <class>Mage_Catalog_Model_Resource_Setup</class>
+                </setup>
+            </alliance_defaultconfigurable_setup>
+        </resources>
+    </global>
+    <adminhtml>
+        <layout>
+            <updates>
+                <alliance_defaultconfigurable>
+                    <file>alliance_defaultconfigurable.xml</file>
+                </alliance_defaultconfigurable>
+            </updates>
+        </layout>
+        <events>
+            <core_block_abstract_to_html_before>
+                <observers>
+                    <alliance_defaultconfigurable>
+                        <class>alliance_defaultconfigurable/observer</class>
+                        <method>addDefaultColumn</method>
+                    </alliance_defaultconfigurable>
+                </observers>
+            </core_block_abstract_to_html_before>
+        </events>
+    </adminhtml>
+</config>

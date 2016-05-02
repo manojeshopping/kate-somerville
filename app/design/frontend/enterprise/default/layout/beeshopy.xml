@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <checkout_onepage_success>
+      <reference name="before_body_end">
+        <block type="beecoder_beeshopy/track" name="beecoderbeeshopy_track" template='beeshopy/track.phtml'/>
+      </reference>
+    </checkout_onepage_success>    
+
+    <default>
+      <reference name="before_body_end">
+        <block type="core/text" name='beetailer'>
+          <action method="setText">
+            <text><![CDATA[ <script type='text/javascript' src='//www.beetailer.com/javascripts/beetailer.js'></script> ]]> </text>
+          </action>
+        </block>
+      </reference>
+    </default>    
+</layout>

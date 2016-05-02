@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Alliance_Subscriptions>
+            <version>1.0.0</version>
+        </Alliance_Subscriptions>
+    </modules>
+ 
+    <global>
+        <helpers>
+            <alliance_subscriptions>
+                <class>Alliance_Subscriptions_Helper</class>
+            </alliance_subscriptions>
+        </helpers>
+
+        <blocks>
+            <alliance_subscriptions>
+                <class>Alliance_Subscriptions_Block</class>
+            </alliance_subscriptions>
+        </blocks>
+
+        <models>
+            <alliance_subscriptions>
+                <class>Alliance_Subscriptions_Model</class>
+            </alliance_subscriptions>
+        </models>
+    </global>
+
+    <frontend>
+        <layout>
+            <updates>
+                <alliance_subscriptions>
+                    <file>alliance_subscriptions.xml</file>
+                </alliance_subscriptions>
+            </updates>
+        </layout>
+    </frontend>
+	
+	<frontend>
+        <routers>
+            <subscriptions>
+                <use>standard</use>
+                <args>
+                    <module>Alliance_Subscriptions</module>
+                    <frontName>subscriptions</frontName>
+                </args>
+            </subscriptions>
+        </routers>   
+    </frontend>
+	
+	<frontend>
+        <secure_url>
+			<subscriptions>/subscriptions/auth/</subscriptions>
+		</secure_url>
+    </frontend>
+	
+	<frontend>
+        <secure_url>
+			<subscriptions>/subscriptions/customer/</subscriptions>
+		</secure_url>
+    </frontend>
+</config>

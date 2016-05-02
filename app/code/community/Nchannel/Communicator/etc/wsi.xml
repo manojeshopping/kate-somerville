@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:typens="urn:{{var wsdl.name}}"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             name="{{var wsdl.name}}"
+             targetNamespace="urn:{{var wsdl.name}}">
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:{{var wsdl.name}}">
+            
+<!--BEGIN TYPES --> 
+
+            <!--BEGIN CUSTOMER TYPES -->
+            <!--<xsd:complexType name="mapy_customerGroupEntity">
+                <xsd:sequence>
+                    <xsd:element name="customer_group_id" type="xsd:int" />
+                    <xsd:element name="customer_group_code" type="xsd:string" />
+                    <xsd:element name="customers_count" type="xsd:int" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="mapy_customerGroupEntityArray">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:mapy_customerGroupEntity" />
+                </xsd:sequence>
+            </xsd:complexType>-->
+            <!--END CUSTOMER TYPES -->
+            
+            <!--BEGIN CUSTOMER PARAMS -->
+            <!--<xsd:element name="mapy_customerGroupListRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="mapy_customerGroupListResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="typens:mapy_customerGroupEntityArray" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>-->
+          <!--<xsd:element name="sessionID">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="sku">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element minOccurs="1" maxOccurs="1" name="sku" type="xsd:string" />
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="configAttrCodes">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element minOccurs="1" maxOccurs="1" name="configAttrCodes" type="xsd:ArrayOfString" />
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="childSku">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element minOccurs="1" maxOccurs="1" name="childSku" type="xsd:string" />
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="configurableProductID">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element minOccurs="1" maxOccurs="1" name="configurableProductID" type="xsd:string" />
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>-->
+            <!--END CUSTOMER PARAMS -->
+            
+        </xsd:schema>
+    </wsdl:types>
+    
+    
+<!-- BEGIN MESSAGES -->
+
+            <!-- BEGIN CUSTOMER MESSAGES -->
+  <wsdl:message name="ProductutilityAddAttributesRequest">
+    <wsdl:part name="sessionId" type="xsd:string"/>
+    <wsdl:part name="sku" type="xsd:string" />
+    <wsdl:part name="configAttrCodes" type="typens:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="ProductutilityAddAttributesResponse">
+    <wsdl:part name="result" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="ProductutilityAttachProductToConfigurableRequest">
+    <wsdl:part name="sessionId" type="xsd:string"/>
+    <wsdl:part name="childSku" type="xsd:string" />
+    <wsdl:part name="configurableProductID" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="ProductutilityAttachProductToConfigurableResponse">
+    <wsdl:part name="result" type="xsd:string" />
+  </wsdl:message>
+            <!-- END CUSTOMER MESSAGES -->
+
+<!-- END MESSAGES -->
+
+
+    <wsdl:portType name="{{var wsdl.handler}}PortType">
+<!-- BEGIN PORT TYPES -->
+            <!-- BEGIN CUSTOMER PORT TYPES -->
+        <!--<wsdl:operation name="mapy_customerGroupList">
+            <wsdl:documentation>Retrieve customer groups</wsdl:documentation>
+            <wsdl:input message="typens:mapy_customerGroupListRequest" />
+            <wsdl:output message="typens:mapy_customerGroupListResponse" />
+        </wsdl:operation>-->
+      <wsdl:operation name="ProductutilityAddAttributes">
+        <wsdl:documentation>Sets up configurable attributes. </wsdl:documentation>
+          <wsdl:input message="typens:ProductutilityAddAttributesRequest" />
+          <wsdl:output message="typens:ProductutilityAddAttributesResponse" />
+      </wsdl:operation>
+      <wsdl:operation name="ProductutilityAttachProductToConfigurable">
+        <wsdl:documentation>Sets up configurable attributes. </wsdl:documentation>
+          <wsdl:input message="typens:ProductutilityAttachProductToConfigurableRequest" />
+          <wsdl:output message="typens:ProductutilityAttachProductToConfigurableResponse" />
+      </wsdl:operation>
+            <!-- END CUSTOMER PORT TYPES -->
+            
+<!-- END PORT TYPES -->
+    </wsdl:portType>
+    <wsdl:binding name="{{var wsdl.handler}}Binding" type="typens:{{var wsdl.handler}}PortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+        
+<!-- BEGIN BINDINGS -->
+            <!-- BEGIN CUSTOMER BINDINGS -->
+        <!--<wsdl:operation name="mapy_customerGroupList">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>-->
+      <wsdl:operation name="ProductutilityAddAttributes">
+        <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+        <wsdl:input>
+          <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+        </wsdl:input>
+        <wsdl:output>
+          <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+        </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="ProductutilityAttachProductToConfigurable">
+        <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+        <wsdl:input>
+          <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+        </wsdl:input>
+        <wsdl:output>
+          <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+        </wsdl:output>
+      </wsdl:operation>
+            <!-- END CUSTOMER BINDINGS -->
+<!-- END BINDINGS -->
+    </wsdl:binding>
+</wsdl:definitions>

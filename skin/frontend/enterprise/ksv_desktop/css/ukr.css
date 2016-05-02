@@ -1,0 +1,522 @@
+
+.katerewards-index-index .wrap {
+    width: 952px;
+    margin: 0 auto;
+    /*margin-right:5px;*/
+}
+
+.katerewards-index-index table.aside {
+    width: 270px;
+    font-size: 12px;
+    line-height: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.katerewards-index-index a img {
+    border: 0
+}
+
+.katerewards-index-index table.aside .subheader {
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 3px;
+    color: #333;
+}
+
+.katerewards-index-index table.program_overview {
+    margin-right: 20px !important;
+}
+
+.katerewards-index-index table {
+    border-collapse: collapse;
+}
+
+.katerewards-index-index table td {
+    vertical-align: top;
+}
+
+.katerewards-index-index table.aside td,
+.katerewards-index-index table.program_overview td {
+    /*border: 1px solid #ccc;*/
+}
+
+.katerewards-index-index table.program_overview td {
+    padding: 20px 10px !important;
+    color: #666;
+}
+
+.katerewards-index-index table.aside td {
+    padding: 20px;
+}
+
+.katerewards-index-index h2.main_header {
+    margin-left: 0px;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.katerewards-index-index h2 {
+    color: #333;
+    font-size: 23px;
+    margin: 15px;
+}
+
+.katerewards-index-index h3.katerewards-thank-you-heading {
+    font-size: 22px;
+    font-weight: bold !important;
+}
+
+.katerewards-index-index .program_text {
+    font-size: 18px;
+    line-height: 22px;
+    color: #666;
+    padding: 25px 0 0;
+    width: 420px;
+}
+
+.katerewards-index-index .earn_links {
+    font-size: 16px;
+    display: inline-block;
+    border-left: 1px solid #ccc;
+    line-height: 16px;
+    padding-left: 10px;
+    margin-left: 10px;
+}
+
+.katerewards-index-index ul.listing {
+    margin-top: 10px;
+    padding: 0px;
+}
+
+.katerewards-index-index ul.listing li {
+    list-style-type: none;
+    float: left;
+    width: 128px;
+    text-align: center;
+    padding: 0;
+}
+
+.katerewards-index-index ul.listing li.first div.box {
+}
+
+.katerewards-index-index table.program_overview td.points {
+    border-bottom: none !important;
+}
+
+.katerewards-index-index .points div.box {
+    height: 180px;
+}
+
+.katerewards-index-index div.box img {
+    margin: 20px auto 0px;
+}
+
+.katerewards-index-index .point_image_wrap {
+    height: 110px;
+}
+
+.katerewards-index-index .point_image_wrap_less {
+    height: 100px;
+}
+
+.katerewards-index-index div.box {
+    /*padding: 15px;
+    margin: 10px;*/
+    height: 150px;
+    /*border: 1px solid #ccc;*/
+}
+
+.katerewards-index-index .points .description {
+    margin: 0px;
+}
+
+.katerewards-index-index .description {
+    font-size: 12px;
+    font-weight: bold;
+    margin: 5px 10px 10px;
+    line-height: 18px;
+}
+
+.katerewards-index-index .description_text {
+    font-size: 11px;
+    line-height: 14px;
+    font-weight: normal;
+}
+
+.katerewards-index-index .highlight {
+    color: #2e5c99;
+    font-weight: bold;
+}
+
+.katerewards-index-index .back_to_top {
+    float: right;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 2px;
+    margin-right: 10px;
+}
+
+.katerewards-index-index .link {
+    background: url('../images/ukr/ukrbackground.jpg') repeat-x left bottom;
+    text-align: center;
+    color: #2e5c99;
+    width: 160px;
+    height: 30px;
+    display: block;
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border: 1px solid #999;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 30px;
+    margin-top: 15px;
+    text-decoration: none;
+}
+
+.katerewards-index-index .button-area {
+    margin: 60px 5px 0 0;
+    clear: both;
+    overflow: hidden;
+    float: right;
+    padding: 10px;
+}
+
+.katerewards-index-index .button-area .enroll-now {
+    background: #fdcc43;
+    padding: 10px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.katerewards-index-index .button-area .sign-in {
+    background: #6db7dc;
+    padding: 10px;
+    text-transform: uppercase;
+    color: #fff;
+    cursor: pointer;
+}
+
+.katerewards-index-index .first-content-area {
+    margin-bottom: 10px;
+}
+
+.katerewards-index-index .content-sign-in {
+    float: left;
+    padding: 10px 10px 0;
+    width: 303px;
+}
+
+.katerewards-index-index .content-earn-point, 
+.katerewards-index-index .content-get-reward {
+    border-left: 1px solid #D6D6D6;
+    float: left;
+    padding: 10px 10px 0;
+    width: 302px;
+}
+
+.katerewards-index-index .first-content-area .title, 
+.katerewards-index-index .points .title, 
+.katerewards-index-index .content-rewards .title, 
+.katerewards-index-index .content-tire-rewards .title {
+    background: #6db7dc;
+    color: #fff;
+    padding: 10px;
+}
+
+.katerewards-index-index .first-content-area .title h3, 
+.katerewards-index-index .points .title h3, 
+.katerewards-index-index .content-rewards .title h3, 
+.katerewards-index-index .content-tire-rewards .title h3 {
+    color: white;
+    font-size: 18px;
+    margin: 0px;
+    text-transform: capitalize;
+}
+
+.katerewards-index-index .content-tire-rewards p span {
+    font-size: 13px;
+}
+
+.katerewards-index-index .content-tire-rewards small {
+    font-size: 11px;
+}
+
+.katerewards-index-index .first-content-area .content-link {
+    color: #6db7dc;
+    font-size: 16px;
+    padding: 10px 0px 10px 10px;
+}
+
+.katerewards-index-index .first-content-area .desc {
+    padding: 0 10px;
+    color: #666666;
+    line-height: 18px;
+    font-size: 14px;
+}
+
+.katerewards-index-index .content-sign-in .cont-text, 
+.katerewards-index-index .content-earn-point .cont-text, 
+.katerewards-index-index .content-get-reward .cont-text {
+    padding: 10px 0;
+}
+
+.katerewards-index-index .content-sign-in .cont-text h4, 
+.katerewards-index-index .content-earn-point .cont-text h4, 
+.katerewards-index-index .content-get-reward .cont-text h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+    font-weight: normal;
+    margin-top: 0px;
+}
+
+.katerewards-index-index .content-sign-in .cont-text .content-link, 
+.katerewards-index-index .content-earn-point .cont-text .content-link, 
+.katerewards-index-index .content-get-reward .cont-text .content-link {
+    font-size: 16px;
+    margin: 0px;
+    text-transform: capitalize;
+}
+
+.katerewards-index-index .content-rewards, 
+.katerewards-index-index .content-tire-rewards {
+    width: 435px;
+}
+
+.katerewards-index-index .content-rewards .title h3 span, 
+.katerewards-index-index .content-tire-rewards .title h3 span {
+    font-size: 12px;
+}
+
+.katerewards-index-index .rewards-listing {
+    list-style: none;
+    overflow: hidden;
+    padding-left: 0px;
+}
+
+.katerewards-index-index .rewards-listing li {
+    float: left;
+    width: auto;
+    margin-left: 50px;
+    padding-bottom: 10px;
+}
+
+.katerewards-index-index .rewards-listing .reward_image_wrap {
+    float: left;
+    padding-right: 5px;
+}
+
+.katerewards-index-index .rewards-listing .rewards-box {
+}
+
+.katerewards-index-index .rewards-box .tier {
+    padding-left: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    padding-top: 5px;
+}
+
+.katerewards-index-index .rewards-listing .description {
+    padding-top: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    height: 60px;
+    line-height: 18px;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.katerewards-index-index .rewards-listing .tier-description {
+    padding-top: 30px;
+    font-size: 12px;
+    font-weight: bold;
+    height: 60px;
+    line-height: 18px;
+    margin: 0;
+    vertical-align: middle;
+    width: 180px;
+}
+
+.katerewards-index-index .first-content-area .content-sign-in {
+    padding: 10px 5px 0 0;
+}
+
+.katerewards-index-index .first-content-area .content-earn-point {
+    padding: 10px 5px 0;
+}
+
+.katerewards-index-index .first-content-area .content-get-reward {
+    padding: 10px 0 0 5px;
+}
+
+.katerewards-index-index .first-content-area .content-sign-in,
+.katerewards-index-index .first-content-area .content-earn-point,
+.katerewards-index-index .first-content-area .content-get-reward {
+    min-height: 218px;
+}
+
+.katerewards-index-index .bg-img {
+    background: url('https://d3aa0ztdn3oibi.cloudfront.net/merchant/a9b2b5792de1ff04a5b8f2f84a9f2694.png') no-repeat right bottom !important;
+}
+
+.katerewards-index-index .renew-skin {
+    text-transform: capitalize;
+    font-size: 18px;
+    color: #6db7de;
+    font-weight: bold;
+}
+
+.katerewards-index-index .restore-health {
+    text-transform: capitalize;
+    font-size: 18px;
+    color: #95d7cb;
+    font-weight: bold;
+}
+
+.katerewards-index-index .deliver-result {
+    text-transform: capitalize;
+    font-size: 18px;
+    color: #FDA84D;
+    font-weight: bold;
+}
+
+.katerewards-index-index .faq-area {
+    text-align: left;
+    float: left;
+    margin-top: 80px;
+    color: #6DB7DE;
+    line-height: 16px;
+}
+
+.katerewards-index-index .faq {
+    color: #6DB7DE;
+    font-size: 14px;
+}
+
+.katerewards-index-index a.faq:hover {
+    text-decoration: underline;
+}
+
+.katerewards-index-index .terms-condition {
+    color: #6DB7DE;
+    font-size: 14px;
+}
+
+.katerewards-index-index a.terms-condition:hover {
+    text-decoration: underline;
+}
+
+/* login form */
+.katerewards-index-index .overlay-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    z-index: 1000; /* high z-index */
+    background: #000; /* fallback */
+    background: rgba(0, 0, 0, 0.75);
+    display: none;
+}
+
+.katerewards-index-index .overlay-content {
+    background: #FFF;
+    width: 660px;
+    height: 300px;
+    position: relative;
+    top: 180px;
+    left: 50%;
+    margin: 0 0 0 -330px; /* add negative left margin for half the width to center the div */
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+    display: none;
+}
+
+.katerewards-enroll-login h2 {
+    padding-top: 10px;
+}
+
+.katerewards-enroll-login h2 span {
+    float: right;
+    font-size: 14px;
+    line-height: 23px;
+}
+
+.katerewards-enroll-login .loginformdescription {
+    margin: 0 0 20px 15px;
+}
+
+.katerewards-enroll-login .content .form-list {
+    margin-left: 15px;
+}
+
+.katerewards-enroll-login .content .form-list li {
+    padding: 5px 0 5px 0;
+}
+
+.katerewards-enroll-login .content .form-list label {
+    text-align: left;
+}
+
+.katerewards-enroll-login p.required {
+    text-align: left;
+    margin-left: 15px;
+}
+
+.katerewards-enroll-login .buttons-set {
+    padding-right: 20px;
+    margin: 0;
+}
+
+.katerewards-enroll-login .buttons-set button {
+    clear: both;
+}
+
+.katerewards-enroll-login .buttons-set a {
+    float: right;
+    clear: both;
+    margin: 5px 5px 0 0;
+}
+
+/* register form */
+.registerfromdesciption {
+    margin: 0 0 20px 15px;
+}
+
+.katerewards-enroll-register .content .form-list {
+    margin-left: 15px;
+}
+
+.katerewards-enroll-register .content .form-list li {
+    padding: 5px 0 5px 0;
+}
+
+.katerewards-enroll-register .content .form-list label {
+    text-align: left;
+}
+
+.katerewards-enroll-register .content .form-list .control label {
+    line-height: 25px;
+}
+
+.katerewards-enroll-register .content .form-list .input-box {
+    line-height: 16px;
+}
+
+.katerewards-enroll-register p.required {
+    text-align: left;
+    margin-left: 15px;
+}
+
+.katerewards-enroll-register button {
+    margin-right: 80px;
+}
+	  
+	  
+	  
+	  

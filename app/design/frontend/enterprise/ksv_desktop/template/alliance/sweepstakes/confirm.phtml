@@ -1,0 +1,49 @@
+<?php
+$imageUrl = $this->getSkinUrl('images/sweepstakes/');
+$sweepstakesUrl = $this->getUrl('tenyearsweepstakes');
+$sweepstakesTitle = "Enter to Win: Escape to Hollywood Sweepstakes";
+?>
+<div id="sweepstakes-confirm-container">
+	<div id="sweepstakes-logo"><img src="<?php echo $imageUrl?>katesomerville-byrdie.png" alt="Kate Somerville + Bridge"/></div>
+	<div id="sweepstakes-thankyou-container"><div id="sweepstakes-thankyou-inner">
+		<div id="sweepstakes-katelogos">
+			<img src="<?php echo $imageUrl;?>logo.png" alt="Kate Somerville"/>
+			<img src="<?php echo $imageUrl?>celebrating-10years.png" alt="Celebrating 10 Years"/>
+		</div>
+		<h1>Thank You For Entering!</h1>
+		
+		<div id="sweepstakes-share">
+			<p>Share</p>
+			<div class="social-icons">
+                <span class='st_facebook' displayText='Facebook' st_url='<?php echo $sweepstakesUrl;?>'
+					  st_title='<?php echo $sweepstakesTitle; ?>'
+					  st_image='<?php echo $imageUrl?>celebrating-10years.png'></span>
+                <span class='st_twitter' displayText='Tweet' st_url='<?php echo $sweepstakesUrl;?>'
+					  st_title='<?php echo $sweepstakesTitle; ?>'
+					  st_image='<?php echo $imageUrl?>celebrating-10years.png'></span>
+                <span class='st_pinterest' displayText='Pinterest' st_url='<?php echo $sweepstakesUrl;?>'
+					  st_title='<?php echo $sweepstakesTitle; ?>'
+					  st_image='<?php echo $imageUrl?>celebrating-10years.png'></span>
+                <span class='st_googleplus' displayText='Google +' st_url='<?php echo $sweepstakesUrl;?>'
+					  st_title='<?php echo $sweepstakesTitle; ?>'
+					  st_image='<?php echo $imageUrl?>celebrating-10years.png'></span>
+			</div>
+			<p>#AGEISJUSTANUMBER</p>
+		</div>
+	</div></div>
+</div>
+
+<div id="sweepstakes-ageisjustanumber">
+	<div class="left">
+		<h2>AGE IS JUST<br/>A NUMBER</h2>
+		<p class="ageisjustanumber-highlight">
+		Celebrate our <span>10<sup>th</sup></span> anniversary &amp; enjoy <span>10%</span> off<br/>
+		Kate’s top <span>10</span> favorite products for <span>10</span> days.
+		</p>
+		
+		<p>Enter promo code <strong>CELEBRATE10</strong> at checkout.*</p>
+		<a href="<?php echo $this->getUrl('ten-year-anniversary');?>"><img src="<?php echo $imageUrl?>shop-now-buttonpng.png" alt="Shop Now"/></a>
+		<p class="ageisjustanumber-comment">*Applies to sales February 18-27</p>
+	</div>
+	<div class="right"><img src="<?php echo $imageUrl?>confirm-kate.jpg" alt=""/></div>
+</div>

@@ -1,0 +1,92 @@
+/* Skin Library styles */
+.cms-page-view .col3-layout h1 {
+	font-size: 35px;
+	line-height: 37px;
+	margin-top: -8px;
+}
+
+.cms-page-view .col3-layout h4 {
+	font-size: 16px;
+	font-weight: bold;
+	margin: 0 0 2px;
+	color: #000;
+}
+
+.cms-page-view .col3-layout .page-title {
+	border: none;
+	margin-bottom: 10px !important;
+}
+
+.anti-aging-skincare {
+	float: right;
+	width: 160px;
+	margin-left: 20px;
+	margin-top: 3px;
+}
+
+.anti-aging h3 {
+	font-size: 18px;
+	font-weight: normal;
+	margin: 0 0 10px;
+	color:#6A747C;
+}
+
+.anti-aging-skincare .links {
+	padding: 0 0 12px;
+	display: block;
+}
+
+.anti-aging-skincare .links li, .anti-aging-skincare .links li a {
+	text-decoration: none;
+	color: #75b8db;
+}
+
+.anti-aging-skincare .links li {
+	background: url(../images/acne-bullet.gif) no-repeat 0 5px;
+	padding: 0 0 0 12px !important;
+	display: block;
+	font-size: 13px;
+}
+
+.anti-aging-content ul {
+	padding: 0 0 0 40px;
+	display: block;
+}
+
+.anti-aging-content ul li {
+	padding: 0 !important;
+}
+
+.col-right .products-grid {
+	padding: 0;
+}
+
+.col-right .products-grid li {
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+.col-right .featured_items {
+	font-size: 14px;
+	display: block;
+	padding-bottom: 10px;
+	margin-top: -3px;
+}
+
+.shop_all_cateogry a {
+	display: block;
+	width: 100%;
+	padding: 0 !important;
+}
+
+.products-grid .custom-head .product-name {
+	margin-bottom:0 !important;
+	color:#75b8db;
+}
+
+.catalog-category-view .skin_evaluation .product-name img {
+	display:none;
+}
+

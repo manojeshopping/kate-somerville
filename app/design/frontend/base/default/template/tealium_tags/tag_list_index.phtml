@@ -1,0 +1,27 @@
+<?php
+
+$helper = Mage::helper('tealium_tags');
+$store = Mage::app()->getStore();
+
+if (!$helper->isEnabled($store)) {
+    return; // not enabled, no javascript inserted
+}
+
+$tags = array();
+
+if( sizeof($this->getTags()) > 0 ) {
+    foreach ($this->getTags()as $name => $tag) {
+        $tags[] = $name;
+    }
+} else {
+    $tags[] = "no-tags";
+}
+
+$tealium = $helper->getTealiumObject($store, $this);
+$tealium->pageType("Search");
+$tealium->updateUdo("page_type", "tag list");
+$tealium->updateUdo("page_name", $this->getLayout()->getBlock('head')->getTitle());
+$tealium->updateUdo("search_keyword", implode('","', $tags));
+echo $tealium->render("udo");
+echo $helper->getDiagnosticTag($store);
+?>

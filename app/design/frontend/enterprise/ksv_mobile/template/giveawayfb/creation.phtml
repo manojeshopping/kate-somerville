@@ -1,0 +1,94 @@
+<div class="giveawayfb-container">
+	<form id="frmCreation" method="post" action="<?php echo $this->getCreationAction();?>">
+	<fieldset>
+	<h2>Personal Information</h2>
+	<div class="creation-fields">
+		<div class="table100">
+			<label for="creation-name" class="creation-label">* First Name</label>
+			<div class="creation-field"><input type="text" id="creation-name" name="name" class="input-text required-entry" value="<?php echo $this->getModuleData('name');?>"/></div>
+		</div>
+		<div class="table100">
+			<label for="creation-lastname" class="creation-label">* Last Name</label>
+			<div class="creation-field"><input type="text" id="creation-lastname" name="lastname" class="input-text required-entry" value="<?php echo $this->getModuleData('lastname');?>"/></div>
+		</div>
+		<div class="table100">
+			<label for="creation-birthdate_month" class="creation-label">Birthday</label>
+			<div class="creation-field">
+				<input type="text" id="creation-birthdate_month" name="birthdate_month" value="<?php echo $this->getModuleData('birthdate_month');?>" class="input-text input-date concerns-month" placeholder="MM"/>
+				<input type="text" id="creation-birthdate_day" name="birthdate_day" value="<?php echo $this->getModuleData('birthdate_day');?>" class="input-text input-date concerns-day" placeholder="DD"/>
+			</div>
+		</div>
+	</div>
+	
+	<h2 style="margin-top: 20px;">Skin Information</h2>
+	<div class="creation-fields">
+		<p id="concerns-paragraph">* Please select your two main skin concerns.</p>
+		<div class="table100 concerns-list">
+			<div class="left">
+				<?php
+				$concerns = $this->getModuleData('concerns');
+				$_concerns = Mage::helper('giveawayfb')->getConcernsList();
+				$halfConcerns = ceil((count($_concerns) / 2));
+				$i = 1;
+				foreach($_concerns as $oneConcern) {
+					if(empty($oneConcern['value']) || $oneConcern['label'] == "N/A") continue;
+					if($i++ == $halfConcerns) echo '</div><div class="right">';
+				?>
+				<input type="checkbox" id="concerns<?php echo $oneConcern['value'];?>" name="concerns[]" value="<?php echo $oneConcern['value'];?>"<?php if(is_array($concerns) && in_array($oneConcern['value'], $concerns)) echo ' checked="checked"'?> class="concerns-checkboxs" />
+				<label for="concerns<?php echo $oneConcern['value'];?>"><?php echo $oneConcern['label'];?></label>
+				<?php
+				}
+				?>
+			</div>
+		</div>
+		
+		<div class="sec_code">
+			<?php
+			$publickey = $this->getCaptchaPublicKey();
+			if($this->siteProtocol() == "https://" ){
+			?>
+			<script type="text/javascript" src="https://www.google.com/recaptcha/api/challenge?k=<?php echo $publickey;?>"></script>
+			<?php
+			} else {
+			?>
+			<div id="recaptcha_widget" style="display:none">
+				<div id="recaptcha_image"></div>
+				<div class="recaptcha_only_if_incorrect_sol" style="color:red">Incorrect please try again</div>
+				<span class="recaptcha_only_if_image" style="font-family: Arial; font-size: 17px;">Enter the words above:</span>
+				<span class="recaptcha_only_if_audio" style="font-family: Arial; font-size: 17px;">Enter the numbers you hear:</span>
+				<input type="text" id="recaptcha_response_field" class = "required-entry" name="recaptcha_response_field"  />
+				<div style="display:none;"><a href="javascript:Recaptcha.reload()">Get another CAPTCHA</a></div>
+				<div style="display:none;" class="recaptcha_only_if_image"><a href="javascript:Recaptcha.switch_type('audio')">Get an audio CAPTCHA</a></div>
+				<div style="display:none;" class="recaptcha_only_if_audio"><a href="javascript:Recaptcha.switch_type('image')">Get an image CAPTCHA</a></div>
+				<div style="display:none;"><a href="javascript:Recaptcha.showhelp()">Help</a></div>
+             </div>
+			<script type="text/javascript" src="http://www.google.com/recaptcha/api/challenge?k=<?php echo $publickey;?>"></script>
+			<noscript>
+				<iframe src="http://www.google.com/recaptcha/api/noscript?k=<?php echo $publickey;?>" height="300" width="500" frameborder="0"></iframe><br/>
+				<textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>
+				<input type="hidden" name="recaptcha_response_field" value="manual_challenge"/>
+			</noscript>
+			<?php
+			}
+			?>
+		</div>
+		
+		<!-- div class="creation-newsletter-container">
+			<input type="checkbox" id="creation-newsletter" name="newsletter" value="1" checked="checked"/>
+			<label for="creation-signup">Sign Up for Newsletter</label>
+		</div-->
+		
+		<div class="creation-buttons-container">
+			<span class="giveawayfb-comment">* Required Fields</span>
+			<button id="creation-submit" class="giveawayfb-button">Enter</button>
+		</div>
+	</div>
+	</fieldset>
+	</form>
+</div>
+
+<script type="text/javascript">
+//< ![CDATA[
+var frmVerification = new VarienForm('frmCreation', true);
+//]]>
+</script>

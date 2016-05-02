@@ -1,0 +1,29 @@
+<?php
+$layout = $this->getLayout();
+?>
+<div class="offers">
+    <?php if ($this->getConfigEnabled()) { ?>
+	<form id="frmOffers" method="post" action="<?php echo $this->getActionPostUrl(); ?>">
+	<fieldset>
+		<div class="offers-hdr">
+			<?php echo $layout->createBlock('cms/block')->setBlockId('checkout-offers-hdr')->toHtml(); ?>
+		</div>
+		
+		<div class="offers-modules">
+		
+		<?php
+		$modules = $this->getModules();
+		foreach($modules as $_module) {
+			echo $layout->createBlock($_module.'/'.$_module)->toHtml();
+		}
+		?>
+		</div>
+		<div class="offers-checkout">
+			<?php echo $this->getChildHtml('checkout_button'); ?>
+		</div>
+	</fieldset>
+	</form>
+    <?php } else { ?>
+       <p>Module disabled.</p>
+    <?php } ?>
+</div>

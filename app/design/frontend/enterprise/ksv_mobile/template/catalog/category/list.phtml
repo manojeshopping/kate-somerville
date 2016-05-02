@@ -1,0 +1,31 @@
+<?php $_helper = Mage::helper('catalog/category'); ?>
+<?php 
+    $_categories = $_helper->getStoreCategories(); 
+    $i = 0;
+?>
+
+<ul id="shop-links" class="links accordion">
+    <?php if (count($_categories) > 0): ?>
+            <?php foreach($_categories as $_category): ?>
+                <?php if ($_category->getName() == 'Skincare' || $_category->getName() == 'Furniture') : ?>
+                    <li>
+                        <a href="/shop-skincare">
+                            <?php echo $_category->getName() ?>
+                        </a>
+                    </li>
+                <?php else : ?>
+                <li>
+                    <a href="<?php echo $_helper->getCategoryUrl($_category) ?>">
+                        <?php echo $_category->getName() ?>
+                    </a>
+                </li>
+                <?php endif; $i++; ?>
+            <?php endforeach ?>
+    <?php endif; ?>
+    <li>
+        <a href="/special-offers">Special Offers</a>
+    </li>
+    <li>
+        <a href="/rewards-program">Ultimate Kate Rewards</a>
+    </li>
+</ul>

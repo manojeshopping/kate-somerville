@@ -1,0 +1,149 @@
+<!-- end temporary styles -->
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php $collection = $this->getCollection(); ?>
+<?php if ($collection->getSize()) { ?>
+    <div id="katereviews-main-display">
+        <div class="page-title"><h1>Customer Reviews</h1></div>
+        <p>Customer Reviews for <?php echo $this->product_name; ?></p>
+        
+        
+		<div class="right">
+        <?php if ($this->review_count > 0) { ?>
+            <a class="button" href="<?php echo Mage::getUrl('katereviews/write/index/id/'.$this->product_id); ?>"><span><span>Write your Review</span></span></a>
+        <?php } else { ?>
+            <a class="button" href="<?php echo Mage::getUrl('katereviews/write/index/id/'.$this->product_id); ?>"><span><span>Be the first to review this product</span></span></a>
+        <?php } ?>
+		</div>
+		
+        <p class="back-link"><a href="<?php echo $this->getBackUrl(); ?>">&laquo; Back to Product</a></p>
+        
+        <?php $reviewcounter = 1; ?>
+        <?php $_odd = ''; ?>
+        <?php foreach ($collection as $review) { ?>
+            <?php $helpful = $this->getHelpfuls($review->getId()); ?>
+            <div class="single-review">
+                <div class="left-review">
+                    <?php // echo date("d/m/Y", strtotime($review->getDate())); ?>
+                    <?php // echo $review->getPurchasedAt() ?>
+                    <?php // echo $review->getAgeRange() ?>
+                    <?php // echo $review->getMemberStatus() ?>
+                    <?php // echo $this->getTopContributorText($review->getCustomerId()) ?>
+
+                    <?php if ($review->fetchCustomerName()) { ?>
+                    <label><?php echo $review->fetchCustomerName() ?></label>
+                    <?php } ?>
+
+                    <?php if ($review->getLocation()) { ?>
+                    <div class="label-content"><?php echo $review->getLocation() ?></div>
+                    <?php } ?>
+
+                    <?php if ($review->getSkinConcern()) { ?>
+                    <label>Skin Concern</label>
+                    <div class="label-content"><?php echo $review->getSkinConcern() ?></div>
+                    <?php } ?>
+
+                     <?php if ($review->getOwnedFor()) { ?>
+                    <label>Owned this product</label>
+                    <div class="label-content"><?php echo $review->getOwnedFor() ?></div>
+                    <?php } ?>
+
+                    <?php if ($review->getOftenUsed()) { ?>
+                    <label>Uses this Product</label>
+                    <div class="label-content"><?php echo $review->getOftenUsed() ?></div>
+                    <?php } ?>
+
+                    <?php if ($review->getRecommended()) { ?>
+                    <label>Would you recommend this product to a friend?</label>
+                    <div class="label-content"><?php echo $review->getRecommended() ?></div>
+                    <?php } ?>
+                </div>
+
+                <div class="right-review">
+                    <h2><?php echo htmlentities($review->getReviewHeadline(), ENT_QUOTES, 'UTF-8') ?></></h2>
+                    <?php
+                        $avg = $review->getStarRating();
+                        $avgWidth = $avg/5;
+                        $percent = round((float)$avgWidth * 100 ) . '%';
+                    ?>
+                    <div class="rating-box">
+                        <div class="rating" style="width:<?php echo $percent; ?>"></div>
+                    </div>
+                    <div class="txt-review">
+                    <?php if ($review->getReviewText()) { ?>
+                        <?php echo nl2br(htmlentities($review->getReviewText(), ENT_QUOTES, 'UTF-8')) ?>
+                    <?php } ?>
+                    </div>
+
+                    <div class="helpful-review">
+                    <?php if ($helpful['helpful_total'] > 0) {
+                        if ($helpful['helpful_total'] == 1) {
+                            echo $helpful['helpful_yes'] == 1 ? 'One customer finds this review helpful' : 'One customer did not find this review helpful';
+                        } else {
+                            echo $helpful['helpful_yes'] . " out of " . $helpful['helpful_total'] . " customers find this review helpful";
+                        }
+                    } ?>
+                    </div>
+
+                    <?php if ($this->customerLoggedIn()) { ?>
+                        <div class="helpful-review">
+                        <?php if ($helpful['customer_helpful'] == 'Null') { ?>
+                            <div id="found-review-helpful-input-<?php echo $reviewcounter; ?>">
+                                Did you find this review helpful? <div id="Helpful-Yes-AJAX-<?php echo $reviewcounter; ?>" style="cursor: pointer; display: inline-block; text-decoration: underline;">Yes</div> / <div id="Helpful-No-AJAX-<?php echo $reviewcounter; ?>" style="cursor: pointer; display: inline-block; text-decoration: underline;">No</div>
+                            </div>
+                            <div id="found-review-helpful-<?php echo $reviewcounter; ?>" class="found-review-helpful" style="display: none;">
+                                You found this review helpful!
+                            </div>
+                            <div id="found-review-unhelpful-<?php echo $reviewcounter; ?>" class="found-review-unhelpful" style="display: none;">
+                                You did not find this review helpful.
+                            </div>
+                        <?php } else { ?>
+                            <?php if ($helpful['customer_helpful'] == 'Yes') { ?>
+                                <div class="found-review-helpful">
+                                    You found this review helpful!
+                                </div>
+                            <?php } elseif ($helpful['customer_helpful'] == 'No') { ?>
+                                <div class="found-review-unhelpful">
+                                    You did not find this review helpful.
+                                </div>
+                            <?php } ?>
+                        <?php } ?>
+                        </div>
+					<?php } else { ?>
+						<div>
+							Did you find this review helpful?
+							<a href="<?php echo Mage::getUrl('customer/account/login', array('referer' => Mage::helper('core')->urlEncode(Mage::helper('core/url')->getCurrentUrl()))) ?>" style="cursor: pointer; display: inline-block; text-decoration: underline; color: #6a747c;">Yes</a>
+							/
+							<a href="<?php echo Mage::getUrl('customer/account/login', array('referer' => Mage::helper('core')->urlEncode(Mage::helper('core/url')->getCurrentUrl()))) ?>" style="cursor: pointer; display: inline-block; text-decoration: underline; color: #6a747c;">No</a>
+						</div>
+					<?php } ?>
+                </div><!-- end right review -->
+            </div>
+            <?php $reviewcounter++; ?>
+        <?php } ?>
+        <br clear="all" />
+        <?php echo $this->getPagerHtml(); ?>
+    </div>
+    <script>
+        <?php $reviewcounter = 1; ?>
+        <?php foreach ($this->_collection as $review) { ?>
+        jQuery('#Helpful-Yes-AJAX-<?php echo $reviewcounter; ?>').click(function() {
+            jQuery.ajax({
+                url: '/katereviews/submit/helpyes/customerid/<?php echo $this->customer_id; ?>/reviewid/<?php echo $review->getId(); ?>'
+            });
+            jQuery('#found-review-helpful-input-<?php echo $reviewcounter; ?>').hide();
+            jQuery('#found-review-helpful-<?php echo $reviewcounter; ?>').show();
+        });
+
+        jQuery('#Helpful-No-AJAX-<?php echo $reviewcounter; ?>').click(function() {
+            jQuery.ajax({
+                url: '/katereviews/submit/helpno/customerid/<?php echo $this->customer_id; ?>/reviewid/<?php echo $review->getId(); ?>'
+            });
+            jQuery('#found-review-helpful-input-<?php echo $reviewcounter; ?>').hide();
+            jQuery('#found-review-unhelpful-<?php echo $reviewcounter; ?>').show();
+        });
+        <?php $reviewcounter++; ?>
+        <?php } ?>
+    </script>
+<?php } else { ?>
+    No reviews found.
+<?php } ?>

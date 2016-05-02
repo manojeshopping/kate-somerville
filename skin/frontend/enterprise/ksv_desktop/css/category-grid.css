@@ -1,0 +1,286 @@
+/* Category grid / landing page */
+
+.catalog-category-view .col-main {
+	padding: 0;
+	margin: 0;
+}
+
+.catalog-category-view .category-view {
+	padding: 0;
+	margin: 0;
+}
+
+.catalog-category-view .category-description {
+	padding: 0;
+	font-size: 17px;
+}
+
+.catalog-category-view ul.products-grid {
+	margin: 0;
+	padding: 0;
+}
+
+.catalog-category-view ul.products-grid li.item {
+	position: relative;
+	width: 328px;
+	margin: 0 20px 0 0;
+	padding: 0;
+}
+
+.catalog-category-view ul.products-grid li.item.last {
+	margin-right: 0;
+}
+
+.catalog-category-view ul.products-grid li .prod-grid-thumb {
+	width: 328px;
+	height: 300px;
+}
+
+.catalog-category-view ul.products-grid li .prod-grid-thumb img {
+	margin: 0 14px;
+}
+
+.catalog-category-view ul.products-grid .product-image {
+	width: 300px;
+	height: 300px;
+	margin: 0 auto;
+}
+
+@-webkit-keyframes fadeIn {
+    from {background: rgba(153, 153, 153, 0); }
+      to {background: rgba(153, 153, 153, .46); }
+}
+
+@keyframes fadeIn {
+    from {background: rgba(153, 153, 153, 0);  }
+      to { background: rgba(153, 153, 153, .46); }
+}
+
+.catalog-category-view ul.products-grid li .prod-grid-content { 
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+	width: 328px; 
+	height: 300px; 
+	overflow: hidden;	
+	display: none;
+}
+
+.catalog-category-view ul.products-grid li .prod-grid-thumb:hover > .prod-grid-content {
+	display: block;
+	-webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+	 background: rgba(153, 153, 153, .46); 
+}
+
+.catalog-category-view ul.products-grid li .prod-grid-content .button span span {
+	width: 110px;
+} 
+
+.catalog-category-view ul.products-grid li .prod-grid-content .button span {
+	padding: 0;
+}
+
+.catalog-category-view ul.products-grid li .prod-grid-content a.button {
+	padding: 0;
+}
+
+.catalog-category-view ul.products-grid li .prod-grid-content .btn-view {
+	margin: 80px 0 0 93px;
+	width: 142px;
+}
+
+.catalog-category-view ul.products-grid li .prod-grid-content .btn-cart {
+	float: left;
+	margin: 18px 0 0 0;
+}
+
+.catalog-category-view ul.products-grid li .prod-grid-content .btn-cart span span {
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	-webkit-border-top-right-radius: 2px;
+	-webkit-border-bottom-right-radius: 2px;
+	-moz-border-radius-topright: 2px;
+	-moz-border-radius-bottomright: 2px;
+	border-top-right-radius: 2px;
+	border-bottom-right-radius: 2px;
+}
+
+.catalog-category-view ul.products-grid li .prod-grid-content .qty-holder {
+	float: left;
+	margin-top: 18px;
+	background: #fff;
+	text-transform: uppercase;
+	font-size: 8px;
+	margin: 20px 0 0 60px;
+	-webkit-border-top-left-radius: 2px;
+	-webkit-border-bottom-left-radius: 2px;
+	-moz-border-radius-topleft: 2px;
+	-moz-border-radius-bottomleft: 2px;
+	border-top-left-radius: 2px;
+	border-bottom-left-radius: 2px;
+}
+
+.catalog-category-view ul.products-grid li .prod-grid-content .qty-holder span {
+	padding: 11px 0 0 6px ;
+	display: block;
+	float: left;
+}
+
+.catalog-category-view ul.products-grid li .prod-grid-content select {
+	display: inline-block;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	height: 31px;
+	border: none !important;
+	line-height: 11px;
+	padding:  10px 34px 10px 4px;
+	float: left;
+}
+
+@-moz-document url-prefix() {
+	.catalog-category-view ul.products-grid li .prod-grid-content select {
+		line-height: 31px;
+		padding: 7px 34px 10px 4px;
+	}
+}
+
+.catalog-category-view ul.products-grid li .prod-grid-content .btn-quickview {
+	margin: 18px 0 0 93px;
+	width: 142px;
+}
+
+.catalog-category-view ul.products-grid li .product-name {
+	margin: 40px 0 0 0;
+	height: 66px;
+	overflow: hidden;
+	font-weight: normal;
+}
+
+.catalog-category-view ul.products-grid li .product-name a {
+	text-decoration: none;
+	font-size: 18px;
+	color: #6A747C;
+	line-height: 23px;
+}
+
+.catalog-category-view ul.products-grid li .product-name span {
+	display: block;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.catalog-category-view ul.products-grid li .product-price {
+	border-top: 1px solid #d5d5d5;
+	padding: 4px 200px 40px 0px;
+}
+
+.catalog-category-view ul.products-grid li .product-price span {
+	font-size: 21px;
+	color: #6A747C;
+	font-weight: normal;
+}
+
+.catalog-category-view ul.products-grid li .product-price .old-price {
+	float: left;
+	padding-bottom:50px;
+}
+
+.catalog-category-view ul.products-grid li .product-price .price-label {
+	display: none;
+}
+
+.catalog-category-view ul.products-grid li .product-price .special-price {
+	float: left;
+	padding-left: 10px;
+	padding-bottom:50px;
+}
+
+.catalog-category-view ul.products-grid li .product-price .special-price span {
+	color: #61a8d4;
+
+}
+
+.catalog-category-view .ad-bottom {
+	margin-top: 30px;
+	padding: 12px;
+	border: 1px solid #cccccc;
+	width: 998px;
+	clear: both;
+	float: left;
+	font-size: 19px;
+	font-style: italic;
+	height: 79px;
+	line-height: 79px;
+}
+
+.catalog-category-view .ad-bottom .button {
+	vertical-align: top;
+	text-align: right;
+	background: none;
+}
+
+.catalog-category-view .ad-bottom .button span {
+	background: none;
+}
+
+.catalog-category-view .ad-bottom .button span span {
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	height: 77px;
+	line-height: 77px;
+	font-size: 23px;
+	font-family: 'GilsansLightFCNormal';
+}
+
+.catalog-category-view .ad-bottom a.button span span {
+	background: #75b8db;
+}
+
+.catalog-category-view .ad-bottom a:hover.button span span {
+	background: #6A747C;
+}
+
+.catalog-category-view .minimal-price-link {
+	display: none;
+}
+
+
+/* Product Spotlight */
+.catalog-category-view ul.product-spotlight li.item, 
+.catalog-category-view ul.product-spotlight li .prod-grid-content,
+.catalog-category-view ul.product-spotlight li .prod-grid-thumb {
+	width: 525px;
+	height: 525px;
+	margin-bottom: 50px;
+	float: left;
+	margin-right: 30px;
+}
+
+.catalog-category-view ul.product-spotlight li.item {
+	width: 100%;
+}
+
+.catalog-category-view ul.product-spotlight li .prod-grid-content .btn-view {
+	margin-top: 190px;	
+}
+
+.catalog-category-view ul.product-spotlight li .prod-grid-content .btn-view,
+.catalog-category-view ul.product-spotlight li .prod-grid-content .btn-quickview {
+	margin-left: 192px;
+}
+
+.catalog-category-view ul.product-spotlight li .prod-grid-content .qty-holder {
+	margin-left: 156px;
+}
+
+.catalog-category-view ul.product-spotlight li .product-name-box {
+	float: left;
+	width: 450px;
+	margin-top: 80px;
+}
+
+

@@ -1,0 +1,433 @@
+/*Search*/
+.store-locator-search-box{
+    width:99%;
+    border-bottom:1px solid #ccc;
+    margin-bottom:20px;
+}
+
+.fields.store-locator-list.last {
+    float: right;
+}
+.store-locator-list label{
+    width:24%;
+}
+
+.store-locator-list select{
+    width: 72%;
+    padding: 0;
+    margin: 0;
+    height: 22px;
+}
+.store-locator-column-left{
+    padding-left:2%;
+    width:47%;
+    float:left;        
+}
+.store-locator-column-right{
+    padding-left:5px;
+    width:420px;
+    float:right;
+}
+.store-locator-column-button{
+    padding-right:5px;
+    text-align:right;
+}
+/*Content*/
+.store-locator-content{
+	position:relative;
+    width:100%;
+    height: auto;
+    border-bottom:1px solid #ccc;
+    padding-bottom:10px;
+	padding-top:120px;
+    clear:both;
+}
+/*List store*/
+.store-locator-list-store-box{
+    border:1px solid #ccc;
+    float:left;
+    width:29%;
+    padding:5px 0px 5px 10px;
+    height:520px;
+}
+.store-locator-list-store-title{
+    width:95%;
+    font-size:16pt;
+    border-bottom:1px solid #ccc;
+    margin-bottom:5px;
+}
+.store-locator-list-store{
+    width:93%;
+    padding-right:7%;
+    height:480px;
+    overflow:auto;
+}
+.store-locator-list-store-item{
+    width:100%;
+    min-height:100px;
+    height: auto;
+    margin-bottom:10px;
+    border:1px solid #ccc;
+    padding:2%;
+
+}
+.store-locator-list-store-item:hover{
+    background:#E9E9F3;
+}
+.active{
+    background:#E9E9F3;
+}
+.selecteda{
+    background:#E9E9F3;
+}
+.store-locator-item-content{
+    color:#666;
+    float:left;
+    width:60%;
+    font-size:8pt;
+}
+.store-locator-item-image{
+    float:right;
+    width:70px;
+    height:85px;
+    background:#edf7fd;
+}
+.store-locator-item-name{
+    font-size:9pt;
+    color:#de5400;
+    font-weight:bold;
+}
+.store-locator-view-detail .store-locator-item-name a{
+    text-decoration: none;
+    color: #de5400;
+}
+.store-locator-view-detail .store-locator-item-name a:hover{
+    text-decoration: underline;
+}
+.store-locator-item-content a{
+    color:#69F;
+    font-style:italic;
+    text-decoration:none;
+}
+.store-locator-item-content a:hover{
+    text-decoration:underline;
+}
+/*Map*/
+.store-locator-map{
+    border:1px solid #ccc;
+    float:right;
+    height:530px;
+    width:68%;
+}
+
+.store-locator-view-detail{
+    width: 40%;
+    height: auto;
+    float: left;
+    min-height: 480px;
+}
+.store-locator-view-detail a{
+    color:#69F;
+    text-decoration: none;
+}
+.store-locator-view-detail label{
+    display: block;
+    float: left;
+    width: 25%;
+    font-weight: bold;
+    clear: both;
+}
+.store-locator-view-detail span{
+    width: 73%;
+    display: block;
+    float: right;
+    padding-bottom: 2px;
+}
+.store-locator-view-detail p{
+    text-align: justify;
+    padding-top:1px;
+    padding-bottom: 1px;
+    margin: 0;
+}
+.clear{
+    clear:both;
+	height:0px;
+}
+
+.store-pickup-image{
+    float :left;
+    margin-right: 5px;
+}
+
+.locator-main-outer .locator-image-small{
+    border: 2px solid #DDDDDD;
+    float: left;
+    height: 56px;
+    overflow: hidden;
+    width: 56px;
+}
+.locator-image-main{
+    margin: 0 0 13px;
+}
+.locator-main-outer .more-views h2 {
+    border-bottom: 1px solid #CCCCCC;
+    font-size: 11px;
+    margin: 0 0 8px;
+    text-transform: uppercase;
+    font-weight:  bold;
+}
+.store-locator-title{
+    color: #de5400;
+    font-weight: bold;
+    font-size: 13px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.more-views ul li {
+    float: left;
+    padding: 3px;
+    margin: 1px;
+    border: 1px solid rgb(230, 230, 230);
+}
+.magestore-map-image:hover img{
+    box-shadow: 0 0 5px rgb(155, 148, 148);
+}
+.locator-image-small:hover img{
+    border: 1px solid #ccc;
+}
+#description {
+    overflow: auto;
+    max-height: 250px;
+}
+.store-locator-tag{
+    position: absolute;
+	top:0;
+    width:98%;
+    padding:1%; 
+    margin:auto;
+    padding-top: 20px;
+    margin-top:13px; 
+    border:1px solid #E5E5E5;
+    background:url(storelocator/tag-bg.png) repeat;
+}
+.store-locator-tag a{
+    color:#fafafa;
+    text-shadow: 0 1px rgba(0,0,0,0.4);
+    text-decoration:none;
+    display: inline-block;
+    padding: 0 12px;
+    font-size:11pt;
+    margin-bottom: 5px;
+    background:#06F;
+    border-radius:15px;
+    background: #ff9035; /* Old browsers */
+    line-height:27px;
+    background: -moz-linear-gradient(top,  #ff9035 1%, #ff7400 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#ff9035), color-stop(100%,#ff7400)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ff9035 1%,#ff7400 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ff9035 1%,#ff7400 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ff9035 1%,#ff7400 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #ff9035 1%,#ff7400 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9035', endColorstr='#ff7400',GradientType=0 ); /* IE6-9 */
+
+    box-shadow: 0 1px 2px rgba(0,0,0,0.21); 
+}
+.store-locator-tag a:hover{
+    background: #B6DA25;
+}
+.magestore-storelocator-getdirection{
+   border: 1px solid #E5E6E3;        
+   background-color: #FFFFFF;    
+   margin-top: -10px;
+   margin-bottom: 10px;
+   width: 104%;
+}
+.magestore-storelocator-navigation{
+    margin-left: 3px;
+    margin-top: 5px;
+    margin-bottom:5px;
+    display: block;
+}
+.magestore-storelocator-navigation .store-locator-navigation_image{
+	background: url(storelocator/navigation.png) left no-repeat;
+	background-position: 0px 0px;
+	display:inline-block;
+	height: 8px;
+    width: 16px;
+	margin-right:10px;
+}
+.magestore-storelocator-directionsPanel{}
+.magestore-storelocator-navigation-up{
+    background-image: url(storelocator/navigation.png);
+    background-position: 16px 0px;
+
+    height: 8px;
+    width: 16px;
+    margin-left: 107px;
+    margin-top: 3px;
+    display: block;
+}
+.store-locator-tag .tag_active{
+    background:#B6DA25; 
+}
+
+.store-locator-span-tag {    
+   font-weight: bold;
+    border: 1px solid #E5E5E5;
+    position: absolute;
+    top: -10px;
+    padding:2px;
+    background-color: #F1F0F0;
+    background:url(storelocator/tag-bg.png) repeat;
+}
+
+#store_information{
+    margin: 20px 0 0 0;   
+    min-height: 280px;
+}
+
+.open_hour_title{
+    background: #E6E6E6 5px;
+    padding:0 0 0 30px;
+    line-height: 30px;
+    height:30px;
+    color: #161166;
+}
+#open_hour{
+    float: left;
+    width: 100%;
+    margin: 0 0 10px 0;
+}
+
+#open_hour ul li{
+    width: 100%;
+    float:left;
+}
+ul#travel-modes{
+    width: 100%;
+    float:left; 
+    padding: 0 0 0 90px;
+}
+ul#travel-modes li{
+    float:left;
+}
+ul#travel-modes li input[type="radio"]:checked+label {
+background-color: #2a8a15;
+}
+ul#travel-modes li input[type="radio"] {
+visibility: hidden;
+position: absolute;
+}
+ul#travel-modes li label {
+cursor: pointer;
+display: block;
+height: 28px;
+width: 40px;
+background-color: #d0d0d0;
+color: #fff;
+text-indent: -9999px;
+margin-right: 10px;
+}
+
+ul#travel-modes li label, #directionsForm ol.form li.swap-locations-wrapper button#swap-locations {
+background-image: url('../../images/storelocator/sl-directions-form-atlas.png');
+background-repeat: no-repeat;
+background-position: left top;
+}
+
+ul#travel-modes li.transit label {
+background-position: -40px top;
+}
+
+ul#travel-modes li.walking label {
+background-position: -80px top;
+}
+
+ul#travel-modes li.bicycling label {
+background-position: -120px top;
+}
+.directions-type{
+    float:left;
+    margin-bottom:20px;
+}
+.directions-input{
+    margin-bottom:10px;
+}
+.directions-input label{
+    background: black;
+    color: white;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+}
+.directions-input input{
+    height: 21px;
+    width: 80%;
+}
+.error{
+    display:none;
+}
+
+.swap-locations-wrapper {
+height: 0;
+position: absolute;
+top: 125px;
+left: 345px;
+}
+.swap-locations-wrapper button{
+    background-image: url('../../images/storelocator/sl-directions-form-atlas.png');
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+    background-position: -157px top;
+    height: 40px;
+    width: 28px;
+    border: 0;
+}
+#get_direction{
+    background: green;
+    border: 1px green;
+    padding: 5px;
+    color: white;
+}
+.ui-tabs .ui-tabs-nav li{
+    width: 48%;    
+}
+.adp-directions{
+    float:left;
+    width:100%;
+}
+.adp-summary{
+    float:left;
+    width:100%;
+}
+
+.adp-summary span{
+    width: 30%;
+    float:left;
+    text-align: center;
+}
+
+.directions{
+    width:70%;
+}
+
+.adp-legal-hide{
+    background: url(../../images/storelocator/direct-hidden.png) no-repeat;
+    height: 50px !important;
+    width: 229px !important;
+}
+.adp table{
+    clear:both;
+}
+
+#store_search .form-list li .input-text{
+    width:300px;
+	margin-right:10px;
+}
+#store_search .form-list li{
+    clear:both;
+    margin-top:5px;
+	line-height:32px;
+}

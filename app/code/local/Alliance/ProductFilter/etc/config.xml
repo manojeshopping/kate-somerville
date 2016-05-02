@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<Alliance_ProductFilter>
+			<version>1.0.0</version>
+		</Alliance_ProductFilter>
+	</modules>
+	
+	<global>
+		<models>
+			<alliance_productfilter>
+				<class>Alliance_ProductFilter_Model</class>
+			</alliance_productfilter>
+		</models>
+		<helpers>
+			<alliance_productfilter>
+				<class>Alliance_ProductFilter_Helper</class>
+			</alliance_productfilter>
+		</helpers>
+		<blocks>
+			<alliance_productfilter>
+				<class>Alliance_ProductFilter_Block</class>
+			</alliance_productfilter>
+		</blocks>
+	</global>
+	
+	<frontend>
+		<layout>
+			<updates>
+				<alliance_productfilter>
+					<file>alliance/productfilter.xml</file>
+				</alliance_productfilter>
+			</updates>
+		</layout>
+	</frontend>
+</config>

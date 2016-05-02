@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<Alliance_GiftOfChoice>
+			<version>1.0.0</version>
+		</Alliance_GiftOfChoice>
+	</modules>
+	
+	<global>
+		<models>
+			<giftofchoice>
+				<class>Alliance_GiftOfChoice_Model</class>
+			</giftofchoice>
+		</models>
+		<helpers>
+			<giftofchoice>
+				<class>Alliance_GiftOfChoice_Helper</class>
+			</giftofchoice>
+		</helpers>
+		<blocks>
+			<giftofchoice>
+				<class>Alliance_GiftOfChoice_Block</class>
+			</giftofchoice>
+		</blocks>
+	</global>
+</config>

@@ -1,0 +1,4 @@
+<?php
+	 $product = Mage::getModel('catalog/product')->load($this->product_id);
+?>
+<div class="rating-box"><div class="rating" style='<?php echo "width:" .  $this->star_average*20 . "%;"; ?>'></div></div><div style="display:inline;" class="rating-links"><a style="color:#a7a9ac;" href="product-collateral" rel="nofollow" class="ui-link"><?php echo $this->review_count ?> Reviews</a></div>

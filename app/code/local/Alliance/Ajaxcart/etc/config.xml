@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<Alliance_Ajaxcart>
+			<version>1.0.0</version>
+		</Alliance_Ajaxcart>
+	</modules>
+	
+	<global>
+		<models>
+			<ajaxcart>
+				<class>Alliance_Ajaxcart_Model</class>
+			</ajaxcart>
+		</models>
+		<helpers>
+			<ajaxcart>
+				<class>Alliance_Ajaxcart_Helper</class>
+			</ajaxcart>
+		</helpers>
+		<blocks>
+			<ajaxcart>
+				<class>Alliance_Ajaxcart_Block</class>
+			</ajaxcart>
+		</blocks>
+	</global>
+	
+	<frontend>
+		<routers>
+			<ajaxcart>
+				<use>standard</use>
+				<args>
+					<module>Alliance_Ajaxcart</module>
+					<frontName>ajaxcart</frontName>
+				</args>
+			</ajaxcart>
+		</routers>
+		<layout>
+			<updates>
+				<ajaxcart>
+					<file>alliance_ajaxcart.xml</file>
+				</ajaxcart>
+			</updates>
+		</layout>
+		<events>
+			<checkout_cart_save_after>
+				<observers>
+					<check_freesamples>
+						<type>singleton</type>
+						<class>ajaxcart/observer</class>
+						<method>checkFreesamples</method>
+					</check_freesamples>
+				</observers>
+			</checkout_cart_save_after>
+			<controller_action_predispatch_checkout_cart_add>
+				<observers>
+					<check_free_items>
+						<type>singleton</type>
+						<class>ajaxcart/observer</class>
+						<method>checkFreeItems</method>
+					</check_free_items>
+				</observers>
+			</controller_action_predispatch_checkout_cart_add>
+		</events>
+	</frontend>
+</config>

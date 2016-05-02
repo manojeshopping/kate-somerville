@@ -1,0 +1,63 @@
+<?php
+//Popup has been replaced with post purchase widget printed in the success page 
+/*
+if ($this->getOrderId()) {
+    $order         = Mage::getModel('sales/order')->loadByIncrementId($this->getOrderId());
+    $items         = $order->getAllItems();
+    $productNames  = '';
+    $products_json = '';
+    $first         = true;
+    foreach ($items as $i => $item) {
+        $productNames .= $item->getName() . ", ";
+        if ($options = $item->getProductOptions()) {
+            if (isset($options['info_buyRequest'])) {
+                $periodTypeId    = @$options['info_buyRequest']['aw_sarp_subscription_type'];
+                $periodStartDate = @$options['info_buyRequest']['aw_sarp_subscription_start'];
+                if (($periodTypeId > 0) && $periodStartDate && $item->getPrice() > 0) {
+                    $x_500friends_px = '<img src="http://loyalty.500friends.com/api/record.gif?uuid=' . Mage::helper('alliance_fivehundredfriends')->getUserId() . '&email=' . $order->getCustomerEmail() . '&type=auto-replenish&detail=Purchased Auto Replenish (' . $item->getName() . ') Product" style="position: absolute; left: -10px; visibility: hidden;" />';
+                    echo $x_500friends_px;
+                }
+            }
+        }
+
+        if (!$first) $products_json .= ', ';
+
+        $product = Mage::getModel('catalog/product')->load($item->getProductId());
+
+        $pre_json_array               = array();
+        $pre_json_array['name']       = $product->getName();
+        $pre_json_array['url']        = $product->getProductUrl();
+        $pre_json_array['product_id'] = $product->getId();
+        $pre_json_array['price']      = $product->getPrice();
+
+        $categories_string = '';
+        $first_category    = true;
+        foreach ($product->getCategoryIds() as $category_id) {
+            if (!$first_category) $categories_string .= ',';
+            $categories_string .= $category_id;
+            $first_category = false;
+        }
+
+        $pre_json_array['categories'] = $categories_string;
+        $pre_json_array['quantity']   = floatval($item['qty_ordered']);
+        $products_json .= json_encode($pre_json_array);
+        $first = false;
+    }
+
+    $productNames = rtrim($productNames, ', '); ?>
+    <script type='text/javascript' test="orange">
+        document.write(unescape("%3Cscript%20src='" + (('https:' == document.location.protocol ? 'https://' : 'http://') + 'd3aa0ztdn3oibi.cloudfront.net/javascripts/ff.loyalty.widget.js') + "'%20type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <?php
+    $groupId = Mage::getSingleton('customer/session')->getCustomerGroupId();
+    if (($groupId <> 10) and ($groupId <> 9)) {
+        ?>
+        <script type="text/javascript">
+            _ffLoyalty.displayPostPurchaseWidget("<?php echo Mage::helper('alliance_fivehundredfriends')->getWidgetId();?>",
+                {"email": "<?php echo $order->getCustomerEmail(); ?>", "event_id": "<?php echo $this->escapeHtml($this->getOrderId()); ?>",
+                    "value": "<?php echo number_format($order->getGrandTotal() - $order->getTaxAmount(), 2); ?>", "detail": "<?php echo $productNames; ?>", "referral_tracking": true,
+                    "products": [<?php echo $products_json; ?>]});
+        </script>
+    <?php } ?>
+<?php } */
+?>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<Alliance_FreeCleanser>
+			<version>1.0.0</version>
+		</Alliance_FreeCleanser>
+	</modules>
+	
+	<global>
+		<models>
+			<freecleanser>
+				<class>Alliance_FreeCleanser_Model</class>
+			</freecleanser>
+		</models>
+		<helpers>
+			<freecleanser>
+				<class>Alliance_FreeCleanser_Helper</class>
+			</freecleanser>
+		</helpers>
+		<blocks>
+			<freecleanser>
+				<class>Alliance_FreeCleanser_Block</class>
+			</freecleanser>
+		</blocks>
+	</global>
+</config>

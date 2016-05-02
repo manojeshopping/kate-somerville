@@ -1,0 +1,16 @@
+<?php
+/**
+ * @see block Pixafy_Ordergroove_Block_Pagetag_Checkout_Success
+ */
+	if($this->isValidOrder() && $this->_canShow()){
+		?>
+		<script type="text/javascript">
+			//<![CDATA[
+				var og_settings = {};
+			//]]>
+		</script>
+		<script type="text/javascript" src="<?php echo $this->getPageTaggingUrl().$this->getMerchantId() ?>/core-model.js"></script>
+		<script type="text/javascript" src="<?php echo $this->getPageTaggingUrl().$this->getMerchantId() ?>/4/controller.js"></script>
+		<?php
+	}
+?>

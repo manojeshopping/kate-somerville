@@ -1,0 +1,86 @@
+<?php
+if($this->helper('customer')->isLoggedIn()) {
+	$productLimit = 5;
+	
+	if($this->getSummaryCount() > 0 && $this->wishlistEnabled()) {
+		$productCollection = $this->getProductCollection();
+		$productCount = $productCollection->count();
+	?>
+	<div class="wishlist">
+		<?php
+		if($productCount > 0) { ?>
+			<div class="wishlist-title"><a href="<?php echo $this->getWishlistUrl();?>"><?php echo $this->__('View All Wishlist');?></a></div>
+			<div class="wishlist-count"><?php echo $productCount?></div>
+			<div id="wishlist-products">
+		
+			<?php
+				$count = 0;
+				foreach($productCollection as $_product) {
+					$count++;
+					if($count == $productLimit) break;
+					$product = $_product->getProduct();
+					$options = $this->getOptions($_product);
+					
+					// $productTitle = $this->htmlEscape($product->getC2cTitle());
+					$productTitle = $this->htmlEscape($product->getName());
+					$productSubTitle = $this->htmlEscape($product->getC2cSubTitle());
+					$productSize = $this->getProductSize($_product);
+					$price = $this->getProductPrice($product);
+					$img = $this->getProductImage($_product, 110, 110);
+					$productInCart = $this->checkProductInCart($_product->getId());
+				?>
+				<div class="wishlist-product" data-id="<?php echo $_product->getId();?>" data-productid="<?php echo $_product->getProductId();?>" data-price="<?php echo $price;?>" data-qty="<?php echo (int)$_product->getQty();?>">
+					<?php if(! empty($img)) {?><div class="wishlist-product-image center"><img src="<?php echo $img;?>" alt="<?php echo $productTitle;?>" width="110" /></div><?php }?>
+					<div class="wishlist-product-info center">
+						<div class="wishlist-product-title clearfix">
+							<a href="<?php echo $_product->getProductUrl();?>">
+								<div class="wishlist-product-title-hdr"><?php echo $productTitle;?></div>
+								<?php echo $productSubTitle;?>
+							</a>
+						</div>
+						<div class="wishlist-product-size">
+							<?php
+							echo $productSize;
+							
+							// Print options.
+							if(! empty($options)) {
+							?>
+							<dl class="wishlist-product-options item-options">
+								<?php foreach ($options as $attributeId => $_option) : ?>
+									<dt class="wishlist-options-data" data-id="<?php echo $attributeId?>" data-label="<?php echo $_option['label'];?>" data-value="<?php echo $_option['value'];?>" data-text="<?php echo $_option['text'];?>"><?php echo $_option['label']?></dt>
+									<dd><?php echo $_option['text'];?></dd>
+								<?php endforeach; ?>
+							</dl>
+							<?php
+							}
+							?>
+						</div>
+						<div class="wishlist-product-price"><?php echo $this->getPriceFormated($price);?></div>
+					</div>
+					<div class="wishlist-product-button center">
+						<?php
+						/* XXXXXXXXXX - THIS ACTION WAS REMOVED BECAUSE HAD CONFLICTS WITH ORDERGROOVE MODULE.
+						<button type="button" title="Add To Cart" class="button btn-wishlist-cart"<?php if($productInCart) echo ' style="display: none;"';?>><span><span>Add To Cart</span></span></button>
+						*/
+						?>
+						<button type="button" title="Add To Cart" class="button btn-wishlist-cart" onclick="location.href='<?php echo $this->helper('wishlist')->getAddToCartUrl($_product) ?>';"<?php if($productInCart) echo ' style="display: none;"';?>><span><span>Add To Cart</span></span></button>
+						<button type="button" title="Remove From Cart" class="button btn-wishlist-remove"<?php if(! $productInCart) echo ' style="display: none;"';?>><span><span>Remove From Cart</span></span></button>
+					</div>
+				</div>
+		<?php } ?>
+			</div>	
+	<?php } else {
+			?>
+		<div id="wishlist-products-none">No items in wishlist.</div>
+	<?php   } ?>
+	</div>
+<?php
+	}
+} else {
+?>
+
+	<div class="wishlist-login"><a id="onestepcheckout-login-link" href="javascript:void(0); return: false;"><?php echo $this->__('Log in to view your wishlist.'); ?></a></div>
+	
+<?php
+}
+?>

@@ -1,0 +1,6 @@
+############################################
+## default index file
+
+    DirectoryIndex index.html
+
+<IfModule mod_php5.c>

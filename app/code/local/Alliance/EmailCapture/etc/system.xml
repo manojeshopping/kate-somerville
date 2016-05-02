@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <tabs>
+        <katesomerville translate="label">
+            <label>Kate Somerville</label>
+            <sort_order>0</sort_order>
+        </katesomerville>
+    </tabs>
+    <sections>
+        <emailcapture translate="label" module="alliance_emailcapture">
+            <label>Email Capture Configuration</label>
+            <tab>katesomerville</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>0</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label">
+                    <label>General Configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <signup_image translate="label comment">
+                            <label>Signup Image</label>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">alliance/emailcapture/signup</upload_dir>
+                            <base_url type="media" scope_info="1">alliance/emailcapture/signup</base_url>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Allowed file types: jpeg, gif, png.</comment>
+                        </signup_image>
+                        <signup_size translate="label comment">
+                            <label>Signup Box Size</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Example format: 1024x768.</comment>
+                        </signup_size>
+                        <thankyou_image translate="label comment">
+                            <label>Thankyou Image</label>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">alliance/emailcapture/thankyou</upload_dir>
+                            <base_url type="media" scope_info="1">alliance/emailcapture/thankyou</base_url>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Allowed file types: jpeg, gif, png.</comment>
+                        </thankyou_image>
+                        <thankyou_size translate="label comment">
+                            <label>Thankyou Box Size</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Example format: 1024x768.</comment>
+                        </thankyou_size>
+                        <thankyou_link_text translate="label">
+                            <label>Thankyou Link Text</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </thankyou_link_text>
+                        <thankyou_link_url translate="label comment">
+                            <label>Thankyou Link URL</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Example format for internal URLs: /blog/press</comment>
+                        </thankyou_link_url>
+                        <thankyou_disclaimer_text translate="label">
+                            <label>Thankyou Disclaimer Text</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </thankyou_disclaimer_text>
+                        <thankyou_coupon_code translate="label">
+                            <label>Thankyou Coupon Code Display</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </thankyou_coupon_code>
+                    </fields>
+                </general>
+                <mailchimp translate="label">
+                    <label>Mailchimp Configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <api_key translate="label">
+                            <label>MailChimp API Key</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </api_key>
+                        <list_id translate="label comment">
+                            <label>MailChimp List ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Note: The target list must be willing to accept subscriptions with only the email address supplied,
+                                as Email Capture only requires the customer's email address as input. If the list has additional
+                                requirements (such as name), Email Capture will return an error message in all cases.</comment>
+                        </list_id>
+                    </fields>
+                </mailchimp>
+            </groups>
+        </emailcapture>
+    </sections>
+</config>

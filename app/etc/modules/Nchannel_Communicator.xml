@@ -1,0 +1,8 @@
+<config>
+  <modules>
+    <Nchannel_Communicator>
+      <active>true</active>
+      <codePool>community</codePool>
+    </Nchannel_Communicator>
+  </modules>
+</config>

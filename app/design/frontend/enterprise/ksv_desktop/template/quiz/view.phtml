@@ -1,0 +1,725 @@
+<?php if($this->getRequest()->getParam('flag')){ ?>
+<ul class="messages"><li class="success-msg"><ul><li>Hey, I just got my skin evaluation at Kate Somerville.</li></ul></li></ul>
+<?php } ?>
+<div class="skin-quiz-main">
+	<div class="skin-quiz-container">
+		<div class="skin-quiz">
+			<div class="page-title" id="welcome-message"><h2>Welcome to Kate's Online Clinic!</h2></div>
+			<form action="<?php echo $this->getFormAction(); ?>" id="quizForm" name="quizForm" method="post" >
+				<?php /*?><input type="hidden" name="quiz_previous" id="quiz_previous" value="-1" />
+				<input type="hidden" name="quiz_current" id="quiz_current" value="0" />
+				<input type="hidden" name="quiz_next" id="quiz_next" value="1" />
+				<input type="hidden" name="quiz_url" id="quiz_url" value="<?php echo $this->getUrl('') ?>" /><?php */?>
+				<div class="quiz">
+					<div id="message"></div>
+					<div id="q0">
+						<div class="content">
+							<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('skin-quiz-0-welcome')->toHtml() ?>
+							<ul class="form-list">
+								<li class="fields">
+									<div class="field">
+										<label class="required" for="name">What is your first name?</label>
+										<div class="input-box"><input type="textbox" name="qname" id="qname" value="" /></div>
+									</div>
+								</li>
+								<li class="fields">
+									<div class="field">
+										<label class="required" for="name">How old are you?</label>
+										<div class="select-box">
+											<select name="qage" id="qage">
+												<option value="Under 20">Under 20</option>
+												<option value="20 - 29">20 - 29</option>
+												<option value="30 - 39">30 - 39</option>
+												<option value="40 - 49">40 - 49</option>
+												<option value="50 - 59">50 - 59</option>
+												<option value="Over 60">Over 60</option>
+											</select>
+										</div>
+									</div>
+								</li>
+								<li class="fields">
+									<div class="field">
+										<label class="required" for="name">Select your gender:</label>
+										<div class="select-box">
+											<select name="qgender" id="qgender">
+												<option value="Male">Male</option>
+												<option value="Female" selected="selected">Female</option>
+											</select>
+										</div>
+									</div>
+								</li>
+								<li class="fields">
+									<div class="buttons-set">
+									<button type="button" class="button button2 start" onclick="javascript: move_question(0,'next',1);"><span><span>
+									start evaluation</span></span></button>
+									</div>
+								</li>	
+							</ul>
+						</div>	
+					</div>
+					
+					<div id="questions_header" style="display:none">
+						<div class="page-title"><h1 id="questions_heading_name" class="quiz_result_heading">Welcome!</h1></div>
+					</div>
+
+										
+					<div id="q1" style="display:none">
+						<div class="content">
+                        	<div class="Quiz-col">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                  	<td>
+                                     <table width="390" border="0" cellspacing="0" cellpadding="0" class="question-table">
+                                      <tr>
+                                        <td class="quiz-question"><h4>What are your top two skin concerns? </h4></td>
+                                      </tr>
+                                      <tr>
+                                        <td><input type="checkbox" name="q1option[]" value="Fine Lines and Wrinkles" /><label>Fine Lines and Wrinkles</label></td>
+                                      </tr>
+                                      <tr>
+                                        <td><input type="checkbox" name="q1option[]" value="Acne and Blemishes" /><label>Acne and Blemishes</label></td>
+                                      </tr>
+                                      <tr>
+                                        <td><input type="checkbox" name="q1option[]" value="Dark Spots and Discoloration" /><label>Dark Spots and Discoloration</label></td>
+                                      </tr>
+                                      <tr>
+                                        <td><input type="checkbox" name="q1option[]" value="Sensitivity" /><label>Sensitivity</label></td>
+                                      </tr>
+                                      <tr>
+                                        <td><input type="checkbox" name="q1option[]" value="Enlarged Pores" /><label>Enlarged Pores</label></td>
+                                      </tr>
+                                    </table>
+                                    <div class="buttons-set">
+                                        <button type="button" class="button back" onclick="javascript: move_question(1,'previous',0);"><span><span>Back</span></span></button>
+                                        <button type="button" class="button next" onclick="javascript: move_question(1,'next',2);"><span><span>Next</span></span></button>
+                                    </div></td>
+                                    <td><div class="image"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('skin-quiz-1-image')->toHtml() ?></div></td>
+                                </tr></table>
+                            </div>
+							<div class="progress-bar-container">
+								<h4>Progress</h4>
+								<div class="progress-bar"><div class="continue" id="progress-bar-1"><&nbsp;</div></div>
+							</div>
+						</div>
+					</div>
+			
+					<div id="q2" style="display:none">
+						<div class="content">
+                        	<div class="Quiz-col">
+                                
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                  	<td>
+                                     <table width="390" border="0" cellspacing="0" cellpadding="0" class="question-table">
+                                  <tr>
+                                    <td class="quiz-question"><h4>How would you characterize your skin? </h4></td>
+                                  </tr>
+                                  <tr>
+                                    <td><input type="radio" name="q2option[]" value="Normal" /><label>Normal</label></td>
+                                  </tr>
+                                  <tr>
+                                    <td><input type="radio" name="q2option[]" value="Dry or Very Dry" /><label>Dry or Very Dry</label></td>
+                                  </tr>
+                                  <tr>
+                                    <td><input type="radio" name="q2option[]" value="Oily or Very Oily" /><label>Oily or Very Oily</label></td>
+                                  </tr>
+                                  <tr>
+                                    <td><input type="radio" name="q2option[]" value="Oily in Certain Areas" /><label>Oily in Certain Areas</label></td>
+                                  </tr>
+                                </table>
+                                <div class="buttons-set">
+                                    <button type="button" class="button back" onclick="javascript: move_question(2,'previous',1);"><span><span>Back</span></span></button>
+                                    <button type="button" class="button next" onclick="javascript: move_question(2,'next',3);"><span><span>Next</span></span></button>
+                                </div></td>
+<td><div class="image"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('skin-quiz-2-image')->toHtml() ?></div></td>
+</tr></table>
+                            </div>
+							<div class="progress-bar-container">
+								<h4>Progress</h4>
+								<div class="progress-bar"><div class="continue" id="progress-bar-2"><&nbsp;</div></div>
+							</div>
+						</div>
+					</div>
+					<div id="q3" style="display:none">
+						<div class="content">
+                        	<div class="Quiz-col">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                  	<td>
+                                     <table width="390" border="0" cellspacing="0" cellpadding="0" class="question-table">
+                                      <tr>
+                                        <td class="quiz-question"><h4>What is your skin color, without a suntan? </h4></td>
+                                      </tr>
+                                      <tr>
+                                        <td><input type="radio" name="q3option[]" value="Very Fair" /><label>Very Fair</label></td>
+                                      </tr>
+                                      <tr>
+                                        <td><input type="radio" name="q3option[]" value="Moderately Fair" /><label>Moderately Fair</label></td>
+                                      </tr>
+                                      <tr>
+                                        <td><input type="radio" name="q3option[]" value="Medium" /><label>Medium</label></td>
+                                      </tr>
+                                      <tr>
+                                        <td><input type="radio" name="q3option[]" value="Olive or Dark" /><label>Olive or Dark</label></td>
+                                      </tr>
+                                    </table>
+                                    <div class="buttons-set">
+                                        <button type="button" class="button back" onclick="javascript: move_question(3,'previous',2);"><span><span>Back</span></span></button>
+                                        <button type="button" class="button next" onclick="javascript: move_question(3,'next',4);"><span><span>Next</span></span></button>
+                                    </div>
+                                    </td>
+                                    <td><div class="image"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('skin-quiz-3-image')->toHtml() ?></div></td>
+                            	</tr>
+                            </table>
+                            </div>
+							<div class="progress-bar-container">
+								<h4>Progress</h4>
+								<div class="progress-bar"><div class="continue" id="progress-bar-3"><&nbsp;</div></div>
+							</div>
+						</div>
+					</div>
+			
+			
+					<div id="q4" style="display:none">
+						<div class="content">
+                        	<div class="Quiz-col">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                  	<td>
+                                     <table width="390" border="0" cellspacing="0" cellpadding="0" class="question-table">
+                                      <tr>
+                                        <td class="quiz-question"><h4>How sensitive is your skin? </h4></td>
+                                      </tr>
+                                      <tr>
+                                        <td><input type="radio" name="q4option[]" value="Never Sensitive" /><label>Never Sensitive</label></td>
+                                      </tr>
+                                      <tr>
+                                        <td><input type="radio" name="q4option[]" value="Rarely Sensitive" /><label>Rarely Sensitive</label></td>
+                                      </tr>
+                                      <tr>
+                                        <td><input type="radio" name="q4option[]" value="Sensitive Sometimes" /><label>Sensitive Sometimes</label></td>
+                                      </tr>
+                                      <tr>
+                                        <td><input type="radio" name="q4option[]" value="Sensitive Most of the Time" /><label>Sensitive Most of the Time</label></td>
+                                      </tr>
+                                      <tr>
+                                        <td><input type="radio" name="q4option[]" value="Sensitive All of the Time" /><label>Sensitive All of the Time</label></td>
+                                      </tr>
+                                    </table>
+                                    <div class="buttons-set">
+                                        <button type="button" class="button back" onclick="javascript: move_question(4,'previous',3);"><span><span>Back</span></span></button>
+                                        <button type="button" class="button next" onclick="javascript: move_question(4,'next',5);"><span><span>Next</span></span></button>
+                                    </div>
+                                  </td>
+                                  <td><div class="image"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('skin-quiz-4-image')->toHtml() ?></div></td>
+                            	</tr>
+                            </table>
+                            </div>
+							<div class="progress-bar-container">
+								<h4>Progress</h4>
+								<div class="progress-bar"><div class="continue" id="progress-bar-4"><&nbsp;</div></div>
+							</div>
+						</div>
+					</div>
+					
+					<div id="q5" style="display:none">
+						<div class="content">
+                        	<div class="Quiz-col">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                  	<td>
+                                     <table width="390" border="0" cellspacing="0" cellpadding="0" class="question-table">
+                                      <tr>
+                                        <td class="quiz-question"><h4>What is your main concern around the eye area? </h4></td>
+                                      </tr>
+                                      <tr>
+                                        <td><input type="radio" name="q5option[]" value="Wrinkles and/or Dryness" /><label>Wrinkles and/or Dryness</label></td>
+                                      </tr>
+                                      <tr>
+                                        <td><input type="radio" name="q5option[]" value="Dark Circles and/or Puffiness" /><label>Dark Circles and/or Puffiness</label></td>
+                                      </tr>
+                                    </table>
+                                    <div class="buttons-set">
+                                        <button type="button" class="button back" onclick="javascript: move_question(5,'previous',4);"><span><span>Back</span></span></button>
+                                        <button id="button_next_q5" type="button" class="button next"><span><span>Next</span></span></button>
+                                    </div>
+                                    </td>
+                                  <td><div class="image"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('skin-quiz-5-image')->toHtml() ?></div></td>
+                                </tr>
+                            	</table>
+                            </div>
+							<div class="progress-bar-container">
+								<h4>Progress</h4>
+								<div class="progress-bar"><div class="continue" id="progress-bar-5"><&nbsp;</div></div>
+							</div>
+						</div>
+					</div>
+					
+					<div id="q6" style="display:none">
+						<div class="content">
+                        	<div class="Quiz-col">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                  	<td>
+                                     <table width="390" border="0" cellspacing="0" cellpadding="0" class="question-table">
+                                      <tr>
+                                        <td class="quiz-question"><h4>Where do you experience breakouts? </h4></td>
+                                      </tr>
+                                      <tr>
+                                        <td><input type="checkbox" name="q6option[]" value="Forehead" /><label>Forehead</label></td>
+                                      </tr>
+                                      <tr>
+                                        <td><input type="checkbox" name="q6option[]" value="Cheeks" /><label>Cheeks</label></td>
+                                      </tr>
+                                      <tr>
+                                        <td><input type="checkbox" name="q6option[]" value="Chin" /><label>Chin</label></td>
+                                      </tr>
+                                      <tr>
+                                        <td><input type="checkbox" name="q6option[]" value="Nose" /><label>Nose</label></td>
+                                      </tr>
+                                    </table>
+                                    <div class="buttons-set">
+                                        <button id="button_previous_q6" type="button" class="button back" onclick="javascript: move_question(6,'previous',5);"><span><span>Back</span></span></button>
+                                        <button id="button_next_q6" type="button" class="button next" onclick="javascript: move_question(6,'next',7);"><span><span>Next</span></span></button>
+                                    </div>
+                                   </td>
+                                   <td><div class="image"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('skin-quiz-6-image')->toHtml() ?></div></td>
+                                </tr>
+                             </table>
+                            </div>
+							<div class="progress-bar-container">
+								<h4>Progress</h4>
+								<div class="progress-bar"><div class="continue" id="progress-bar-6"><&nbsp;</div></div>
+							</div>
+						</div>
+					</div>
+					
+					<div id="q7" style="display:none">
+						<div class="content">
+                        	<div class="Quiz-col">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                  	<td>
+                                     <table width="390" border="0" cellspacing="0" cellpadding="0" class="question-table">
+                                      <tr>
+                                        <td class="quiz-question"><h4>How often do you experience breakouts? </h4></td>
+                                      </tr>
+                                      <tr>
+                                        <td><input type="radio" name="q7option[]" value="Daily" /><label>Daily</label></td>
+                                      </tr>
+                                      <tr>
+                                        <td><input type="radio" name="q7option[]" value="Weekly" /><label>Weekly</label></td>
+                                      </tr>
+                                      <tr>
+                                        <td><input type="radio" name="q7option[]" value="At Least Once a Month" /><label>At Least Once a Month</label></td>
+                                      </tr>
+                                    </table>
+                                    <div class="buttons-set">
+                                        <button id="button_previous_q7" type="button" class="button back" onclick="javascript: move_question(7,'previous',6);"><span><span>Back</span></span></button>
+                                        <button id="button_next_q7" type="button" class="button next" onclick="javascript: move_question(7,'next',8);"><span><span>Next</span></span></button>
+                                    </div>
+                                  </td>
+                                  <td><div class="image"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('skin-quiz-7-image')->toHtml() ?></div></td>
+                            </tr></table>
+                            </div>
+							<div class="progress-bar-container">
+								<h4>Progress</h4>
+								<div class="progress-bar"><div class="continue" id="progress-bar-7"><&nbsp;</div></div>
+							</div>
+						</div>
+					</div>
+					
+					<div id="q8" style="display:none">
+						<div class="content">
+                        	<div class="Quiz-col">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                  	<td>
+                                     <table width="390" border="0" cellspacing="0" cellpadding="0" class="question-table">
+                                      <tr>
+                                        <td class="quiz-question"><h4>What kind of breakouts do you experience?</h4></td>
+                                      </tr>
+                                      <tr>
+                                        <td><input type="checkbox" name="q8option[]" value="Blackheads" /><label>Blackheads</label></td>
+                                      </tr>
+                                      <tr>
+                                        <td><input type="checkbox" name="q8option[]" value="Whiteheads" /><label>Whiteheads</label></td>
+                                      </tr>
+                                      <tr>
+                                        <td><input type="checkbox" name="q8option[]" value="Small Bumps" /><label>Small Bumps</label></td>
+                                      </tr>
+                                      <tr>
+                                        <td><input type="checkbox" name="q8option[]" value="Large, Deep Bumps (Cystic)" /><label>Large, Deep Bumps (Cystic)</label></td>
+                                      </tr>
+                                    </table>
+                                    <div class="buttons-set">
+                                        <button id="button_previous_q8" type="button" class="button back" onclick="javascript: move_question(8,'previous',7);"><span><span>Back</span></span></button>
+                                        <button id="button_next_q8" type="button" class="button next"><span><span>Next</span></span></button>
+                                    </div>
+                                    </td>
+                                    <td><div class="image"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('skin-quiz-8-image')->toHtml() ?></div></td>
+                                  </tr>
+                               </table>
+                            </div>
+							<div class="progress-bar-container">
+								<h4>Progress</h4>
+								<div class="progress-bar"><div class="continue" id="progress-bar-8"><&nbsp;</div></div>
+							</div>
+						</div>
+
+					</div>
+					
+					<div id="q9" style="display:none">
+						<div class="content">
+                        	<div class="Quiz-col">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                  	<td>
+                                     <table width="390" border="0" cellspacing="0" cellpadding="0" class="question-table">
+                                      <tr>
+                                        <td class="quiz-question"><h4>Describe your issue(s) with discoloration? </h4></td>
+                                      </tr>
+                                      <tr>
+                                        <td><input type="checkbox" name="q9option[]" value="Sun Spots (or "Liver Spots")" /><label>Sun Spots (or "Liver Spots")</label></td>
+                                      </tr>
+                                      <tr>
+                                        <td><input type="checkbox" name="q9option[]" value="Freckles" /><label>Freckles</label></td>
+                                      </tr>
+                                      <tr>
+                                        <td><input type="checkbox" name="q9option[]" value="Melasma (or "Pregnancy Mask")" /><label>Melasma (or "Pregnancy Mask")</label></td>
+                                      </tr>
+                                    </table>
+                                    <div class="buttons-set">
+                                        <button id="button_previous_q9" type="button" class="button back"><span><span>Back</span></span></button>
+                                        <button id="button_next_q9" type="button" class="button next"><span><span>Next</span></span></button>
+                                    </div>
+                                    </td>
+                                    <td><div class="image"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('skin-quiz-9-image')->toHtml() ?></div></td>
+                              </tr></table>  
+                            </div>
+							<div class="progress-bar-container">
+								<h4>Progress</h4>
+								<div class="progress-bar"><div class="continue" id="progress-bar-9"><&nbsp;</div></div>
+							</div>
+						</div>
+					</div>
+
+					<div id="q10" style="display:none">
+						<div class="content">
+                        	<div class="Quiz-col">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                  	<td>
+                                     <table width="390" border="0" cellspacing="0" cellpadding="0" class="question-table">
+                                  <tr>
+                                    <td class="quiz-question"><h4>Where are you experiencing fine lines and wrinkles? </h4></td>
+                                  </tr>
+                                  <tr>
+                                    <td><input type="checkbox" name="q10option[]" value="Expression Lines" /><label>Expression Lines</label></td>
+                                  </tr>
+                                  <tr>
+                                    <td><input type="checkbox" name="q10option[]" value="Crow's Feet" /><label>Crow's Feet</label></td>
+                                  </tr>
+                                  <tr>
+                                    <td><input type="checkbox" name="q10option[]" value="Laugh Lines" /><label>Laugh Lines</label></td>
+                                  </tr>
+                                  <tr>
+                                    <td><input type="checkbox" name="q10option[]" value="Lip Lines" /><label>Lip Lines</label></td>
+                                  </tr>
+                                </table>
+                                <div class="buttons-set">
+                                    <button id="button_previous_q10" type="button" class="button back"><span><span>Back</span></span></button>
+                                    <button id="button_next_q10" type="button" class="button next"><span><span>Next</span></span></button>
+                                </div>
+                                </td>
+                                <td><div class="image"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('skin-quiz-10-image')->toHtml() ?></div></td>
+                            </tr></table>
+                            </div>
+							<div class="progress-bar-container">
+								<h4>Progress</h4>
+								<div class="progress-bar"><div class="continue" id="progress-bar-10"><&nbsp;</div></div>
+							</div>
+						</div>
+					</div>
+					
+					<div id="q11" style="display:none">
+						<div class="content">
+                        	<div class="Quiz-col">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                  	<td>
+                                     <table width="390" border="0" cellspacing="0" cellpadding="0" class="question-table">
+                                      <tr>
+                                        <td class="quiz-question"><h4>Where are you experiencing enlarged pores? </h4></td>
+                                      </tr>
+                                      <tr>
+                                        <td><input type="checkbox" name="q11option[]" value="Forehead" /><label>Forehead</label></td>
+                                      </tr>
+                                      <tr>
+                                        <td><input type="checkbox" name="q11option[]" value="Cheeks" /><label>Cheeks</label></td>
+                                      </tr>
+                                      <tr>
+                                        <td><input type="checkbox" name="q11option[]" value="Nose" /><label>Nose</label></td>
+                                      </tr>
+                                      <tr>
+                                        <td><input type="checkbox" name="q11option[]" value="Chin" /><label>Chin</label></td>
+                                      </tr>
+                                    </table>
+                                    <div class="buttons-set">
+                                        <button id="button_previous_q11" type="button" class="button back"><span><span>Back</span></span></button>
+                                        <button id="button_next_q11" type="button" class="button next" onclick="javascript:MakeAjaxCall('11');"><span><span>Finish</span></span></button>
+                                    </div></td>
+                                    <td><div class="image"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('skin-quiz-11-image')->toHtml() ?></div></td>
+                                </tr></table>
+								<div class="progress-bar-container">
+									<h4>Progress</h4>
+									<div class="progress-bar"><div class="continue" id="progress-bar-11"><&nbsp;</div></div>
+								</div>
+                            </div>
+						</div>
+					</div>
+			
+
+					<div id="qfinish" style="display:none">	
+						<div class="content">
+							<h1 id="result_page_heading">Here are your results Kelly:</h1>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div id="500"></div>
+<script language="javascript" type="text/javascript">  
+function checkCheckbox (frmName, rbGroupName) {
+ var radios =	document.quizForm[rbGroupName];
+ for (var i=0; i <radios.length; i++) {
+  if (radios[i].checked) {
+   return true;
+  }
+ }
+ return false;
+}
+function countcheckCheckbox(frmName, rbGroupName) {
+ var count_options	=	0;
+ var radios =	document.quizForm[rbGroupName];
+ for (var i=0; i <radios.length; i++) {
+  if (radios[i].checked) {
+   count_options++;
+  }
+ }
+ return count_options;
+}
+
+var question_option=new Array(); 
+
+question_option[0] = "Enlarged Pores|11";
+question_option[1] = "Sensitivity|5";
+question_option[2] = "Sensitivity:Enlarged Pores|11";
+question_option[3] = "Dark Spots and Discoloration|9";
+question_option[4] = "Dark Spots and Discoloration:Enlarged Pores|9,11";
+question_option[5] = "Dark Spots and Discoloration:Sensitivity|9";
+question_option[6] = "Dark Spots and Discoloration:Sensitivity:Enlarged Pores|9,11";
+question_option[7] = "Acne and Blemishes|6,7,8";
+question_option[8] = "Acne and Blemishes:Enlarged Pores|6,7,8,11";
+question_option[9] = "Acne and Blemishes:Sensitivity|6,7,8";
+question_option[10] = "Acne and Blemishes:Sensitivity:Enlarged Pores|6,7,8,11";
+question_option[11] = "Acne and Blemishes:Dark Spots and Discoloration|6,7,8,9";
+question_option[12] = "Acne and Blemishes:Dark Spots and Discoloration:Enlarged Pores|6,7,8,9,11";
+question_option[13] = "Acne and Blemishes:Dark Spots and Discoloration:Sensitivity|6,7,8,9";
+question_option[14] = "Acne and Blemishes:Dark Spots and Discoloration:Sensitivity:Enlarged Pores|6,7,8,9,11";
+question_option[15] = "Fine Lines and Wrinkles|10";
+question_option[16] = "Fine Lines and Wrinkles:Enlarged Pores|10,11";
+question_option[17] = "Fine Lines and Wrinkles:Sensitivity|10";
+question_option[18] = "Fine Lines and Wrinkles:Sensitivity:Enlarged Pores|10,11";
+question_option[19] = "Fine Lines and Wrinkles:Dark Spots and Discoloration|9,10";
+question_option[20] = "Fine Lines and Wrinkles:Dark Spots and Discoloration:Enlarged Pores|9,10,11";
+question_option[21] = "Fine Lines and Wrinkles:Dark Spots and Discoloration:Sensitivity|9,10";
+question_option[22] = "Fine Lines and Wrinkles:Dark Spots and Discoloration:Sensitivity:Enlarged Pores|9,10,11";
+question_option[23] = "Fine Lines and Wrinkles:Acne and Blemishes|6,7,8,10";
+question_option[24] = "Fine Lines and Wrinkles:Acne and Blemishes:Enlarged Pores|6,7,8,10,11";
+question_option[25] = "Fine Lines and Wrinkles:Acne and Blemishes:Sensitivity|6,7,8,10";
+question_option[26] = "Fine Lines and Wrinkles:Acne and Blemishes:Sensitivity:Enlarged Pores|6,7,8,10,11";
+question_option[27] = "Fine Lines and Wrinkles:Acne and Blemishes:Dark Spots and Discoloration|6,7,8,9,10";
+question_option[28] = "Fine Lines and Wrinkles:Acne and Blemishes:Dark Spots and Discoloration:Enlarged Pores|6,7,8,9,10,11";
+question_option[29] = "Fine Lines and Wrinkles:Acne and Blemishes:Dark Spots and Discoloration:Sensitivity|6,7,8,9,10";
+question_option[30] = "Fine Lines and Wrinkles:Acne and Blemishes:Dark Spots and Discoloration:Sensitivity:Enlarged Pores|6,7,8,9,10,11";
+
+
+
+
+
+	function setQuestion_Movements()
+	{
+		var question1 =	document.quizForm['q1option[]'];
+		var question1_option_selected	=	"";
+		for (var i=0; i <question1.length; i++) {
+			if (question1[i].checked) {
+				if(question1_option_selected	==	"")
+					question1_option_selected	=	question1[i].value;
+				else	
+					question1_option_selected	+=	":"+question1[i].value;
+			}
+		}
+
+
+		for (var j=0; j <question_option.length; j++) {
+			var question_option_variation	=	question_option[j].split("|");
+			if(question_option_variation[0]==question1_option_selected)
+			{
+				/* Progress Bar */
+				//alert(question_option_variation[1]);
+				var posible_questions	=	question_option_variation[1].split(",");
+				var progress	=	Math.round(100/(posible_questions.length+5));
+				//$('progress-bar-status').style.width	=	progress+"%";
+				var poss	=	0;
+				for (var p=1;p<=(posible_questions.length+5);p++)
+				{
+					//echo p;
+					if(p<=5)
+					{
+						$('progress-bar-'+p).style.width	=	(progress*p)+"%";
+					}else{
+						if((progress*p)>95)
+							$('progress-bar-'+posible_questions[poss]).style.width	=	"100%";
+						else	
+							$('progress-bar-'+posible_questions[poss]).style.width	=	(progress*p)+"%";
+						poss++;
+					}	
+				}
+				/* End Progress Bar */
+
+				for (var k=0; k <posible_questions.length; k++) {
+					if(k==0)
+					{
+						$('button_next_q5').onclick=Function("move_question(5,'next',"+posible_questions[k]+")");
+						$('button_next_q5').innerHTML	=	"<span><span>Next</span></span>";
+						if(posible_questions[k]!=5)
+							$('button_previous_q'+(posible_questions[k])).onclick=Function("move_question("+(posible_questions[k])+",'previous',5)");
+					}else{
+						$('button_next_q'+(posible_questions[k-1])).onclick=Function("move_question("+(posible_questions[k-1])+",'next',"+posible_questions[k]+")");
+						$('button_previous_q'+(posible_questions[k])).onclick=Function("move_question("+(posible_questions[k])+",'previous',"+posible_questions[k-1]+")");
+						$('button_next_q'+(posible_questions[k-1])).innerHTML	=	"<span><span>Next</span></span>"
+					}	
+				}
+				//alert(posible_questions[k-1]);
+				$('button_next_q'+(posible_questions[k-1])).onclick=Function("MakeAjaxCall("+(posible_questions[k-1])+")");
+				$('button_next_q'+(posible_questions[k-1])).innerHTML	=	"<span><span>Finish</span></span>"
+				
+			}
+		}
+	}
+
+
+	function move_question(divid,status,pointed_div)
+	{
+		if(status=="next"){
+			if(divid==0)
+			{
+				if(document['quizForm'].elements['qname'].value=="")
+				{
+					alert("Please enter your name.");
+				}else{
+					$('q'+(pointed_div)).style.display='';
+					$('q'+divid).style.display='none';
+					//$('progress-bar-container').style.display='';
+					$('welcome-message').style.display='none';
+					$('questions_header').style.display='';
+					$('questions_heading_name').innerHTML	=	document['quizForm'].elements['qname'].value+"'s Skin Care Evaluation";
+				}	
+			}else{
+				var validate_options	=	checkCheckbox('quizForm','q'+divid+'option[]');
+				if(validate_options==false)
+				{
+					alert("Please select option");
+				}else{
+					var count_options_condition	=	false;
+					if(divid==1)
+					{
+						var count_selected_options	=	countcheckCheckbox('quizForm','q'+divid+'option[]');
+						if(count_selected_options>2){
+							alert("Please don't select more then 2 options");
+							count_options_condition	=	true;
+						}	
+					}
+					if(count_options_condition	==	false)
+					{
+						if(divid==1)
+						{
+							setQuestion_Movements();
+						}
+						$('q'+(pointed_div)).style.display='';
+						$('q'+divid).style.display='none';
+					}
+				}
+			}
+		}else if (status=="previous"){
+			if(divid==1)
+			{
+				$('questions_header').style.display='none';
+				$('welcome-message').style.display='';
+			}
+
+				uncheckOptions(divid);
+			$('q'+divid).style.display='none';
+			$('q'+(pointed_div)).style.display='';
+		}		
+	}
+function uncheckOptions(divid)
+{
+	var question =	document.quizForm['q'+divid+'option[]'];
+	for (var i=0; i <question.length; i++) {
+		if (question[i].checked) {
+			question[i].checked	=	false;
+		}
+	}
+}
+
+
+function MakeAjaxCall(divid)
+{
+//	if(divid == '11') {	
+//	}
+	var validate_options	=	checkCheckbox('quizForm','q'+divid+'option[]');
+	if(validate_options==false)
+	{
+		alert("Please select option");
+	}else
+	{
+
+//		$('message').innerHTML = '<div align="center" class="quiz_loading"><img src="<?php echo $this->getSkinUrl('images/loading.gif'); ?>" /></div>';
+		<?php 
+		$session=Mage::getSingleton('customer/session', array('name'=>'frontend') );
+		if ($session->isLoggedIn()) { ?>
+if (window.location.protocol != "https:") 
+{
+  <?php/*$('500').innerHTML = '<img src="https://loyalty.500friends.com/api/record.gif?uuid=<?php echo Mage::helper('alliance_fivehundredfriends')->getUserId() ?>&email=<?php echo $session->getCustomer()->getEmail(); ?>&type=skincare_quiz&detail=Skin Care Evaluation" style="position: absolute; left: -10px; visibility: hidden;" />';*/?>
+}
+else 
+{
+  <?php/*$('500').innerHTML = '<img src="https://loyalty.500friends.com/api/record.gif?uuid=<?php echo Mage::helper('alliance_fivehundredfriends')->getUserId() ?>&email=<?php echo $session->getCustomer()->getEmail(); ?>&type=skincare_quiz&detail=Skin Care Evaluation" style="position: absolute; left: -10px; visibility: hidden;" />';*/?>
+}
+			
+		<?php  } 
+		 $rootDir = Mage::getBaseDir(); ?>
+
+ 
+fullurl = window.location.origin + '/index.php/quiz/index/save/';
+
+	new Ajax.Request(fullurl, {
+				 method: 'post',
+				parameters: $('quizForm').serialize(true),
+				 onComplete: function(transport) {
+				if (200 == transport.status)
+					document.location.href=	transport.responseText;
+			  }
+			});
+	}		
+}
+	
+	function f500Friends() {
+			return true;
+	}
+
+</script>

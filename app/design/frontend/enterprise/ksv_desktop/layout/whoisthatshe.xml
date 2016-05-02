@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<layout>
+       <alliance_whoisthatshe_index_index translate="label">
+        <reference name="head">                      
+           <action method="addItem"><type>skin_css</type><name>css/whoisthatshe/whoisthatshe.css</name></action>
+           <action method="addItem"><type>skin_js</type><file>js/whoisthatshe/whoisthatshe.js</file></action>
+        </reference>
+       </alliance_whoisthatshe_index_index>
+	   <alliance_whoisthatshe_index_result translate="label">
+        <reference name="head">                      
+           <action method="addItem"><type>skin_css</type><name>css/whoisthatshe/whoisthatshe.css</name></action>
+           <action method="addItem"><type>skin_js</type><file>js/whoisthatshe/whoisthatshe.js</file></action>
+        </reference>
+       </alliance_whoisthatshe_index_result>
+</layout>
+
+

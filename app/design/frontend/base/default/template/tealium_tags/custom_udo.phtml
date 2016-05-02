@@ -1,0 +1,39 @@
+<?php
+$store = $data["store"]; 
+$page  = $data["page"]; 
+
+$code = $store->getCode();
+//$code = "default";
+$isMobile = ($code == "m_kate") ? "true" : "false";
+
+$udoElements = array( 
+  Home => array( 
+    is_mobile => $isMobile
+    ), 
+
+  Search => array( 
+    is_mobile => $isMobile
+    ),  
+
+  Category => array( 
+    is_mobile => $isMobile
+    ),  
+
+  ProductPage => array( 
+    is_mobile => $isMobile
+    ),  
+
+  Cart => array( 
+    is_mobile => $isMobile
+    ),  
+
+  Confirmation => array( 
+    is_mobile => $isMobile
+    ),  
+
+  Customer => array( 
+    is_mobile => $isMobile
+    ),  
+); 
+?>
+

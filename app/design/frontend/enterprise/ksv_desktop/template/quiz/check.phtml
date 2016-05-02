@@ -1,0 +1,11 @@
+<?php if(Mage::getModel('core/cookie')->get('applicant') && Mage::getModel('core/cookie')->get('currenturl')){ ?>
+	<?php if(Mage::getModel('core/cookie')->get('currenturl')!=Mage::helper('core/url')->getCurrentUrl()) { ?>
+		<script language="javascript">
+			document.location.href=	"<?php echo $this->getUrl('quiz'); ?>";
+		</script>
+	<?php } ?>
+<?php }else{ ?>
+	<script language="javascript">
+		document.location.href=	"<?php echo $this->getUrl('quiz'); ?>";
+	</script>
+<?php } ?> 

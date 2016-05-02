@@ -1,0 +1,65 @@
+<?php
+/**
+ * aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This software is designed to work with Magento enterprise edition and
+ * its use on an edition other than specified is prohibited. aheadWorks does not
+ * provide extension support in case of incorrect edition use.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Colorswatches
+ * @version    1.0.3
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ */
+?><?php
+/**
+ * Category layered navigation state
+ *
+ * @see Mage_Catalog_Block_Layer_State
+ */
+?>
+<?php $_filters = $this->getActiveFilters() ?>
+<?php if(!empty($_filters)): ?>
+<div class="currently">
+    <p class="block-subtitle"><?php echo $this->__('Currently Shopping by:') ?></p>
+    <ol>
+    <?php foreach ($_filters as $_filter): ?>
+        <li>
+            <?php
+            $swatch = Mage::getModel('awcolorswatches/swatch');
+            if(!is_array($_filter->getValue())) {
+                $swatch = $swatch->getSwatchByOption($_filter->getValue());
+            }
+            ?>
+            <span class="label"><?php echo $this->__($_filter->getName()) ?>:</span>
+            <?php if(!$swatch->getId() || !$swatch->getData('image')):?>
+            <span class="value"><?php echo $this->stripTags($_filter->getLabel()) ?></span>
+            <?php else:?>
+                <img src="<?php echo $swatch->getLayeredImage()?>" alt="<?php echo $this->stripTags($_filter->getLabel()) ?>" height="16" width="16" title="<?php echo $this->stripTags($_filter->getLabel()) ?>"/>
+            <?php endif?>
+            <?php
+                $clearLinkUrl = $_filter->getClearLinkUrl();
+                if ($clearLinkUrl):
+            ?>
+                <a  class="btn-previous" href="<?php echo $_filter->getRemoveUrl() ?>" title="<?php echo $this->__('Previous') ?>"><?php echo $this->__('Previous') ?></a>
+                <a  class="btn-remove" title="<?php echo $this->escapeHtml($_filter->getFilter()->getClearLinkText()) ?>" href="<?php echo $clearLinkUrl ?>"><?php echo $this->escapeHtml($_filter->getFilter()->getClearLinkText()) ?></a>
+            <?php else: ?>
+                <a  class="btn-remove" href="<?php echo $_filter->getRemoveUrl() ?>" title="<?php echo $this->__('Remove This Item') ?>"><?php echo $this->__('Remove This Item') ?></a>
+            <?php endif; ?>
+        </li>
+    <?php endforeach; ?>
+    </ol>
+</div>
+<?php endif; ?>

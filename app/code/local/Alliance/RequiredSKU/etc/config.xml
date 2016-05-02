@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<Alliance_RequiredSKU>
+			<version>1.0.0</version>
+		</Alliance_RequiredSKU>
+	</modules>
+	
+	<global>
+		<models>
+			<requiredsku>
+				<class>Alliance_RequiredSKU_Model</class>
+			</requiredsku>
+		</models>
+		<helpers>
+			<requiredsku>
+				<class>Alliance_RequiredSKU_Helper</class>
+			</requiredsku>
+		</helpers>
+		<blocks>
+			<requiredsku>
+				<class>Alliance_RequiredSKU_Block</class>
+			</requiredsku>
+		</blocks>
+	</global>
+</config>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <tabs>
+        <katesomerville translate="label">
+            <label>Kate Somerville</label>
+            <sort_order>0</sort_order>
+        </katesomerville>
+    </tabs>
+    <sections>
+        <alliance_fivehundredfriends translate="label" module="alliance_katereviews">
+            <label>500 Friends Configuration</label>
+            <tab>katesomerville</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>0</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <access_credentials translate="label">
+                    <label>500 Friends Access Credentials</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <user_id translate="label">
+                            <label>500 Friends User ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </user_id>
+                        <widget_id translate="label">
+                            <label>500 Friends Widget ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </widget_id>
+                        <token_key translate="label">
+                            <label>500 Friends Token Key</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </token_key>
+						
+						<share_widget_id translate="label">
+						    <label>500 Friends Share Widget ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						
+						</share_widget_id>
+						
+						<surprisedelight_widget_id translate="label">
+							<label>500 Friends Surprise and Delight Widget ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</surprisedelight_widget_id>
+                    </fields>
+                </access_credentials>
+				<rewards translate="label">
+					<label>Rewards</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>2</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<expanded>1</expanded>
+					<fields>
+						<relations translate="label">
+							<label>Relations</label>
+							<frontend_model>alliance_fivehundredfriends/redemption_system_relations</frontend_model>
+							<backend_model>alliance_fivehundredfriends/redemption_system_backend_relations</backend_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</relations>
+					</fields>
+				</rewards>
+            </groups>
+        </alliance_fivehundredfriends>
+    </sections>
+</config>

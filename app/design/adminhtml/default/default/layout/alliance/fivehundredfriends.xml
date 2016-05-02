@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+	<sales_order_grid_update_handle>
+		<reference name="sales_order.grid">
+			<action method="addColumnAfter">
+				<columnId>redeem_points</columnId>
+				<arguments>
+					<header>Points Redeemed</header>
+					<index>redeem_points</index>
+					<filter_index>redemption.redeem_points</filter_index>
+					<type>text</type>
+				</arguments>
+				<after>status</after>
+			</action>
+		</reference>
+	</sales_order_grid_update_handle>
+	<adminhtml_sales_order_grid>
+		<!-- apply layout handle defined above -->
+		<update handle="sales_order_grid_update_handle" />
+	</adminhtml_sales_order_grid>
+	<adminhtml_sales_order_index>
+		<!-- apply layout handle defined above -->
+		<update handle="sales_order_grid_update_handle" />
+	</adminhtml_sales_order_index>
+
+	<adminhtml_redemption_redeempoints>
+		<reference name="content">
+			<block type="alliance_fivehundredfriends/redemption_adminhtml_redeempoints" name="alliance_fivehundredfriends_redemption"/>
+		</reference>
+	</adminhtml_redemption_redeempoints>
+	<adminhtml_redemption_items>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="alliance_fivehundredfriends/redemption_adminhtml_redeempoints_edit_tab_items" name="redemption.adminhtml.redeempoints.edit.tab.items"/>
+        </block>
+    </adminhtml_redemption_items>
+</layout>

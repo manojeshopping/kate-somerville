@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Alliance_GlobalBanner>
+            <version>1.1.1</version>
+        </Alliance_GlobalBanner>
+    </modules>
+
+    <global>
+        <helpers>
+            <alliance_globalbanner>
+                <class>Alliance_GlobalBanner_Helper</class>
+            </alliance_globalbanner>
+        </helpers>
+
+        <blocks>
+            <alliance_globalbanner>
+                <class>Alliance_GlobalBanner_Block</class>
+            </alliance_globalbanner>
+        </blocks>
+
+        <models>
+            <alliance_globalbanner>
+                <class>Alliance_GlobalBanner_Model</class>
+                <resourceModel>alliance_globalbanner_resource</resourceModel>
+            </alliance_globalbanner>
+
+            <alliance_globalbanner_resource>
+                <class>Alliance_GlobalBanner_Model_Resource</class>
+                <entities>
+                    <banner>
+                        <table>alliance_globalbanner_banner</table>
+                    </banner>
+                </entities>
+            </alliance_globalbanner_resource>
+        </models>
+
+        <resources>
+            <alliance_globalbanner_setup>
+                <setup>
+                    <module>Alliance_GlobalBanner</module>
+                </setup>
+            </alliance_globalbanner_setup>
+        </resources>
+    </global>
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Alliance_GlobalBanner before="Mage_Adminhtml">Alliance_GlobalBanner_Adminhtml</Alliance_GlobalBanner>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <alliance_globalbanner>
+                    <file>alliance/globalbanner.xml</file>
+                </alliance_globalbanner>
+            </updates>
+        </layout>
+    </adminhtml>
+
+    <frontend>
+        <layout>
+            <updates>
+                <alliance_globalbanner>
+                    <file>alliance/globalbanner.xml</file>
+                </alliance_globalbanner>
+            </updates>
+        </layout>
+    </frontend>
+</config>

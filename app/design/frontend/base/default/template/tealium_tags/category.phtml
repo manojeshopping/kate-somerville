@@ -1,0 +1,18 @@
+<?php
+
+$helper = Mage::helper('tealium_tags');
+$store = Mage::app()->getStore();
+
+if (!$helper->isEnabled($store)) {
+    return; // not enabled, no javascript inserted
+}
+
+$tealium = $helper->getTealiumObject($store, $this);
+$tealium->pageType("Category");
+$layer = Mage::getSingleton('catalog/layer');
+$category = $layer->getCurrentCategory();
+$category_id = $category->getId();
+$tealium->updateUdo("page_category_id", $category_id);
+echo $tealium->render("udo");
+echo $helper->getDiagnosticTag($store);
+?>

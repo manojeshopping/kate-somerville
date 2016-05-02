@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<menu>
+		<gp module="gp">
+			<title>GP</title>
+			<sort_order>71</sort_order>
+			<children>
+				<orders module="gp">
+					<title>Orders</title>
+					<sort_order>0</sort_order>
+					<action>adminhtml/gp_gp</action>
+				</orders>
+				<files module="gp">
+					<title>Files</title>
+					<sort_order>1</sort_order>
+					<action>adminhtml/gp_gp/files</action>
+				</files>
+			</children>
+		</gp>
+	</menu>
+	
+	<acl>
+		<resources>
+			<admin>
+				<children>
+					<system>
+						<children>
+							<config>
+								<children>
+									<gp><title>GP Module</title></gp>
+								</children>
+							</config>
+						</children>
+					</system>
+				</children>
+			</admin>
+		</resources>
+	</acl>
+</config>

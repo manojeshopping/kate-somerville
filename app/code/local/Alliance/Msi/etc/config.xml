@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Alliance_Msi>
+            <version>1.0.0</version>
+        </Alliance_Msi>
+    </modules>
+    <global>
+        <helpers>
+            <alliance_msi>
+                <class>Alliance_Msi_Helper</class>
+            </alliance_msi>
+        </helpers>
+        <models>
+            <alliance_msi>
+                <class>Alliance_Msi_Model</class>
+            </alliance_msi>
+        </models>
+    </global>
+    <default>
+        <carriers>
+            <alliance_msi>
+                <active>0</active>
+                <model>alliance_msi/carrier</model>
+            </alliance_msi>
+        </carriers>
+    </default>
+</config>

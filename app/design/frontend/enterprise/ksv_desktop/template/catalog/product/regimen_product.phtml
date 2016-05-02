@@ -1,0 +1,80 @@
+<?php
+    $_helper = $this->helper('catalog/output');
+    $_product = $this->getProduct();
+?>
+<script type="text/javascript">
+    //var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+</script>
+<form action="<?php echo $this->getUrl('addsamples/index/addacne'); ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+<div class="no-display">
+	<input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+	<input type="hidden" name="related_product" id="related-products-field" value="" />
+</div>
+<div class="block block-acne-product">
+ 	<?php if(Mage::getModel('core/cookie')->get('applicant') && Mage::registry('current_category')->getParentId()==134){ ?>
+	<div class="block-title">
+        <strong><span><?php echo Mage::getModel('core/cookie')->get('applicant'); ?>, <?php echo $_product->getDescription(); ?></span></strong>
+    </div>
+	<?php }else{ ?>
+	<div class="block-title">
+        <strong><span><?php echo $_product->getName(); ?></span></strong>
+    </div>
+	<?php } ?>	
+	  <div class="block-content">
+		<?php if(!Mage::getModel('core/cookie')->get('applicant') && Mage::registry('current_category')->getParentId()!=134){ ?>
+	    <p class="block-subtitle"><?php echo $this->__('Includes') ?></p>
+		<?php } ?>
+		<?php //$_associatedProducts = $_product->getTypeInstance(true)->getAssociatedProducts($_product); 
+		
+			echo $this->getLayout()->createBlock('catalog/product_list_related')->setProductId($_product->getEntityId())->setTemplate('catalog/product/list/related-regimen.phtml')->toHtml(); 
+
+		?>	
+		
+<?php /*?>		<?php $_associatedProducts = $_product->getTypeInstance(true)->getAssociatedProducts($_product); ?>
+	  	 <ul id="narrow-by-list">
+			 <?php foreach ($_associatedProducts as $_item): ?>	
+			 	<li><?php echo $_item->getName(); ?>
+				  <?php if ($_item->isSaleable()) : ?>
+                <input type="hidden" name="super_group[<?php echo $_item->getId() ?>]" maxlength="12" value="<?php echo $_item->getQty()*1 ?>" title="<?php echo $this->__('Qty') ?>" class="input-text qty" />
+            <?php else: ?>
+                <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+            <?php endif; ?></li>
+			 <?php endforeach; ?>	
+		 </ul>
+<?php */?>		
+		<?php if($this->getPdf()): ?>
+			<?php if(file_exists('media/pdf/'.$this->getPdf())): ?>
+			<p class="bottom-text"><a target="_blank" href="<?php echo Mage::getBaseUrl('media').'pdf/'.$this->getPdf(); ?>">
+			<?php if(!Mage::getModel('core/cookie')->get('applicant') && Mage::registry('current_category')->getParentId()!=134){ ?>
+			<?php echo $this->__('How to use >'); ?>
+			<?php }else{ ?>
+			<?php echo $this->__('Recommended Regimen & Usage Tips >'); ?>
+			<?php } ?>
+			</a></p>
+			<?php endif; ?>
+		<?php endif; ?>	
+	    <p class="product-image">
+            <?php
+                $_img = '<img src="'.$this->helper('catalog/image')->init($_product, 'image').'" alt="'.$this->htmlEscape($_product->getImageLabel()).'" title="'.$this->htmlEscape($_product->getImageLabel()).'" style="max-width:161px;" />';
+                echo $_helper->productAttribute($_product, $_img, 'image');
+            ?>
+        </p>
+		 
+		 
+		 <div class="actions">
+		 	 <button type="button" title="<?php echo $this->__('ADD REGIMEN TO BAG') ?>" class="button acne-button" onclick="_gaq.push(['_trackPageview', '/skincare/add-regimen/']);productAddToCartForm.submit();"><span><span><?php echo $this->__('Add regimen to Bag') ?></span></span></button>
+		 </div>
+	  </div>
+</div>
+<?php /*?><input type="hidden" name="return_url" id="return_url" value="<?php echo $this->helper('core/url')->getCurrentUrl(); ?>" /><?php */?>
+</form>
+<script type="text/javascript">
+//<![CDATA[
+    var productAddToCartForm = new VarienForm('product_addtocart_form');
+    productAddToCartForm.submit = function() {
+            if (this.validator.validate()) {
+                    this.form.submit();
+            }
+    }.bind(productAddToCartForm);
+//]]>
+</script>

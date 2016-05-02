@@ -1,0 +1,298 @@
+/* quiz styles */
+
+.question-table input[type="radio"], 
+.question-table input[type="checkbox"] {
+	float: left;
+}
+
+.question-table label {
+	float: left;
+	padding: 7px 0 0 6px;
+}
+
+.quiz-index-index .main {
+	margin-bottom: 0;
+	padding: 20px 0 0 0;
+}
+
+.quiz h1 {
+	line-height: 120%;
+	margin-bottom: 20px;
+}
+
+.skin-quiz h1.quiz_result_heading {
+	margin-bottom: 0px;
+	font-size: 37px;
+	line-height: 35px;
+}
+
+.quiz th, 
+.quiz td {
+	border-bottom: none !important;
+	padding: 3px 0 !important;
+}
+
+.quiz button.back {
+	float: left;
+	margin-left: 0;
+}
+
+.quiz input[type="textbox"] {
+	font-size: 14px;
+	line-height: 39px;
+	height: 39px;
+	min-width: 200px;
+}
+
+.quiz select {
+	width: auto;
+}
+
+.quiz .form-list li.fields .field label {
+	padding-top: 11px;
+	width: 150px;
+	text-align: left;
+}
+
+.skin-quiz h4 {
+	clear: both;
+	margin-top: 20px;
+	font-size: 20px;
+}
+
+.skin-quiz .progress-bar {
+	background: #cecfd1;
+	height: 13px;
+	overflow: hidden;
+	margin-top: 5px;
+}
+
+.skin-quiz .progress-bar .continue {
+	background: #6cb5d8;
+	font-size: inherit;
+	text-indent: -9999em;
+}
+
+.skin-quiz #q1 .progress-bar .continue {
+	width: 9%;
+}
+
+.skin-quiz-main {
+	width: 917px;
+	margin: 0 auto;
+	background: url(../images/bkg_skin-quiz-main.jpg) repeat-y;
+}
+
+.skin-quiz-container {
+	background: url(../images/bkg_skin-quiz-container.jpg) no-repeat top;
+}
+
+.skin-quiz {
+	background: url(../images/bkg_skin-quiz.jpg) no-repeat bottom left;
+	overflow: hidden;
+	min-height: 606px;
+	padding: 150px 100px 30px;
+}
+
+.skin-quiz .page-title {
+	border-bottom: 1px #d7d8d9 solid;
+	margin-bottom: 20px;
+	padding-bottom: 5px;
+}
+
+.skin-quiz .page-title h2 {
+	color: #7a7a7a;
+	font-family: 'GillSansMTLight', Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	line-height: normal;
+}
+
+.skin-quiz .image {
+	float: right;
+	margin: 0 0 10px 10px;
+}
+
+.skin-quiz #q0 .content { 
+	position: relative;
+	padding-right: 300px;
+}
+
+.skin-quiz #q0 .image {
+	float: none;
+	position: absolute;
+	top: -35px;
+	right: -90px;
+}
+
+
+/* results page */
+.skin-evaluation-layout {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.skin-quiz .category-image {
+	float: right;
+	position: relative;
+	margin: -24px -70px 0 0;
+	width: 310px;
+	padding: 0;
+}
+
+.skin-quiz .rightmove #product_addtocart_form {
+	display: none;	/* hide add regimen to cart for now */
+}
+
+.skin-quiz .category-products {
+	clear: both;
+	width: 100%;
+	float: left;
+	padding: 0;
+}
+
+.skin-quiz .category-products h3 {
+	font-size: 15px;
+	color: #6a747c;
+}
+
+.skin-quiz .products-grid.first {
+	border-top: 1px solid #DDDDDD;
+}
+
+.skin-quiz .products-grid {
+	border-bottom: 1px solid #DDDDDD;
+	width: 760px;
+	overflow: hidden;
+}
+
+.skin-quiz .products-grid li.item {
+	padding: 15px 13px 1em 13px !important;
+	float: left;
+	width: 163px !important;
+	margin: 0 0 -1em 0 !important;
+	overflow: hidden;
+	border-left: 1px solid #DDDDDD;
+	height: 390px;
+}
+
+.skin-quiz .products-grid li.first {
+	border: 0 !important;
+}
+
+.skin-quiz .products-grid .product-bottom {
+	float: left;
+	width: 163px;
+	padding: 0 0 55px;
+}
+
+.skin-quiz .products-grid .product-image {
+	display: block;
+	text-decoration: none !important;
+	margin: 0 auto 10px !important;
+	position: relative;
+	width: 135px !important;
+	height: auto !important;
+}
+
+.skin-quiz .products-grid .product-bottom .custom-head {
+	overflow: hidden;
+}
+
+.skin-quiz .products-grid .product-name {
+	font-size: 17px;
+	font-weight: normal;
+	text-decoration: none;
+	margin: 0 !important;
+	height: auto !important;
+}
+
+.skin-quiz .products-grid h5 {
+	font-size: 17px;
+	font-weight: normal;
+	padding: 3px 0 0;
+	text-decoration: none;
+	color: #6A747C;
+}
+
+.skin-quiz .products-grid h6 {
+	font-size: 13px;
+	line-height: 18px;
+	padding: 12px 0 0 0;
+	color: #6a747c;
+}
+
+.skin-quiz .products-grid .price-box {
+	margin: 5px 0 10px;
+	clear: both;
+	font-size: 13px;
+}
+
+.skin-quiz .products-grid .price-box .regular-price .price {
+	font-weight: normal;
+}
+
+.skin-quiz .products-grid .product-bottom .actions {
+	bottom: 12px;
+	position: absolute;
+	width: 175px;
+}
+
+.skin-quiz .products-grid .actions .list-left {
+	float: left;
+	font-size: 10px;
+}
+
+.skin-quiz .products-grid .actions .list-left select {
+	padding: 4px 28px 4px 5px;
+}
+
+.skin-quiz .products-grid .actions .list-right {
+	float: left;
+}
+
+.skin-quiz .products-grid .button {
+	margin-top: -4px;
+	margin-left: 8px;
+}
+
+.skin-quiz .products-grid .button span span, 
+.skin-quiz button.button span span {
+	font-size: 12px;
+	line-height: 27px;
+	padding: 0 5px !important;
+	height: 25px;
+}
+
+.skin-quiz .recommendation-bottom-panel {
+	float: left;
+	padding-top: 20px;
+	width: 760px;
+}
+
+.skin-quiz .recommendation-bottom-panel .social-links span {
+	float: left;
+	margin-right: 10px;
+	line-height: 15px;
+	font-size: 12px;
+}
+
+.skin-quiz .recommendation-bottom-panel .social-links a img {
+	width: 16px;
+}
+
+.skin-quiz .recommendation-bottom-panel .fb-share-button {
+	width: 14px;
+}
+
+.skin-quiz .recommendation-bottom-panel h2 {
+	color: #7A7A7A;
+	font-family: 'GillSansMTLight', Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	line-height: normal;
+	min-height: 45px;
+}
+
+.skin-quiz .recommendation-bottom-panel .right {
+	float: right;
+	text-align: right;
+}

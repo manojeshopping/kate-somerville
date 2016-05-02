@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+
+    <modules>
+        <Alliance_SoapExtension>
+            <version>1.0.0</version>
+        </Alliance_SoapExtension>
+    </modules>
+
+    <global>
+
+        <models>
+            <sales>
+                <rewrite>
+                    <order_api_v2>Alliance_SoapExtension_Model_Sales_Order_Api_V2</order_api_v2>
+                </rewrite>
+            </sales>
+        </models>
+
+    </global>
+
+</config>

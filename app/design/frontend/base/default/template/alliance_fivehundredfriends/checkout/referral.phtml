@@ -1,0 +1,18 @@
+<?php 
+if ($this->getOrderId()):
+
+    $order         = Mage::getModel('sales/order')->loadByIncrementId($this->getOrderId());
+	$value          = round(($order->getGrandTotal() - $order->getTaxAmount() - $order->getShippingAmount()), 2);
+    $event_id       = $order->getIncrementId();
+?>
+<img
+    src="https://loyalty.500friends.com/api/refer.gif?uuid=<?php
+    echo urlencode(Mage::helper('alliance_fivehundredfriends')->getUserId()); ?>&email=<?php
+    echo urlencode(Mage::getSingleton('customer/session')->getCustomer()->getEmail()); ?>&event_id=<?php 
+	echo urlencode($event_id ); ?>&value=<?php
+	echo urlencode($value); ?>&event_type=<?php
+    echo urlencode('referral'); ?>"
+	style="position: absolute; left: -10px; visibility: hidden;" />
+	
+<?php endif; ?>	
+	

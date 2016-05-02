@@ -1,0 +1,8 @@
+<?php if ($this->current_banner) { ?>
+    <a <?php if ($this->getImageLink()) { ?>href="<?php echo $this->getImageLink(); ?>" <?php } ?>style="margin: 0 auto; position: relative; display: block; width: 1024px; height: 57px; margin-bottom: 10px;" <?php if ($this->getNewTab() == 'Yes') echo 'target="_blank"'; ?>>
+        <img src="<?php echo $this->getImage(); ?>"
+             style="width: 1024px; height: 57px;"
+             title="<?php echo $this->getImageAlt(); ?>"
+             alt="<?php echo $this->getImageAlt(); ?>">
+    </a>
+<?php } ?>

@@ -1,0 +1,63 @@
+/* Add reviews */
+#katereviews-main-display { padding:10px; font-size: 14px; letter-spacing: 1px;  clear: both; }
+#katereviews-main-display .top-reviews { width:100%; margin:10px 0 10px 0; background-color:#c8c8c8; }
+#katereviews-main-display .top-reviews a { color: white; font-size:18px; }
+#katereviews-main-display .first-line { height:30px; }
+
+#katereviews-main-display .second-line { color:#6db5da; width:100%; float:left; height:auto; margin-bottom:5px; }
+#katereviews-main-display .first-line .rating-box { margin-top:8px; float:left; width:65px; height:13px; font-size:0; line-height:0; background:url(../images/bkg_rating.gif) 0 100% repeat-x; overflow:hidden; }
+#katereviews-main-display .first-line .rating-box .rating { float:left; height:13px; background:url(../images/bkg_rating.gif) 0 0 repeat-x; }
+#katereviews-main-display .second-line .headline { float:left; font-size:16px; line-height:20px; text-transform:uppercase; color:#58595b; }
+#katereviews-main-display .comment { float:left; width:100%; font-size:small; line-height:18px; color:#6A747C; margin:0 0 5px 0; }
+#katereviews-main-display .review-info { font-size:12px; line-height:18px; color:#6A747C; }
+#katereviews-product-badge { color: #58595b; font-family: "PlutoSansCondMedium", "Helvetica Neue", "Helvetica", Arial, sans-serif; font-size: 14px; letter-spacing: 1px; border-top: 2px solid #c8c8c8; clear: both; margin: 0 10px 30px 10px; }
+#katereviews-product-badge .summary { color:#58595b; font-weight:bold; margin:10px 0 5px 0;  }
+#katereviews-main-form, #katereviews-must-login { color:#6db5da; font-size: 14px; letter-spacing: 1px; margin: 5px; clear: both; padding: 10px; }
+#katereviews-main-form .first-line { width:100%; height:130px; float:left; padding-bottom:20px; margin-bottom:20px; border-bottom:1px solid #c8c8c8; }
+#katereviews-main-form .first-line .left { margin-bottom:10px; width:100%; text-align:center; float:left; }
+#katereviews-main-form .first-line .left img{ height:100px; width:auto; }
+#katereviews-main-form .first-line .right { width:100%; text-align:center; float:left; }
+#katereviews-main-form .first-line .right h2 { color:#6db5da; font-size:13px; }
+#katereviews-main-form label { text-align:left; text-transform:uppercase; }
+#katereviews-main-form .rating-area { width:100%; float:left; margin-bottom:20px; }
+#katereviews-main-form .rating-area .ui-btn-inner { display:none; }
+
+#katereviews-main-form .tellus .ui-btn-inner { display:none; }
+#katereviews-main-form .tellus h1 { font-size:17px; text-align:center; margin:10px; }
+#katereviews-main-form .tellus label { width:100%; letter-spacing:0px; font-size:13px;  }
+#katereviews-main-form .tellus select { width:100% }
+#katereviews-main-form .tellus input { width:100%; margin:0; padding:0; }
+#katereviews-main-form .tellus .ui-select, #katereviews-main-form .tellus .ui-input-text { margin-bottom:10px; }
+#katereviews-main-form .rating-area label { float:left; line-height:24px; font-size:14px; letter-spacing:0px; }
+#katereviews-main-form .rating-area select { width:100%; }
+#katereviews-main-form .title-area { margin-bottom:10px; }
+#katereviews-main-form .title-area label { float:left; line-height:24px; }
+#katereviews-main-form .title-area input { width:100%; margin:0; padding:0; }
+#katereviews-main-form .review-area label { float:left; line-height:24px; }
+#katereviews-main-form .review-area label { margin-bottom:5px; }
+#katereviews-main-form .review-area textarea { width:100%; height:150px; }
+#katereviews-main-form .preview-button { margin: 10px 0 30px 0; }
+#katereviews-main-form span.required-entry { display:none; }
+#katereviews-main-form input.button {  border:0; border-color:transparent; outline:none; width:100%; margin:10px 0 0 0; padding:0; }
+
+#katereviews-preview-form { font-size: 14px; letter-spacing: 1px; margin: 5px; clear: both; padding: 10px; }
+#katereviews-preview-form .first-line .rating-box { float:left; width:65px; height:13px; font-size:0; line-height:0; background:url(../images/bkg_rating.gif) 0 100% repeat-x; overflow:hidden; }
+#katereviews-preview-form .first-line .rating-box .rating { float:left; height:13px; background:url(../images/bkg_rating.gif) 0 0 repeat-x; }
+#katereviews-preview-form .first-line .headline { float:left; font-size:13px; height:13px; font-weight:bold; margin-left:20px; color:#58595b; }
+#katereviews-preview-form .comment { width:100%; font-size:14px; line-height:18px; color:#6A747C; margin:10px 0 10px 0; float:left; }
+#katereviews-preview-form .preview-buttons { width:100%; float:left; margin:20px 0 20px 0; }
+#katereviews-preview-form .preview-buttons form.left { width:47%; float:left; }
+#katereviews-preview-form .preview-buttons form.right { width:47%; float:right; }
+#katereviews-preview-form .preview-buttons .left-button { margin:0; width:100%; float:left; }
+#katereviews-preview-form .preview-buttons .right-button { margin:0; width:100%; float:right; }
+
+#katereviews-main-display .pager .amount { display:none; }
+#katereviews-main-display .pager .pages .pages-num a { background-color:white !important; color:#6a747c; }
+#katereviews-main-display .pager .limiter { margin-bottom:20px !important; }
+#katereviews-main-display .pager .limiter .ui-select { float:left; height:30px; margin-right:10px; }
+#katereviews-main-display .pager .limiter label { float:left; }
+#katereviews-main-display .pager .limiter .ui-btn-inner { display:none; }
+#katereviews-main-display .pager .pages a { margin-bottom:10px; margin-top:10px; background-color:#6db5da; color:white;}
+#katereviews-main-display .pager select { padding:5px 40px 5px 10px; margin-left:10px; margin }
+#katereviews-main-display .pager .limiter { border-top:1px solid #c8c8c8; border-bottom:1px solid #c8c8c8; height:34px; line-height: 34px; clear:both; width: 100%; margin: 0; }
+#katereviews-main-display .pager .limiter .container { width:210px; margin:0 auto; }

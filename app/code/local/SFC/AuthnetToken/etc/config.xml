@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * StoreFront Authorize.Net CIM Tokenized Payment Extension for Magento
+ *
+ * PHP version 5
+ *
+ * LICENSE: This source file is subject to commercial source code license of StoreFront Consulting, Inc.
+ *
+ * @category  SFC
+ * @package   SFC_AuthnetToken
+ * @author    Garth Brantley <garth@storefrontconsulting.com>
+ * @copyright 2009-2013 StoreFront Consulting, Inc. All Rights Reserved.
+ * @license   http://www.storefrontconsulting.com/media/downloads/ExtensionLicense.pdf StoreFront Consulting Commercial License
+ * @link      http://www.storefrontconsulting.com/authorize-net-cim-saved-credit-cards-extension-for-magento/
+ *
+ */
+-->
+<config>
+    <!-- Module version info -->
+    <modules>
+        <SFC_AuthnetToken>
+            <version>1.0.11.1</version>
+        </SFC_AuthnetToken>
+    </modules>
+
+    <global>
+        <!-- Helper classes -->
+        <helpers>
+            <authnettoken>
+                <class>SFC_AuthnetToken_Helper</class>
+            </authnettoken>
+            <payment>
+                <rewrite>
+                    <data>SFC_AuthnetToken_Helper_Payment</data>
+                </rewrite>
+            </payment>
+        </helpers>
+
+        <!-- Block classes -->
+        <blocks>
+            <authnettoken>
+                <class>SFC_AuthnetToken_Block</class>
+            </authnettoken>
+        </blocks>
+
+        <!-- Model / entity classes -->
+        <models>
+            <authnettoken>
+                <class>SFC_AuthnetToken_Model</class>
+                <resourceModel>authnettoken_mysql4</resourceModel>
+            </authnettoken>
+            <authnettoken_mysql4>
+                <class>SFC_AuthnetToken_Model_Mysql4</class>
+                <entities>
+                    <cim_payment_profile>
+                        <table>sfc_authnettoken_payment_profile</table>
+                    </cim_payment_profile>
+                </entities>
+            </authnettoken_mysql4>
+
+            <!-- Model rewrites -->
+            <checkout>
+                <rewrite>
+                    <type_onepage>SFC_AuthnetToken_Model_Checkout_Type_Onepage</type_onepage>
+                </rewrite>
+            </checkout>
+            <sales>
+                <rewrite>
+                    <quote_payment>SFC_AuthnetToken_Model_Sales_Quote_Payment</quote_payment>
+                </rewrite>
+            </sales>
+
+        </models>
+
+        <!-- Resources - Install / upgrade scripts -->
+        <resources>
+            <authnettoken_setup>
+                <setup>
+                    <module>SFC_AuthnetToken</module>
+                    <class>Mage_Eav_Model_Entity_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </authnettoken_setup>
+            <authnettoken_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </authnettoken_write>
+            <authnettoken_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </authnettoken_read>
+        </resources>
+
+        <events>
+            <sales_convert_quote_payment_to_order_payment>
+                <observers>
+                    <cim_core_sales_convert_quote_payment_to_order_payment>
+                        <type>singleton</type>
+                        <class>authnettoken/observer</class>
+                        <method>onSalesConvertQuotePaymentToOrderPayment</method>
+                    </cim_core_sales_convert_quote_payment_to_order_payment>
+                </observers>
+            </sales_convert_quote_payment_to_order_payment>
+        </events>
+    </global>
+
+    <!-- Frontend layout XML updates -->
+    <frontend>
+        <secure_url>
+            <creditcards>/creditcards</creditcards>
+        </secure_url>
+        <routers>
+            <authnettoken>
+                <use>standard</use>
+                <args>
+                    <module>SFC_AuthnetToken</module>
+                    <frontName>creditcards</frontName>
+                </args>
+            </authnettoken>
+        </routers>
+        <layout>
+            <updates>
+                <authnettoken module="SFC_AuthnetToken">
+                    <file>authnettoken.xml</file>
+                </authnettoken>
+            </updates>
+        </layout>
+    </frontend>
+
+    <!-- Admin panel routers -->
+    <admin>
+        <routers>
+            <adminhtml>
+				<args>
+					<modules>
+						<authnettoken before="Mage_Adminhtml">SFC_AuthnetToken_Adminhtml</authnettoken>
+					</modules>
+				</args>
+			</adminhtml>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <SFC_AuthnetToken_Override before="Mage_Adminhtml">SFC_AuthnetToken_Override_Admin</SFC_AuthnetToken_Override>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+
+    <!-- Admin panel html changes -->
+    <adminhtml>
+        <layout>
+            <updates>
+                <authnettoken>
+                    <file>authnettoken.xml</file>
+                </authnettoken>
+            </updates>
+        </layout>
+    </adminhtml>
+
+    <!-- Cron schedules for integration jobs -->
+    <crontab>
+        <jobs>
+        </jobs>
+    </crontab>
+
+    <!-- Default configuration values -->
+    <default>
+        <payment>
+            <authnettoken>
+                <active>0</active>
+                <model>authnettoken/cim</model>
+                <title>Enter a New Credit Card (Authorize.Net CIM by StoreFront Consulting)</title>
+                <allowspecific>0</allowspecific>
+                <debug>0</debug>
+                <test>1</test>
+                <full_transaction_logging_enabled>0</full_transaction_logging_enabled>
+                <duplicate_window>120</duplicate_window>
+                <cctypes>AE,VI,MC,DI</cctypes>
+                <payment_action>authorize_capture</payment_action>
+                <order_status>processing</order_status>
+                <currency>USD</currency>
+                <allow_guest_checkout>1</allow_guest_checkout>
+                <guest_checkout_save_profiles>0</guest_checkout_save_profiles>
+                <transaction_error_message_mode>0</transaction_error_message_mode>
+                <general_error_message_text>Please verify that your billing and credit card information are correct and retry your
+                    order!
+                </general_error_message_text>
+            </authnettoken>
+        </payment>
+    </default>
+
+</config>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <!-- Here, we reference the XML node path of our route -->
+    <adminhtml_homepage_slider_index>
+        <reference name="content">
+            <!-- We also reference our block by namespacename_modulename/adminhtml_controllername, and name it uniquely -->
+            <block type="alliance_bannerslider/adminhtml_banner" name="alliance_bannerslider_banner" />
+        </reference>
+    </adminhtml_homepage_slider_index>
+</layout>

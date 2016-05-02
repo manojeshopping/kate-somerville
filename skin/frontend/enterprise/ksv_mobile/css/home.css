@@ -1,0 +1,38 @@
+/* home */
+#featured-slider { display: block; margin: 0; height: auto; background: url("../images/loader.gif") no-repeat scroll center center white; }
+#featured-slider ul { display: block; margin: 0; padding: 0; list-style: none; }
+#featured-slider ul li { float: left; }
+#featured-slider ul li a { display: block; }
+#featured-slider ul li a img { display: block; max-width: 100%; height: auto; }
+#featured-slider .flex-direction-nav li a { height: 100%; margin: 0; padding: 0 5px; top: 0; }
+#featured-slider .flex-direction-nav li a.flex-prev { background: url(../images/transparent/slider_arrow_left.png) no-repeat 5px center; }
+#featured-slider .flex-direction-nav li a.flex-next { background: url(../images/transparent/slider_arrow_right.png) no-repeat 5px center; }
+.slider-container { /* defaults for resposive height container */ position: relative; width: 100%; height: 0; /* 39% being the ratio we are maintaining  calculated by looking at the image  ratio: 640/320 = ~0.5 */ padding: 0 0 50% 0; }
+.iosSlider { width: 100%; /* this height ends up being your maximum height,  if you want it to scale forever, set it to  a very high number */ height: 4000px; }
+.iosSlider .slider { width: 100%; height: 100%; }
+.iosSlider .slider .item { float: left; width: 100%; }
+.iosSlider .slider .item img { width: 100%; height: auto; }
+.flexslider { position: relative; zoom: 1; }
+.flex-viewport { max-height: 2000px; -webkit-transition: all 1s ease; -moz-transition: all 1s ease; transition: all 1s ease; }
+.loading .flex-viewport { max-height: 300px; }
+.flexslider { margin: 0; padding: 0; }
+.flexslider .slides > li { display: none; -webkit-backface-visibility: hidden; }
+.flexslider .slides img { width: 100%; display: block; }
+.flex-pauseplay span { text-transform: capitalize; }
+.slides:after { content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0; }
+html[xmlns] .slides { display: block; }
+* html .slides { height: 1%; }
+.no-js .slides > li:first-child { display: block; }
+.flexslider .slides { zoom: 1; }
+.carousel li { margin-right: 5px; }
+.flex-direction-nav { height:0 !important; margin:0; }
+.flex-direction-nav a { width: 11px; height: 18px; margin: -18px 0 0; padding: 5px; display: block; position: absolute; top: 50%; z-index: 10; cursor: pointer; text-indent: -9999px; opacity: 1; -webkit-transition: all 0.3s ease; }
+.flex-direction-nav .flex-next { background: url(../images/transparent/slider_arrow_right.png) no-repeat 5px 5px; right: 0; }
+.flex-direction-nav .flex-prev { background: url(../images/transparent/slider_arrow_left.png) no-repeat 5px 5px; left: 0; }
+
+.flexslider .flex-next:hover { opacity: 1; }
+.flexslider .flex-prev:hover { opacity: 1; }
+.slider-container .prevContainer { position: absolute; top: 0; left: 0; width: 31px; padding: 0; z-index: 10; height: 100%; }
+.slider-container .prevContainer .prev { width: 11px; height: 100%; padding: 0 10px; cursor: pointer; text-indent: -9999px; background: url(../images/transparent/slider_arrow_left.png) no-repeat 10px center; }
+.slider-container .nextContainer { position: absolute; top: 0; right: 0; width: 31px; padding: 0; z-index: 10; height: 100%; }
+.slider-container .nextContainer .next { width: 11px; height: 100%; padding: 0 10px; cursor: pointer; text-indent: -9999px; background: url(../images/transparent/slider_arrow_right.png) no-repeat 10px center; }

@@ -1,0 +1,102 @@
+<div class="giveawayfb-container">
+    <h2>Enter in your mailing address</h2>
+
+    <div class="creation-fields">
+        <div class="communications" style="color: red; padding: 0 0 20px 0; font-size: 15px;"></div>
+        <form id="frmCreationAddress" method="post" action="<?php echo $this->getCreationAddressAction(); ?>">
+            <fieldset>
+                <label for="creation-address1" class="creation-label">* Address</label>
+                <input type="text" id="creation-address1" name="address1" value="<?php echo $this->getModuleData('address1'); ?>"
+                       class="input-text required-entry" maxlength="35"/>
+                <br/>
+                <label for="creation-address2" class="creation-label">&nbsp;</label>
+                <input type="text" id="creation-address2" name="address2" value="<?php echo $this->getModuleData('address2'); ?>" class="input-text"
+                       maxlength="35"/>
+                <br/>
+                <label for="creation-city" class="creation-label">* City</label>
+                <input type="text" id="creation-city" name="city" value="<?php echo $this->getModuleData('city'); ?>" class="input-text required-entry"/><br/>
+                <label for="creation-state" class="creation-label">* State</label>
+                <select id="creation-state" name="state" class="validate-select">
+                    <option value="">Please select state</option>
+                    <?php
+                    $state = $this->getModuleData('state');
+                    $stateArray = Mage::helper('giveawayfb')->getUSAStates();
+                    foreach ($stateArray as $_state) {
+                        if ($_state['value']) echo '<option value="' . $_state['value'] . '"' . ($state == $_state['value'] ? ' selected="selected"' : '')
+                            . '>' . $_state['label'] . '</option>';
+                    }
+                    ?>
+                </select><br/>
+                <label for="creation-zip" class="creation-label">* Zipcode</label>
+                <input type="text" id="creation-zip" name="zip" value="<?php echo $this->getModuleData('zip'); ?>" class="input-text required-entry"
+                       size="6"/>
+                <br/>
+                <div class="creation-buttons-container">
+                    <span class="giveawayfb-comment">* Required Fields</span>
+                    <button id="creation-submit" class="giveawayfb-button">Enter</button>
+                    <img id="giveawayfb-creationaddress-ajax-spinner" src="<?php echo $this->getSkinUrl('images/giveawayfb/ajax-loader-48px.gif') ?>" width="42" height="42">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        jQuery('#giveawayfb-creationaddress-ajax-spinner').hide();
+        var NOADDRESS = "Please review your address for accuracy.";
+        var SAMEADDRESS = "Thank you for your interest in Kate Somerville.  This offer is limited to 1 per household.";
+        jQuery("#creation-submit").click(function (event) {
+            event.preventDefault();
+            jQuery('#creation-submit').hide();
+            jQuery('#giveawayfb-creationaddress-ajax-spinner').show();
+
+            // Validate Inputs
+            var errors = [];
+            jQuery('.required-entry').each(function () {
+                if (!jQuery.trim(this.value).length) {
+                    jQuery(this).css("background-color", "rgba(255, 186, 186, 0.58)");
+                    errors.push(1);
+                } else {
+                    jQuery(this).css("background-color", "white");
+                }
+            });
+
+            // Validate Select
+            if (jQuery("#creation-state")[0].selectedIndex == 0) {
+                jQuery("#creation-state").css("background-color", "rgba(255, 186, 186, 0.58)");
+                errors.push(1);
+            } else {
+                jQuery("#creation-state").css("background-color", "white");
+            }
+
+            if (errors.length != 0) {
+                jQuery('#giveawayfb-creationaddress-ajax-spinner').hide();
+                jQuery('#creation-submit').show();
+                return;
+            }
+
+            // Armed Forces exclusion
+            var excludedStates = [6, 7, 8, 9, 10, 11];
+            if (jQuery.inArray(parseInt(jQuery('#creation-state').val()), excludedStates) !== -1) {
+                jQuery("#frmCreationAddress").submit();
+                return;
+            }
+
+            // Then we consult with LiveAddress API and populate address with proper data
+
+            var street = jQuery('#creation-address1').val();
+            var creation_address_2 = jQuery('#creation-address2').val();
+            if (creation_address_2.length > 0) {
+                street += ' ';
+                street += creation_address_2;
+            }
+            var city = jQuery('#creation-city').val();
+            var state = jQuery('#creation-state option:selected').text();
+
+            jQuery("#frmCreationAddress").submit();
+        });
+    });
+    //< ![CDATA[
+    //var frmVerification = new VarienForm('frmCreationAddress', true);
+    //]]>
+</script>

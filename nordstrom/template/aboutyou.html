@@ -1,0 +1,50 @@
+<div class="breadcrumbs">
+<h1>SKINCARE EVALUATION <span class="divider">&rsaquo;</span> TELL US ABOUT YOURSELF</h1>
+</div>
+<form name="aboutyou" class="quiz-form" novalidate>
+<label>Tell us your first name</label>
+<input type="text" ng-model="user.name" name="uName" required /><br />
+
+<label>How old are you?</label>
+<select ng-model="user.age" name="uAge" required>
+  <option value="Under 20" selected>Under 20</option>
+  <option value="20-29">20-29</option>
+  <option value="30-39">30-39</option>
+  <option value="40-49">40-49</option>
+  <option value="50-59">50-59</option>
+  <option value="Over 60">Over 60</option>
+</select>
+<br />
+<fieldset class="gender">
+<label>Select your gender</label>
+<label><input type="radio" class="male" ng-model="user.gender" name="gender-group" value="male"  />Male</label>
+<label><input type="radio" class="female" ng-model="user.gender" name="gender-group" value="female" />Female<br /></label>
+</fieldset>
+
+<fieldset ng-repeat="question in questions" ng-scope="q{{question.id}}">
+  <label class="point"><span class="number">{{$index + 1}}</span>{{question.text}}<span class="question" ng-click="showDetails = ! showDetails" ng-show="question.hint_title">?</span></label>
+  <div class="popup" ng-show="showDetails">
+  <h1>{{question.hint_title}}</h1>
+  <img src="./img/popups/{{question.hint_text}}" />
+  </div>
+  <div class="input-container">
+    <span ng-repeat="answer in question.answers" class="answer-point" ng-switch on="question.single">
+      <label for="answer_option_{{answer.id}}">{{answer.text}}</label>
+<input ng-switch-when="1" type="radio" ng-model="user[answer.id]" ng-click="changeRadio(question.id)" name="answer_option_{{question.id}}" value="true"  id="answer_option_{{answer.id}}"></input>
+  <input ng-switch-when="0" type="checkbox" ng-model="user[answer.id]" ng-click="changeBox(question.id, answer.id)" name="answer_option_{{question.id}}" id="answer_option_{{answer.id}}"></input>
+    </span>
+  </div>
+</fieldset>
+<button type="submit" ng-click="continueEval(user)">Next</button>
+</form>
+<div class="tabs">
+<span class="tab_box active">
+Tell us about yourself
+</span>
+<span class="tab_box">
+Specific skin concerns
+</span>
+<span class="tab_box">
+Your skincare evaluation
+</span>
+</div>

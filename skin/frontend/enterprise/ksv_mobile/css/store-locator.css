@@ -1,0 +1,55 @@
+#store_search { margin:0 16px; }
+#store_search h2 { text-align:center; font-size:17px; }
+.store-locator-list label { width:37%; line-height:30px !important; }
+#store_search .fieldset { margin-top:10px; }
+#store_search .fieldset .form-list label { margin-bottom:20px; float:left; }
+#store_search .form-list li .input-text { width:150px; float:left; line-height:30px; }
+#store_search .ui-select .ui-btn-inner { display:none; }
+.store-locator-list select{ width: 72%; padding: 0; margin: 0; height: 30px; width: 155px !important; }
+.store-locator-content { margin:16px; border:0; width:90%; }
+#store_search button { width:100%; margin:0 0 10px 0; float:none; }
+#store_search div button:parent { float:none; }
+
+.store-locator-list-store-box { width:100%; padding:0; margin-bottom:10px; height:360px; }
+.store-locator-list-store-box div.clear { padding:0 !important; }
+div.store-locator-item-content { margin-bottom:10px; border:1px solid #c8c8c8; padding:5px  !important; }
+.store-locator-list-store { width:auto; padding:10px; height:305px; }
+.store-locator-list-store-title { width:100%; text-align:center; border-bottom:0; }
+.store-locator-map { width:100% !important; }
+.store-locator-list-store-item { width:100%; margin:0; border:0; padding:0; background:white !important; }
+.store-locator-item-content { width:90%; padding:10px; }
+.store-locator-list-store-item input { border:0; margin-top:5px; }
+.store-locator-list-store-item .ui-input-text input { border:1px solid #6db5da; width:70%; }
+.store-locator-item-name { color:#6db5da; }
+
+.store-locator-view-detail { width:100%; margin-bottom:10px; }
+.store-locator-view-detail p { color:#6a747c; }
+.swap-locations-wrapper { display:none; }
+.store-locator-view-detail .store-locator-item-name a { color:#6db5da; }
+
+.open_hour_title { padding:0; color:#6db5da; text-align:center; }
+ul#travel-modes li input[type="radio"]:checked+label { background-color:#6db5da; }
+#get_direction { background:#6db5da; border:0; }
+.ui-tabs .ui-tabs-nav li { font-size:14px; }
+#store_information { min-height:250px; }
+.store-locator-view-detail { min-height:400px; }
+.store-locator-view-detail a i { padding-left:75px; }
+.ui-widget { font-family: GillSansMT; font-size:14px; }
+
+.store-locator-content div p { color:#6a747c; }
+
+.store-locator-content-bottom { width:100%; text-align:center; }
+.store-locator-content-bottom .store-locator-column-left, .store-locator-content-bottom .store-locator-column-right  { width:100% !important; }
+
+a.magestore-map-image img { width:80%; height:auto; }
+.store-locator-title { color:#6db5da; }
+
+.link-print { display:none; }
+
+.store-locator-tag { margin-top:25px; }
+
+.store-locator-tag a { background:#6db5da; }
+.store-locator-tag a:hover { background:#d1d1d1; color:white; }
+.store-locator-tag .tag_active { background:#d1d1d1; color:white; } 
+
+.store_locator_content div:nth-child(3) { padding:0; width:100%; } 

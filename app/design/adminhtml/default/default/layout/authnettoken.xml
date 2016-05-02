@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * StoreFront Authorize.Net CIM Tokenized Payment Extension
+ *
+ * This source file is subject to commercial source code license of StoreFront Consulting, Inc.
+ *
+ * @category	SFC
+ * @package    	SFC_AuthnetToken
+ * @author      Garth Brantley
+ * @website 	http://www.storefrontconsulting.com/
+ * @copyright 	Copyright (C) 2009-2013 StoreFront Consulting, Inc. All Rights Reserved.
+ * @license     http://www.storefrontconsulting.com/media/downloads/ExtensionLicense.pdf StoreFront Consulting Commercial License
+ *
+ */
+-->
+
+<layout version="0.1.0">
+
+	<!-- Authorize.Net tab in ADMIN > CUSTOMER > EDIT > GRID -->
+	<adminhtml_customer_edit> 
+		<reference name="customer_edit_tabs">
+			<action method="addTab">
+				<name>paymentprofile</name>
+				<block>authnettoken/adminhtml_customer_paymentprofiles_paymentprofile</block>
+			</action>
+		</reference>
+	</adminhtml_customer_edit> 
+
+</layout>

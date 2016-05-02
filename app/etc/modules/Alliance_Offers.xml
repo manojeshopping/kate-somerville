@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Alliance_Offers>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Idev_OneStepCheckout/>
+            </depends>
+        </Alliance_Offers>
+    </modules>
+</config>

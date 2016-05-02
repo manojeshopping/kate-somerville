@@ -1,0 +1,91 @@
+<?php
+$avg = $this->postData['review-stars'];
+$avgWidth = $avg / 5;
+$percent = round((float)$avgWidth * 100) . '%';
+?>
+
+<div id="katereviews-preview-form">
+	<div class="page-title"><h1>Review Preview</h1></div>
+
+	<div class="katereviews-left">
+		<div class="rating-box">
+			<div class="rating" style="width:<?php echo $percent; ?>"></div>
+		</div>
+		<br/><br/>
+
+		Recommended? <?php echo $this->postData['review-recommended'] ?>
+		<br/>
+		Purchased At? <?php echo $this->postData['review-purchase-location'] ?>
+		<br/>
+		Skin Concern? <?php echo $this->postData['review-skin-concern'] ?>
+		<br/>
+		Age Range? <?php echo $this->postData['review-age-range'] ?>
+		<br/>
+		Owned For? <?php echo $this->postData['review-long-owned'] ?>
+		<br/>
+		How Often Used? <?php echo $this->postData['review-how-often'] ?>
+		<br/>
+		Member Status? <?php echo $this->postData['review-rewards-member'] ?>
+		<br/>
+		Location? <?php echo $this->postData['review-city-state'] ?>
+		<br/>
+		<?php if (Mage::helper('alliance_katereviews')->getConfigEnableCustomerNotification()) { ?>
+			Notify? <?php echo $this->postData['review-notify'] ?>
+			<br/>
+		<?php } ?>
+	</div>
+
+	<div class="katereviews-right">
+		<h1><?php echo htmlentities($this->postData['review-headline'], ENT_QUOTES, 'UTF-8') ?></h1>
+		<?php echo nl2br(htmlentities($this->postData['review-comments'], ENT_QUOTES, 'UTF-8')) ?>
+
+		<br/><br/>
+
+		<form action="<?php echo Mage::getUrl('katereviews/write/index/id/' . $this->postData['review-product-id']); ?>" method="POST">
+			<input type="hidden" name="review-product-id" value="<?php echo $this->product_id ?>">
+			<input type="hidden" name="review-customer-id" value="<?php echo $this->customer_id ?>">
+
+			<input type="hidden" name="review-stars" value="<?php echo $this->postData['review-stars'] ?>">
+			<input type="hidden" name="review-recommended" value="<?php echo $this->postData['review-recommended'] ?>">
+			<input type="hidden" name="review-headline" value="<?php echo htmlentities($this->postData['review-headline'], ENT_QUOTES, 'UTF-8') ?>">
+			<input type="hidden" name="review-comments" value="<?php echo htmlentities($this->postData['review-comments'], ENT_QUOTES, 'UTF-8') ?>">
+			<input type="hidden" name="review-purchase-location" value="<?php echo $this->postData['review-purchase-location'] ?>">
+			<input type="hidden" name="review-skin-concern" value="<?php echo $this->postData['review-skin-concern'] ?>">
+			<input type="hidden" name="review-age-range" value="<?php echo $this->postData['review-age-range'] ?>">
+			<input type="hidden" name="review-long-owned" value="<?php echo $this->postData['review-long-owned'] ?>">
+			<input type="hidden" name="review-how-often" value="<?php echo $this->postData['review-how-often'] ?>">
+			<input type="hidden" name="review-rewards-member" value="<?php echo $this->postData['review-rewards-member'] ?>">
+			<input type="hidden" name="review-city-state" value="<?php echo $this->postData['review-city-state'] ?>">
+			<input type="hidden" name="review-notify" value="<?php echo $this->postData['review-notify'] ?>">
+
+			<button type="submit" value="Edit" title="Edit" class="button btn-edit"><span><span>Edit</span></span></button>
+		</form>
+
+		<br/><br/>
+
+		<form id="katereviews-save-form" action="<?php echo Mage::getUrl('katereviews/submit/save'); ?>" method="POST">
+			<input type="hidden" name="review-product-id" value="<?php echo $this->product_id ?>">
+			<input type="hidden" name="review-customer-id" value="<?php echo $this->customer_id ?>">
+
+			<input type="hidden" name="review-stars" value="<?php echo $this->postData['review-stars'] ?>">
+			<input type="hidden" name="review-recommended" value="<?php echo $this->postData['review-recommended'] ?>">
+			<input type="hidden" name="review-headline" value="<?php echo htmlentities($this->postData['review-headline'], ENT_QUOTES, 'UTF-8') ?>">
+			<input type="hidden" name="review-comments" value="<?php echo htmlentities($this->postData['review-comments'], ENT_QUOTES, 'UTF-8') ?>">
+			<input type="hidden" name="review-purchase-location" value="<?php echo $this->postData['review-purchase-location'] ?>">
+			<input type="hidden" name="review-skin-concern" value="<?php echo $this->postData['review-skin-concern'] ?>">
+			<input type="hidden" name="review-age-range" value="<?php echo $this->postData['review-age-range'] ?>">
+			<input type="hidden" name="review-long-owned" value="<?php echo $this->postData['review-long-owned'] ?>">
+			<input type="hidden" name="review-how-often" value="<?php echo $this->postData['review-how-often'] ?>">
+			<input type="hidden" name="review-rewards-member" value="<?php echo $this->postData['review-rewards-member'] ?>">
+			<input type="hidden" name="review-city-state" value="<?php echo $this->postData['review-city-state'] ?>">
+			<input type="hidden" name="review-notify" value="<?php echo $this->postData['review-notify'] ?>">
+
+			<button id="katereviews-save-button" type="submit" value="Save" title="Save" class="button btn-save"><span><span>Save</span></span></button>
+		</form>
+	</div>
+</div>
+<script type="text/javascript">
+	jQuery('#katereviews-save-form').submit(function () {
+		jQuery('#katereviews-save-button').attr('disabled', true);
+	});
+</script>

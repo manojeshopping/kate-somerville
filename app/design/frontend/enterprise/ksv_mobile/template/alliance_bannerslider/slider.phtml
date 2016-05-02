@@ -1,0 +1,18 @@
+<div id="featured-slider" class="flexslider cycle-slideshow"
+     data-cycle-fx="fade"
+     data-cycle-timeout="<?php echo $this->delay; ?>"
+     data-cycle-slides="> a"
+     data-cycle-pause-on-hover="false"
+     style="overflow: hidden;">
+	<ul class="slides">
+			<?php foreach ($this->banner_collection as $banner) { ?>
+			<li>
+				<a href="<?php echo $banner->getLink(); ?>" <?php if ($banner->getNewTab() == 'Yes') { ?>target="_blank"<?php } ?>>
+				<img src="<?php echo Mage::getBaseUrl('media') . $banner->getImage(); ?>"
+					title="<?php echo $banner->getTitle(); ?>"
+					alt="<?php echo $banner->getTitle(); ?>">
+				</a>
+			</li>
+			<?php } ?>
+	</ul>
+</div>

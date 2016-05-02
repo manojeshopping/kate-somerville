@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<layout>
+	<adminhtml_ordergroove_log_index>
+		<reference name="content">
+			<block type="ordergroove/adminhtml_log" template="ordergroove/log.phtml" />
+		</reference>	
+	</adminhtml_ordergroove_log_index>
+	<adminhtml_ordergroove_log_grid>
+		<block type="core/text_list" name="root" output="toHtml">
+            <block type="ordergroove/adminhtml_log_grid" name="admin.product.grid"/>
+        </block>
+	</adminhtml_ordergroove_log_grid>
+	<!--
+	<imageslider_manage_edit>
+		<reference name="content">
+			<block type="imageslider/adminhtml_sliders_edit" template="imageslider/sliders/edit.phtml" />
+		</reference>
+		<reference name="left">
+			<block type="imageslider/adminhtml_sliders_edit_tabs" name="slider_tabs"></block>
+		</reference>
+	</imageslider_manage_edit>
+	-->
+</layout>

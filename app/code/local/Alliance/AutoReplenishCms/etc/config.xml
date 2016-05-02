@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Alliance_AutoReplenishCms>
+            <version>0.1.0</version>
+        </Alliance_AutoReplenishCms>
+    </modules>
+     <frontend>
+        <routers>
+            <autoreplenishcms>
+                <use>standard</use>
+                <args>
+                    <module>Alliance_AutoReplenishCms</module>
+                </args>
+            </autoreplenishcms>
+        </routers> 	  
+    </frontend>
+</config>

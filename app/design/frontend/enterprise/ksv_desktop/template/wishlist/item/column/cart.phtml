@@ -1,0 +1,94 @@
+<?php
+/**
+ * Magento Enterprise Edition
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magento Enterprise Edition License
+ * that is bundled with this package in the file LICENSE_EE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magentocommerce.com/license/enterprise-edition
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://www.magentocommerce.com/license/enterprise-edition
+ */
+
+/* @var $this Mage_Wishlist_Block_Customer_Wishlist_Item_Column_Cart */
+/* @var Mage_Wishlist_Model_Item $item */
+$item = $this->getItem();
+$product = $item->getProduct();
+$options = $this->getChild('customer.wishlist.item.options')
+    ->setItem($item)
+    ->getConfiguredOptions();
+?>
+<div class="cart-cell">
+<?php echo $this->getPriceHtml($product, empty($options));?>
+<div class="add-to-cart-alt">
+<?php if ($item->canHaveQty() && $item->getProduct()->isVisibleInSiteVisibility()): ?>
+    <!-- input type="text" name="qty[<?php echo $item->getId() ?>]" value="<?php echo $this->getAddToCartQty($item) * 1 ?>" class="og-quantity input-text qty validate-not-negative-number" <?php //Ordergroove quantity input ?>  data-og-product="*" data-og-module="wish"   /-->
+	<select name="qty[<?php echo $item->getId() ?>]" class="og-quantity input-text qty validate-not-negative-number" <?php //Ordergroove quantity input ?>  data-og-product="*" data-og-module="wish">
+		<?php
+		$maxSaleQty = 3;
+		$qty = $this->getAddToCartQty($item) * 1;
+		for($i = 1; $i <= $maxSaleQty; $i++) {
+		?>
+		<option value="<?php echo $i;?>"<?php if($qty == $i) echo ' selected="selected"';?>><?php echo $i;?></option>
+		<?php
+		}
+		
+		if($qty > $maxSaleQty) {
+		?>
+		<option value="<?php echo $qty;?>" selected="selected"><?php echo $qty;?></option>
+		<?php }?>
+	</select>
+<?php endif; ?>
+<?php if ($product->isSaleable()): ?>
+	<?php
+	//Ordergroove Container  Module or cart
+	$x_sel_prod = "";
+	if($product->getTypeId() == "configurable") {
+		$z_prod_options = Mage::helper('catalog/product_configuration')->getOptions($item);		
+		$childProducts = Mage::getModel('catalog/product_type_configurable')->getUsedProducts(null,$product); 
+		foreach($childProducts as $child) {
+				$x_prod_id 			= $child->getId();
+				$mod_prod 			= Mage::getModel('catalog/product')->load($x_prod_id);
+				$x_prod_attr_size 	= $product->getResource()->getAttribute('size')->getFrontend()->getValue($mod_prod);
+				$x_prod_attr_color 	= $product->getResource()->getAttribute('color_swatch')->getFrontend()->getValue($mod_prod);				
+				
+				if( isset($z_prod_options[0]) && $x_prod_attr_size == $z_prod_options[0]['value'] ) $x_sel_prod = $x_prod_id;					
+				elseif( isset($z_prod_options[0]) && $x_prod_attr_color == $z_prod_options[0]['value']  ) $x_sel_prod = $x_prod_id;	
+		}		
+	}else{
+		$x_sel_prod = $product->getId();
+	}
+	?>
+	<div class="og-offer" data-og-module="wish" data-og-product="<?php echo $x_sel_prod; ?>"></div>
+	<button type="button" title="<?php echo $this->__('Add to Bag') ?>" onclick="addWItemToCart(<?php echo $item->getId()?>);" class="button btn-cart btn-cart-og" >
+	<span><span><?php echo $this->__('Add to Bag') ?></span></span>
+	</button>	
+<?php else: ?>
+    <?php if ($product->getIsSalable()): ?>
+        <p class="availability in-stock"><span><?php echo $this->__('In stock') ?></span></p>
+    <?php else: ?>
+        <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+    <?php endif; ?>
+<?php endif; ?>
+</div>
+<?php foreach($this->getSortedChildren() as $childName):?>
+    <?php echo $this->getChildHtml($childName, false);?>
+<?php endforeach;?>
+<?php if ($product->isVisibleInSiteVisibility()): ?>
+    <p><a class="link-edit" href="<?php echo $this->getItemConfigureUrl($item) ?>"><?php echo $this->__('Edit') ?></a></p>
+<?php endif ?>
+</div>

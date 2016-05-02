@@ -1,0 +1,141 @@
+<?php $enrollment_status = Mage::helper('alliance_fivehundredfriends')->currentCustomerEnrollmentStatus(); ?>
+<div class="new-ukr">
+
+    <div class="head">
+        <img class="desktop" src="<?php echo $this->getSkinUrl('images/ukr/ukrnewheader.png', array('_secure' => true)) ?>"
+             label="katesomerville ultmate reward"/>
+        <img class="mobile" src="<?php echo $this->getSkinUrl('images/ukr/ukrnewheader-mobile.png', array('_secure' => true)) ?>"
+             label="katesomerville ultmate reward"/>
+
+        <?php if ($enrollment_status == 'Enrolled') { ?>
+            <p>Earn points when you shop and redeem <br/>them for beauty rewards, exclusive gifts and other <br/>members-only perks.</p>
+        <?php } else { ?>
+            <p>Join UltimateKate and earn points when you shop.<br/>Redeem them for beauty rewards, exclusive gifts and other members-only perks.<br/>Sign up in
+                seconds. It's simple!</p>
+        <?php } ?>
+
+		<?php if ($enrollment_status == 'Enrolled') { ?>
+		<div class="button-area signin-button-area">
+			<a href="<?php echo Mage::getUrl('rewards-program/customer/rewards',array('_secure'=>true)) ?>" label="my-rewards"><img
+					src="<?php echo $this->getSkinUrl('images/ukr/my-rewards-button.png', array('_secure' => true)) ?>" label="my-rewards"/></a>
+		</div>			
+		<?php } elseif ($enrollment_status == 'Not Enrolled') { ?>
+		<div class="button-area signin-button-area">
+			<a href="<?php echo Mage::getUrl('katerewards/enroll/now') ?>" label="enroll-now"><img
+					src="<?php echo $this->getSkinUrl('images/ukr/sign-up-button.png', array('_secure' => true)) ?>" label="enroll-now"/></a>
+		</div>			
+		<?php } else { ?>
+		<div class="button-area">
+			<a href="<?php echo Mage::getUrl('customer/account/create',array('_secure'=>true)) ?>" label="sign-up"><img
+					src="<?php echo $this->getSkinUrl('images/ukr/sign-up-button.png', array('_secure' => true)) ?>" label="sign-up"/></a>
+			<?php if ($enrollment_status == 'Not Logged In') { ?>
+				<p>Already a member? <a href="<?php echo Mage::getUrl('customer/account/login',array('_secure'=>true)) ?>">Sign In</a></p>
+			<?php } ?>	
+		</div>			
+		<?php } ?>			
+    </div>
+
+    <div class="description">
+        <p><span>Complimentary shipping</span> on every order</p>
+
+        <p><span>Earn points</span> for every dollar you spend</p>
+
+        <p>Redeem points for <span>Ultimate Rewards </span></p>
+    </div>
+
+    <div class="rewards-new">
+        <div class="col"><img src="<?php echo $this->getSkinUrl('images/ukr/reward300.png', array('_secure' => true)) ?>" label="reward300"/></div>
+        <div class="col"><img src="<?php echo $this->getSkinUrl('images/ukr/reward400.png', array('_secure' => true)) ?>" label="reward400"/></div>
+        <div class="col"><img src="<?php echo $this->getSkinUrl('images/ukr/reward800.png', array('_secure' => true)) ?>" label="reward800"/></div>
+        <div class="col"><img src="<?php echo $this->getSkinUrl('images/ukr/reward1250.png', array('_secure' => true)) ?>" label="reward1250"/></div>
+    </div>
+
+    <div class="benifits">
+        <div style="overflow:auto;" class="desktop">
+            <table class="table">
+                <tr>
+                    <th><img src="<?php echo $this->getSkinUrl('images/ukr/benifits-level.png', array('_secure' => true)) ?>" label="benifits-level"/></th>
+                    <th><h3>UltimateKate</h3>
+
+                        <p>Spend&nbsp;<sup>$</sup>0-699<br/>per year</p></th>
+                    <th><h3>Premier</h3>
+
+                        <p>Spend&nbsp;<sup>$</sup>700-1499<br/>per year</p></th>
+                    <th><h3>Premier Plus</h3>
+
+                        <p>Spend&nbsp;<sup>$</sup>1500+<br/>per year</p></th>
+                </tr>
+                <tr>
+                    <td>Complimentary<br/>Shipping</td>
+                    <td>Priority</td>
+                    <td>3-Day</td>
+                    <td>2-Day</td>
+                </tr>
+                <tr>
+                    <td class="single-line">Points Per Dollar</td>
+                    <td>1X</td>
+                    <td>2X</td>
+                    <td>2X</td>
+                </tr>
+                <tr>
+                    <td>Double Points<br/>Events</td>
+                    <td>2X</td>
+                    <td>4X</td>
+                    <td>4X</td>
+                </tr>
+                <tr>
+                    <td class="single-line">Auto-Delivery Orders</td>
+                    <td>2X</td>
+                    <td>4X</td>
+                    <td>4X</td>
+                </tr>
+                <tr>
+                    <td class="single-line">Birthday Gift</td>
+                    <td></td>
+                    <td>Travel Size</td>
+                    <td>Full Size</td>
+                </tr>
+                <tr>
+                    <td>Skin Health Experts<br/>Concierge Service</td>
+                    <td></td>
+                    <td></td>
+                    <td>X</td>
+                </tr>
+                <tr>
+                    <td>Exclusive First Access<br/> to New Products</td>
+                    <td></td>
+                    <td></td>
+                    <td>X</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="moreways">
+			<div class="moreways-header">More ways to be rewarded</div>
+            <div class="three-ways">
+                <div class="col"><p>Write a Review<br/><span>5 points</span></p></div>
+                <div class="col"><p>Share With Friends<br/><span>5 points</span></p></div>
+                <div class="col"><p>Refer a Purchase<br/><span>50 points</span></p></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="bottom">
+        <div class="button-area">
+            <?php if ($enrollment_status == 'Enrolled') { ?>
+                <a href="<?php echo Mage::getUrl('rewards-program/customer/rewards',array('_secure'=>true)) ?>" label="my-rewards"><img
+                        src="<?php echo $this->getSkinUrl('images/ukr/my-rewards-button.png', array('_secure' => true)) ?>" label="my-rewards"/></a>
+            <?php } elseif ($enrollment_status == 'Not Enrolled') { ?>
+                <a href="<?php echo Mage::getUrl('katerewards/enroll/now') ?>" label="enroll-now"><img
+                        src="<?php echo $this->getSkinUrl('images/ukr/sign-up-button.png', array('_secure' => true)) ?>" label="enroll-now"/></a>
+            <?php } else { ?>
+                <a href="<?php echo Mage::getUrl('customer/account/create',array('_secure'=>true)) ?>" label="sign-up"><img
+                        src="<?php echo $this->getSkinUrl('images/ukr/sign-up-button.png', array('_secure' => true)) ?>" label="sign-up"/></a>
+            <?php } ?>
+
+            <p><a href="/rewards-program-faq">Frequently Asked Questions</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/rewards-program-terms-and-conditions">Terms &amp; Conditions</a></p>
+        </div>
+    </div>
+
+</div>

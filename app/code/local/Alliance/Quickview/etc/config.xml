@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Alliance_Quickview>
+            <version>1.0.0</version>
+        </Alliance_Quickview>
+    </modules>
+
+    <global>
+        <helpers>
+            <alliance_quickview>
+                <class>Alliance_Quickview_Helper</class>
+            </alliance_quickview>
+        </helpers>
+
+        <blocks>
+            <alliance_quickview>
+                <class>Alliance_Quickview_Block</class>
+            </alliance_quickview>
+        </blocks>
+
+        <models>
+            <alliance_quickview>
+                <class>Alliance_Quickview_Model</class>
+            </alliance_quickview>
+        </models>
+    </global>
+
+    <frontend>
+        <layout>
+            <updates>
+                <alliance_quickview>
+                    <file>alliance_quickview.xml</file>
+                </alliance_quickview>
+            </updates>
+        </layout>
+        <routers>
+            <quickview>
+                <use>standard</use>
+                <args>
+                    <module>Alliance_Quickview</module>
+                    <frontName>quickview</frontName>
+                </args>
+            </quickview>
+        </routers>
+    </frontend>
+</config>

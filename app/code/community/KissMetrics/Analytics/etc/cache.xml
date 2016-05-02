@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <placeholders>
+    
+        <kissmetrics_analytics_js>
+            <block>kissmetrics_analytics/js</block>
+            <name>km_amalitics</name>
+            <placeholder>KISSMETRICS_ANALYITICS_JS</placeholder>
+            <container>KissMetrics_Analytics_Model_Container_Js</container>
+            <cache_lifetime>86400</cache_lifetime>
+        </kissmetrics_analytics_js>
+
+    </placeholders>
+</config>

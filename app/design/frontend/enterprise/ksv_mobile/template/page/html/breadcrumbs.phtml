@@ -1,0 +1,72 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php if($crumbs && is_array($crumbs)): ?>
+<div class="breadcrumbs-container">
+<div class="breadcrumbs">
+    <ul>
+        <?php foreach($crumbs as $_crumbName=>$_crumbInfo): ?>
+
+        <?php 
+
+			$x_link_bc = "";
+			$x_link_shop = "";
+			if( $_crumbName == 'category3' )         $x_link_bc = Mage::getUrl('shop-skincare');
+			else if( $_crumbName == 'category8' )    $x_link_bc = Mage::getUrl('shop-skincare')."?cat=1";     ///  
+			else if( $_crumbName == 'category12' )   $x_link_bc = Mage::getUrl('shop-skincare')."?cat=2";     ///
+			else if( $_crumbName == 'category263' )  $x_link_bc = Mage::getUrl('shop-skincare')."?cat=3";     ///
+			//else if( $_crumbName == 'category3')     $x_link_shop = "<li class='".$_crumbName."'><a href='".Mage::getUrl('shop')."'>SHOP</a></li>";  /// 
+			else if( $_crumbName == 'category4')     $x_link_shop = "<li class='".$_crumbName."'><a href='".Mage::getUrl('shop')."'>SHOP</a></li>";  ///
+			else if( $_crumbName == 'category6')     $x_link_shop = "<li class='".$_crumbName."'><a href='".Mage::getUrl('shop')."'>SHOP</a></li>";  ///
+			else if( $_crumbName == 'category7')     $x_link_shop = "<li class='".$_crumbName."'><a href='".Mage::getUrl('shop')."'>SHOP</a></li>";  ///
+			else if( $_crumbName == 'category25')    $x_link_shop = "<li class='".$_crumbName."'><a href='".Mage::getUrl('shop')."'>SHOP</a></li>";  ///
+			else if( $this->htmlEscape($_crumbInfo['label']) == 'Special Offers' ) $x_link_shop = "<li class='".$_crumbName."'><a href='".Mage::getUrl('shop')."'>SHOP</a></li>";  ///
+			else if( $this->htmlEscape($_crumbInfo['label']) == 'Ultimate Kate Rewards' ) $x_link_shop = "<li class='".$_crumbName."'><a href='".Mage::getUrl('shop')."'>SHOP</a></li>";  ///
+			else if( $this->htmlEscape($_crumbInfo['label']) == 'Shop Skincare' ) $x_link_shop = "<li class='".$_crumbName."'><a href='".Mage::getUrl('shop')."'>SHOP</a></li>"; 
+			else   $x_link_bc = $_crumbInfo['link'];
+			
+			if( $_crumbName == 'category3') echo "<li class='".$_crumbName."'><a href='".Mage::getUrl('shop')."'>SHOP</a></li>";
+			
+			echo $x_link_shop;
+
+			if($x_link_bc == "") $x_link_bc = $_crumbInfo['link'];
+	 ?>	
+	
+            <li class="<?php echo $_crumbName ?>">
+            <?php if($_crumbInfo['link']): ?>
+            	<a href="<?php echo $x_link_bc; ?>" title="<?php echo $this->htmlEscape($_crumbInfo['title']) ?>"><?php echo $this->htmlEscape($_crumbInfo['label']) ?></a>
+			
+			<?php elseif($_crumbInfo['last']): ?>
+                <strong><?php echo $this->htmlEscape($_crumbInfo['label']) ?></strong>
+            <?php else: ?>
+                <?php echo $this->htmlEscape($_crumbInfo['label']) ?>
+            <?php endif; ?>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</div>
+</div>
+<?php endif; ?>

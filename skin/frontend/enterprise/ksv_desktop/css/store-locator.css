@@ -1,0 +1,109 @@
+.store-locator-item-name,
+.store-locator-item-name a {
+	color:#75b8db !important;
+	Font-weight:normal;
+}
+
+.store-locator-item-content a {
+	color:#75b8db;
+}
+
+.store-locator-item-content div p {
+	display:none;
+}
+
+.store-locator-list-store-item {
+	min-height:65px;
+}
+
+.open_hour_title {
+	background: none;
+	padding: 0;
+	line-height: 30px !important;
+	height: 40px;
+	color: #75b8db;
+	font-size: 21px;
+}
+
+#store_information {
+	min-height:220px;
+}
+
+ul#travel-modes li input[type="radio"]:checked+label {
+	background-color:#75b8db;
+}
+
+.directions-input input {
+	height:30px;
+	margin-top:0;
+}
+
+.directions-input label {
+	background: #75b8db;
+	color: white;
+	width: 32px;
+	height: 32px;
+	text-align: center;
+	line-height: 32px;
+}
+
+#get_direction {
+	background: #75b8db;
+	border: 1px green;
+	padding: 5px;
+	color: white;
+	margin-top: 10px;
+}
+
+.swap-locations-wrapper {
+	height: 0;
+	position: absolute;
+	top: 135px;
+	left: 360px;
+}
+
+.store-locator-tag ul {
+	position:absolute;
+	border:1px solid #eee;
+	background:white;
+	z-index:5;
+	margin:10px;
+	padding:10px;
+	top:55px;
+}
+
+.store-locator-tag ul li {
+	float: none !important;
+	margin-right: 0 !important;
+	padding: 0;
+}
+
+.store-locator-tag .filter-drop {
+	padding:10px;
+	margin:10px;
+	border:1px solid #ddd;
+	background: #fff url(../images/dropdown-down.png) no-repeat right center;
+	width:307px;
+	line-height:14px;
+}
+
+.store-locator-tag a:hover {
+	background:white;
+}
+
+.store-locator-tag a{
+    color:#6a747c;
+    text-shadow: none;
+    text-decoration:none;
+    display: inline-block;
+    font-size:11pt;
+    border-radius:0;
+    line-height:18px;
+    background: none;
+    box-shadow: none; 
+	padding:0 42px 0 12px;
+}
+
+.store-locator-tag .tag_active {
+	background:white;
+}

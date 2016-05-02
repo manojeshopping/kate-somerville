@@ -1,0 +1,26 @@
+<a id="rewards-login-link" href="#"><?php echo $this->__('Log in to view your rewards.'); ?></a>
+<script type="text/javascript">
+OneStepCheckoutLoginPopup.addMethods({
+	rewardsLoginlink: function() {
+		$('rewards-login-link').observe('click', function(e) {
+			e.preventDefault();
+			this.options.login_url = "<?php echo Mage::getUrl('katerewards/redemption/loginajax');?>";
+			this.popup.open();
+		}.bind(this));
+	}
+});
+Event.observe(window, 'load', function() {
+	setTimeout(function(){
+		onestepcheckout_login_popup.rewardsLoginlink();
+		$('login-popup-newcustomer').writeAttribute('href', "<?php echo Mage::getUrl('katerewards/redemption/register/');?>");
+	}, 500);
+});
+</script>
+
+
+<!--div class="container">
+<p class="description">Join UltimateKate to earn points<br/>when you shop and redeem them<br/>for beauty rewards & gifts.</p>
+<h2>You could earn <?php echo $this->getPotentiallyPoints();?> points on<br/>your purchase today.</h2>
+<a class="claim-points" href="<?php echo Mage::getUrl('rewards-program');?>">Claim your points ></a>
+<p class="sign-in">Already a member? <a href="<?php echo Mage::getUrl('katerewards/redemption/login/');?>">Sign in</a></p>
+</div-->

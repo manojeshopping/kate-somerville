@@ -1,0 +1,35 @@
+/* turn to / q&a pages */
+
+#turn-to-tab h2 {
+	font-size: 24px;
+}
+
+.TTinputTeaserHeader {
+	color: #6a747c !important;
+	font-weight: normal !important;
+	width: 100% !important;
+}
+
+#TTinputTeaserBox {
+	width: 100% !important;
+	height: 30px !important;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	border: 1px solid #d9d9d9 !important;
+}
+
+#TTinputTeaserQ {
+	font-family: 'GillSansMTLight', Arial, Helvetica, sans-serif !important;
+	font-size: 14px !important;
+	padding-top: 0 !important;
+	width: 95% !important;
+	height: 30px !important;
+}
+
+.TTinputTeaserBubble1 {
+	left: 4px;
+	margin-top: 5px !important;
+}
+
+

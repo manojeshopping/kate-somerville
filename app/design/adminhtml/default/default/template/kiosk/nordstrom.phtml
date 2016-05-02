@@ -1,0 +1,34 @@
+ <div class="grid">
+        <?php if (Mage::registry('kiosk_nodata') == 123): ?>
+        This user has not filled up nordstrom quiz yet.
+        <?php else: ?>
+        <table cellspacing="0" class="data">
+            <?php $report = Mage::registry('kiosk_report'); ?>
+            <?php $supplement = Mage::registry('kiosk_supplement'); ?>
+            <?php $question = Mage::registry('kiosk_question'); ?>
+            <?php $answer = Mage::registry('kiosk_answer'); ?>
+            <tr>
+                <td>Name</td>
+                <td><?php echo $report->getUsername(); ?></td>
+            </tr>
+            <tr>
+                <td>Age</td>
+                <td><?php echo $report->getAge(); ?></td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td><?php echo $report->getGender(); ?></td>
+            </tr>
+            <?php foreach($supplement as $key => $entry): ?>
+            <tr>
+                <td><?php echo $question[$key]; ?></td>
+                <td>
+                <?php foreach ($entry as $number => $answer_id): ?>
+                <?php echo $number+1 . ". " . $answer[$answer_id] . "&nbsp;&nbsp;&nbsp;"; ?>
+                <?php endforeach; ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </table> 
+        <?php endif; ?>
+</div>

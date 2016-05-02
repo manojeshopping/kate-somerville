@@ -1,0 +1,120 @@
+<script type="text/javascript">
+//<![CDATA[
+function validatekateForm(){	
+	var m = document.katesurvey.howtech;
+	var x = m.length;
+	var y = null ;
+	for(i=0; i<x; i++){
+		if(document.katesurvey.howtech[i].checked){
+			y = document.katesurvey.howtech[i].value;
+		}
+	}
+	if (y==null || y==""){
+		  alert("Please review and make sure an answer is selected for each question.");
+		  return false;
+	}
+}
+//]]>
+</script>
+
+<div class="header"><img src="<?php echo $this->getSkinUrl('images/katesurvey/header_ks.png') ?>"/></div>
+
+<div class="youtube_video">
+<iframe width="560" height="315" src="//www.youtube.com/embed/SB1bIgDqsOA" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div class="takethequiz"><img src="<?php echo $this->getSkinUrl('images/katesurvey/takethequiz.png') ?>"/></div>
+
+<div class="head-question">What's Your <span>SHE</span> Modern Beauty Style? </div>
+
+<form name="katesurvey" onsubmit="return(validatekateForm());" method="post" action="<?php echo $this->getStoreUrl()."/whoisthatshe/index/result/";?>">
+<div id="survey-form-use">
+	<div class="col">
+		<div class="sub-head">
+			<div><img src="<?php echo $this->getSkinUrl('images/katesurvey/katesurvey01.png') ?>"/></div>
+			<div><p>How techy are you?</p></div>
+		</div>
+		<div class="sub-content" >
+			<label class="sub-col"><input type="radio" id="howtech" name="howtech" value="result3"  /><img src="<?php echo $this->getSkinUrl('images/katesurvey/survey01_01.png') ?>"/></label>
+			<label class="sub-col"><input type="radio" id="howtech" name="howtech" value="result2"  /><img src="<?php echo $this->getSkinUrl('images/katesurvey/survey01_02.png') ?>"/></label>
+			<label class="sub-col"><input type="radio" id="howtech" name="howtech" value="result1"  /><img src="<?php echo $this->getSkinUrl('images/katesurvey/survey01_03.png') ?>"/></label>
+		</div>
+		<div id = "fly01" class="butterfly01"><img src = "<?php echo $this->getSkinUrl('images/katesurvey/butterfly01.png') ?>"/></div>
+	</div>
+</div>
+
+<div id="survey-form-noneuse">
+		<div class="col">
+			<div class="sub-head">
+				<div><img src="<?php echo $this->getSkinUrl('images/katesurvey/katesurvey02.png') ?>"/></div>
+				<div><p>You're sending out a store Beauty Event inite, how should your guests expect to receive the news?</p></div>
+			</div>
+			<div class="sub-content">
+				<div class="sub-col"><img src="<?php echo $this->getSkinUrl('images/katesurvey/survey02_01.png') ?>"/></div>
+				<div class="sub-col"><img src="<?php echo $this->getSkinUrl('images/katesurvey/survey02_02.png') ?>"/></div>
+				<div class="sub-col"><img src="<?php echo $this->getSkinUrl('images/katesurvey/survey02_03.png') ?>"/></div>
+			</div>
+			<div id = "fly02" class="butterfly02"><img src = "<?php echo $this->getSkinUrl('images/katesurvey/butterfly02.png') ?>"/></div>
+		</div>
+		<div class="col">
+			<div class="sub-head">
+				<div><img src="<?php echo $this->getSkinUrl('images/katesurvey/katesurvey03.png') ?>"/></div>
+				<div><p>You need to replenish your DermalQuench Liquid Lift<span>TM</span>, how do you ensure easy delivery?</p></div>
+			</div>
+			<div class="sub-content">
+				<div class="sub-col"><img src="<?php echo $this->getSkinUrl('images/katesurvey/survey03_01.png') ?>"/></div>
+				<div class="sub-col"><img src="<?php echo $this->getSkinUrl('images/katesurvey/survey03_02.png') ?>"/></div>
+				<div class="sub-col"><img src="<?php echo $this->getSkinUrl('images/katesurvey/survey03_03.png') ?>"/></div>
+			</div>
+			<div  id = "fly03" class="butterfly03"><img src = "<?php echo $this->getSkinUrl('images/katesurvey/butterfly03.png') ?>"/></div>
+		</div>
+		<div class="col">
+			<div class="sub-head">
+				<div><img src="<?php echo $this->getSkinUrl('images/katesurvey/katesurvey04.png') ?>"/></div>
+				<div><p>Keeping up-to-date with new product launches is easy by:</p></div>
+			</div>
+			<div class="sub-content">
+				<div class="sub-col"><img src="<?php echo $this->getSkinUrl('images/katesurvey/survey04_01.png') ?>"/></div>
+				<div class="sub-col"><img src="<?php echo $this->getSkinUrl('images/katesurvey/survey04_02.png') ?>"/></div>
+				<div class="sub-col"><img src="<?php echo $this->getSkinUrl('images/katesurvey/survey04_03.png') ?>"/></div>
+			</div>
+			<div id = "fly04" class="butterfly04"><img src = "<?php echo $this->getSkinUrl('images/katesurvey/butterfly04.png') ?>"/></div>
+		</div>
+		<div class="col">
+			<div class="sub-head">
+				<div><img src="<?php echo $this->getSkinUrl('images/katesurvey/katesurvey05.png') ?>"/></div>
+				<div><p>You love Kate's latest launch, your skin has never looked so good! How do you share the love and tell your friends about this must-have?</p></div>
+			</div>
+			<div class="sub-content">
+				<div class="sub-col"><img src="<?php echo $this->getSkinUrl('images/katesurvey/survey05_01.png') ?>"/></div>
+				<div class="sub-col"><img src="<?php echo $this->getSkinUrl('images/katesurvey/survey05_02.png') ?>"/></div>
+				<div class="sub-col"><img src="<?php echo $this->getSkinUrl('images/katesurvey/survey05_03.png') ?>"/></div>
+			</div>
+			<div id = "fly05" class="butterfly05"><img src = "<?php echo $this->getSkinUrl('images/katesurvey/butterfly05.png') ?>"/></div>
+		</div>
+		<div class="col">
+			<div class="sub-head">
+				<div><img src="<?php echo $this->getSkinUrl('images/katesurvey/katesurvey06.png') ?>"/></div>
+				<div><p>Check all that apply for you...</p></div>
+			</div>
+			<div class="sub-content">
+				<?php for($i = 1 ; $i <= 9; $i++){
+					for($j = 1; $j<=5; $j++){
+						$imageurl = "images/katesurvey/survey60" . $j . "_0" . $i . ".png" ;
+						echo ' <div class="sub-col-6"><img src=" ' . $this->getSkinUrl($imageurl) . ' "/></div>';
+					}
+				} ?>
+			</div>
+		</div>
+	</div>
+
+	<div class="submit-button">
+		<div id = "fly06" class="butterfly06"><img src = "<?php echo $this->getSkinUrl('images/katesurvey/butterfly06.png') ?>"/></div>
+		<div id = "fly07" class="butterfly07"><img src = "<?php echo $this->getSkinUrl('images/katesurvey/butterfly07.png') ?>"/></div>
+		<button id="survey-result" type="submit" name="button"><img src="<?php echo $this->getSkinUrl('images/katesurvey/submit_ks.png') ?>"/></button>
+	</div>
+
+</div>
+
+
+

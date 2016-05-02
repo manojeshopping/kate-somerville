@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<Alliance_Gp>
+			<version>0.1.0</version>
+		</Alliance_Gp>
+	</modules>
+
+	<admin>
+		<routers>
+			<adminhtml>
+				<args>
+					<modules>
+						<gp before="Mage_Adminhtml">Alliance_Gp_Adminhtml</gp>
+					</modules>
+				</args>
+			</adminhtml>
+		</routers>
+	</admin>
+    <adminhtml>
+		<layout>
+			<updates>
+				<gp>
+					<file>gp.xml</file>
+				</gp>
+			</updates>
+		</layout>
+	</adminhtml>
+	
+	<global>
+		<models>
+			<gp>
+				<class>Alliance_Gp_Model</class>
+				<resourceModel>gp_mysql4</resourceModel>
+			</gp>
+			<gp_mysql4>
+				<class>Alliance_Gp_Model_Mysql4</class>
+				<entities>
+					<gp><table>gp_exported</table></gp>
+					<gpfiles><table>gp_files</table></gpfiles>
+				</entities>
+			</gp_mysql4>
+		</models>
+		<resources>
+			<gp_setup>
+				<setup>
+					<module>Alliance_Gp</module>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</gp_setup>
+			<gp_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</gp_write>
+			<gp_read>
+				<connection>
+					<use>core_read</use>
+				</connection>
+			</gp_read>
+		</resources>
+		<helpers>
+			<gp><class>Alliance_Gp_Helper</class></gp>
+		</helpers>
+		<blocks>
+			<gp>
+				<class>Alliance_Gp_Block</class>
+			</gp>
+		</blocks>
+	</global>
+</config>
