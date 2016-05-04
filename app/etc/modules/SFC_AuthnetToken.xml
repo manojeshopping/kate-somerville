@@ -17,7 +17,7 @@
 <config>
 	<modules>
 		<SFC_AuthnetToken>
-			<active>true</active>
+			<active>false</active>
 			<codePool>local</codePool>
 		</SFC_AuthnetToken>
 	</modules>
